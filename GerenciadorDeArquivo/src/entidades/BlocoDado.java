@@ -5,9 +5,13 @@ package entidades;
  */
 public class BlocoDado {
 
-    private byte headerBloco[];
+    private BlocoDeDadosHeader header;
 
     public BlocoDado() {
-        this.headerBloco = new byte[11];
+        this.header = new BlocoDeDadosHeader();
+    }
+
+    public BlocoDeDadosHeader getHeader() {
+        return header;
     }
 }
