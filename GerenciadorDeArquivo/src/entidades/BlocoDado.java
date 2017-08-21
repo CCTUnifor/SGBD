@@ -1,13 +1,13 @@
-package main;
+package entidades;
 
 /**
  * Created by José Victor on 09/08/2017.
  */
-public class BlocoDados {
+public class BlocoDado {
 
     private byte headerBloco[];
 
-    public BlocoDados() {
+    public BlocoDado() {
         this.headerBloco = new byte[11];
     }
 }
