@@ -9,7 +9,7 @@ public class ByteArrayConcater {
 
     public ByteArrayConcater(int tamanhoArray) {
         this.tamanhoArray = tamanhoArray;
-        this.array = new byte[tamanhoArray];
+//        this.array = new byte[tamanhoArray];
     }
 
     public ByteArrayConcater concat(byte[] arrayFromConcat) {
@@ -18,6 +18,9 @@ public class ByteArrayConcater {
             return this;
         }
 
+        if (this.array.length + arrayFromConcat.length > this.tamanhoArray)
+            throw new Error("Ultrapassou o array.");
+
         int tamanhoNovoArray = this.array.length + arrayFromConcat.length;
         byte[] novoArray = new byte[tamanhoNovoArray];
 
@@ -25,14 +28,9 @@ public class ByteArrayConcater {
             novoArray[i] = this.array[i];
         }
 
-        for (int i = 0; i < arrayFromConcat.length && novoArray.length + 1 < novoArray.length; i++) {
-            if (novoArray.length + 1 > i){
-                novoArray[i + this.array.length + 1] = arrayFromConcat[i];
-            }
+        for (int i = 0; i < arrayFromConcat.length; i++) {
+            novoArray[this.array.length + i] = arrayFromConcat[i];
         }
-
-//        System.arraycopy(this.array, 0, novoArray, 0, this.array.length);
-//        System.arraycopy(arrayFromConcat, 0, novoArray, this.array.length + 1, arrayFromConcat.length);
 
         this.array = novoArray;
         return this;
