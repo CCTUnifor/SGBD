@@ -25,7 +25,7 @@ public class ByteArrayConcater {
             novoArray[i] = this.array[i];
         }
 
-        for (int i = 0; i < arrayFromConcat.length; i++) {
+        for (int i = 0; i < arrayFromConcat.length && novoArray.length + 1 < novoArray.length; i++) {
             if (novoArray.length + 1 > i){
                 novoArray[i + this.array.length + 1] = arrayFromConcat[i];
             }

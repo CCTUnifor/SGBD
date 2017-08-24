@@ -1,7 +1,10 @@
 package entidades;
 
 import interfaces.IBinary;
+import utils.ByteArrayConcater;
 import utils.GlobalVariables;
+
+import java.util.ArrayList;
 
 /**
  * Created by José Victor on 09/08/2017.
@@ -9,9 +12,15 @@ import utils.GlobalVariables;
 public class BlocoDado implements IBinary{
 
     private BlocoDadoHeader header;
+    private ArrayList<Object> tuples;
 
-    public BlocoDado() {
-        this.header = new BlocoDadoHeader();
+    public BlocoDado(int containerId, int blocoId) {
+        this.header = new BlocoDadoHeader(containerId, blocoId);
+    }
+
+    public BlocoDado(int containerId, int blocoId, ArrayList<Object> dados) {
+        this.header = new BlocoDadoHeader(containerId, blocoId);
+        this.tuples = dados;
     }
 
     public BlocoDadoHeader getHeader() {
@@ -20,11 +29,17 @@ public class BlocoDado implements IBinary{
 
     @Override
     public byte[] toByteArray() {
-        return new byte[GlobalVariables.TAMANHO_BLOCO];
+
+        ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
+        byteConcater
+                .concat(this.header.toByteArray());
+
+        return byteConcater.getByteArray();
     }
 
     @Override
     public BlocoDado fromByteArray(byte[] byteArray) {
         return  null;
     }
+
 }

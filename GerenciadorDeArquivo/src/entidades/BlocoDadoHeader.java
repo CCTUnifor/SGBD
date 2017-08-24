@@ -14,9 +14,9 @@ public class BlocoDadoHeader implements IBinary {
     private TipoBloco tipoBloco;
     private int tamanhoUsado;
 
-    public BlocoDadoHeader() {
-        this.containerId = ContainerId.create();
-        this.blocoId = BlocoId.create();
+    public BlocoDadoHeader(int containerId, int blocoId) {
+        this.containerId = ContainerId.create(containerId);
+        this.blocoId = BlocoId.create(blocoId);
         this.tipoBloco = TipoBloco.DADOS;
         this.tamanhoUsado = 0;
     }
@@ -43,12 +43,11 @@ public class BlocoDadoHeader implements IBinary {
         byte[] tipoBlocoBytes = ByteArrayUtils.subArray(byteArray, 4, 1);    // 4   TipoBloco
         byte[] tamanhoUsadoBytes = ByteArrayUtils.subArray(byteArray, 5, 3); // 5-7 Tamanho Utilizado
 
-        BlocoDadoHeader header = new BlocoDadoHeader();
-        header.containerId = this.containerId.fromByteArray(containerIdBytes);
-        header.blocoId =  this.blocoId.fromByteArray(blocoIdBytes);
-        header.tipoBloco = ByteArrayUtils.byteArrayToEnum(tipoBlocoBytes, TipoBloco.values());
-        header.tamanhoUsado = ByteArrayUtils.byteArrayToInt(tamanhoUsadoBytes);
+        this.containerId = this.containerId.fromByteArray(containerIdBytes);
+        this.blocoId =  this.blocoId.fromByteArray(blocoIdBytes);
+        this.tipoBloco = ByteArrayUtils.byteArrayToEnum(tipoBlocoBytes, TipoBloco.values());
+        this.tamanhoUsado = ByteArrayUtils.byteArrayToInt(tamanhoUsadoBytes);
 
-        return header;
+        return this;
     }
 }

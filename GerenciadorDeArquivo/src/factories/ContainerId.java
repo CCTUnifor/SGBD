@@ -23,7 +23,7 @@ public class ContainerId implements IBinary{
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        return new byte[1];
     }
 
     @Override
