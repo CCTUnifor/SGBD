@@ -3,43 +3,61 @@ package testes;
 import entidades.BlocoDado;
 import entidades.BlocoDadoHeader;
 import entidades.GerenciadorArquivo;
+import utils.GlobalVariables;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
 
-    private final int tamanhoBloco = 1024;
-
     @Test
     public void criarUmBloco() {
-        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo(tamanhoBloco);
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
         BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
         Assert.assertNotEquals(bloco, null);
     }
 
     @Test
-    public void SetarOTamanhoDosBlocos() {
-        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo(tamanhoBloco);
-        Assert.assertEquals(tamanhoBloco, gerenciadorArquivo.getTamanhoBloco());
-    }
-
-    @Test
     public void TerHeader() {
-        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo(tamanhoBloco);
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
         BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
         BlocoDadoHeader blocoHeader = bloco.getHeader();
         Assert.assertNotEquals(blocoHeader, null);
     }
 
     @Test
-    public  void ConverterBlocoDadoHeaderParaByteArray() {
-        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo(tamanhoBloco);
-        BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
-        BlocoDadoHeader blocoHeader = bloco.getHeader();
-        byte[] s = blocoHeader.toByteArray();
+    public void ConverterBlocoParaByteArray() {
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
 
-        BlocoDadoHeader vb = blocoHeader.fromByteArray(new byte[1]);
-        Assert.assertNotEquals(blocoHeader, null);
+        BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
+        byte[] array = bloco.toByteArray();
+        Assert.assertNotEquals(array, null);
+    }
+
+    @Test
+    public void LengthByteArrayDoBlocoDeveSerOValorGlobalDoBloco() {
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
+
+        BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
+        byte[] array = bloco.toByteArray();
+        Assert.assertEquals(array.length, GlobalVariables.TAMANHO_BLOCO);
+    }
+
+    @Test
+    public void ConverterBlocoDadoHeaderParaByteArray() {
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
+
+        BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
+        byte[] array = bloco.getHeader().toByteArray();
+        Assert.assertNotEquals(array, null);
+    }
+
+    @Test
+    public void LengthByteArrayDoBlocoDadoHeaderDeveSerOValorGlobalDoBloco() {
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
+
+        BlocoDado bloco = gerenciadorArquivo.criarBlocoDeDados();
+        byte[] array = bloco.getHeader().toByteArray();
+        Assert.assertEquals(array.length, GlobalVariables.TAMANHO_BLOCO);
     }
 
 }

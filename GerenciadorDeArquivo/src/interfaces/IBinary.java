@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface IBinary<T> {
+public interface IBinary {
     public byte[] toByteArray();
-    public T fromByteArray(byte[] byteArray);
+    public <T> T fromByteArray(byte[] byteArray);
 }

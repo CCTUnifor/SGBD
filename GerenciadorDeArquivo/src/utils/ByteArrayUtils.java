@@ -1,8 +1,6 @@
-package services;
+package utils;
 
-import java.nio.ByteBuffer;
-
-public class IntExtensionMethod {
+public class ByteArrayUtils {
     public static byte[] toBytes(int a){
         byte[] retorno = new byte[4];
 
@@ -41,5 +39,12 @@ public class IntExtensionMethod {
 
         return array;
     }
+
+
+    public static <E> E byteArrayToEnum(byte[] tipoBlocoBytes, E[] values) {
+        int i = ByteArrayUtils.byteArrayToInt(tipoBlocoBytes);
+        return values[i];
+    }
+
 
 }

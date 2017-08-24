@@ -1,11 +1,12 @@
 package entidades;
 
 import interfaces.IBinary;
+import utils.GlobalVariables;
 
 /**
  * Created by José Victor on 09/08/2017.
  */
-public class BlocoDado implements IBinary<BlocoDado>{
+public class BlocoDado implements IBinary{
 
     private BlocoDadoHeader header;
 
@@ -19,11 +20,11 @@ public class BlocoDado implements IBinary<BlocoDado>{
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        return new byte[GlobalVariables.TAMANHO_BLOCO];
     }
 
     @Override
     public BlocoDado fromByteArray(byte[] byteArray) {
-        return null;
+        return  null;
     }
 }
