@@ -27,12 +27,12 @@ public class BlocoDadoHeader implements IBinary {
         byte[] containerIdBytes = this.containerId.toByteArray();
         byte[] blocoIdBytes = this.blocoId.toByteArray();
 
-        ByteArrayConcater byteConcater = new ByteArrayConcater();
+        ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
         byteConcater
                 .concat(containerIdBytes)
                 .concat(blocoIdBytes);
 
-        return byteConcater.getByteArray();
+        return byteConcater.getFinalByteArray();
     }
 
     @Override

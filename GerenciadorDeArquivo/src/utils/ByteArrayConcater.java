@@ -3,13 +3,14 @@ package utils;
 public class ByteArrayConcater {
 
     private byte[] array;
+    private byte[] finalArray;
     private int tamanhoArray;
 
     public ByteArrayConcater() { }
 
     public ByteArrayConcater(int tamanhoArray) {
         this.tamanhoArray = tamanhoArray;
-//        this.array = new byte[tamanhoArray];
+        this.finalArray = new byte[tamanhoArray];
     }
 
     public ByteArrayConcater concat(byte[] arrayFromConcat) {
@@ -18,7 +19,7 @@ public class ByteArrayConcater {
             return this;
         }
 
-        if (this.array.length + arrayFromConcat.length > this.tamanhoArray)
+        if (this.tamanhoArray > 0 && this.array.length + arrayFromConcat.length > this.tamanhoArray)
             throw new Error("Ultrapassou o array.");
 
         int tamanhoNovoArray = this.array.length + arrayFromConcat.length;
@@ -38,5 +39,13 @@ public class ByteArrayConcater {
 
     public byte[] getByteArray() {
         return this.array;
+    }
+
+    public byte[] getFinalByteArray() {
+        if (this.finalArray == null)
+            return this.array;
+
+        System.arraycopy(this.array, 0, this.finalArray, 0, this.array.length);
+        return this.finalArray;
     }
 }

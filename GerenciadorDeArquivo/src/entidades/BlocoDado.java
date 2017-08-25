@@ -34,7 +34,7 @@ public class BlocoDado implements IBinary{
         byteConcater
                 .concat(this.header.toByteArray());
 
-        return byteConcater.getByteArray();
+        return byteConcater.getFinalByteArray();
     }
 
     @Override
