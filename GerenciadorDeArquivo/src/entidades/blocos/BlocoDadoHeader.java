@@ -15,6 +15,13 @@ public class BlocoDadoHeader implements IBinary {
     private TipoBloco tipoBloco;
     private int tamanhoUsado;
 
+    public BlocoDadoHeader() {
+        this.containerId = ContainerId.create();
+        this.blocoId = BlocoId.create();
+        this.tipoBloco = TipoBloco.DADOS;
+        this.tamanhoUsado = 0;
+    }
+
     public BlocoDadoHeader(int containerId, int blocoId) {
         this.containerId = ContainerId.create(containerId);
         this.blocoId = BlocoId.create(blocoId);
@@ -22,12 +29,12 @@ public class BlocoDadoHeader implements IBinary {
         this.tamanhoUsado = 0;
     }
 
-    public ContainerId getContainerId() {
-        return containerId;
+    public int getContainerId() {
+        return containerId.getValue();
     }
 
-    public BlocoId getBlocoId() {
-        return blocoId;
+    public int getBlocoId() {
+        return blocoId.getValue();
     }
 
     @Override
@@ -36,7 +43,7 @@ public class BlocoDadoHeader implements IBinary {
         byte[] containerIdBytes = this.containerId.toByteArray();
         byte[] blocoIdBytes = this.blocoId.toByteArray();
 
-        ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
+        ByteArrayConcater byteConcater = new ByteArrayConcater(8);
         byteConcater
                 .concat(containerIdBytes)
                 .concat(blocoIdBytes);
