@@ -2,6 +2,7 @@ package entidades.blocos;
 
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class BlocoDado implements IBinary{
     private BlocoDadoHeader header;
     private ArrayList<Object> tuples;
 
+
     public BlocoDado(int containerId, int blocoId) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
     }
@@ -21,6 +23,11 @@ public class BlocoDado implements IBinary{
     public BlocoDado(int containerId, int blocoId, ArrayList<Object> dados) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
         this.tuples = dados;
+    }
+
+    public BlocoDado(byte[] bytes) {
+        this.header = new BlocoDadoHeader();
+        this.fromByteArray(bytes);
     }
 
     public BlocoDadoHeader getHeader() {
@@ -39,7 +46,10 @@ public class BlocoDado implements IBinary{
 
     @Override
     public BlocoDado fromByteArray(byte[] byteArray) {
-        return  null;
+        byte[] blocoDadoHeaderBytes = ByteArrayUtils.subArray(byteArray, 0, 8);
+
+        this.header = this.header.fromByteArray(blocoDadoHeaderBytes);
+        return  this;
     }
 
 }
