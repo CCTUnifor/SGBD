@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public interface IFileManager {
     public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
     public BlocoDado criarBlocoDeDado(int containerId, ArrayList<Object> dados) throws ContainerNoExistent;
+    BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
 
     public BlocoContainer criarBlocoContainer();
+
+
 }

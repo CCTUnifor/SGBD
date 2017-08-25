@@ -31,9 +31,17 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
+    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent {
+        BlocoDado bloco = new BlocoDado(bytes);
+        if (bloco.getHeader().getContainerId() < this.containerIdCount)
+            throw new ContainerNoExistent();
+
+        return bloco;
+    }
+
+    @Override
     public BlocoContainer criarBlocoContainer() {
-        this.containerIdCount++;
-        BlocoContainer container = new BlocoContainer();
+        BlocoContainer container = new BlocoContainer(++this.containerIdCount);
         return container;
     }
 }
