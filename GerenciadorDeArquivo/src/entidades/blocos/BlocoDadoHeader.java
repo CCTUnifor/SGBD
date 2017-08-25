@@ -1,5 +1,6 @@
-package entidades;
+package entidades.blocos;
 
+import entidades.TipoBloco;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
@@ -19,6 +20,14 @@ public class BlocoDadoHeader implements IBinary {
         this.blocoId = BlocoId.create(blocoId);
         this.tipoBloco = TipoBloco.DADOS;
         this.tamanhoUsado = 0;
+    }
+
+    public ContainerId getContainerId() {
+        return containerId;
+    }
+
+    public BlocoId getBlocoId() {
+        return blocoId;
     }
 
     @Override

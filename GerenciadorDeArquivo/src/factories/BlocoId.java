@@ -21,6 +21,10 @@ public class BlocoId implements IBinary {
         return new BlocoId(id);
     }
 
+    public int getValue() {
+        return this.id;
+    }
+
     @Override
     public byte[] toByteArray() {
         return new byte[3];

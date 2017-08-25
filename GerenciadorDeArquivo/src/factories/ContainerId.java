@@ -34,4 +34,8 @@ public class ContainerId implements IBinary{
         return this.create(_containerId);
     }
 
+    public int getValue() {
+        return this.id;
+    }
+
 }
