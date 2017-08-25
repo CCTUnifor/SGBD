@@ -23,7 +23,9 @@ public class ContainerId implements IBinary{
 
     @Override
     public byte[] toByteArray() {
-        return new byte[1];
+        byte[] bytes = new byte[1];
+        bytes[0] = ByteArrayUtils.intToBytes(this.id)[0];
+        return bytes;
     }
 
     @Override

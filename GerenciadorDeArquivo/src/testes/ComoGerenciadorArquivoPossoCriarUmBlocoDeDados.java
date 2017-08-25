@@ -71,4 +71,5 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
         Assert.assertEquals(array.length, GlobalVariables.TAMANHO_BLOCO);
     }
 
+
 }

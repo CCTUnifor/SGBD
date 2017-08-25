@@ -1,7 +1,7 @@
 package utils;
 
 public class ByteArrayUtils {
-    public static byte[] toBytes(int a){
+    public static byte[] intToBytes(int a){
         byte[] retorno = new byte[4];
 
         retorno[0] = (byte) (a >> 24); // pegou o bYte mais significativo
