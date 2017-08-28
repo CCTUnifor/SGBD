@@ -27,4 +27,5 @@ public class BlocoContainer implements IBinary {
     public <T> T fromByteArray(byte[] byteArray) {
         return null;
     }
+
 }

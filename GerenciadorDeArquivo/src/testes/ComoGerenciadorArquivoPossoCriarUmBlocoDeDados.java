@@ -249,4 +249,11 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
         Assert.assertEquals(bloco.getHeader().getBlocoId(), 2);
     }
 
+    @Test
+    public void x() {
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoContainer container = gerenciadorArquivo.criarBlocoContainer();
+
+    }
+
 }
