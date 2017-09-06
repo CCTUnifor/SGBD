@@ -5,6 +5,9 @@ import entidades.blocos.BlocoDado;
 import exceptions.ContainerNoExistent;
 import interfaces.IFileManager;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,5 +50,36 @@ public class GerenciadorArquivo implements IFileManager {
     public BlocoContainer criarBlocoContainer() {
         BlocoContainer container = new BlocoContainer(++this.containerIdCount);
         return container;
+    }
+
+    @Override
+    public void gravarArquivo(byte[] bytes, String diretorio) throws FileNotFoundException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "rw");
+        try {
+            randomAccessFile.write(bytes);
+            randomAccessFile.close();
+        }catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public byte[] lerArquivo(String diretorio) throws FileNotFoundException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+        byte[] bytes = null;
+        int tamanhoArquivo;
+
+        try {
+            tamanhoArquivo = (int) randomAccessFile.length();
+            bytes = new byte[tamanhoArquivo];
+            String x = randomAccessFile.readLine();
+            randomAccessFile.read(bytes);
+            randomAccessFile.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return bytes;
     }
 }

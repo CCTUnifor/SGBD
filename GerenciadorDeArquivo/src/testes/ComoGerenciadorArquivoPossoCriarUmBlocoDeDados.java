@@ -11,6 +11,8 @@ import utils.GlobalVariables;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
+
 public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
 
     @Test
@@ -250,10 +252,20 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
     }
 
     @Test
-    public void x() {
+    public void GravarArquivo() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.criarBlocoContainer();
+        byte[] bytes = new byte[2];
+        bytes[0] = 1;
+        bytes[1] = 2;
 
+        gerenciadorArquivo.gravarArquivo(bytes, "test.bin");
+    }
+
+    @Test
+    public void LerArquivo() throws FileNotFoundException {
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+
+        gerenciadorArquivo.lerArquivo("test.bin");
     }
 
 }

@@ -4,6 +4,7 @@ import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoDado;
 import exceptions.ContainerNoExistent;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public interface IFileManager {
@@ -13,5 +14,7 @@ public interface IFileManager {
 
     public BlocoContainer criarBlocoContainer();
 
+    public void gravarArquivo(byte[] bytes, String diretorio) throws FileNotFoundException;
+    public byte[] lerArquivo(String diretorio) throws FileNotFoundException;
 
 }
