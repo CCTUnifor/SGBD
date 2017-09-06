@@ -258,14 +258,14 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
         bytes[0] = 1;
         bytes[1] = 2;
 
-        gerenciadorArquivo.gravarArquivo(bytes, "test.bin");
+        gerenciadorArquivo.gravarArquivo(bytes, GlobalVariables.LOCAL_ARQUIVO_FINAL);
     }
 
     @Test
     public void LerArquivo() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        gerenciadorArquivo.lerArquivo("test.bin");
+        gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL);
     }
 
 }
