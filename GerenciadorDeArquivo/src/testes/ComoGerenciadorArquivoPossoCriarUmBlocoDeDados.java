@@ -250,24 +250,4 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
         Assert.assertEquals(bloco.getHeader().getContainerId(), 1);
         Assert.assertEquals(bloco.getHeader().getBlocoId(), 2);
     }
-
-    @Test
-    public void GravarArquivo() throws FileNotFoundException {
-        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        byte[] bytes = new byte[2];
-        bytes[0] = 1;
-        bytes[1] = 2;
-
-        gerenciadorArquivo.gravarArquivo(bytes, GlobalVariables.LOCAL_ARQUIVO_FINAL);
-    }
-
-    @Test
-    public void LerArquivo() throws FileNotFoundException {
-        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-
-        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_ENTRADA);
-        Assert.assertEquals(container.getBlocosDados().size(), 1);
-    }
-
-
 }

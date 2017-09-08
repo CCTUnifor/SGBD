@@ -7,6 +7,7 @@ import exceptions.BlocoSemEspacoException;
 import exceptions.ContainerNoExistent;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface IFileManager {
@@ -17,7 +18,7 @@ public interface IFileManager {
     public BlocoContainer criarBlocoContainer();
     public BlocoContainer criarBlocoContainer(String linha) throws BlocoSemEspacoException;
 
-    public void gravarArquivo(byte[] bytes, String diretorio) throws FileNotFoundException;
+    public void gravarArquivo(BlocoContainer container, String diretorio) throws IOException;
     public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException;
 
 //    public byte[] lerArquivoParaBytes(String diretorio) throws FileNotFoundException;

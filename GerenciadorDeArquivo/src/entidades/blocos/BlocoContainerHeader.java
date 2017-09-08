@@ -36,6 +36,10 @@ public class BlocoContainerHeader implements IBinary{
         return this.proximoBlocoLivre;
     }
 
+    public void adicionarProximoBlocoLivre() {
+        this.proximoBlocoLivre++;
+    }
+
     public int getTamanhoDescritor() {
         return  this.tamanhoDescritor;
     }
@@ -44,11 +48,11 @@ public class BlocoContainerHeader implements IBinary{
     public byte[] toByteArray() {
         ByteArrayConcater concater = new ByteArrayConcater(11);
         concater
-                .concat(this.containerId.toByteArray())
-                .concat(ByteArrayUtils.intToBytes(this.tamanhoDosBlocos))
-                .concat(ByteArrayUtils.intToBytes(this.statusContainer))
-                .concat(ByteArrayUtils.intToBytes(this.proximoBlocoLivre))
-                .concat(ByteArrayUtils.intToBytes(this.tamanhoDescritor));
+                .concat(this.containerId.toByteArray());
+//                .concat(ByteArrayUtils.intToBytes(this.tamanhoDosBlocos))
+//                .concat(ByteArrayUtils.intToBytes(this.statusContainer))
+//                .concat(ByteArrayUtils.intToBytes(this.proximoBlocoLivre))
+//                .concat(ByteArrayUtils.intToBytes(this.tamanhoDescritor));
 
         return concater.getFinalByteArray();
     }

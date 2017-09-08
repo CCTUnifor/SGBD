@@ -1,6 +1,7 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import utils.ByteArrayConcater;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,10 @@ public class BlocoControle implements IBinary{
     public int getContainerId() { return this.blocoHeader.getContainerId(); }
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        ByteArrayConcater bc = new ByteArrayConcater();
+        bc.concat(this.blocoHeader.toByteArray());
+//                .concat(descritores)
+        return bc.getFinalByteArray();
     }
 
     @Override

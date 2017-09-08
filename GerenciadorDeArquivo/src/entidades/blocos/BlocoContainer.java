@@ -2,6 +2,7 @@ package entidades.blocos;
 
 import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
+import utils.ByteArrayConcater;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,11 @@ public class BlocoContainer implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        ByteArrayConcater bc = new ByteArrayConcater();
+        bc.concat(blocoControle.toByteArray())
+                .concat(bytesBlocosDados());
+
+        return bc.getFinalByteArray();
     }
 
     @Override
@@ -38,5 +43,9 @@ public class BlocoContainer implements IBinary {
 
     public void adicionarBlocos(ArrayList<BlocoDado> blocos) {
         this.blocosDados.addAll(blocos);
+    }
+
+    private byte[] bytesBlocosDados() {
+        return new byte[0];
     }
 }

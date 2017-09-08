@@ -38,4 +38,13 @@ public class Linha implements IBinary{
             this.adicionarColuna(colunas[i]);
         }
     }
+
+    @Override
+    public String toString() {
+        String inf = "";
+        for (Coluna coluna: colunas) {
+            inf += coluna.getInformacao() + " | ";
+        }
+        return inf;
+    }
 }

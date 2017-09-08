@@ -5,10 +5,12 @@ import interfaces.IBinary;
 public class Coluna implements IBinary {
     private int tamanho;
     private byte[] dados;
+    private String informacao; // ignorado no parse para byte.
 
     public Coluna(byte[] bytes) {
         this.dados = bytes;
         this.tamanho = bytes.length;
+        this.informacao = new String(bytes);
     }
 
     public int getTamanho() {
@@ -24,4 +26,6 @@ public class Coluna implements IBinary {
     public <T> T fromByteArray(byte[] byteArray) {
         return null;
     }
+
+    public String getInformacao() { return this.informacao; }
 }

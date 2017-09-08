@@ -6,9 +6,11 @@ import exceptions.ContainerNoExistent;
 import interfaces.IFileManager;
 import utils.GlobalVariables;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +18,11 @@ public class GerenciadorArquivo implements IFileManager {
 
     private int containerIdCount = 0;
     private int blocoIdCount = 1;
-    private List<BlocoContainer> containers;
-
-    public GerenciadorArquivo() {
-        this.containers = new ArrayList<BlocoContainer>();
-    }
 
     @Override
     public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent {
         if (this.containerIdCount == 0 || containerId == 0)
             throw new ContainerNoExistent();
-        BlocoContainer container = this.containers.get(containerId - 1);
         BlocoDado bloco = new BlocoDado(containerId, this.blocoIdCount++);
         return bloco;
     }
@@ -61,10 +57,16 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public void gravarArquivo(byte[] bytes, String diretorio) throws FileNotFoundException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "rw");
+    public void gravarArquivo(BlocoContainer container, String diretorio) throws IOException {
+        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".txt";
+
+        File file = new File(diretorioCompleto);
+        if (!file.exists())
+            file.createNewFile();
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
         try {
-            randomAccessFile.write(bytes);
+            randomAccessFile.write(container.toByteArray());
             randomAccessFile.close();
         }catch (IOException e)
         {
@@ -77,9 +79,9 @@ public class GerenciadorArquivo implements IFileManager {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         try {
-            String[] linhas = this.popularLinhas(randomAccessFile);
+            ArrayList<String> linhas = this.popularLinhas(randomAccessFile);
             BlocoContainer container = new BlocoContainer(++this.containerIdCount);
-            container.getBlocoControle().adicionarDescritores(this.popularDescritores(container, linhas[0]));
+            container.getBlocoControle().adicionarDescritores(this.popularDescritores(container, linhas.get(0)));
 
             ArrayList<Linha> tuplas = this.popularLinhas(linhas);
             ArrayList<BlocoDado> blocos = this.popularBlocos(container, tuplas);
@@ -96,13 +98,16 @@ public class GerenciadorArquivo implements IFileManager {
         return null;
     }
 
-    private String[] popularLinhas(RandomAccessFile randomAccessFile) throws IOException {
-        int tamanhoArquivo = (int) randomAccessFile.length();
-        String[] linhas = new String[tamanhoArquivo];
+    private ArrayList<String> popularLinhas(RandomAccessFile randomAccessFile) throws IOException {
+        ArrayList<String> linhas = new ArrayList<String>();
 
-        for (int i = 0; i < tamanhoArquivo; i++){
-            linhas[i] = randomAccessFile.readLine();
-        }
+        String linhaAux = null;
+        do {
+            linhaAux = randomAccessFile.readLine();
+            if (linhaAux != null) {
+                linhas.add(linhaAux);
+            }
+        } while (linhaAux != null);
 
         return linhas;
     }
@@ -119,33 +124,36 @@ public class GerenciadorArquivo implements IFileManager {
         return descritores;
     }
 
-    private ArrayList<Linha> popularLinhas(String[] linhas) {
+    private ArrayList<Linha> popularLinhas(ArrayList<String> linhas) {
         ArrayList<Linha> tuplas = new ArrayList<Linha>();
 
-        for (int i = 1; i < linhas.length; i++) {
-            String[] colunas = linhas[i].split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
+        for (int i = 1; i < linhas.size(); i++) {
+            String linha = linhas.get(i);
+            String[] colunas = linha.split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
 
             Linha tuple = new Linha();
             tuple.adicionarColunas(colunas);
             tuplas.add(tuple);
         }
+
         return tuplas;
     }
 
     private ArrayList<BlocoDado> popularBlocos(BlocoContainer container, ArrayList<Linha> tuples) {
         ArrayList<BlocoDado> blocos = new ArrayList<BlocoDado>();
-        blocos.add(new BlocoDado(container.getContainerId(), ++this.blocoIdCount)); // primeiro bloco
+        blocos.add(new BlocoDado(container.getContainerId(), this.blocoIdCount++)); // primeiro bloco
 
-        int blocoIndex = 0;
+
         for (Linha linha: tuples) {
+            int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();
             BlocoDado bloco = blocos.get(blocoIndex);
 
             if (!bloco.adicionarTupla(linha)) {
-                BlocoDado blocoAux = new BlocoDado(container.getContainerId(), ++this.blocoIdCount);
+                BlocoDado blocoAux = new BlocoDado(container.getContainerId(), this.blocoIdCount++);
                 blocoAux.adicionarTupla(linha);
                 blocos.add(blocoAux);
 
-                blocoIndex++;
+                container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
             }
         }
 

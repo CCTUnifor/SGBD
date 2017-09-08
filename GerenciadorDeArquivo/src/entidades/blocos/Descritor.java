@@ -2,6 +2,9 @@ package entidades.blocos;
 
 import interfaces.IBinary;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Descritor implements IBinary {
     private TipoDado tipoDado;
     private String nome;
@@ -11,9 +14,11 @@ public class Descritor implements IBinary {
         String[] x = coluna.split( "\\[");
         this.nome = x[0];
         this.tipoDado = x[1].contains("I") ? TipoDado.INTEIRO : TipoDado.STRING;
-        String regex = "\\<(?<meuGrupo>.*?)\\>";
 
-        this.tamanho = Integer.parseInt(x[1].split("\\(.*\\)")[0]);
+        Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
+        Matcher mat = pat.matcher(coluna);
+        if (mat.find())
+            this.tamanho = Integer.parseInt(mat.group(1));
     }
 
     @Override
