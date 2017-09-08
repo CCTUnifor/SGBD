@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="227b4a9e-fddd-4db0-927e-cacdff3b273f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/blocos/Coluna.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/blocos/Linha.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/blocos/TipoDado.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/exceptions/BlocoSemEspacoException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoDadoHeader.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoDadoHeader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/exceptions/ContainerNoExistent.java" afterPath="$PROJECT_DIR$/src/exceptions/ContainerNoExistent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IFileManager.java" afterPath="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" afterPath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/GlobalVariables.java" afterPath="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/teste.txt" afterPath="$PROJECT_DIR$/teste.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,12 +50,25 @@
       <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
+            <state relative-caret-position="306">
+              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="e#3665#3676#0" expanded="true" />
                 <element signature="e#4063#4070#0" expanded="true" />
                 <element signature="e#4520#4531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlocoContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#618#619#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,8 +91,8 @@
       <file leaf-file-name="Descritor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -654,26 +650,26 @@
     <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 13h 07m 22s.xml">
       <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStrings - 2017.09.07 at 08h 54m 28s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStrings" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 16m 41s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStrings - 2017.09.07 at 08h 55m 08s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStrings" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 20m 12s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 09h 09m 32s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 21m 58s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 09h 13m 20s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 26m 08s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 09h 13m 49s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 28m 45s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 10h 52m 32s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 29m 42s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 10h 56m 55s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivo - 2017.09.07 at 22h 30m 03s.xml">
+      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivo" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados_LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer - 2017.09.07 at 11h 08m 37s.xml">
       <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.LerArquivoParaStringsEAPrimeiraLinhaDeveVirarContainer" configurationId="JUnit" />
@@ -784,10 +780,20 @@
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java</url>
+          <line>10</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="57" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="x[1].split(&quot;#\\([\\w\\s']+\\)#i&quot;)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -831,12 +837,7 @@
           <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
             <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#949#950#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1102,14 +1103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1122,14 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1150,22 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#949#950#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1178,10 +1147,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
+        <state relative-caret-position="306">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <element signature="e#3665#3676#0" expanded="true" />
             <element signature="e#4063#4070#0" expanded="true" />
@@ -1190,10 +1170,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>

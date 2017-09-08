@@ -8,7 +8,12 @@ public class Descritor implements IBinary {
     private int tamanho;
 
     public Descritor(String coluna) {
+        String[] x = coluna.split( "\\[");
+        this.nome = x[0];
+        this.tipoDado = x[1].contains("I") ? TipoDado.INTEIRO : TipoDado.STRING;
+        String regex = "\\<(?<meuGrupo>.*?)\\>";
 
+        this.tamanho = Integer.parseInt(x[1].split("\\(.*\\)")[0]);
     }
 
     @Override
