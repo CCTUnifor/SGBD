@@ -13,7 +13,7 @@ public class ComoGerenciadorDeArquivoPossoCriarUmArquivo {
     @Test
     public void GravarArquivo() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
 
         gerenciadorArquivo.gravarArquivo(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
     }

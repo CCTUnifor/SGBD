@@ -46,6 +46,10 @@ public class BlocoContainer implements IBinary {
     }
 
     private byte[] bytesBlocosDados() {
-        return new byte[0];
+        ByteArrayConcater bc = new ByteArrayConcater();
+        for (BlocoDado bloco : this.blocosDados) {
+            bc.concat(bloco.toByteArray());
+        }
+        return bc.getFinalByteArray();
     }
 }
