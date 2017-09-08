@@ -29,6 +29,10 @@ public class BlocoDadoHeader implements IBinary {
         this.tamanhoUsado = 0;
     }
 
+    public int getTamanhoUsado() {
+        return this.tamanhoUsado;
+    }
+
     public int getContainerId() {
         return containerId.getValue();
     }
@@ -65,5 +69,9 @@ public class BlocoDadoHeader implements IBinary {
         this.tamanhoUsado = ByteArrayUtils.byteArrayToInt(tamanhoUsadoBytes);
 
         return this;
+    }
+
+    public void incrementarTamanhoUsado(int tamanho) {
+        this.tamanhoUsado += tamanho;
     }
 }

@@ -1,10 +1,10 @@
 package testes;
 
 import entidades.blocos.BlocoContainer;
-import entidades.blocos.BlocoContainerHeader;
 import entidades.blocos.BlocoDado;
 import entidades.blocos.BlocoDadoHeader;
 import entidades.GerenciadorArquivo;
+import exceptions.BlocoSemEspacoException;
 import exceptions.ContainerNoExistent;
 import interfaces.IFileManager;
 import utils.GlobalVariables;
@@ -265,7 +265,9 @@ public class ComoGerenciadorArquivoPossoCriarUmBlocoDeDados {
     public void LerArquivo() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_ENTRADA);
+        Assert.assertEquals(container.getBlocosDados().size(), 1);
     }
+
 
 }

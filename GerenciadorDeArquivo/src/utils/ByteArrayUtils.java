@@ -1,5 +1,8 @@
 package utils;
 
+import entidades.blocos.BlocoDado;
+import entidades.blocos.Linha;
+
 public class ByteArrayUtils {
     public static byte[] intToBytes(int a){
         byte[] retorno = new byte[4];
@@ -40,11 +43,12 @@ public class ByteArrayUtils {
         return array;
     }
 
-
     public static <E> E byteArrayToEnum(byte[] tipoBlocoBytes, E[] values) {
         int i = ByteArrayUtils.byteArrayToInt(tipoBlocoBytes);
         return values[i];
     }
 
-
+    public static boolean aindaTemEspaco(BlocoDado blocoDado, Linha tupla) {
+        return tupla.getTamanho() <=  (GlobalVariables.TAMANHO_BLOCO - blocoDado.getHeader().getTamanhoUsado());
+    }
 }

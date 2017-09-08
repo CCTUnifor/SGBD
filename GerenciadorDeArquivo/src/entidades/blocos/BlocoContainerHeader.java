@@ -3,6 +3,7 @@ package entidades.blocos;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.awt.*;
@@ -11,7 +12,7 @@ public class BlocoContainerHeader implements IBinary{
 
     private ContainerId containerId;
     private int tamanhoDosBlocos = GlobalVariables.TAMANHO_BLOCO;
-    private char statusContainer;
+    private int statusContainer;
     private int proximoBlocoLivre = 0;
     private int tamanhoDescritor;
 
@@ -23,11 +24,31 @@ public class BlocoContainerHeader implements IBinary{
         return this.containerId.getValue();
     }
 
+    public int getTamanhoDosBlocos() {
+        return this.tamanhoDosBlocos;
+    }
+
+    public int getStatusContainer() {
+        return this.statusContainer;
+    }
+
+    public int getProximoBlocoLivre() {
+        return this.proximoBlocoLivre;
+    }
+
+    public int getTamanhoDescritor() {
+        return  this.tamanhoDescritor;
+    }
+
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater concater = new ByteArrayConcater(11);
         concater
-                .concat(this.containerId.toByteArray());
+                .concat(this.containerId.toByteArray())
+                .concat(ByteArrayUtils.intToBytes(this.tamanhoDosBlocos))
+                .concat(ByteArrayUtils.intToBytes(this.statusContainer))
+                .concat(ByteArrayUtils.intToBytes(this.proximoBlocoLivre))
+                .concat(ByteArrayUtils.intToBytes(this.tamanhoDescritor));
 
         return concater.getFinalByteArray();
     }

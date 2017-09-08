@@ -1,5 +1,6 @@
 package entidades.blocos;
 
+import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
@@ -13,20 +14,22 @@ import java.util.ArrayList;
 public class BlocoDado implements IBinary{
 
     private BlocoDadoHeader header;
-    private ArrayList<Object> tuples;
+    private ArrayList<Linha> tuples;
 
 
     public BlocoDado(int containerId, int blocoId) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
+        this.tuples = new ArrayList<Linha>();
     }
 
-    public BlocoDado(int containerId, int blocoId, ArrayList<Object> dados) {
+    public BlocoDado(int containerId, int blocoId, ArrayList<Linha> dados) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
         this.tuples = dados;
     }
 
     public BlocoDado(byte[] bytes) {
         this.header = new BlocoDadoHeader();
+        this.tuples = new ArrayList<Linha>();
         this.fromByteArray(bytes);
     }
 
@@ -52,4 +55,13 @@ public class BlocoDado implements IBinary{
         return  this;
     }
 
+    public boolean adicionarTupla(Linha tupla) {
+        if (!ByteArrayUtils.aindaTemEspaco(this, tupla))
+            return false;
+
+        this.tuples.add(tupla);
+        this.header.incrementarTamanhoUsado(tupla.getTamanho());
+
+        return true;
+    }
 }
