@@ -48,11 +48,11 @@ public class BlocoContainerHeader implements IBinary{
     public byte[] toByteArray() {
         ByteArrayConcater concater = new ByteArrayConcater(11);
         concater
-                .concat(this.containerId.toByteArray());
-//                .concat(ByteArrayUtils.intToBytes(this.tamanhoDosBlocos))
-//                .concat(ByteArrayUtils.intToBytes(this.statusContainer))
-//                .concat(ByteArrayUtils.intToBytes(this.proximoBlocoLivre))
-//                .concat(ByteArrayUtils.intToBytes(this.tamanhoDescritor));
+                .concat(this.containerId.toByteArray())
+                .concat(ByteArrayUtils.intTo3Bytes(this.tamanhoDosBlocos))
+                .concat(ByteArrayUtils.intTo1Bytes(this.statusContainer))
+                .concat(ByteArrayUtils.intToBytes(this.proximoBlocoLivre))
+                .concat(ByteArrayUtils.intTo2Bytes(this.tamanhoDescritor));
 
         return concater.getFinalByteArray();
     }

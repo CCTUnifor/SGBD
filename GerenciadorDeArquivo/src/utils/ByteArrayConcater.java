@@ -37,7 +37,29 @@ public class ByteArrayConcater {
         return this;
     }
 
-    public byte[] getByteArray() {
+    public ByteArrayConcater concat(byte byteToConcat) {
+        if (this.array == null){
+            this.array = new byte[1];
+            this.array[0] = byteToConcat;
+            return this;
+        }
+
+        if (this.tamanhoArray > 0 && this.array.length + 1 > this.tamanhoArray)
+            throw new Error("Ultrapassou o array.");
+
+        int tamanhoNovoArray = this.array.length + 1;
+        byte[] novoArray = new byte[tamanhoNovoArray];
+
+        for (int i = 0; i < this.array.length; i++) {
+            novoArray[i] = this.array[i];
+        }
+        novoArray[this.array.length] = byteToConcat;
+
+        this.array = novoArray;
+        return this;
+    }
+
+        public byte[] getByteArray() {
         return this.array;
     }
 

@@ -15,6 +15,29 @@ public class ByteArrayUtils {
         return retorno;
     }
 
+    public static byte[] intTo2Bytes(int a){
+        byte[] retorno = new byte[2];
+
+        retorno[0] = (byte) (a >> 8);
+        retorno[1] = (byte) (a >> 0); // pegou o bYte menos significativo
+
+        return retorno;
+    }
+
+    public static byte[] intTo3Bytes(int a){
+        byte[] retorno = new byte[3];
+
+        retorno[0] = (byte) (a >> 16);
+        retorno[1] = (byte) (a >> 8);
+        retorno[2] = (byte) (a >> 0); // pegou o bYte menos significativo
+
+        return retorno;
+    }
+
+    public static byte intTo1Bytes(int a){
+        return (byte) (a >> 0); // pegou o bYte menos significativo
+    }
+
     public static int byteArrayToInt(byte[] bytes){
         if(bytes.length > 4)
             throw new RuntimeException("O tamanho do byte array é inválido: "+bytes.length);

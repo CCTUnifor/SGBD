@@ -75,7 +75,7 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer criarContainerPeloArquivo(String diretorio) throws FileNotFoundException {
+    public BlocoContainer criarContainerPeloArquivoEntrada(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         try {
@@ -95,6 +95,23 @@ public class GerenciadorArquivo implements IFileManager {
             System.out.println(e.getMessage());
         }
 
+        return null;
+    }
+
+    @Override
+    public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+        try {
+            byte[] bytes = new byte[(int) randomAccessFile.length()];
+            // TODO
+            // ALTERAR A FORMA COMO LER O ARQUIVO.
+            randomAccessFile.read(bytes);
+
+            randomAccessFile.close();
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+
+        }
         return null;
     }
 
