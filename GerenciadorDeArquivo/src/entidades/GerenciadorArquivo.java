@@ -75,7 +75,7 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException {
+    public BlocoContainer criarContainerPeloArquivo(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         try {
@@ -142,7 +142,6 @@ public class GerenciadorArquivo implements IFileManager {
     private ArrayList<BlocoDado> popularBlocos(BlocoContainer container, ArrayList<Linha> tuples) {
         ArrayList<BlocoDado> blocos = new ArrayList<BlocoDado>();
         blocos.add(new BlocoDado(container.getContainerId(), this.blocoIdCount++)); // primeiro bloco
-
 
         for (Linha linha: tuples) {
             int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();

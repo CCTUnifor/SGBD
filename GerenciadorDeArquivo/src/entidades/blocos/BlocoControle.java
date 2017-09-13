@@ -25,8 +25,8 @@ public class BlocoControle implements IBinary{
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
-        bc.concat(this.blocoHeader.toByteArray());
-//                .concat(descritores)
+        bc.concat(this.blocoHeader.toByteArray())
+                .concat(this.bytesDescritores());
         return bc.getFinalByteArray();
     }
 
@@ -41,5 +41,13 @@ public class BlocoControle implements IBinary{
 
     public void adicionarDescritores(ArrayList<Descritor> descritores) {
         this.descritores.addAll(descritores);
+    }
+
+    private byte[] bytesDescritores() {
+        ByteArrayConcater bc = new ByteArrayConcater();
+        for (Descritor descritor : this.descritores) {
+            bc.concat(descritor.toByteArray());
+        }
+        return bc.getFinalByteArray();
     }
 }

@@ -19,7 +19,7 @@ public interface IFileManager {
     public BlocoContainer criarBlocoContainer(String linha) throws BlocoSemEspacoException;
 
     public void gravarArquivo(BlocoContainer container, String diretorio) throws IOException;
-    public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException;
+    public BlocoContainer criarContainerPeloArquivo(String diretorio) throws FileNotFoundException;
 
 //    public byte[] lerArquivoParaBytes(String diretorio) throws FileNotFoundException;
 //    public String[] lerArquivoParaString(String diretorio) throws FileNotFoundException;

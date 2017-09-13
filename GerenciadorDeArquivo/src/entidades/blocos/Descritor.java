@@ -1,6 +1,8 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import utils.ByteArrayConcater;
+import utils.ByteArrayUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,7 +25,10 @@ public class Descritor implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        ByteArrayConcater bc = new ByteArrayConcater();
+        bc.concat(ByteArrayUtils.intToBytes(tipoDado.ordinal()));
+//            .concat(nome.);
+        return bc.getFinalByteArray();
     }
 
     @Override
