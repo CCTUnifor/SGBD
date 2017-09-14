@@ -106,28 +106,24 @@ public class GerenciadorArquivo implements IFileManager {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
         BlocoContainer container = this.criarBlocoContainer();
 
+        byte[] bytes = null;
+
         try {
+            int tamanho = (int) randomAccessFile.length();
+            if (tamanho == 0)
+                return null;
 
-            byte[] bytes = new byte[11];
-            boolean aux = false;
+            bytes = new byte[tamanho];
+            for (int i = 0; i < tamanho; i++){
+                bytes[i] = randomAccessFile.readByte();
+            }
 
-            do {
-                byte x = randomAccessFile.readByte();
-
-            }while (aux);
-
-            String linha = randomAccessFile.readLine();
-            //            byte[] bytes = ByteArrayUtils.stringToByteArray(linha);
-            randomAccessFile.readFully(bytes);
-
-            container.fromByteArray(bytes);
-
-            randomAccessFile.close();
         }catch (IOException e){
             this.containerIdCount--;
             System.out.println(e.getMessage());
-
         }
+
+        container.fromByteArray(bytes);
         return container;
     }
 

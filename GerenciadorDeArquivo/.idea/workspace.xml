@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="227b4a9e-fddd-4db0-927e-cacdff3b273f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SAIDA/Tabela1.txt" afterPath="$PROJECT_DIR$/SAIDA/Tabela1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" afterPath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +43,8 @@
       <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+            <state relative-caret-position="280">
+              <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -256,11 +250,6 @@
             <path>
               <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
               <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
-              <item name="SAIDA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
@@ -655,8 +644,8 @@
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivo" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivoCompleto" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivoCompleto" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ComoGerenciadorDeArquivoPossoLerUmArquivo.DeEntradaECriarUmContainer" />
       </list>
     </recent_temporary>
@@ -675,34 +664,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 09m 23s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoCriarUmArquivo_GravarArquivo - 2017.09.14 at 20h 34m 27s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComoGerenciadorDeArquivoPossoCriarUmArquivo_GravarArquivoCompleto - 2017.09.14 at 20h 34m 18s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivoCompleto" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 27m 36s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 11m 11s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 28m 09s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 11m 52s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 32m 09s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 12m 43s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 32m 36s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 12m 52s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 33m 44s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 15m 02s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 33m 54s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 15m 47s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 35m 33s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 16m 55s.xml">
-      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 21m 02s.xml">
-      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 22m 38s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 36m 31s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -716,7 +705,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5295031" sideWeight="0.5043924" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25941423" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25931677" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -815,13 +804,9 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="91" />
+      <option name="time" value="93" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="randomAccessFile.readByte()" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1100,16 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -1140,6 +1115,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -1152,8 +1137,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+        <state relative-caret-position="280">
+          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding />
         </state>
       </provider>
