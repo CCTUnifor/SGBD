@@ -4,6 +4,8 @@ import entidades.blocos.*;
 import exceptions.BlocoSemEspacoException;
 import exceptions.ContainerNoExistent;
 import interfaces.IFileManager;
+import sun.nio.cs.StandardCharsets;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.File;
@@ -11,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Array;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,18 +104,31 @@ public class GerenciadorArquivo implements IFileManager {
     @Override
     public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+        BlocoContainer container = this.criarBlocoContainer();
+
         try {
-            byte[] bytes = new byte[(int) randomAccessFile.length()];
-            // TODO
-            // ALTERAR A FORMA COMO LER O ARQUIVO.
-            randomAccessFile.read(bytes);
+
+            byte[] bytes = new byte[11];
+            boolean aux = false;
+
+            do {
+                byte x = randomAccessFile.readByte();
+
+            }while (aux);
+
+            String linha = randomAccessFile.readLine();
+            //            byte[] bytes = ByteArrayUtils.stringToByteArray(linha);
+            randomAccessFile.readFully(bytes);
+
+            container.fromByteArray(bytes);
 
             randomAccessFile.close();
         }catch (IOException e){
+            this.containerIdCount--;
             System.out.println(e.getMessage());
 
         }
-        return null;
+        return container;
     }
 
     private ArrayList<String> popularLinhas(RandomAccessFile randomAccessFile) throws IOException {

@@ -3,6 +3,8 @@ package utils;
 import entidades.blocos.BlocoDado;
 import entidades.blocos.Linha;
 
+import java.nio.charset.Charset;
+
 public class ByteArrayUtils {
     public static byte[] intToBytes(int a){
         byte[] retorno = new byte[4];
@@ -73,5 +75,9 @@ public class ByteArrayUtils {
 
     public static boolean aindaTemEspaco(BlocoDado blocoDado, Linha tupla) {
         return tupla.getTamanho() <=  (GlobalVariables.TAMANHO_BLOCO - blocoDado.getHeader().getTamanhoUsado());
+    }
+
+    public static byte[] stringToByteArray(String value) {
+        return value.getBytes(Charset.forName("UTF-8"));
     }
 }

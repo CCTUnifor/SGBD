@@ -5,11 +5,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SAIDA/Tabela1.txt" afterPath="$PROJECT_DIR$/SAIDA/Tabela1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IFileManager.java" afterPath="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" afterPath="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" afterPath="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,24 +33,12 @@
     <option name="OUTPUT_DIRECTORY" value="D:\" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ComoGerenciadorDeArquivoPossoLerUmArquivo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComoGerenciadorDeArquivoPossoCriarUmArquivo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="143">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,14 +49,9 @@
       <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding>
-                <element signature="e#3937#3945#0" expanded="true" />
-                <element signature="e#4356#4367#0" expanded="true" />
-                <element signature="e#4763#4770#0" expanded="true" />
-                <element signature="e#5259#5270#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="144">
+              <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,8 +59,8 @@
       <file leaf-file-name="BlocoContainer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="491">
+              <caret line="41" column="50" lean-forward="false" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -87,8 +69,18 @@
       <file leaf-file-name="BlocoControle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="202">
+              <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlocoDado.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,9 +89,34 @@
       <file leaf-file-name="BlocoContainerHeader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="50" column="55" lean-forward="true" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+            <state relative-caret-position="64">
+              <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+              <folding>
+                <marker date="1505429207976" expanded="true" signature="1543:1573" ph="//..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ByteArrayUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="80" column="56" lean-forward="false" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+              <folding>
+                <element signature="e#2570#2571#0" expanded="true" />
+                <element signature="e#2633#2634#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,19 +124,12 @@
       <file leaf-file-name="ContainerId.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/factories/ContainerId.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="225">
+              <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+              <folding>
+                <element signature="e#365#366#0" expanded="true" />
+                <element signature="e#407#408#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,6 +155,7 @@
       <find>bytes</find>
       <find>getby</find>
       <find>byte</find>
+      <find>.getBytes(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -201,16 +212,16 @@
         <option value="$PROJECT_DIR$/src/entidades/blocos/Linha.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java" />
         <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
         <option value="$PROJECT_DIR$/src/services/GerenciadorDeArquivoService.java" />
-        <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java" />
-        <option value="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" />
         <option value="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" />
+        <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
+        <option value="$PROJECT_DIR$/src/utils/ByteArrayUtils.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
       </list>
     </option>
@@ -239,8 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,7 +260,25 @@
             <path>
               <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
               <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
+              <item name="SAIDA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entidades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entidades" type="462c0819:PsiDirectoryNode" />
+              <item name="blocos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
@@ -263,7 +290,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -646,88 +675,69 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 28m 27s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 09m 23s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 28m 31s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 11m 11s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 28m 33s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 11m 52s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 28m 45s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 12m 43s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 28m 47s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 12m 52s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 30m 01s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 15m 02s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 31m 19s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 15m 47s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados - 2017.09.13 at 18h 37m 29s.xml">
-      <configuration name="ComoGerenciadorArquivoPossoCriarUmBlocoDeDados" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 16m 55s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoCriarUmArquivo_GravarArquivo - 2017.09.13 at 18h 37m 45s.xml">
-      <configuration name="ComoGerenciadorDeArquivoPossoCriarUmArquivo.GravarArquivo" configurationId="JUnit" />
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 21m 02s.xml">
+      <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.13 at 18h 39m 42s.xml">
+    <history-entry file="ComoGerenciadorDeArquivoPossoLerUmArquivo_ECriarUmContainer - 2017.09.14 at 20h 22m 38s.xml">
       <configuration name="ComoGerenciadorDeArquivoPossoLerUmArquivo.ECriarUmContainer" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9580713" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5295031" sideWeight="0.5043924" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25937834" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25941423" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24253732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.238653" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44587353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4083851" sideWeight="0.4956076" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9580713" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25104603" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25941423" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17708333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -770,13 +780,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java</url>
-          <line>68</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="74" />
         </line-breakpoint>
@@ -787,18 +791,35 @@
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java</url>
-          <line>40</line>
+          <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java</url>
+          <line>105</line>
           <properties />
-          <option name="timeStamp" value="83" />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java</url>
+          <line>14</line>
+          <properties />
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="84" />
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
-        <watch expression="ByteArrayUtils.intTo3Bytes(this.tamanhoDosBlocos)" language="JAVA" />
-        <watch expression="concater.getFinalByteArray()" language="JAVA" />
+        <watch expression="randomAccessFile.readByte()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -807,14 +828,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -969,13 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/LeitorArquivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="43" column="10" lean-forward="false" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/RandomAccessFile.java" />
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Coluna.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -988,14 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1019,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaces/IFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1035,26 +1025,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/GerenciadorDeArquivoService.java">
+    <entry file="file://$PROJECT_DIR$/src/services/GerenciadorDeArquivoService.java" />
+    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayConcater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="56" column="73" lean-forward="false" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
+        <state relative-caret-position="262">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/LeitorArquivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="43" column="10" lean-forward="false" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="491">
+          <caret line="41" column="50" lean-forward="false" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state relative-caret-position="202">
+          <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -1067,60 +1090,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/factories/ContainerId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayConcater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="50" column="55" lean-forward="true" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="64">
+          <caret line="54" column="11" lean-forward="true" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+          <folding>
+            <marker date="1505429207976" expanded="true" signature="1543:1573" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoCriarUmArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="80" column="56" lean-forward="false" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+          <folding>
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/factories/ContainerId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="143">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1129,14 +1152,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="e#3937#3945#0" expanded="true" />
-            <element signature="e#4356#4367#0" expanded="true" />
-            <element signature="e#4763#4770#0" expanded="true" />
-            <element signature="e#5259#5270#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>

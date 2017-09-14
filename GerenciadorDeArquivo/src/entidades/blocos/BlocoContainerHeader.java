@@ -59,6 +59,12 @@ public class BlocoContainerHeader implements IBinary{
 
     @Override
     public BlocoContainerHeader fromByteArray(byte[] byteArray) {
-        return null;
+        this.containerId = ContainerId.create(byteArray[0]);
+        this.tamanhoDosBlocos = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 1, 3));
+        this.statusContainer = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 4, 1));
+        this.proximoBlocoLivre = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 4));
+        this.tamanhoDescritor = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 9, 2));
+
+        return this;
     }
 }

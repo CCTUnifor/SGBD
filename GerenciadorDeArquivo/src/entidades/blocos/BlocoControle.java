@@ -2,6 +2,7 @@ package entidades.blocos;
 
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
+import utils.ByteArrayUtils;
 
 import java.util.ArrayList;
 
@@ -31,8 +32,13 @@ public class BlocoControle implements IBinary{
     }
 
     @Override
-    public <T> T fromByteArray(byte[] byteArray) {
-        return null;
+    public BlocoControle fromByteArray(byte[] byteArray) {
+
+        this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 11));
+        // todo
+        // descritores
+
+        return this;
     }
 
     public void adicionarDescritor(Descritor descritor){
