@@ -44,13 +44,12 @@ public class BlocoDadoHeader implements IBinary {
     @Override
     public byte[] toByteArray() {
 
-        byte[] containerIdBytes = this.containerId.toByteArray();
-        byte[] blocoIdBytes = this.blocoId.toByteArray();
-
         ByteArrayConcater byteConcater = new ByteArrayConcater(8);
         byteConcater
-                .concat(containerIdBytes)
-                .concat(blocoIdBytes);
+                .concat(this.containerId.toByteArray())
+                .concat(this.blocoId.toByteArray())
+                .concat(ByteArrayUtils.intTo1Bytes(this.tipoBloco.ordinal()))
+                .concat(ByteArrayUtils.intTo3Bytes(this.tamanhoUsado));
 
         return byteConcater.getFinalByteArray();
     }
@@ -58,15 +57,10 @@ public class BlocoDadoHeader implements IBinary {
     @Override
     public BlocoDadoHeader fromByteArray(byte[] byteArray) {
 
-        byte[] containerIdBytes = ByteArrayUtils.subArray(byteArray, 0, 1);  // 0   ContainerId
-        byte[] blocoIdBytes = ByteArrayUtils.subArray(byteArray, 1, 3);      // 1-3 BlocoId
-        byte[] tipoBlocoBytes = ByteArrayUtils.subArray(byteArray, 4, 1);    // 4   TipoBloco
-        byte[] tamanhoUsadoBytes = ByteArrayUtils.subArray(byteArray, 5, 3); // 5-7 Tamanho Utilizado
-
-        this.containerId = this.containerId.fromByteArray(containerIdBytes);
-        this.blocoId =  this.blocoId.fromByteArray(blocoIdBytes);
-        this.tipoBloco = ByteArrayUtils.byteArrayToEnum(tipoBlocoBytes, TipoBloco.values());
-        this.tamanhoUsado = ByteArrayUtils.byteArrayToInt(tamanhoUsadoBytes);
+        this.containerId = this.containerId.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 1));
+        this.blocoId =  this.blocoId.fromByteArray(ByteArrayUtils.subArray(byteArray, 1, 3));
+        this.tipoBloco = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
+        this.tamanhoUsado = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 3));
 
         return this;
     }

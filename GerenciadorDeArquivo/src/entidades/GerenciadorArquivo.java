@@ -147,7 +147,9 @@ public class GerenciadorArquivo implements IFileManager {
 
         for (int i = 0; i < colunas.length; i++) {
             String coluna = colunas[i];
-            descritores.add(new Descritor(coluna));
+            Descritor _descritor = new Descritor(coluna);
+            descritores.add(_descritor);
+            container.getBlocoControle().getHeader().atualizarTamanhoDescritor(_descritor.toByteArray().length);
         }
 
         return descritores;

@@ -40,9 +40,15 @@ public class BlocoContainer implements IBinary {
     @Override
     public BlocoContainer fromByteArray(byte[] byteArray) {
         this.blocoControle.fromByteArray(byteArray);
+        int indexOndeComecaOBlocoDeDados = 11 + this.blocoControle.getHeader().getTamanhoDescritor();
 
         // TODO
         // blocosDados.fromByteArray();
+
+        for (int i = indexOndeComecaOBlocoDeDados; i < byteArray.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
+            BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(byteArray, i, 1 + this.blocoControle.getHeader().getTamanhoDosBlocos()));
+            this.blocosDados.add(bloco);
+        }
 
         return this;
     }

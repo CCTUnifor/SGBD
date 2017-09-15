@@ -27,7 +27,7 @@ public class BlocoId implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        return new byte[3];
+        return ByteArrayUtils.intTo3Bytes(this.id);
     }
 
     @Override

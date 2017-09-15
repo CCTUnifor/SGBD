@@ -49,9 +49,10 @@ public class BlocoDado implements IBinary{
 
     @Override
     public BlocoDado fromByteArray(byte[] byteArray) {
-        byte[] blocoDadoHeaderBytes = ByteArrayUtils.subArray(byteArray, 0, 8);
-
-        this.header = this.header.fromByteArray(blocoDadoHeaderBytes);
+        this.header = this.header.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 8));
+        // TODO
+        // TUPLES
+        
         return  this;
     }
 

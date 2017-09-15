@@ -67,4 +67,8 @@ public class BlocoContainerHeader implements IBinary{
 
         return this;
     }
+
+    public void atualizarTamanhoDescritor(int length) {
+        this.tamanhoDescritor += length;
+    }
 }
