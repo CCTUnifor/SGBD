@@ -13,6 +13,11 @@ public class Linha implements IBinary{
         this.colunas = new ArrayList<Coluna>();
     }
 
+    public Linha(byte[] linhaBytes) {
+        this.colunas = new ArrayList<Coluna>();
+        this.fromByteArray(linhaBytes);
+    }
+
     public int getTamanho() {
         return this.tamanho;
     }

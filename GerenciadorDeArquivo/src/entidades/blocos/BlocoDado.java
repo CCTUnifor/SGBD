@@ -52,7 +52,18 @@ public class BlocoDado implements IBinary{
         this.header = this.header.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 8));
         // TODO
         // TUPLES
-        
+
+        int indexOndeComecaOsDados = 8;
+        int i = 1;
+
+        while(indexOndeComecaOsDados <= byteArray.length) {
+            int tamanhoLinha = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 4));
+            byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 8 + tamanhoLinha);
+
+            Linha tuple = new Linha(linhaBytes);
+            this.tuples.add(tuple);
+        }
+
         return  this;
     }
 
