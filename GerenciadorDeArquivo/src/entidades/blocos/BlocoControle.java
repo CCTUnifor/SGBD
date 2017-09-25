@@ -35,8 +35,7 @@ public class BlocoControle implements IBinary{
     public BlocoControle fromByteArray(byte[] byteArray) {
 
         this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 11));
-        // todo
-        // descritores
+        this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(byteArray, 11, this.blocoHeader.getTamanhoDescritor())));
 
         return this;
     }
@@ -55,5 +54,21 @@ public class BlocoControle implements IBinary{
             bc.concat(descritor.toByteArray());
         }
         return bc.getFinalByteArray();
+    }
+
+    private ArrayList<Descritor> descritoresFromByteArray(byte[] descritoresByteArray) {
+        ArrayList<Descritor> descritores = new ArrayList<Descritor>();
+        boolean whileTrue = true;
+        int proximoIndex = 0;
+
+        while(whileTrue) {
+            int tamanho = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex, 4));
+            descritores.add(new Descritor(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex,  tamanho)));
+
+            proximoIndex += tamanho;
+            whileTrue = whileTrue && proximoIndex < descritoresByteArray.length;
+        }
+
+        return descritores;
     }
 }

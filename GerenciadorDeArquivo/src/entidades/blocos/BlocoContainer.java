@@ -40,7 +40,7 @@ public class BlocoContainer implements IBinary {
     @Override
     public BlocoContainer fromByteArray(byte[] byteArray) {
         this.blocoControle.fromByteArray(byteArray);
-        int indexOndeComecaOBlocoDeDados = 11;
+        int indexOndeComecaOBlocoDeDados = 11 + blocoControle.toByteArray().length;
 
         // TODO
         // blocosDados.fromByteArray();
