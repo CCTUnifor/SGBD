@@ -1,6 +1,5 @@
 package entidades.blocos;
 
-import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
@@ -42,9 +41,18 @@ public class BlocoDado implements IBinary{
 
         ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
         byteConcater
-                .concat(this.header.toByteArray());
+                .concat(this.header.toByteArray())
+                .concat(this.bytesTuples());
 
         return byteConcater.getFinalByteArray();
+    }
+
+    private byte[] bytesTuples() {
+        ByteArrayConcater bc = new ByteArrayConcater();
+        for (Linha tuple : this.tuples) {
+            bc.concat(tuple.toByteArray());
+        }
+        return bc.getFinalByteArray();
     }
 
     @Override
@@ -56,11 +64,12 @@ public class BlocoDado implements IBinary{
         int indexOndeComecaOsDados = 8;
         int i = 1;
 
-        while(indexOndeComecaOsDados <= byteArray.length) {
+        while(indexOndeComecaOsDados < byteArray.length) {
             int tamanhoLinha = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 4));
-            byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 8 + tamanhoLinha);
+            byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, tamanhoLinha);
 
             Linha tuple = new Linha(linhaBytes);
+            indexOndeComecaOsDados += tamanhoLinha;
             this.tuples.add(tuple);
         }
 

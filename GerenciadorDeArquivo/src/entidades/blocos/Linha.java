@@ -1,6 +1,8 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import utils.ByteArrayConcater;
+import utils.ByteArrayUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -19,21 +21,44 @@ public class Linha implements IBinary{
     }
 
     public int getTamanho() {
-        return this.tamanho;
+        return this.tamanho + 4;
     }
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+        ByteArrayConcater bc = new ByteArrayConcater();
+        bc.concat(ByteArrayUtils.intToBytes(getTamanho()))
+          .concat(this.bytesColunas());
+        return bc.getFinalByteArray();
+    }
+
+    private byte[] bytesColunas() {
+        ByteArrayConcater bc = new ByteArrayConcater();
+
+        for (Coluna collumn : this.colunas) {
+            bc.concat(collumn.toByteArray());
+        }
+        return bc.getFinalByteArray();
     }
 
     @Override
-    public <T> T fromByteArray(byte[] byteArray) {
-        return null;
+    public Linha fromByteArray(byte[] byteArray) {
+        this.tamanho = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 0, 4));
+
+        int indexInicio = 4;
+        while (indexInicio < byteArray.length){
+            int tamanhoColuna = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexInicio, 2));
+            byte[] bytesColuna = ByteArrayUtils.subArray(byteArray, indexInicio + 2, tamanhoColuna);
+
+            this.colunas.add(new Coluna(bytesColuna));
+            indexInicio += tamanhoColuna + 2;
+        }
+
+        return this;
     }
 
     public void adicionarColuna(String coluna) {
-        Coluna column = new Coluna(coluna.getBytes(StandardCharsets.UTF_8));
+        Coluna column = new Coluna(ByteArrayUtils.stringToByteArray(coluna));
         this.colunas.add(column);
         this.tamanho += column.getTamanho();
     }
