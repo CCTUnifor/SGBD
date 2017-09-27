@@ -40,17 +40,21 @@ public class BlocoContainer implements IBinary {
     @Override
     public BlocoContainer fromByteArray(byte[] byteArray) {
         this.blocoControle.fromByteArray(byteArray);
-        int indexOndeComecaOBlocoDeDados = blocoControle.toByteArray().length;
-
-        // TODO
-        // blocosDados.fromByteArray();
-
-        for (int i = indexOndeComecaOBlocoDeDados; i < byteArray.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
-            BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(byteArray, i, 1 + this.blocoControle.getHeader().getTamanhoDosBlocos()));
-            this.blocosDados.add(bloco);
-        }
+        this.blocosDados.addAll(this.blocoDadosFromByteArray(byteArray));
 
         return this;
+    }
+
+    private ArrayList<BlocoDado> blocoDadosFromByteArray(byte[] byteArray) {
+        ArrayList<BlocoDado> dados = new ArrayList<BlocoDado>();
+
+        int indexOndeComecaOBlocoDeDados = blocoControle.toByteArray().length;
+        for (int i = indexOndeComecaOBlocoDeDados; i < byteArray.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
+            BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(byteArray, i, this.blocoControle.getHeader().getTamanhoDosBlocos()));
+            dados.add(bloco);
+        }
+
+        return dados;
     }
 
     public void adicionarBlocos(ArrayList<BlocoDado> blocos) {

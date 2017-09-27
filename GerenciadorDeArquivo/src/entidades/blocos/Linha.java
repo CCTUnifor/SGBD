@@ -45,6 +45,8 @@ public class Linha implements IBinary{
     public Linha fromByteArray(byte[] byteArray) {
         this.tamanho = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 0, 4));
 
+        // TODO
+        //
         int indexInicio = 4;
         while (indexInicio < byteArray.length){
             int tamanhoColuna = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexInicio, 2));

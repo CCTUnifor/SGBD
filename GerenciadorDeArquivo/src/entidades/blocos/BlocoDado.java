@@ -7,14 +7,10 @@ import utils.GlobalVariables;
 
 import java.util.ArrayList;
 
-/**
- * Created by José Victor on 09/08/2017.
- */
 public class BlocoDado implements IBinary{
 
     private BlocoDadoHeader header;
     private ArrayList<Linha> tuples;
-
 
     public BlocoDado(int containerId, int blocoId) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
@@ -58,22 +54,25 @@ public class BlocoDado implements IBinary{
     @Override
     public BlocoDado fromByteArray(byte[] byteArray) {
         this.header = this.header.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 8));
-        // TODO
-        // TUPLES
+        this.tuples.addAll(this.linhasFromByteArray(byteArray));
 
+        return  this;
+    }
+
+    private ArrayList<Linha> linhasFromByteArray(byte[] byteArray) {
+        ArrayList<Linha> linhas = new ArrayList<Linha>();
         int indexOndeComecaOsDados = 8;
-        int i = 1;
 
-        while(indexOndeComecaOsDados < byteArray.length) {
+        while(indexOndeComecaOsDados < byteArray.length && indexOndeComecaOsDados < this.header.getTamanhoUsado()) {
             int tamanhoLinha = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 4));
             byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, tamanhoLinha);
 
             Linha tuple = new Linha(linhaBytes);
-            indexOndeComecaOsDados += tamanhoLinha;
-            this.tuples.add(tuple);
+            indexOndeComecaOsDados += tuple.getTamanho();
+            linhas.add(tuple);
         }
 
-        return  this;
+        return linhas;
     }
 
     public boolean adicionarTupla(Linha tupla) {

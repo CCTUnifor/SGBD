@@ -8,6 +8,7 @@ import org.junit.Test;
 import utils.GlobalVariables;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ComoGerenciadorDeArquivoPossoLerUmArquivo {
 
@@ -39,6 +40,15 @@ public class ComoGerenciadorDeArquivoPossoLerUmArquivo {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
         BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela1.txt");
 
+        Assert.assertNotEquals(container, null);
+    }
+
+    @Test
+    public void ECriarUmContainerESalvarOArquivo() throws IOException {
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela1.txt");
+
+        gerenciadorArquivo.gravarArquivo(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
         Assert.assertNotEquals(container, null);
     }
 }
