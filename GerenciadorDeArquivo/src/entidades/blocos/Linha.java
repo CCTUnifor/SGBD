@@ -21,7 +21,7 @@ public class Linha implements IBinary{
     }
 
     public int getTamanho() {
-        return this.tamanho + 4;
+        return this.tamanho;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Linha implements IBinary{
 
     @Override
     public String toString() {
-        String inf = "";
+        String inf = "Tamanho: " + this.getTamanho() + " | Informacao: ";
         for (Coluna coluna: colunas) {
             inf += coluna.getInformacao() + " | ";
         }

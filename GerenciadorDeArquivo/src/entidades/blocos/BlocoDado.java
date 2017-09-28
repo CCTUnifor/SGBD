@@ -44,6 +44,9 @@ public class BlocoDado implements IBinary{
     }
 
     private byte[] bytesTuples() {
+        if (this.tuples.size() == 0)
+            return new byte[0];
+
         ByteArrayConcater bc = new ByteArrayConcater();
         for (Linha tuple : this.tuples) {
             bc.concat(tuple.toByteArray());
@@ -76,12 +79,14 @@ public class BlocoDado implements IBinary{
     }
 
     public boolean adicionarTupla(Linha tupla) {
-        if (!ByteArrayUtils.aindaTemEspaco(this, tupla))
-            return false;
 
         this.tuples.add(tupla);
         this.header.incrementarTamanhoUsado(tupla.getTamanho());
 
         return true;
+    }
+
+    public String toString() {
+        return "Row Id: " + this.getHeader().getContainerId() + "." + this.getHeader().getBlocoId() + " | Tipo: " + this.header.getTipoBloco().toString() + " | Tuplas: " + this.tuples.size();
     }
 }

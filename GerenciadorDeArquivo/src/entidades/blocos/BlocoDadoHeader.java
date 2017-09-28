@@ -41,6 +41,10 @@ public class BlocoDadoHeader implements IBinary {
         return blocoId.getValue();
     }
 
+    public TipoBloco getTipoBloco() {
+        return tipoBloco;
+    }
+
     @Override
     public byte[] toByteArray() {
 

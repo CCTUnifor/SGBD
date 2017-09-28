@@ -178,15 +178,21 @@ public class GerenciadorArquivo implements IFileManager {
             int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();
             BlocoDado bloco = blocos.get(blocoIndex);
 
-            if (!bloco.adicionarTupla(linha)) {
+            if (podeAdicionarMaisTuple(bloco, linha, container))
+                bloco.adicionarTupla(linha);
+            else {
                 BlocoDado blocoAux = new BlocoDado(container.getContainerId(), this.blocoIdCount++);
                 blocoAux.adicionarTupla(linha);
                 blocos.add(blocoAux);
 
                 container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
             }
+
         }
 
         return blocos;
+    }
+    private boolean podeAdicionarMaisTuple(BlocoDado bloco, Linha linha, BlocoContainer container) {
+        return bloco.getHeader().getTamanhoUsado() + linha.getTamanho() <= container.getBlocoControle().getHeader().getTamanhoDosBlocos();
     }
 }
