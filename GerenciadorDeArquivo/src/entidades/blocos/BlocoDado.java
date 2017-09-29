@@ -1,13 +1,15 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
+import java.awt.color.ICC_ProfileRGB;
 import java.util.ArrayList;
 
-public class BlocoDado implements IBinary{
+public class BlocoDado implements IBinary, IPrint {
 
     private BlocoDadoHeader header;
     private ArrayList<Linha> tuples;
@@ -41,6 +43,15 @@ public class BlocoDado implements IBinary{
                 .concat(this.bytesTuples());
 
         return byteConcater.getFinalByteArray();
+    }
+
+    @Override
+    public String print() {
+        String parse = "";
+        for (Linha linha : tuples){
+            parse = linha.print() + "\n";
+        }
+        return parse;
     }
 
     private byte[] bytesTuples() {
@@ -81,7 +92,7 @@ public class BlocoDado implements IBinary{
     public boolean adicionarTupla(Linha tupla) {
 
         this.tuples.add(tupla);
-        this.header.incrementarTamanhoUsado(tupla.getTamanho());
+        this.header.incrementarTamanhoUsado(tupla.getTamanhoCompleto());
 
         return true;
     }

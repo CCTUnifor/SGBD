@@ -1,13 +1,14 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Descritor implements IBinary {
+public class Descritor implements IBinary, IPrint {
     private TipoDado tipoDado;
     private int tamanho;
     private String nome;
@@ -49,6 +50,23 @@ public class Descritor implements IBinary {
     }
 
     @Override
+    public String print() {
+        String parse = "";
+        parse += nome;
+        parse += "[";
+        if (this.tipoDado == TipoDado.INTEIRO)
+            parse += "I";
+        else
+            parse += "A";
+        parse += "]";
+        parse += "(";
+        parse += this.tamanho;
+        parse += ")";
+
+        return parse;
+    }
+
+    @Override
     public Descritor fromByteArray(byte[] byteArray) {
         int tamanhoDescritorHeader = 4;
         this.tipoDado = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, tamanhoDescritorHeader, 1), TipoDado.values());
@@ -58,3 +76,4 @@ public class Descritor implements IBinary {
         return this;
     }
 }
+

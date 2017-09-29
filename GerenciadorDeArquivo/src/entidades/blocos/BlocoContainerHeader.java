@@ -37,7 +37,7 @@ public class BlocoContainerHeader implements IBinary{
     }
 
     public void adicionarProximoBlocoLivre() {
-        this.proximoBlocoLivre++;
+        this.proximoBlocoLivre += tamanhoDosBlocos;
     }
 
     public int getTamanhoDescritor() {

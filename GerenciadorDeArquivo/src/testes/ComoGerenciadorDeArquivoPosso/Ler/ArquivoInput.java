@@ -1,4 +1,4 @@
-package testes;
+package testes.ComoGerenciadorDeArquivoPosso.Ler;
 
 import entidades.GerenciadorArquivo;
 import entidades.blocos.BlocoContainer;
@@ -8,15 +8,13 @@ import org.junit.Test;
 import utils.GlobalVariables;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
-public class ComoGerenciadorDeArquivoPossoLerUmArquivo {
-
+public class ArquivoInput {
     @Test
     public void DeEntradaECriarUmContainer() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        BlocoContainer container = gerenciadorArquivo.criarContainerPeloArquivoEntrada(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
+        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
         Assert.assertEquals(container.getBlocosDados().size(), 2);
         Assert.assertEquals(container.getBlocosDados().get(0).getHeader().getContainerId(), 1);
         Assert.assertEquals(container.getBlocosDados().get(0).getHeader().getContainerId(), 1);
@@ -28,27 +26,10 @@ public class ComoGerenciadorDeArquivoPossoLerUmArquivo {
     public void DeEntradaCompletoECriarUmContainer() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        BlocoContainer container = gerenciadorArquivo.criarContainerPeloArquivoEntrada(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
         Assert.assertNotEquals(container, null);
         Assert.assertNotEquals(container.getBlocoControle(), null);
         Assert.assertNotEquals(container.getBlocoControle().getHeader(), null);
         Assert.assertNotEquals(container.getBlocosDados(), null);
-    }
-
-    @Test
-    public void ECriarUmContainer() throws FileNotFoundException {
-        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela1.txt");
-
-        Assert.assertNotEquals(container, null);
-    }
-
-    @Test
-    public void ECriarUmContainerESalvarOArquivo() throws IOException {
-        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivo(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela1.txt");
-
-        gerenciadorArquivo.gravarArquivo(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
-        Assert.assertNotEquals(container, null);
     }
 }

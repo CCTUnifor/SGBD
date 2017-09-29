@@ -2,12 +2,13 @@ package entidades.blocos;
 
 import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.util.ArrayList;
 
-public class BlocoContainer implements IBinary {
+public class BlocoContainer implements IBinary, IPrint {
     private BlocoControle blocoControle;
     private ArrayList<BlocoDado> blocosDados;
 
@@ -35,6 +36,16 @@ public class BlocoContainer implements IBinary {
                 .concat(bytesBlocosDados());
 
         return bc.getFinalByteArray();
+    }
+
+    @Override
+    public String print() {
+        String parse = "";
+        parse += this.blocoControle.print() + "\n";
+        for (BlocoDado bloco : blocosDados) {
+            parse += bloco.print();
+        }
+        return parse;
     }
 
     @Override

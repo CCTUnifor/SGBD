@@ -1,10 +1,11 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
-public class Coluna implements IBinary {
+public class Coluna implements IBinary, IPrint {
     private int tamanho;
     private byte[] dados;
     private String informacao; // ignorado no parse para byte.
@@ -14,7 +15,7 @@ public class Coluna implements IBinary {
     }
 
     public int getTamanho() {
-        return  this.tamanho + 2;
+        return  this.tamanho;
     }
 
     @Override
@@ -25,6 +26,11 @@ public class Coluna implements IBinary {
           .concat(this.dados);
 
         return bc.getFinalByteArray();
+    }
+
+    @Override
+    public String print() {
+        return getInformacao();
     }
 
     @Override

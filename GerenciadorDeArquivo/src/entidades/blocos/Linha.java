@@ -1,13 +1,14 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class Linha implements IBinary{
+public class Linha implements IBinary, IPrint {
     private int tamanho;
     private ArrayList<Coluna> colunas;
 
@@ -24,12 +25,31 @@ public class Linha implements IBinary{
         return this.tamanho;
     }
 
+    public int getTamanhoCompleto() {
+        int soma = 4;
+
+        for (Coluna col : colunas) {
+            soma += col.getTamanho() + 2;
+        }
+
+        return soma;
+    }
+
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
-        bc.concat(ByteArrayUtils.intToBytes(getTamanho()))
+        bc.concat(ByteArrayUtils.intToBytes(getTamanhoCompleto()))
           .concat(this.bytesColunas());
         return bc.getFinalByteArray();
+    }
+
+    @Override
+    public String print() {
+        String parse = "";
+        for (Coluna col : colunas) {
+            parse += col.print() + "|";
+        }
+        return parse;
     }
 
     private byte[] bytesColunas() {

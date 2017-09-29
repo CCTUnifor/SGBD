@@ -1,6 +1,7 @@
 package entidades.blocos;
 
 import interfaces.IBinary;
+import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by José Victor on 09/08/2017.
  */
-public class BlocoControle implements IBinary{
+public class BlocoControle implements IBinary, IPrint {
     private BlocoContainerHeader blocoHeader;
     private ArrayList<Descritor> descritores;
 
@@ -29,6 +30,15 @@ public class BlocoControle implements IBinary{
         bc.concat(this.blocoHeader.toByteArray())
                 .concat(this.bytesDescritores());
         return bc.getFinalByteArray();
+    }
+
+    @Override
+    public String print() {
+        String parse = "";
+        for (Descritor descritor : descritores) {
+            parse += descritor.print() + "|";
+        }
+        return parse;
     }
 
     @Override

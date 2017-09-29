@@ -60,12 +60,13 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public void gravarArquivo(BlocoContainer container, String diretorio) throws IOException {
-        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".txt";
+    public void gravarArquivoBinario(BlocoContainer container, String diretorio) throws IOException {
+        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".bin";
 
         File file = new File(diretorioCompleto);
-        if (!file.exists())
-            file.createNewFile();
+        if (file.exists())
+            file.delete();
+        file.createNewFile();
 
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
         try {
@@ -78,7 +79,7 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer criarContainerPeloArquivoEntrada(String diretorio) throws FileNotFoundException {
+    public BlocoContainer lerArquivoInput(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         try {
@@ -102,7 +103,7 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException {
+    public BlocoContainer lerArquivoBinario(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
         BlocoContainer container = this.criarBlocoContainer();
 
@@ -125,6 +126,26 @@ public class GerenciadorArquivo implements IFileManager {
 
         container.fromByteArray(bytes);
         return container;
+    }
+
+    @Override
+    public void gravarArquivoTexto(BlocoContainer container, String diretorio) throws IOException {
+        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".txt";
+
+        File file = new File(diretorioCompleto);
+        if (file.exists())
+            file.delete();
+        file.createNewFile();
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        try {
+
+            randomAccessFile.writeUTF(container.print());
+            randomAccessFile.close();
+        }catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     private ArrayList<String> popularLinhas(RandomAccessFile randomAccessFile) throws IOException {
@@ -176,7 +197,7 @@ public class GerenciadorArquivo implements IFileManager {
 
         for (Linha linha: tuples) {
             int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();
-            BlocoDado bloco = blocos.get(blocoIndex);
+            BlocoDado bloco = blocos.get(blocoIndex / container.getBlocoControle().getHeader().getTamanhoDosBlocos());
 
             if (podeAdicionarMaisTuple(bloco, linha, container))
                 bloco.adicionarTupla(linha);
@@ -187,12 +208,15 @@ public class GerenciadorArquivo implements IFileManager {
 
                 container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
             }
-
         }
 
         return blocos;
     }
     private boolean podeAdicionarMaisTuple(BlocoDado bloco, Linha linha, BlocoContainer container) {
-        return bloco.getHeader().getTamanhoUsado() + linha.getTamanho() <= container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+        int tamanhoMaximoBloco = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+        int tamanhoUsadoDoBloco = bloco.getHeader().getTamanhoUsado();
+        int tamanhoTupla = linha.getTamanhoCompleto();
+
+        return tamanhoUsadoDoBloco + tamanhoTupla <= tamanhoMaximoBloco;
     }
 }

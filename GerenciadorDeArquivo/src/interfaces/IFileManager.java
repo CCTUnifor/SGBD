@@ -18,8 +18,10 @@ public interface IFileManager {
     public BlocoContainer criarBlocoContainer();
     public BlocoContainer criarBlocoContainer(String linha) throws BlocoSemEspacoException;
 
-    public void gravarArquivo(BlocoContainer container, String diretorio) throws IOException;
-    public BlocoContainer criarContainerPeloArquivoEntrada(String diretorio) throws FileNotFoundException;
+    public void gravarArquivoBinario(BlocoContainer container, String diretorio) throws IOException;
+    public BlocoContainer lerArquivoInput(String diretorio) throws FileNotFoundException;
 
-    BlocoContainer lerArquivo(String diretorio) throws FileNotFoundException;
+    BlocoContainer lerArquivoBinario(String diretorio) throws FileNotFoundException;
+
+    void gravarArquivoTexto(BlocoContainer container, String localArquivoFinal) throws IOException;
 }
