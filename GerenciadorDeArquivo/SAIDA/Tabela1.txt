@@ -1,4 +1,4 @@
-¹COD_FORN[I](6)|NOME_FORN[A](25)|END_FORN[A](40)|NASC_FORN[I](4)|FON_FORN[A](15)|COM_CLI[A](101)|
+COD_FORN[I](6)|NOME_FORN[A](25)|END_FORN[A](40)|NASC_FORN[I](4)|FON_FORN[A](15)|COM_CLI[A](101)|
 4195|Supplier#000004195|NHCu,qYwb21TrXtL8iXEI4QZ|11|21-437-493-6911|s. furiously special requests are. ironically regular packages doubt alongside o|
 639|Supplier#000000639|WGqnQRU1xoC,UV9xDGjc48rC4Cow4|9|19-128-575-2303|sual theodolites. slyly even accounts according to the quickly special accounts are f|
 5405|Supplier#000005405|bELF8cmaclvh7MHsX,Hlj6ncsPqO5NaM52iO|24|34-803-485-7225|y ironic instructions kindle along the final packages. care|
@@ -33,12 +33,14 @@
 4726|Supplier#000004726|m8N5E7nFKIx6ot,I,k W2Ry51a6p1nJksAJko4M|14|24-806-459-3252|bold packages. unusual ac|
 5174|Supplier#000005174|ZeXBGYhZj,uAq8m5gyYWM8|6|16-284-735-1835|blithely. doggedly bold deposits sleep bold, silent excuses. bold ideas affix. care|
 6987|Supplier#000006987|UH1zBxTNjTminnmHRe h YUT1eR|11|21-963-444-7397|nag quickly carefully regular requests. ironic theo|
+3104|Supplier#000003104|j7PAWf2Bo70YiHbpsdAtlvnIm|9|19-957-831-5492|sly silent requests are. |
 1847|Supplier#000001847|0GAs3udWD8IfclOsoK22YxTDtHj|5|15-843-949-5894|the fluffily bold asymptotes. s|
 2162|Supplier#000002162|6ya g3MW991n9JfhxSrvgM|6|16-859-508-4893|eep slyly ironic accounts.|
 7204|Supplier#000007204|oYlakHfCcD,V7m8e4hVEW7Dn4kpPEou2yZdFIP|1|11-479-802-6397|leep. ideas according to the carefully final instructions detect quic|
 9351|Supplier#000009351|v5wkgMFXQS8p2fTYOj|19|29-982-545-5258|d the pending pinto beans. carefully ironic frets sleep along the slyly special ideas. |
 5577|Supplier#000005577|,p,phwcYp02ArlwhKoYr8cxGlLJOonXGTTOrYnJv|24|34-657-825-9283|eans after the even dolphins integrate across the accounts. Tiresias haggle at the fluffily unusual|
 5587|Supplier#000005587|Fb3AyX2CBKDQMn43xSw0Ao5|10|20-362-816-1839| silent theodolites. final, bold escapades cajole even accounts. furiously even waters are? special |
+8958|Supplier#000008958|N9yYTKnPjC|21|31-489-620-6997|sts above the slyly ironic packages affix slyly|
 8739|Supplier#000008739|vwv7Oaf9zPCO|20|30-741-515-8775|ts integrate final, express accounts.|
 5909|Supplier#000005909|nNWQMGlzCaHxeMolpKtCuCz9ODpfDi0Se 5PA9V|21|31-222-156-7882|es affix fluffily around the request|
 2164|Supplier#000002164|dHpsS5Q u3APFpi03kXi ouPsMd3nozIi|17|27-162-482-9692|leep carefully carefully ironic packages. special, even requests amon|

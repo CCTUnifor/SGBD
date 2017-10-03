@@ -49,7 +49,7 @@ public class BlocoDado implements IBinary, IPrint {
     public String print() {
         String parse = "";
         for (Linha linha : tuples){
-            parse = linha.print() + "\n";
+            parse += linha.print() + "\n";
         }
         return parse;
     }

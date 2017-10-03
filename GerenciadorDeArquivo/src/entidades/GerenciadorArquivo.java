@@ -213,10 +213,11 @@ public class GerenciadorArquivo implements IFileManager {
         return blocos;
     }
     private boolean podeAdicionarMaisTuple(BlocoDado bloco, Linha linha, BlocoContainer container) {
+        int tamanhoHeader = 8;
         int tamanhoMaximoBloco = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
         int tamanhoUsadoDoBloco = bloco.getHeader().getTamanhoUsado();
         int tamanhoTupla = linha.getTamanhoCompleto();
 
-        return tamanhoUsadoDoBloco + tamanhoTupla <= tamanhoMaximoBloco;
+        return tamanhoUsadoDoBloco + tamanhoTupla + tamanhoHeader <= tamanhoMaximoBloco;
     }
 }
