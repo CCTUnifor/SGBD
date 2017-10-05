@@ -97,6 +97,10 @@ public class BlocoDado implements IBinary, IPrint {
         return true;
     }
 
+    public ArrayList<Linha> getTuples() {
+        return this.tuples;
+    }
+
     public String toString() {
         return "Row Id: " + this.getHeader().getContainerId() + "." + this.getHeader().getBlocoId() + " | Tipo: " + this.header.getTipoBloco().toString() + " | Tuplas: " + this.tuples.size();
     }

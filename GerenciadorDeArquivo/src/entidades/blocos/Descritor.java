@@ -20,8 +20,12 @@ public class Descritor implements IBinary, IPrint {
 
         Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
         Matcher mat = pat.matcher(coluna);
-        if (mat.find())
-            this.tamanho = Integer.parseInt(mat.group(1));
+        if (mat.find()){
+            if (this.tipoDado == TipoDado.INTEIRO)
+                this.tamanho = 4;
+            else
+                this.tamanho = Integer.parseInt(mat.group(1));
+        }
 
     }
 
