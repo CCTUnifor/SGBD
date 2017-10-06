@@ -1,7 +1,7 @@
 package entidades;
 
 import entidades.blocos.BlocoContainer;
-import entidades.blocos.Linha;
+import entidades.blocos.RowId;
 
 import java.io.File;
 import java.io.IOException;

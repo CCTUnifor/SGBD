@@ -1,12 +1,10 @@
 package entidades.blocos;
 
-import entidades.TipoBloco;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
-import utils.GlobalVariables;
 
 public class BlocoDadoHeader implements IBinary {
 

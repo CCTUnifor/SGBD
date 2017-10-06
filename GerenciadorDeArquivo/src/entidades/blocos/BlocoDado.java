@@ -13,6 +13,7 @@ public class BlocoDado implements IBinary, IPrint {
 
     private BlocoDadoHeader header;
     private ArrayList<Linha> tuples;
+    private int posicaoLRU;
 
     public BlocoDado(int containerId, int blocoId) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
@@ -99,6 +100,14 @@ public class BlocoDado implements IBinary, IPrint {
 
     public ArrayList<Linha> getTuples() {
         return this.tuples;
+    }
+
+    public int getPosicaoLRU() {
+        return posicaoLRU;
+    }
+
+    public void setPosicaoLRU(int posicaoLRU) {
+        this.posicaoLRU = posicaoLRU;
     }
 
     public String toString() {

@@ -1,21 +1,16 @@
 package entidades;
 
 import entidades.blocos.*;
-import exceptions.BlocoSemEspacoException;
 import exceptions.ContainerNoExistent;
 import interfaces.IFileManager;
-import sun.nio.cs.StandardCharsets;
-import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.lang.reflect.Array;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
 
 public class GerenciadorArquivo implements IFileManager {
 
@@ -46,30 +41,16 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public void gravarArquivoBinario(BlocoContainer container, String diretorio) throws IOException {
-        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".bin";
-
-        File file = new File(diretorioCompleto);
-        if (file.exists())
-            file.delete();
-        file.createNewFile();
-
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-            randomAccessFile.write(container.toByteArray());
-            randomAccessFile.close();
-        }catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
+    public void commit(BlocoContainer container) throws IOException {
+        String diretorioCompleto = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + container.getContainerId() + ".bin";
+        GerenciadorDeIO.gravarBytes(diretorioCompleto, container.toByteArray());
     }
 
     @Override
-    public BlocoContainer lerArquivoInput(String diretorio) throws FileNotFoundException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+    public BlocoContainer getContainerByInput(String diretorio) throws FileNotFoundException {
 
         try {
-            ArrayList<String> linhas = this.popularLinhas(randomAccessFile);
+            ArrayList<String> linhas = GerenciadorDeIO.getStrings(diretorio);
             BlocoContainer container = new BlocoContainer(++this.containerIdCount);
             container.getBlocoControle().adicionarDescritores(this.popularDescritores(container, linhas.get(0)));
 
@@ -78,7 +59,6 @@ public class GerenciadorArquivo implements IFileManager {
 
             container.adicionarBlocos(blocos);
 
-            randomAccessFile.close();
             return container;
 
         } catch (IOException e) {
@@ -89,49 +69,19 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer lerArquivoBinario(String diretorio) throws FileNotFoundException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+    public BlocoContainer getContainer(int containerId) throws FileNotFoundException {
         BlocoContainer container = this.criarBlocoContainer();
+        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + containerId + ".bin";
 
-        byte[] bytes = null;
-
-        try {
-            int tamanho = (int) randomAccessFile.length();
-            if (tamanho == 0)
-                return null;
-
-            bytes = new byte[tamanho];
-            for (int i = 0; i < tamanho; i++){
-                bytes[i] = randomAccessFile.readByte();
-            }
-
-        }catch (IOException e){
-            this.containerIdCount--;
-            System.out.println(e.getMessage());
-        }
-
+        byte[] bytes = GerenciadorDeIO.getBytes(diretorio);
         container.fromByteArray(bytes);
         return container;
     }
 
     @Override
-    public void gravarArquivoTexto(BlocoContainer container, String diretorio) throws IOException {
-        String diretorioCompleto = diretorio + "Tabela" + container.getContainerId() + ".txt";
-
-        File file = new File(diretorioCompleto);
-        if (file.exists())
-            file.delete();
-        file.createNewFile();
-
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-
-            randomAccessFile.writeUTF(container.print());
-            randomAccessFile.close();
-        }catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
+    public void gravarArquivoTexto(BlocoContainer container) throws IOException {
+        String diretorioCompleto = GlobalVariables.LOCAL_ARQUIVO_FINAL_TEXTO  + "Tabela" + container.getContainerId() + ".txt";
+        GerenciadorDeIO.gravarString(diretorioCompleto, container.print());
     }
 
     @Override
@@ -156,20 +106,6 @@ public class GerenciadorArquivo implements IFileManager {
             System.out.println(e.getMessage());
         }
         return container.getBloco(bytes, rowId);
-    }
-
-    private ArrayList<String> popularLinhas(RandomAccessFile randomAccessFile) throws IOException {
-        ArrayList<String> linhas = new ArrayList<String>();
-
-        String linhaAux = null;
-        do {
-            linhaAux = randomAccessFile.readLine();
-            if (linhaAux != null) {
-                linhas.add(linhaAux);
-            }
-        } while (linhaAux != null);
-
-        return linhas;
     }
 
     private ArrayList<Descritor> popularDescritores(BlocoContainer container, String descritor) {
@@ -201,7 +137,7 @@ public class GerenciadorArquivo implements IFileManager {
         return tuplas;
     }
 
-    private ArrayList<BlocoDado> popularBlocos(BlocoContainer container, ArrayList<Linha> tuples) {
+    private ArrayList<BlocoDado> popularBlocos(BlocoContainer container, ArrayList<Linha> tuples) throws IOException {
         ArrayList<BlocoDado> blocos = new ArrayList<BlocoDado>();
         blocos.add(new BlocoDado(container.getContainerId(), this.blocoIdCount++)); // primeiro bloco
 
@@ -212,11 +148,15 @@ public class GerenciadorArquivo implements IFileManager {
             if (podeAdicionarMaisTuple(bloco, linha, container))
                 bloco.adicionarTupla(linha);
             else {
+
                 BlocoDado blocoAux = new BlocoDado(container.getContainerId(), this.blocoIdCount++);
                 blocoAux.adicionarTupla(linha);
+
                 blocos.add(blocoAux);
+                container.adicionarBloco(blocoAux);
 
                 container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
+                this.commit(container);
             }
         }
 

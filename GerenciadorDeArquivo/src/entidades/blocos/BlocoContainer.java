@@ -1,7 +1,5 @@
 package entidades.blocos;
 
-import entidades.RowId;
-import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
@@ -91,5 +89,9 @@ public class BlocoContainer implements IBinary, IPrint {
         }
 
         return null;
+    }
+
+    public void adicionarBloco(BlocoDado bloco) {
+        this.blocosDados.add(bloco);
     }
 }

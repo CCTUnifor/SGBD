@@ -1,4 +1,4 @@
-package entidades;
+package entidades.blocos;
 
 public enum TipoBloco {
     DADOS,

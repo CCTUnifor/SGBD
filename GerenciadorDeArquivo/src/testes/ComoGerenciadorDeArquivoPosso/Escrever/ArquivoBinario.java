@@ -12,26 +12,19 @@ public class ArquivoBinario {
     @Test
     public void GravarArquivoBasico() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
-
-        gerenciadorArquivo.gravarArquivoBinario(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        BlocoContainer container = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
     }
 
     @Test
     public void GravarArquivoCompleto() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
-
-        gerenciadorArquivo.gravarArquivoBinario(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        BlocoContainer container = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
     }
 
     @Test
     public void GravarDoisArquivosCompleto() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
-        BlocoContainer container2 = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
-
-        gerenciadorArquivo.gravarArquivoBinario(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
-        gerenciadorArquivo.gravarArquivoBinario(container2, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        BlocoContainer container = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        BlocoContainer container2 = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
     }
 }

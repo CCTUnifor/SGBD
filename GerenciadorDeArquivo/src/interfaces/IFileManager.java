@@ -1,28 +1,25 @@
 package interfaces;
 
-import entidades.RowId;
+import entidades.blocos.RowId;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoDado;
-import entidades.blocos.Linha;
-import exceptions.BlocoSemEspacoException;
 import exceptions.ContainerNoExistent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public interface IFileManager {
     public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
-    BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
+    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
+    public BlocoDado lerBloco(RowId rowId) throws FileNotFoundException;
 
     public BlocoContainer criarBlocoContainer();
 
-    public void gravarArquivoBinario(BlocoContainer container, String diretorio) throws IOException;
-    public BlocoContainer lerArquivoInput(String diretorio) throws FileNotFoundException;
+    public void commit(BlocoContainer container) throws IOException;
+    public BlocoContainer getContainerByInput(String diretorio) throws FileNotFoundException;
 
-    public BlocoContainer lerArquivoBinario(String diretorio) throws FileNotFoundException;
+    public BlocoContainer getContainer(int containerId) throws FileNotFoundException;
 
-    public void gravarArquivoTexto(BlocoContainer container, String localArquivoFinal) throws IOException;
+    public void gravarArquivoTexto(BlocoContainer container) throws IOException;
 
-    public BlocoDado lerBloco(RowId rowId) throws FileNotFoundException;
 }

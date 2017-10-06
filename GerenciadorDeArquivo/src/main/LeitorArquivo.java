@@ -11,7 +11,7 @@ public class LeitorArquivo {
 
     public static void main(String[] args) throws IOException {
         gerarArquivoBinario("teste.txt");
-        //lerArquivoBinario("dadosBinarios.bin");
+        //getContainer("dadosBinarios.bin");
 
     }
 
