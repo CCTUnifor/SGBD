@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Scanner;
-
 /**
  * Created by José Victor on 05/08/2017.
  */
@@ -12,7 +11,7 @@ public class LeitorArquivo {
 
     public static void main(String[] args) throws IOException {
         gerarArquivoBinario("teste.txt");
-        //lerArquivoBinario("dadosBinarios.bin");
+        //getContainer("dadosBinarios.bin");
 
     }
 
