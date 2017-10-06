@@ -24,4 +24,14 @@ public class ArquivoBinario {
 
         gerenciadorArquivo.gravarArquivoBinario(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
     }
+
+    @Test
+    public void GravarDoisArquivosCompleto() throws IOException {
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoContainer container = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        BlocoContainer container2 = gerenciadorArquivo.lerArquivoInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
+
+        gerenciadorArquivo.gravarArquivoBinario(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        gerenciadorArquivo.gravarArquivoBinario(container2, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+    }
 }

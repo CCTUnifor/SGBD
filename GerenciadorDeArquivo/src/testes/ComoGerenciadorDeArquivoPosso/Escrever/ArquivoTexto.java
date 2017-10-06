@@ -19,4 +19,15 @@ public class ArquivoTexto {
         gerenciadorArquivo.gravarArquivoTexto(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
         Assert.assertNotEquals(container, null);
     }
+
+    @Test
+    public void ECriarUmContainerESalvarEmUmArquivo2() throws IOException {
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoContainer container = gerenciadorArquivo.lerArquivoBinario(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela1.bin");
+        BlocoContainer container2 = gerenciadorArquivo.lerArquivoBinario(GlobalVariables.LOCAL_ARQUIVO_FINAL + "Tabela2.bin");
+
+        gerenciadorArquivo.gravarArquivoTexto(container, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        gerenciadorArquivo.gravarArquivoTexto(container2, GlobalVariables.LOCAL_ARQUIVO_FINAL);
+        Assert.assertNotEquals(container, null);
+    }
 }

@@ -31,13 +31,6 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoDado criarBlocoDeDado(int containerId, ArrayList<Linha> dados) throws ContainerNoExistent {
-        BlocoDado bloco = new BlocoDado(containerId, this.blocoIdCount++, dados);
-
-        return bloco;
-    }
-
-    @Override
     public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent {
         BlocoDado bloco = new BlocoDado(bytes);
         if (bloco.getHeader().getContainerId() < this.containerIdCount)
@@ -49,13 +42,6 @@ public class GerenciadorArquivo implements IFileManager {
     @Override
     public BlocoContainer criarBlocoContainer() {
         BlocoContainer container = new BlocoContainer(++this.containerIdCount);
-        return container;
-    }
-
-    @Override
-    public BlocoContainer criarBlocoContainer(String linha) throws BlocoSemEspacoException {
-        BlocoContainer container = new BlocoContainer(++this.containerIdCount);
-
         return container;
     }
 
@@ -146,6 +132,30 @@ public class GerenciadorArquivo implements IFileManager {
         {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public BlocoDado lerBloco(RowId rowId) throws FileNotFoundException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(GlobalVariables.LOCAL_ARQUIVO_FINAL + "/Tabela" + rowId.getContainerId() + ".bin", "r");
+        BlocoContainer container = this.criarBlocoContainer();
+
+        byte[] bytes = null;
+
+        try {
+            int tamanho = (int) randomAccessFile.length();
+            if (tamanho == 0)
+                return null;
+
+            bytes = new byte[tamanho];
+            for (int i = 0; i < tamanho; i++){
+                bytes[i] = randomAccessFile.readByte();
+            }
+
+        }catch (IOException e){
+            this.containerIdCount--;
+            System.out.println(e.getMessage());
+        }
+        return container.getBloco(bytes, rowId);
     }
 
     private ArrayList<String> popularLinhas(RandomAccessFile randomAccessFile) throws IOException {

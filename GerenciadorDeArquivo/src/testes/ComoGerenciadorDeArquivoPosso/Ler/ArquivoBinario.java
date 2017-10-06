@@ -1,14 +1,15 @@
 package testes.ComoGerenciadorDeArquivoPosso.Ler;
 
 import entidades.GerenciadorArquivo;
+import entidades.RowId;
 import entidades.blocos.BlocoContainer;
+import entidades.blocos.BlocoDado;
 import interfaces.IFileManager;
 import org.junit.Assert;
 import org.junit.Test;
 import utils.GlobalVariables;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class ArquivoBinario {
     @Test
@@ -19,4 +20,37 @@ public class ArquivoBinario {
         Assert.assertNotEquals(container, null);
     }
 
+    @Test
+    public void Bloco() throws FileNotFoundException {
+        RowId rowId = new RowId(1, 1);
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
+
+        Assert.assertNotEquals(container, null);
+        Assert.assertEquals(container.getHeader().getContainerId(), rowId.getContainerId());
+        Assert.assertEquals(container.getHeader().getBlocoId(), rowId.getBlocoId());
+    }
+
+    @Test
+    public void Bloco2() throws FileNotFoundException {
+        RowId rowId = new RowId(1, 4);
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
+
+        Assert.assertNotEquals(container, null);
+        Assert.assertEquals(container.getHeader().getContainerId(), rowId.getContainerId());
+        Assert.assertEquals(container.getHeader().getBlocoId(), rowId.getBlocoId());
+    }
+
+
+    @Test (expected = FileNotFoundException.class)
+    public void Bloco3() throws FileNotFoundException {
+        RowId rowId = new RowId(15, 2);
+        IFileManager gerenciadorArquivo = new GerenciadorArquivo();
+        BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
+
+        Assert.assertNotEquals(container, null);
+        Assert.assertEquals(container.getHeader().getContainerId(), rowId.getContainerId());
+        Assert.assertEquals(container.getHeader().getBlocoId(), rowId.getBlocoId());
+    }
 }

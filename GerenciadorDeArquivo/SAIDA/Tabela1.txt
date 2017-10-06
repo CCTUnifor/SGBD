@@ -1,4 +1,4 @@
-COD_FORN[I](6)|NOME_FORN[A](25)|END_FORN[A](40)|NASC_FORN[I](4)|FON_FORN[A](15)|COM_CLI[A](101)|
+COD_FORN[I](4)|NOME_FORN[A](25)|END_FORN[A](40)|NASC_FORN[I](4)|FON_FORN[A](15)|COM_CLI[A](101)|
 4195|Supplier#000004195|NHCu,qYwb21TrXtL8iXEI4QZ|11|21-437-493-6911|s. furiously special requests are. ironically regular packages doubt alongside o|
 639|Supplier#000000639|WGqnQRU1xoC,UV9xDGjc48rC4Cow4|9|19-128-575-2303|sual theodolites. slyly even accounts according to the quickly special accounts are f|
 5405|Supplier#000005405|bELF8cmaclvh7MHsX,Hlj6ncsPqO5NaM52iO|24|34-803-485-7225|y ironic instructions kindle along the final packages. care|

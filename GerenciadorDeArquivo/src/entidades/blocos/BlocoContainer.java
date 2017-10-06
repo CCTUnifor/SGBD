@@ -1,5 +1,6 @@
 package entidades.blocos;
 
+import entidades.RowId;
 import exceptions.BlocoSemEspacoException;
 import interfaces.IBinary;
 import interfaces.IPrint;
@@ -67,7 +68,6 @@ public class BlocoContainer implements IBinary, IPrint {
 
         return dados;
     }
-
     public void adicionarBlocos(ArrayList<BlocoDado> blocos) {
         this.blocosDados.addAll(blocos);
     }
@@ -78,5 +78,18 @@ public class BlocoContainer implements IBinary, IPrint {
             bc.concat(bloco.toByteArray());
         }
         return bc.getFinalByteArray();
+    }
+
+    public BlocoDado getBloco(byte[] bytes, RowId rowId) {
+        this.blocoControle.fromByteArray(bytes);
+
+        int indexOndeComecaOBlocoDeDados = blocoControle.toByteArray().length;
+        for (int i = indexOndeComecaOBlocoDeDados; i < bytes.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
+            BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(bytes, i, this.blocoControle.getHeader().getTamanhoDosBlocos()));
+            if (bloco.getHeader().getContainerId() == rowId.getContainerId() && bloco.getHeader().getBlocoId() == rowId.getBlocoId())
+                return bloco;
+        }
+
+        return null;
     }
 }
