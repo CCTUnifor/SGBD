@@ -3,6 +3,7 @@ package entidades.LeastRecentlyUsed;
 import entidades.blocos.BlocoDado;
 
 public class LRU {
+
     private Node first;
     private Node last;
 
@@ -11,7 +12,7 @@ public class LRU {
         this.last = null;
     }
 
-    public void addBlock(BlocoDado block)
+    public void addBlock(Block block)
     {
         Node newNodeLRU = new Node(block);
         if(this.first == null)
@@ -26,14 +27,14 @@ public class LRU {
         }
     }
 
-    public int removeBlock(BlocoDado blockAdd)
+    public int removeBlock(Block blockAdd)
     {
         int positionBlockDelete = -1;
         if(!empty())
         {
-            if(this.first == this.last)
+            if(this.first == this.last)//este if não vai ser executado devido remove acontecer quando o buffer estiver cheio
             {
-                blockAdd.setPosicaoLRU(1);
+                blockAdd.setPosition(0);
                 this.first = null;
                 this.last = null;
                 positionBlockDelete = 0;
@@ -43,18 +44,60 @@ public class LRU {
             {
                 Node node = this.first;
                 while((node.getNextNode() != null) && (node.getNextNode() != this.last)) node = node.getNextNode();
-                positionBlockDelete = node.getNextNode().getBlock().getPosicaoLRU();
-                node.setNextNode(null);
+                positionBlockDelete = node.getNextNode().getBlock().getPosition();
+                if(node.getNextNode() != null)
+                {
+                    node.setNextNode(node.getNextNode().getNextNode());
+                }
+                else
+                {
+                    node.setNextNode(null);
+                }
                 this.last = node;
-                blockAdd.setPosicaoLRU(positionBlockDelete);
+                blockAdd.setPosition(positionBlockDelete);
                 addBlock(blockAdd);
             }
             return  positionBlockDelete;
         }
-        else
+        else //este else não ocorre, pois a lru só é chama quando o buffer está cheio e neste caso lru já tem elementos incluidos
         {
             return positionBlockDelete;
         }
+    }
+
+    public Block search(Block block)
+    {
+        if(this.first.getBlock().equals(block))
+        {
+            return this.first.getBlock();
+        }
+        else
+        {
+            Node node = this.first.getNextNode();
+            Node ant = this.first;
+            while(node != null)
+            {
+                if(node.getBlock().equals(block))
+                {
+                    //shifitar para o inicio e retornar
+                    if(node.getNextNode() != null)
+                    {
+                        this.addBlock(node.getBlock());
+                        ant.setNextNode(node.getNextNode());
+                        node.setNextNode(null);
+                    }
+                    else{
+                        this.addBlock(node.getBlock());
+                        ant.setNextNode(null);
+                        this.last = ant;
+                    }
+                    return  this.first.getBlock();
+                }
+                ant = node;
+                node = node.getNextNode();
+            }
+        }
+        return null;
     }
 
     public boolean empty()
