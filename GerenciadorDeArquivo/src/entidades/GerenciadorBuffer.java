@@ -19,10 +19,10 @@ public class GerenciadorBuffer {
         this.miss = 0;
     }
 
-    public Block addBlock(Block block) {
+    public BlocoDado addBlock(BlocoDado block) {
         if(checkSize())
         {
-            block.setPosition((this.countPages));
+            block.setPosicaoLRU((this.countPages));
             this.blocks[this.countPages] = block;
             this.lru.addBlock(block);
             return this.blocks[this.countPages++];
@@ -42,9 +42,9 @@ public class GerenciadorBuffer {
         }
         return null;
     }
-    public Block searchBlock(Block block)
+    public BlocoDado searchBlock(BlocoDado block)
     {
-        Block result = this.lru.search(block);
+        BlocoDado result = this.lru.search(block);
         if(result == null)
         {
             this.miss++;
@@ -52,7 +52,7 @@ public class GerenciadorBuffer {
         }
         else{
             this.hit++;
-            return this.blocks[result.getPosition()];
+            return this.blocks[result.getPosicaoLRU()];
         }
     }
     public boolean checkSize(){

@@ -12,7 +12,7 @@ public class LRU {
         this.last = null;
     }
 
-    public void addBlock(Block block)
+    public void addBlock(BlocoDado block)
     {
         Node newNodeLRU = new Node(block);
         if(this.first == null)
@@ -27,14 +27,14 @@ public class LRU {
         }
     }
 
-    public int removeBlock(Block blockAdd)
+    public int removeBlock(BlocoDado blockAdd)
     {
         int positionBlockDelete = -1;
         if(!empty())
         {
             if(this.first == this.last)//este if não vai ser executado devido remove acontecer quando o buffer estiver cheio
             {
-                blockAdd.setPosition(0);
+                blockAdd.setPosicaoLRU(0);
                 this.first = null;
                 this.last = null;
                 positionBlockDelete = 0;
@@ -44,7 +44,7 @@ public class LRU {
             {
                 Node node = this.first;
                 while((node.getNextNode() != null) && (node.getNextNode() != this.last)) node = node.getNextNode();
-                positionBlockDelete = node.getNextNode().getBlock().getPosition();
+                positionBlockDelete = node.getNextNode().getBlock().getPosicaoLRU();
                 if(node.getNextNode() != null)
                 {
                     node.setNextNode(node.getNextNode().getNextNode());
@@ -54,7 +54,7 @@ public class LRU {
                     node.setNextNode(null);
                 }
                 this.last = node;
-                blockAdd.setPosition(positionBlockDelete);
+                blockAdd.setPosicaoLRU(positionBlockDelete);
                 addBlock(blockAdd);
             }
             return  positionBlockDelete;
@@ -65,7 +65,7 @@ public class LRU {
         }
     }
 
-    public Block search(Block block)
+    public BlocoDado search(BlocoDado block)
     {
         if(this.first.getBlock().equals(block))
         {
