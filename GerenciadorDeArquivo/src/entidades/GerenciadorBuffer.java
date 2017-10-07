@@ -19,7 +19,7 @@ public class GerenciadorBuffer {
         this.miss = 0;
     }
 
-    public Block addBlock(Block block) {
+    private Block addBlock(Block block) {
         if(checkSize())
         {
             block.setPosition((this.countPages));
@@ -55,10 +55,26 @@ public class GerenciadorBuffer {
             return this.blocks[result.getPosition()];
         }
     }
-    public boolean checkSize(){
+
+    public void viewBuffer_LRU()
+    {
+        this.lru.viewLRU();
+    }
+
+    private boolean checkSize(){
         return this.countPages < this.blocks.length ? true : false;
     }
+
     public float taxaAcerto(){
-        return (float)this.hit / (float)(this.hit+this.miss);
+        return 1 - ((float)this.hit / (float)(this.hit+this.miss));
+    }
+
+    public int getHit(){
+        return this.hit;
+    }
+
+    public int getMiss()
+    {
+        return this.miss;
     }
 }

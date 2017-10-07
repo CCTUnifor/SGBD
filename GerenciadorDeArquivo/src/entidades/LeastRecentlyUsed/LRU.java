@@ -67,40 +67,41 @@ public class LRU {
 
     public Block search(Block block)
     {
-        if(this.first.getBlock().equals(block))
+        if(!empty())
         {
-            return this.first.getBlock();
-        }
-        else
-        {
-            Node node = this.first.getNextNode();
-            Node ant = this.first;
-            while(node != null)
-            {
-                if(node.getBlock().equals(block))
-                {
-                    //shifitar para o inicio e retornar
-                    if(node.getNextNode() != null)
-                    {
-                        this.addBlock(node.getBlock());
-                        ant.setNextNode(node.getNextNode());
-                        node.setNextNode(null);
+            if (this.first.getBlock().equals(block)) {
+                return this.first.getBlock();
+            } else {
+                Node node = this.first.getNextNode();
+                Node ant = this.first;
+                while (node != null) {
+                    if (node.getBlock().equals(block)) {
+                        if (node.getNextNode() != null) {
+                            this.addBlock(node.getBlock());
+                            ant.setNextNode(node.getNextNode());
+                            node.setNextNode(null);
+                        } else {
+                            this.addBlock(node.getBlock());
+                            ant.setNextNode(null);
+                            this.last = ant;
+                        }
+                        return this.first.getBlock();
                     }
-                    else{
-                        this.addBlock(node.getBlock());
-                        ant.setNextNode(null);
-                        this.last = ant;
-                    }
-                    return  this.first.getBlock();
+                    ant = node;
+                    node = node.getNextNode();
                 }
-                ant = node;
-                node = node.getNextNode();
             }
         }
         return null;
     }
-
-    public boolean empty()
+    public void viewLRU()
+    {
+        for (Node node = this.first; node != null; node = node.getNextNode())
+        {
+            System.out.println(node.getBlock().getId()+" - "+node.getBlock().getPosition());
+        }
+    }
+    private boolean empty()
     {
         return this.first == null ? true : false;
     }
