@@ -97,7 +97,7 @@ public class LRU {
     {
         for (Node node = this.first; node != null; node = node.getNextNode())
         {
-            System.out.println(node.getBlock().getId()+" - "+node.getBlock().getPosition());
+            System.out.println(node.getBlock().getHeader().getBlocoId()+" - "+node.getBlock().getPosicaoLRU());
         }
     }
     private boolean empty()

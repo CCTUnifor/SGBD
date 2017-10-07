@@ -54,10 +54,7 @@ public class Linha implements IBinary, IPrint {
 
     private byte[] bytesColunas() {
         ByteArrayConcater bc = new ByteArrayConcater();
-
-        for (Coluna collumn : this.colunas) {
-            bc.concat(collumn.toByteArray());
-        }
+        this.colunas.stream().forEach(x -> bc.concat(x.toByteArray()));
         return bc.getFinalByteArray();
     }
 

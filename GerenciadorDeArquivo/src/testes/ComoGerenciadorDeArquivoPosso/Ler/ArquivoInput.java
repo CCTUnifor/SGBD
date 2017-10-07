@@ -14,7 +14,7 @@ public class ArquivoInput {
     public void DeEntradaECriarUmContainer() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        BlocoContainer container = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
+        BlocoContainer container = gerenciadorArquivo.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
         Assert.assertEquals(container.getBlocosDados().size(), 2);
         Assert.assertEquals(container.getBlocosDados().get(0).getHeader().getContainerId(), 1);
         Assert.assertEquals(container.getBlocosDados().get(0).getHeader().getContainerId(), 1);
@@ -26,7 +26,7 @@ public class ArquivoInput {
     public void DeEntradaCompletoECriarUmContainer() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
 
-        BlocoContainer container = gerenciadorArquivo.getContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        BlocoContainer container = gerenciadorArquivo.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
         Assert.assertNotEquals(container, null);
         Assert.assertNotEquals(container.getBlocoControle(), null);
         Assert.assertNotEquals(container.getBlocoControle().getHeader(), null);

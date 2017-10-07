@@ -72,9 +72,7 @@ public class BlocoContainer implements IBinary, IPrint {
 
     private byte[] bytesBlocosDados() {
         ByteArrayConcater bc = new ByteArrayConcater();
-        for (BlocoDado bloco : this.blocosDados) {
-            bc.concat(bloco.toByteArray());
-        }
+        this.blocosDados.stream().forEach(bloco -> bc.concat(bloco.toByteArray()));
         return bc.getFinalByteArray();
     }
 

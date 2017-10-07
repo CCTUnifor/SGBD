@@ -60,9 +60,7 @@ public class BlocoDado implements IBinary, IPrint {
             return new byte[0];
 
         ByteArrayConcater bc = new ByteArrayConcater();
-        for (Linha tuple : this.tuples) {
-            bc.concat(tuple.toByteArray());
-        }
+        this.tuples.stream().forEach(tuple -> bc.concat(tuple.toByteArray()));
         return bc.getFinalByteArray();
     }
 

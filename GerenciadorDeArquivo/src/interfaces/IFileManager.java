@@ -16,7 +16,7 @@ public interface IFileManager {
     public BlocoContainer criarBlocoContainer();
 
     public void commit(BlocoContainer container) throws IOException;
-    public BlocoContainer getContainerByInput(String diretorio) throws FileNotFoundException;
+    public BlocoContainer gerarContainerByInput(String diretorio) throws FileNotFoundException;
 
     public BlocoContainer getContainer(int containerId) throws FileNotFoundException;
 

@@ -47,17 +47,15 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer getContainerByInput(String diretorio) throws FileNotFoundException {
+    public BlocoContainer gerarContainerByInput(String diretorio) throws FileNotFoundException {
 
         try {
             ArrayList<String> linhas = GerenciadorDeIO.getStrings(diretorio);
             BlocoContainer container = new BlocoContainer(++this.containerIdCount);
             container.getBlocoControle().adicionarDescritores(this.popularDescritores(container, linhas.get(0)));
 
-            ArrayList<Linha> tuplas = this.popularLinhas(linhas);
-            ArrayList<BlocoDado> blocos = this.popularBlocos(container, tuplas);
-
-            container.adicionarBlocos(blocos);
+            ArrayList<Linha> tuplas = this.popularLinhas(linhas, container);
+            this.commit(container);
 
             return container;
 
@@ -122,19 +120,42 @@ public class GerenciadorArquivo implements IFileManager {
         return descritores;
     }
 
-    private ArrayList<Linha> popularLinhas(ArrayList<String> linhas) {
+    private ArrayList<Linha> popularLinhas(ArrayList<String> linhas, BlocoContainer container) throws IOException {
         ArrayList<Linha> tuplas = new ArrayList<Linha>();
+        container.adicionarBloco(new BlocoDado(container.getContainerId(), this.blocoIdCount++));
 
         for (int i = 1; i < linhas.size(); i++) {
             String linha = linhas.get(i);
-            String[] colunas = linha.split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
-
-            Linha tuple = new Linha();
-            tuple.adicionarColunas(colunas);
+            Linha tuple = popularLinha(linha, container);
             tuplas.add(tuple);
         }
 
         return tuplas;
+    }
+
+    private Linha popularLinha(String linha, BlocoContainer container) throws IOException {
+        container.adicionarBloco(new BlocoDado(container.getContainerId(), this.blocoIdCount++));
+
+        String[] colunas = linha.split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
+
+        Linha tuple = new Linha();
+        tuple.adicionarColunas(colunas);
+
+        int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();
+        BlocoDado bloco = container.getBlocosDados().get(blocoIndex / container.getBlocoControle().getHeader().getTamanhoDosBlocos());
+
+        if (podeAdicionarMaisTuple(bloco, tuple, container))
+            bloco.adicionarTupla(tuple);
+        else {
+            BlocoDado blocoAux = new BlocoDado(container.getContainerId(), this.blocoIdCount++);
+            blocoAux.adicionarTupla(tuple);
+
+            container.adicionarBloco(blocoAux);
+            container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
+        }
+
+//        this.commit(container);
+        return tuple;
     }
 
     private ArrayList<BlocoDado> popularBlocos(BlocoContainer container, ArrayList<Linha> tuples) throws IOException {
