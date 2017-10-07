@@ -42,8 +42,7 @@ public class GerenciadorBuffer {
         }
         return null;
     }
-    public Block searchBlock(Block block)
-    {
+    public Block searchBlock(Block block) {
         Block result = this.lru.search(block);
         if(result == null)
         {

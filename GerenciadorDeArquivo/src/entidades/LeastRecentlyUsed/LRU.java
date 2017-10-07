@@ -15,8 +15,7 @@ public class LRU {
     public void addBlock(BlocoDado block)
     {
         Node newNodeLRU = new Node(block);
-        if(this.first == null)
-        {
+        if(this.first == null) {
             this.first = newNodeLRU;
             this.last = newNodeLRU;
         }
