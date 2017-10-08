@@ -6,9 +6,7 @@ public class ByteArrayConcater {
     private byte[] finalArray;
     private int tamanhoArray;
 
-    public ByteArrayConcater() {
-        this.finalArray = new byte[0];
-    }
+    public ByteArrayConcater() { }
 
     public ByteArrayConcater(int tamanhoArray) {
         this.tamanhoArray = tamanhoArray;
@@ -16,16 +14,29 @@ public class ByteArrayConcater {
     }
 
     public ByteArrayConcater concat(byte[] arrayFromConcat) {
+        if (arrayFromConcat == null)
+            return this;
+
         if (this.array == null){
             this.array = arrayFromConcat;
             return this;
         }
 
-        byte[] aux  = new byte[this.finalArray.length + arrayFromConcat.length];
-        System.arraycopy(this.finalArray, 0, aux, 0, this.finalArray.length);
-        System.arraycopy(arrayFromConcat, 0, aux, this.finalArray.length, arrayFromConcat.length);
+        if (this.tamanhoArray > 0 && this.array.length + arrayFromConcat.length > this.tamanhoArray)
+            throw new Error("Ultrapassou o array.");
 
-        this.finalArray = aux;
+        int tamanhoNovoArray = this.array.length + arrayFromConcat.length;
+        byte[] novoArray = new byte[tamanhoNovoArray];
+
+        for (int i = 0; i < this.array.length; i++) {
+            novoArray[i] = this.array[i];
+        }
+
+        for (int i = 0; i < arrayFromConcat.length; i++) {
+            novoArray[this.array.length + i] = arrayFromConcat[i];
+        }
+
+        this.array = novoArray;
         return this;
     }
 
@@ -51,7 +62,7 @@ public class ByteArrayConcater {
         return this;
     }
 
-        public byte[] getByteArray() {
+    public byte[] getByteArray() {
         return this.array;
     }
 
@@ -59,6 +70,7 @@ public class ByteArrayConcater {
         if (this.finalArray == null)
             return this.array;
 
+        System.arraycopy(this.array, 0, this.finalArray, 0, this.array.length);
         return this.finalArray;
     }
 }

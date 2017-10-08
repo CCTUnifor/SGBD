@@ -42,7 +42,7 @@ public class SorteadorDeRowId {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
         try {
             for (RowId row : sorteados) {
-                randomAccessFile.writeUTF(row.print());
+                randomAccessFile.writeUTF(row.print().get(0));
             }
             randomAccessFile.close();
         }catch (IOException e)

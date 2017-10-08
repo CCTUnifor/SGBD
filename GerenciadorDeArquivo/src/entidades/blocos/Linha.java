@@ -44,10 +44,10 @@ public class Linha implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        String parse = "";
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
         for (Coluna col : colunas) {
-            parse += col.print() + "|";
+            parse.addAll(col.print());
         }
         return parse;
     }

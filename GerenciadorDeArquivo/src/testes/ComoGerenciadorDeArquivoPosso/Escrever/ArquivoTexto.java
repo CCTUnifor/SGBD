@@ -13,7 +13,7 @@ public class ArquivoTexto {
     @Test
     public void ECriarUmContainerESalvarEmUmArquivo() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.getContainer(1);
+        BlocoContainer container = gerenciadorArquivo.lerContainer(1);
 
         gerenciadorArquivo.gravarArquivoTexto(container);
         Assert.assertNotEquals(container, null);
@@ -22,8 +22,8 @@ public class ArquivoTexto {
     @Test
     public void ECriarUmContainerESalvarEmUmArquivo2() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.getContainer(1);
-        BlocoContainer container2 = gerenciadorArquivo.getContainer(2);
+        BlocoContainer container = gerenciadorArquivo.lerContainer(1);
+        BlocoContainer container2 = gerenciadorArquivo.lerContainer(2);
 
         gerenciadorArquivo.gravarArquivoTexto(container);
         gerenciadorArquivo.gravarArquivoTexto(container2);

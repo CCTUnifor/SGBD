@@ -1,9 +1,12 @@
 package main;
 
 import entidades.GerenciadorArquivo;
+import entidades.GerenciadorArquivoService;
+import exceptions.ContainerNoExistent;
 import utils.GlobalVariables;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 
@@ -11,10 +14,11 @@ public class Main {
     private static String absolutePathProject() {
         return System.getProperty("user.dir") + "\\";
     }
-
     private static String inputPath() {
         return absolutePathProject() + GlobalVariables.LOCAL_ARQUIVO_ENTRADA;
     }
+    private static GerenciadorArquivo ga;
+    private static GerenciadorArquivoService gaService;
 
     public static void main(String[] args) {
         System.out.println("Pasta onde está localizado os arquivos input's: ");
@@ -23,9 +27,12 @@ public class Main {
         System.out.println();
 
         File[] arquivos = selecionarArquivosParaProcessar();
-        GerenciadorArquivo ga = new GerenciadorArquivo();
+        ga = new GerenciadorArquivo();
+        gaService = new GerenciadorArquivoService(ga);
 
-        processarArquivos(arquivos, ga);
+        processarArquivos(arquivos);
+        
+
 
     }
 
@@ -33,8 +40,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Arquivos localizados: ");
-        System.out.println("0. Cancelar");
-        System.out.println("1. Começar");
+        System.out.println("0. Começar");
 
         File[] directores = todosOsArquivosDisponiveis();
         printarTodosOsArquivos(directores);
@@ -46,14 +52,12 @@ public class Main {
         do {
             System.out.println("\nEscolha os arquivos: ");
             indexSelecionado = scanner.nextInt();
-            if (indexSelecionado == 0)
-                System.exit(0);
 
-            if (indexSelecionado > 1)
-                arquivosSelecionados[quantidadeSelecionados] = directores[indexSelecionado - 2];
+            if (indexSelecionado > 0)
+                arquivosSelecionados[quantidadeSelecionados] = directores[indexSelecionado - 1];
 
             quantidadeSelecionados++;
-        } while (indexSelecionado != 1);
+        } while (indexSelecionado != 0);
 
         System.out.println("\nArquivos selecionados:");
         printarTodosOsArquivos(arquivosSelecionados);
@@ -61,15 +65,27 @@ public class Main {
         return arquivosSelecionados;
     }
 
-    private static void processarArquivos(File[] arquivos, GerenciadorArquivo ga) {
+    private static void processarArquivos(File[] arquivos) {
         for (File file: arquivos) {
-            System.out.println("\n Iniciando o Processo de Criação da Tabela " + file.getName());
+            if (file == null)
+                return;
+
+            System.out.println("\n------------------------------------------------------------------------------------------------------\n");
+            System.out.println(" **Iniciando** o Processo de Criação da Tabela *" + file.getName() + "*");
+
+            long tempoInicio = System.currentTimeMillis();
 
             try {
-                ga.gerarContainerByInput(file.getAbsolutePath());
+                gaService.gerarContainerByInput(file.getAbsolutePath());
             } catch (FileNotFoundException e) {
                 System.out.println("\nErro ao Gerar o Arquivo Binario da tabela " + file.getName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ContainerNoExistent containerNoExistent) {
+                containerNoExistent.printStackTrace();
             }
+            System.out.println(" **Finalizado** o Processo de Criação da Tabela *" + file.getName() + "*");
+            System.out.println("Tempo de execução: " + (System.currentTimeMillis() - tempoInicio));
         }
     }
 
@@ -83,7 +99,7 @@ public class Main {
     private static void printarTodosOsArquivos(File[] directores){
         for (int i = 0; i < directores.length; i++) {
             if (directores[i] != null)
-                System.out.println(String.format("%s. %s", i+2, directores[i].getName()));
+                System.out.println(String.format("%s. %s", i+1, directores[i].getName()));
         }
     }
 }

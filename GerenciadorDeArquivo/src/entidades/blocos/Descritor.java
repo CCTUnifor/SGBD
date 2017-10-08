@@ -5,6 +5,7 @@ import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,7 +55,8 @@ public class Descritor implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
+    public ArrayList<String> print() {
+        ArrayList<String> finalParse = new ArrayList<String>();
         String parse = "";
         parse += nome;
         parse += "[";
@@ -65,9 +67,10 @@ public class Descritor implements IBinary, IPrint {
         parse += "]";
         parse += "(";
         parse += this.tamanho;
-        parse += ")";
+        parse += ")|";
+        finalParse.add(parse);
 
-        return parse;
+        return finalParse;
     }
 
     @Override

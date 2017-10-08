@@ -33,10 +33,10 @@ public class BlocoControle implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        String parse = "";
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
         for (Descritor descritor : descritores) {
-            parse += descritor.print() + "|";
+            parse.addAll(descritor.print());
         }
         return parse;
     }
@@ -48,10 +48,6 @@ public class BlocoControle implements IBinary, IPrint {
         this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(byteArray, 11, this.blocoHeader.getTamanhoDescritor())));
 
         return this;
-    }
-
-    public void adicionarDescritor(Descritor descritor){
-        this.descritores.add(descritor);
     }
 
     public void adicionarDescritores(ArrayList<Descritor> descritores) {

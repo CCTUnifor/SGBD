@@ -14,7 +14,7 @@ public class ArquivoBinario {
     @Test
     public void ECriarUmContainer() throws FileNotFoundException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.getContainer(1);
+        BlocoContainer container = gerenciadorArquivo.lerContainer(1);
 
         Assert.assertNotEquals(container, null);
     }

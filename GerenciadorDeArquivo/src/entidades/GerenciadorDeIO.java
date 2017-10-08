@@ -2,10 +2,7 @@ package entidades;
 
 import entidades.blocos.BlocoContainer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.ArrayList;
 
 public class GerenciadorDeIO {
@@ -39,6 +36,21 @@ public class GerenciadorDeIO {
         }catch (IOException e)
         {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static void gravarString(String diretorio, ArrayList<String> conteudo) throws IOException {
+        File file = new File(diretorio);
+        if (file.exists())
+            file.delete();
+        file.createNewFile();
+
+
+
+        try(  PrintWriter out = new PrintWriter(file)  ){
+            conteudo.stream().forEach(linha -> out.print( linha ));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -80,5 +92,21 @@ public class GerenciadorDeIO {
             System.out.println(e.getMessage());
         }
         return bytes;
+    }
+
+    public static void atualizarBytes(String diretorio, int offset, byte[] bytes) throws FileNotFoundException {
+        File file = new File(diretorio);
+        if (!file.exists())
+            throw new FileNotFoundException("Tabela não encontrada: " + diretorio);
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        try {
+            randomAccessFile.seek(offset);
+            randomAccessFile.write(bytes);
+            randomAccessFile.close();
+        }catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }

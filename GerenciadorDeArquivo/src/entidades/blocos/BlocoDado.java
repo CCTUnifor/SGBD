@@ -1,5 +1,6 @@
 package entidades.blocos;
 
+import entidades.GerenciadorDeIO;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
@@ -7,6 +8,7 @@ import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.awt.color.ICC_ProfileRGB;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BlocoDado implements IBinary, IPrint {
@@ -47,10 +49,11 @@ public class BlocoDado implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        String parse = "";
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
         for (Linha linha : tuples){
-            parse += linha.print() + "\n";
+            parse.addAll(linha.print());
+            parse.add("\n");
         }
         return parse;
     }
@@ -110,5 +113,11 @@ public class BlocoDado implements IBinary, IPrint {
 
     public String toString() {
         return "Row Id: " + this.getHeader().getContainerId() + "." + this.getHeader().getBlocoId() + " | Tipo: " + this.header.getTipoBloco().toString() + " | Tuplas: " + this.tuples.size();
+    }
+
+    public void atualizar(int offset, int length) throws FileNotFoundException {
+        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getHeader().getContainerId() + ".bin";
+
+        GerenciadorDeIO.atualizarBytes(diretorio, offset, this.toByteArray());
     }
 }

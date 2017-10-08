@@ -5,6 +5,8 @@ import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
+import java.util.ArrayList;
+
 public class Coluna implements IBinary, IPrint {
     private int tamanho;
     private byte[] dados;
@@ -29,8 +31,11 @@ public class Coluna implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        return getInformacao();
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
+        parse.add(getInformacao() + "|");
+
+        return parse;
     }
 
     @Override

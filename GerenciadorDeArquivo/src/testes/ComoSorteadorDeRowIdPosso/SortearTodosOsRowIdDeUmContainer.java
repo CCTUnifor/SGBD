@@ -15,7 +15,7 @@ public class SortearTodosOsRowIdDeUmContainer {
     @Test
     public void Sortear() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.getContainer(1);
+        BlocoContainer container = gerenciadorArquivo.lerContainer(1);
 
         List<RowId> sorter = SorteadorDeRowId.Sortear(container);
         SorteadorDeRowId.gravarSorteados(sorter);
@@ -24,8 +24,8 @@ public class SortearTodosOsRowIdDeUmContainer {
     @Test
     public void Sortear2() throws IOException {
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
-        BlocoContainer container = gerenciadorArquivo.getContainer(1);
-        BlocoContainer container2 = gerenciadorArquivo.getContainer(2);
+        BlocoContainer container = gerenciadorArquivo.lerContainer(1);
+        BlocoContainer container2 = gerenciadorArquivo.lerContainer(2);
 
         List<RowId> x = new ArrayList<RowId>();
         //container.getBlocosDados().stream().map(x -> new RowId(x.getHeader().getContainerId(), x.getHeader().getBlocoId())); 

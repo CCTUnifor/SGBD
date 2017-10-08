@@ -2,6 +2,8 @@ package entidades.blocos;
 
 import interfaces.IPrint;
 
+import java.util.ArrayList;
+
 public class RowId implements IPrint{
     private int containerId;
     private int blocoId;
@@ -21,11 +23,14 @@ public class RowId implements IPrint{
 
     @Override
     public String toString() {
-        return this.print();
+        return this.print().get(0);
     }
 
     @Override
-    public String print() {
-        return this.containerId + "." + this.blocoId + "\n";
+    public ArrayList<String> print() {
+        ArrayList<String> parse=  new ArrayList<String>();
+        parse.add(this.containerId + "." + this.blocoId + "\n");
+
+        return parse;
     }
 }
