@@ -1,10 +1,13 @@
 package entidades.blocos;
 
+import entidades.GerenciadorDeIO;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
+import utils.GlobalVariables;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BlocoContainer implements IBinary, IPrint {
@@ -38,11 +41,13 @@ public class BlocoContainer implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        String parse = "";
-        parse += this.blocoControle.print() + "\n";
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
+        parse.addAll(this.blocoControle.print());
+        parse.add("\n");
+
         for (BlocoDado bloco : blocosDados) {
-            parse += bloco.print();
+            parse.addAll(bloco.print());
         }
         return parse;
     }
@@ -71,10 +76,11 @@ public class BlocoContainer implements IBinary, IPrint {
     }
 
     private byte[] bytesBlocosDados() {
+        if (this.blocosDados.size() == 0)
+            return null;
+
         ByteArrayConcater bc = new ByteArrayConcater();
-        for (BlocoDado bloco : this.blocosDados) {
-            bc.concat(bloco.toByteArray());
-        }
+        this.blocosDados.stream().forEach(bloco -> bc.concat(bloco.toByteArray()));
         return bc.getFinalByteArray();
     }
 
@@ -93,5 +99,14 @@ public class BlocoContainer implements IBinary, IPrint {
 
     public void adicionarBloco(BlocoDado bloco) {
         this.blocosDados.add(bloco);
+    }
+
+    public void atualizar() throws FileNotFoundException {
+        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getBlocoControle().getHeader().getContainerId() + ".bin";
+        GerenciadorDeIO.atualizarBytes(diretorio, 5, ByteArrayUtils.intToBytes(this.getBlocoControle().getHeader().getProximoBlocoLivre()));
+    }
+
+    public String getDiretorio() {
+        return GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getBlocoControle().getHeader().getContainerId() + ".bin";
     }
 }

@@ -14,6 +14,9 @@ public class ByteArrayConcater {
     }
 
     public ByteArrayConcater concat(byte[] arrayFromConcat) {
+        if (arrayFromConcat == null)
+            return this;
+
         if (this.array == null){
             this.array = arrayFromConcat;
             return this;
@@ -59,7 +62,7 @@ public class ByteArrayConcater {
         return this;
     }
 
-        public byte[] getByteArray() {
+    public byte[] getByteArray() {
         return this.array;
     }
 

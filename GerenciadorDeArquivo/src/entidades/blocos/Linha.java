@@ -44,20 +44,17 @@ public class Linha implements IBinary, IPrint {
     }
 
     @Override
-    public String print() {
-        String parse = "";
+    public ArrayList<String> print() {
+        ArrayList<String> parse = new ArrayList<String>();
         for (Coluna col : colunas) {
-            parse += col.print() + "|";
+            parse.addAll(col.print());
         }
         return parse;
     }
 
     private byte[] bytesColunas() {
         ByteArrayConcater bc = new ByteArrayConcater();
-
-        for (Coluna collumn : this.colunas) {
-            bc.concat(collumn.toByteArray());
-        }
+        this.colunas.stream().forEach(x -> bc.concat(x.toByteArray()));
         return bc.getFinalByteArray();
     }
 

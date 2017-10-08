@@ -9,17 +9,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface IFileManager {
-    public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
-    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
-    public BlocoDado lerBloco(RowId rowId) throws FileNotFoundException;
-
     public BlocoContainer criarBlocoContainer();
 
-    public void commit(BlocoContainer container) throws IOException;
-    public BlocoContainer getContainerByInput(String diretorio) throws FileNotFoundException;
+    public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
+    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
 
-    public BlocoContainer getContainer(int containerId) throws FileNotFoundException;
-
+    public BlocoContainer lerContainer(int containerId) throws FileNotFoundException;
     public void gravarArquivoTexto(BlocoContainer container) throws IOException;
 
+    public BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent;
+    public BlocoDado lerBloco(RowId rowId) throws IOException;
+    public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws FileNotFoundException;
+    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException;
 }
