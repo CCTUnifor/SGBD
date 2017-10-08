@@ -33,4 +33,9 @@ public class RowId implements IPrint{
 
         return parse;
     }
+
+    @Override
+    public boolean equals(Object rowId) {
+        return rowId instanceof RowId && this.getContainerId() == ((RowId)rowId).getContainerId() && this.getBlocoId() == ((RowId)rowId).getBlocoId();
+    }
 }

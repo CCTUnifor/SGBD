@@ -38,8 +38,12 @@ public class GerenciadorArquivo implements IFileManager {
         return container;
     }
 
+    private BlocoContainer criarBlocoContainer(byte[] bytes) {
+        BlocoContainer container = this.criarBlocoContainer();
+        container.fromByteArray(bytes);
 
-
+        return container;
+    }
 
     @Override
     public BlocoContainer lerContainer(int containerId) throws FileNotFoundException {
@@ -85,27 +89,17 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoDado lerBloco(RowId rowId) throws FileNotFoundException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(GlobalVariables.LOCAL_ARQUIVO_FINAL + "/Tabela" + rowId.getContainerId() + ".bin", "r");
-        BlocoContainer container = this.criarBlocoContainer();
+    public BlocoDado lerBloco(RowId rowId) throws IOException {
+        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "/Tabela" + rowId.getContainerId() + ".bin";
+        byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, 11);
+        BlocoContainer container = this.criarBlocoContainer(containerBytes);
 
-        byte[] bytes = null;
+        int indexOndeComecaOBlocoDeDados = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor();
+        int tamanhoBloco = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
-        try {
-            int tamanho = (int) randomAccessFile.length();
-            if (tamanho == 0)
-                return null;
+        BlocoDado bloco = new BlocoDado(GerenciadorDeIO.getBytes(diretorio, indexOndeComecaOBlocoDeDados + (tamanhoBloco * (rowId.getBlocoId() - 1)), tamanhoBloco));
 
-            bytes = new byte[tamanho];
-            for (int i = 0; i < tamanho; i++){
-                bytes[i] = randomAccessFile.readByte();
-            }
-
-        }catch (IOException e){
-            this.containerIdCount--;
-            System.out.println(e.getMessage());
-        }
-        return container.getBloco(bytes, rowId);
+        return bloco;
     }
 
     @Override

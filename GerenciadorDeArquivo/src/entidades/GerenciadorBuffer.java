@@ -2,6 +2,7 @@ package entidades;
 
 import entidades.LeastRecentlyUsed.LRU;
 import entidades.blocos.BlocoDado;
+import entidades.blocos.RowId;
 
 public class GerenciadorBuffer {
     private BlocoDado[] blocks;
@@ -19,7 +20,7 @@ public class GerenciadorBuffer {
         this.miss = 0;
     }
 
-    private BlocoDado addBlock(BlocoDado block) {
+    public BlocoDado addBlock(BlocoDado block) {
         if(checkSize())
         {
             block.setPosicaoLRU((this.countPages));
@@ -42,17 +43,15 @@ public class GerenciadorBuffer {
         }
         return null;
     }
-    public BlocoDado searchBlock(BlocoDado block) {
-        BlocoDado result = this.lru.search(block);
-        if(result == null)
-        {
+
+    public BlocoDado existRowId(RowId rowId) {
+        BlocoDado result = this.lru.search(rowId);
+        if (result == null)
             this.miss++;
-            return this.addBlock(block);
-        }
-        else{
+        else
             this.hit++;
-            return this.blocks[result.getPosicaoLRU()];
-        }
+
+        return result;
     }
 
     public void viewBuffer_LRU()

@@ -120,4 +120,8 @@ public class BlocoDado implements IBinary, IPrint {
 
         GerenciadorDeIO.atualizarBytes(diretorio, offset, this.toByteArray());
     }
+
+    public RowId getRowId() {
+        return  new RowId(this.header.getContainerId(), this.header.getBlocoId());
+    }
 }

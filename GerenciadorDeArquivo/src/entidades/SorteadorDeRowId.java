@@ -12,15 +12,21 @@ import java.util.stream.Collectors;
 import static utils.GlobalVariables.LOCAL_ARQUIVO_FINAL;
 
 public class SorteadorDeRowId {
-    public static List<RowId> Sortear(BlocoContainer container){
-        List<RowId> rows = container.getBlocosDados().stream().map(b -> new RowId(b.getHeader().getContainerId(), b.getHeader().getBlocoId())).collect(Collectors.toList());
-        List<RowId> sorted = SorteadorDeRowId.shuffleWithRepetition(rows);
+    public static ArrayList<RowId> Sortear(BlocoContainer container){
+        ArrayList<RowId> rows = (ArrayList<RowId>) container.getBlocosDados().stream().map(b -> new RowId(b.getHeader().getContainerId(), b.getHeader().getBlocoId())).collect(Collectors.toList());
+        ArrayList<RowId> sorted = SorteadorDeRowId.shuffleWithRepetition(rows);
 
         return sorted;
     }
 
-    private static List<RowId> shuffleWithRepetition(List<RowId> rows) {
-        List<RowId> sorted = new ArrayList<RowId>();
+    public static ArrayList<RowId> Sortear(ArrayList<RowId> rowIds){
+        ArrayList<RowId> sorted = SorteadorDeRowId.shuffleWithRepetition(rowIds);
+
+        return sorted;
+    }
+
+    private static ArrayList<RowId> shuffleWithRepetition(ArrayList<RowId> rows) {
+        ArrayList<RowId> sorted = new ArrayList<RowId>();
 
         int length = rows.size();
         Random random = new Random();
@@ -33,21 +39,8 @@ public class SorteadorDeRowId {
 
     public static void gravarSorteados(List<RowId> sorteados) throws IOException {
         String diretorioCompleto = LOCAL_ARQUIVO_FINAL + "Sorteados.txt";
+        ArrayList<String> x = (ArrayList<String>) sorteados.stream().map(rowId -> rowId.print().get(0)).collect(Collectors.toList());
 
-        File file = new File(diretorioCompleto);
-        if (file.exists())
-            file.delete();
-        file.createNewFile();
-
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-            for (RowId row : sorteados) {
-                randomAccessFile.writeUTF(row.print().get(0));
-            }
-            randomAccessFile.close();
-        }catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        GerenciadorDeIO.gravarString(diretorioCompleto, x);
     }
 }

@@ -2,33 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="227b4a9e-fddd-4db0-927e-cacdff3b273f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/ArquivoTesteBase.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SAIDA/TEXTOS/Tabela2.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SAIDA/BINARIOS/Tabela1.bin" afterPath="$PROJECT_DIR$/SAIDA/BINARIOS/Tabela1.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SAIDA/BINARIOS/Tabela2.bin" afterPath="$PROJECT_DIR$/SAIDA/BINARIOS/Tabela2.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ENTRADA/forn-tpch.txt" afterPath="$PROJECT_DIR$/ENTRADA/forn-tpch.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SAIDA/TEXTOS/Tabela1.txt" afterPath="$PROJECT_DIR$/SAIDA/TEXTOS/Tabela1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java" afterPath="$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" afterPath="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/Coluna.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/Coluna.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/Linha.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/Linha.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/RowId.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/RowId.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IFileManager.java" afterPath="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IPrint.java" afterPath="$PROJECT_DIR$/src/interfaces/IPrint.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoTexto.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoTexto.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java" afterPath="$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" afterPath="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/GlobalVariables.java" afterPath="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,11 +50,23 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-375">
-              <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="230">
+              <caret line="54" column="55" lean-forward="false" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3159#3175#0" expanded="true" />
+                <element signature="e#4713#4720#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalVariables.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,16 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bytes</find>
-      <find>getby</find>
-      <find>byte</find>
-      <find>.getBytes(</find>
-      <find>atualizarTamanhoDescritor</find>
-      <find>bin</find>
-      <find>incrementarTamanhoUsado</find>
-      <find>exists</find>
-      <find>gravarArquivoTexto</find>
-      <find>gravarArquivoBinario</find>
       <find>direto</find>
       <find>lerArquivoBinario</find>
       <find>getContainer</find>
@@ -114,6 +104,16 @@
       <find>grava</find>
       <find>podeAdicionarMaisTuple</find>
       <find>prin</find>
+      <find>processarArquivos</find>
+      <find>sortearRowId</find>
+      <find>**</find>
+      <find>gaService</find>
+      <find>getBlock</find>
+      <find>getb</find>
+      <find>criarBlocoContainer</find>
+      <find>BlocoContainer</find>
+      <find>lerBloco</find>
+      <find>taxa</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -158,10 +158,6 @@
         <option value="$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/Node.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoTexto.java" />
-        <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java" />
-        <option value="$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java" />
-        <option value="$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java" />
-        <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/EscreverArquivoTesteBase.java" />
@@ -171,16 +167,20 @@
         <option value="$PROJECT_DIR$/src/entidades/blocos/Linha.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/Coluna.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IPrint.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/RowId.java" />
-        <option value="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
-        <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
-        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
-        <option value="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
+        <option value="$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java" />
+        <option value="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
+        <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/RowId.java" />
+        <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
+        <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java" />
       </list>
     </option>
   </component>
@@ -244,15 +244,7 @@
               <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="testes" type="462c0819:PsiDirectoryNode" />
-              <item name="ComoGerenciadorDeArquivoPosso" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GerenciadorDeArquivo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="testes" type="462c0819:PsiDirectoryNode" />
-              <item name="ComoGerenciadorDeArquivoPosso" type="462c0819:PsiDirectoryNode" />
-              <item name="Escrever" type="462c0819:PsiDirectoryNode" />
+              <item name="ComoSorteadorDeRowIdPosso" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GerenciadorDeArquivo" type="b2602c69:ProjectViewProjectNode" />
@@ -685,7 +677,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5295031" sideWeight="0.5043924" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25523013" sideWeight="0.49707174" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27824268" sideWeight="0.49707174" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -727,28 +719,37 @@
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java</url>
-          <line>18</line>
-          <properties />
-          <option name="timeStamp" value="177" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java</url>
           <line>51</line>
           <properties />
           <option name="timeStamp" value="264" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>172</line>
+          <properties />
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>160</line>
+          <properties />
+          <option name="timeStamp" value="276" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="267" />
+      <option name="time" value="277" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="container.toByteArray()" language="JAVA" />
         <watch expression="bc.getFinalByteArray()" language="JAVA" />
         <watch expression="this.finalArray" language="JAVA" />
+        <watch expression="indexOndeComecaOBlocoDeDados + (tamanhoBloco * (rowId.getBlocoId() - 1))" language="JAVA" />
+        <watch expression="gb.getHit()" language="JAVA" />
+        <watch expression="gb.getMiss()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -757,13 +758,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/factories/BlocoId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -818,13 +812,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/ManagerBuffer-master/src/LRU.java" />
-    <entry file="file://$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/ManagerBuffer-master/src/Node.java" />
     <entry file="file://$USER_HOME$/Downloads/ManagerBuffer-master/src/HashListPages.java" />
     <entry file="file://$USER_HOME$/Downloads/ManagerBuffer-master/src/HashPages.java" />
@@ -836,42 +823,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="67" lean-forward="true" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1640#1641#0" expanded="false" />
-            <element signature="e#1674#1675#0" expanded="false" />
-            <element signature="e#1708#1709#0" expanded="false" />
-            <element signature="e#1782#1783#0" expanded="false" />
-            <element signature="e#1814#1815#0" expanded="false" />
-            <element signature="e#1888#1889#0" expanded="false" />
-            <element signature="e#1914#1915#0" expanded="false" />
-            <element signature="e#1945#1946#0" expanded="false" />
-            <element signature="e#1977#1978#0" expanded="false" />
-            <element signature="e#2009#2010#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/LeitorArquivo.java" />
-    <entry file="file://$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="109" lean-forward="false" selection-start-line="99" selection-start-column="109" selection-end-line="99" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -895,25 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="322" column="16" lean-forward="false" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#997#1004#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,9 +893,9 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#256#257#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#211#212#0" expanded="false" />
+            <element signature="e#256#257#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1021,25 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/RowId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#625#633#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaces/IFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1066,44 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#1050#1058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="e#1474#1482#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#1209#1217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -1111,14 +987,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,12 +998,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="480">
+          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#997#1004#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding>
+            <element signature="e#455#456#0" expanded="false" />
+            <element signature="e#483#484#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/LeastRecentlyUsed/LRU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="109" column="42" lean-forward="true" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="49" column="57" lean-forward="false" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#1209#1217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+          <folding>
+            <element signature="e#1050#1058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="147" column="19" lean-forward="false" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
+          <folding>
+            <element signature="e#5748#5749#0" expanded="false" />
+            <element signature="e#5784#5785#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/RowId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#625#633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#1474#1482#0" expanded="true" />
+            <element signature="e#3843#3844#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+          <folding>
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="196" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="196" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="54" column="55" lean-forward="false" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3159#3175#0" expanded="true" />
+            <element signature="e#4713#4720#0" expanded="true" />
           </folding>
         </state>
       </provider>

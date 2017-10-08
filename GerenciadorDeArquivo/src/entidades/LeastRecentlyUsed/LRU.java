@@ -1,6 +1,7 @@
 package entidades.LeastRecentlyUsed;
 
 import entidades.blocos.BlocoDado;
+import entidades.blocos.RowId;
 
 public class LRU {
 
@@ -93,6 +94,37 @@ public class LRU {
         }
         return null;
     }
+
+    public BlocoDado search(RowId rowId)
+    {
+        if(!empty())
+        {
+            if (this.first.getBlock().getRowId().equals(rowId)) {
+                return this.first.getBlock();
+            } else {
+                Node node = this.first.getNextNode();
+                Node ant = this.first;
+                while (node != null) {
+                    if (node.getBlock().getRowId().equals(rowId)) {
+                        if (node.getNextNode() != null) {
+                            this.addBlock(node.getBlock());
+                            ant.setNextNode(node.getNextNode());
+                            node.setNextNode(null);
+                        } else {
+                            this.addBlock(node.getBlock());
+                            ant.setNextNode(null);
+                            this.last = ant;
+                        }
+                        return this.first.getBlock();
+                    }
+                    ant = node;
+                    node = node.getNextNode();
+                }
+            }
+        }
+        return null;
+    }
+
     public void viewLRU()
     {
         for (Node node = this.first; node != null; node = node.getNextNode())

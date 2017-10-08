@@ -109,4 +109,28 @@ public class GerenciadorDeIO {
             System.out.println(e.getMessage());
         }
     }
+
+    public static byte[] getBytes(String diretorio, int start, int length) throws IOException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
+
+        byte[] bytes = null;
+
+        try {
+
+            int tamanho = length;
+            if (tamanho == 0)
+                return null;
+
+            bytes = new byte[tamanho];
+            randomAccessFile.seek(start);
+            for (int i = 0; i < tamanho; i++){
+                bytes[i] = randomAccessFile.readByte();
+            }
+            randomAccessFile.close();
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+        return bytes;
+    }
 }

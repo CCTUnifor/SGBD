@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ArquivoBinario {
     @Test
@@ -20,7 +21,7 @@ public class ArquivoBinario {
     }
 
     @Test
-    public void Bloco() throws FileNotFoundException {
+    public void Bloco() throws IOException {
         RowId rowId = new RowId(1, 1);
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
         BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
@@ -31,7 +32,7 @@ public class ArquivoBinario {
     }
 
     @Test
-    public void Bloco2() throws FileNotFoundException {
+    public void Bloco2() throws IOException {
         RowId rowId = new RowId(1, 4);
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
         BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
@@ -43,7 +44,7 @@ public class ArquivoBinario {
 
 
     @Test (expected = FileNotFoundException.class)
-    public void Bloco3() throws FileNotFoundException {
+    public void Bloco3() throws IOException {
         RowId rowId = new RowId(15, 2);
         IFileManager gerenciadorArquivo = new GerenciadorArquivo();
         BlocoDado container = gerenciadorArquivo.lerBloco(rowId);
