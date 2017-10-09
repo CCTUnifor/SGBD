@@ -1,0 +1,8 @@
+Pasta onde está localizado os arquivos input's: 
+C:\Users\thiag\Documents\Workspace\SistemaGerenciamentoBD\GerenciadorDeArquivo\ENTRADA/
+
+Arquivos localizados: 
+0. Começar
+1. forn-tpch-original.txt
+2. forn-tpch.txt
+3. teste.txt

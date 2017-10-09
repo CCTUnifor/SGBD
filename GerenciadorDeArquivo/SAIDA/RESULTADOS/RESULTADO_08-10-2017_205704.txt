@@ -1,0 +1,5754 @@
+Pasta onde está localizado os arquivos input's: 
+C:\Users\thiag\Documents\Workspace\SistemaGerenciamentoBD\GerenciadorDeArquivo\ENTRADA/
+
+Arquivos localizados: 
+0. Começar
+1. forn-tpch-original.txt
+2. forn-tpch.txt
+3. teste.txt
+
+Escolha os arquivos: 
+
+Escolha os arquivos: 
+
+Escolha os arquivos: 
+
+Escolha os arquivos: 
+
+Arquivos selecionados:
+1. forn-tpch-original.txt
+2. forn-tpch.txt
+3. teste.txt
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *forn-tpch-original.txt*
+ **Finalizado** o Processo de Criação da Tabela *forn-tpch-original.txt*
+Tempo de execução: 89823
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *forn-tpch.txt*
+ **Finalizado** o Processo de Criação da Tabela *forn-tpch.txt*
+Tempo de execução: 431
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *teste.txt*
+ **Finalizado** o Processo de Criação da Tabela *teste.txt*
+Tempo de execução: 24
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Sorteamento dos RowIds
+ **Finalizado** o Sorteamento dos RowIds
+Tempo de execução: 14
+
+
+------------------------------------------------------------------------------------------------------
+
+ **Inicializando** o Gravamento do RowIds Sorteados
+ **Finalizado** o Gravamento do RowIds Sorteados
+Tempo de execução: 16
+
+
+------------------------------------------------------------------------------------------------------
+
+ **Inicializando** as Requisições dos RowIds Sorteados
+     Request: *1.940
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.849
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1241
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1488
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.33
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.974
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.173
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.942
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.511
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1209
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1444
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1043
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.780
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.5
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.192
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.940
+ - Hit
+     Request: *1.1440
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1322
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.667
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.15
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.564
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.964
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1293
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1134
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.485
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1216
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.249
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.151
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1481
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.496
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.599
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.593
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.71
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1293
+ - Hit
+     Request: *1.53
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1212
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1261
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1017
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1426
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.407
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.208
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1432
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.848
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.51
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.173
+ - Hit
+     Request: *1.872
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.763
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1133
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1292
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1101
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.402
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1276
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.994
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.851
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1322
+ - Hit
+     Request: *1.950
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.369
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.529
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.540
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1452
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.572
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.577
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.502
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.786
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1330
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.498
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.985
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1463
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.543
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.649
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.314
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1366
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.341
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1088
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.635
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.867
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.862
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1209
+ - Hit
+     Request: *1.178
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.762
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.383
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.860
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1290
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.435
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.742
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1455
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1428
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.90
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.357
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.150
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.19
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1269
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.383
+ - Hit
+     Request: *1.502
+ - Hit
+     Request: *1.867
+ - Hit
+     Request: *1.1035
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.117
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.88
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1417
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.270
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.145
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.319
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.585
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.63
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1086
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.52
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.301
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1493
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.8
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.577
+ - Hit
+     Request: *1.1024
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.487
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.137
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.945
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.7
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.181
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *2.1511
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1421
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1020
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1251
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.986
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.273
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.790
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1221
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.321
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1136
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.70
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.973
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.394
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.983
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1029
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.573
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.210
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1310
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.845
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.809
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1391
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.422
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.913
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1446
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.701
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.143
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.144
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.783
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1275
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.453
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.633
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.269
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.335
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1218
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.613
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.212
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.768
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.715
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.146
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1101
+ - Hit
+     Request: *1.1335
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1134
+ - Hit
+     Request: *1.880
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.482
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1237
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.227
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.981
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1411
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.482
+ - Hit
+     Request: *1.626
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1218
+ - Hit
+     Request: *1.326
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.524
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1006
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1190
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1061
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.266
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.793
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1003
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *2.1508
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1211
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1496
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.606
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.88
+ - Hit
+     Request: *1.1044
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1071
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1480
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.470
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.723
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1019
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1474
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1456
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1191
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1070
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1101
+ - Hit
+     Request: *1.66
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.489
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.711
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.639
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.807
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.882
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.481
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.629
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.938
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1018
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1364
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1279
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1348
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.173
+ - Hit
+     Request: *1.691
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.898
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1206
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1448
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.757
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.318
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.999
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.481
+ - Hit
+     Request: *1.415
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1097
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.383
+ - Hit
+     Request: *1.1445
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.183
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1170
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.295
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.516
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.420
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.264
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.243
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.697
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.721
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1221
+ - Hit
+     Request: *1.1365
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.229
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1331
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1332
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.976
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.516
+ - Hit
+     Request: *1.411
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.76
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1340
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1026
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1386
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1315
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.915
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.649
+ - Hit
+     Request: *1.1355
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1185
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.573
+ - Hit
+     Request: *1.745
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.76
+ - Hit
+     Request: *1.1130
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.934
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1010
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.343
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.471
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1431
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.513
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.924
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.767
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.693
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1083
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1123
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.324
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1322
+ - Hit
+     Request: *1.1079
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.746
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.580
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.206
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.726
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1396
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1302
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1284
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.757
+ - Hit
+     Request: *1.876
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.462
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.378
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.555
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1372
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.541
+       - Miss
+         Tempo para buscar em disco: 4
+
+     Request: *1.332
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1102
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.758
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.22
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1230
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1040
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.531
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.230
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1425
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.146
+ - Hit
+     Request: *1.784
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1423
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.657
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.389
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1448
+ - Hit
+     Request: *1.782
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.81
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.78
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1406
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.355
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1324
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.241
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.848
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1047
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.427
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1385
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.903
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1346
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.747
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.767
+ - Hit
+     Request: *1.166
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.451
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.917
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.19
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.200
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.686
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.771
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.955
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1318
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.41
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.441
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.481
+ - Hit
+     Request: *1.440
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1257
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1159
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.756
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.918
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.508
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1118
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.153
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1279
+ - Hit
+     Request: *1.906
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1402
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.485
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1451
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1144
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.676
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1427
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.274
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.911
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.813
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.547
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.57
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.26
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.735
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1391
+ - Hit
+     Request: *1.520
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.715
+ - Hit
+     Request: *1.581
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.727
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.730
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1449
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.828
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *2.1507
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1226
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.518
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.625
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.150
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.458
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.584
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.533
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.63
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1113
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.550
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1486
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.16
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.409
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.633
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.585
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1314
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.280
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.439
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.699
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.167
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1341
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.86
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1105
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.310
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1270
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.173
+ - Hit
+     Request: *1.287
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.916
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.439
+ - Hit
+     Request: *1.70
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.599
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.641
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1448
+ - Hit
+     Request: *1.727
+ - Hit
+     Request: *1.835
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.369
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.276
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.40
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1453
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1488
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1424
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.742
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.364
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1417
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1470
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.903
+ - Hit
+     Request: *1.73
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1238
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.440
+ - Hit
+     Request: *1.633
+ - Hit
+     Request: *1.602
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1357
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1141
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.772
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.48
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1208
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.817
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1495
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.354
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1174
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.810
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1208
+ - Hit
+     Request: *1.622
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.408
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1340
+ - Hit
+     Request: *1.771
+ - Hit
+     Request: *1.485
+ - Hit
+     Request: *1.816
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1471
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1393
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.198
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.501
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1294
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1415
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.465
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1381
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.593
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.182
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.311
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1375
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.803
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.397
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1239
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.301
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1305
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.881
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.803
+ - Hit
+     Request: *1.672
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.126
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.107
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1494
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.318
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.715
+ - Hit
+     Request: *1.459
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1272
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1110
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1228
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.151
+       - Miss
+         Tempo para buscar em disco: 4
+
+     Request: *1.906
+ - Hit
+     Request: *1.938
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1344
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.969
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.5
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1146
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.290
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.38
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1235
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.950
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.113
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1364
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.724
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1449
+ - Hit
+     Request: *1.1287
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.956
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1404
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.708
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.505
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1377
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.105
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.845
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1203
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.422
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.822
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1196
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.876
+ - Hit
+     Request: *1.786
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.985
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1197
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.674
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.446
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1186
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.503
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.954
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.939
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.267
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.609
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.738
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.316
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.402
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.736
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1123
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1021
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.789
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1188
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.658
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1457
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.926
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.18
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.464
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1487
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.654
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1093
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.679
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.426
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1412
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1080
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1223
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1297
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1242
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1374
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.842
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1199
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.659
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.735
+ - Hit
+     Request: *1.645
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1008
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.844
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1064
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1254
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.731
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.622
+ - Hit
+     Request: *1.302
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.71
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1187
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.297
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.486
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.597
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1177
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1349
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.455
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1308
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1463
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.633
+ - Hit
+     Request: *1.613
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1429
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.202
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.535
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.487
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.35
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.669
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.107
+ - Hit
+     Request: *1.66
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.602
+ - Hit
+     Request: *1.1280
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.475
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1359
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.171
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.244
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.93
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.677
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.643
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.838
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.59
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.348
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.287
+ - Hit
+     Request: *1.1324
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.35
+ - Hit
+     Request: *1.366
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1361
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1132
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1064
+ - Hit
+     Request: *1.8
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.385
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.925
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.969
+ - Hit
+     Request: *1.493
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.773
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.757
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.359
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.555
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1063
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.426
+ - Hit
+     Request: *1.1310
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.193
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1238
+ - Hit
+     Request: *1.102
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.658
+ - Hit
+     Request: *1.437
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1381
+ - Hit
+     Request: *1.740
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.702
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1052
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.936
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.763
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1042
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.584
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.90
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.967
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.42
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1251
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.972
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.289
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.890
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.502
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1417
+ - Hit
+     Request: *1.632
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1290
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1112
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.309
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.670
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.862
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1089
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.356
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.317
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.77
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1021
+ - Hit
+     Request: *1.549
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.357
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1291
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.139
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.985
+ - Hit
+     Request: *1.695
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1073
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.629
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.909
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1347
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.605
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.71
+ - Hit
+     Request: *1.1468
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.883
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.994
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.222
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.249
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.985
+ - Hit
+     Request: *1.1399
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.353
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1177
+ - Hit
+     Request: *1.1235
+ - Hit
+     Request: *1.1287
+ - Hit
+     Request: *1.530
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.748
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.106
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.490
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.264
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.425
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.470
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.661
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1268
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.834
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1136
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.695
+ - Hit
+     Request: *1.921
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1394
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.450
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1287
+ - Hit
+     Request: *1.367
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1156
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.868
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.808
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.939
+ - Hit
+     Request: *1.581
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.954
+ - Hit
+     Request: *1.786
+ - Hit
+     Request: *1.1433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1229
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.401
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.578
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.393
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.484
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.593
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.539
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.758
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.94
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.195
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.741
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.890
+ - Hit
+     Request: *1.410
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.192
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1144
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1263
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1270
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.877
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1330
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.620
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.639
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.991
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1445
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.704
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.333
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.237
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.425
+ - Hit
+     Request: *1.296
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.230
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.773
+ - Hit
+     Request: *1.38
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.426
+ - Hit
+     Request: *2.1513
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.575
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1000
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.743
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.49
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.497
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.281
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.783
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.831
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.513
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.279
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.223
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.91
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.361
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.161
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.537
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.656
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.702
+ - Hit
+     Request: *1.1067
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *2.1506
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1243
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1359
+ - Hit
+     Request: *1.66
+ - Hit
+     Request: *1.646
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.388
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.370
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.388
+ - Hit
+     Request: *1.1040
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1344
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.193
+ - Hit
+     Request: *1.153
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1436
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.685
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.735
+ - Hit
+     Request: *1.921
+ - Hit
+     Request: *1.619
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.242
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1278
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1471
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.924
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1436
+ - Hit
+     Request: *1.503
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.887
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1397
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.462
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.862
+ - Hit
+     Request: *1.1297
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.272
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1357
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.221
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.965
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.381
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.248
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1160
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.963
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1498
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.96
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.38
+ - Hit
+     Request: *1.1109
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.644
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1408
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.744
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.19
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.323
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.457
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.841
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.547
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.395
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1497
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.243
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1223
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.952
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.739
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.199
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1358
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.532
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.200
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.266
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.404
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.945
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.538
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1165
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.3
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.175
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1423
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.299
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.534
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1405
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1011
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1039
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.808
+ - Hit
+     Request: *1.1234
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1003
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.974
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.207
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1415
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1353
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.580
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.212
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.287
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.527
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.293
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.46
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1253
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.720
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.323
+ - Hit
+     Request: *1.393
+ - Hit
+     Request: *1.1339
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1331
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1257
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.593
+ - Hit
+     Request: *1.530
+ - Hit
+     Request: *1.471
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.554
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1146
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.452
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.197
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1027
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.913
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.306
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1388
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.451
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.715
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1279
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.896
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1473
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.276
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.609
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1498
+ - Hit
+     Request: *1.1263
+ - Hit
+     Request: *1.3
+ - Hit
+     Request: *1.787
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.256
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1256
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.349
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.791
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.324
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.230
+ - Hit
+     Request: *1.380
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.404
+ - Hit
+     Request: *1.903
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.177
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.504
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.475
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.555
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1405
+ - Hit
+     Request: *1.1015
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1321
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.512
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.675
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.302
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1226
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.671
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1311
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1125
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.586
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.995
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1090
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.332
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.352
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1400
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.189
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.525
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1487
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.84
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.289
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.985
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.762
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.22
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1345
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.108
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.13
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.572
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.637
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.30
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1280
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.940
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.783
+ - Hit
+     Request: *1.377
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1370
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.790
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.528
+       - Miss
+         Tempo para buscar em disco: 4
+
+     Request: *1.366
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.892
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.204
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.2
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.43
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.24
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1460
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1482
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.371
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1475
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.541
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.729
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1390
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.129
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1048
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.149
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1337
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.563
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.43
+ - Hit
+     Request: *1.1016
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.199
+ - Hit
+     Request: *1.1079
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.924
+ - Hit
+     Request: *1.824
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1273
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *2.1510
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.303
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.742
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1290
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.946
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1190
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.806
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.677
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1220
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.958
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1002
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.283
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1382
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1008
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1143
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.54
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.327
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1377
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.731
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.440
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.335
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.284
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1435
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.972
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.158
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.439
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.554
+ - Hit
+     Request: *1.1157
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.951
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1040
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.728
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1234
+ - Hit
+     Request: *1.772
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.282
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1215
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.240
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1045
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.861
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.128
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1227
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.247
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.44
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.166
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.613
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.403
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1461
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1378
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.97
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.426
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.517
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.334
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.852
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.923
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1466
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.499
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.824
+ - Hit
+     Request: *1.954
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1223
+ - Hit
+     Request: *1.181
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.799
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.718
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1086
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1420
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.974
+ - Hit
+     Request: *1.361
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.361
+ - Hit
+     Request: *1.386
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1157
+ - Hit
+     Request: *1.129
+ - Hit
+     Request: *1.356
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.120
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1391
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1164
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.636
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1093
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.246
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.607
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1129
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1408
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1391
+ - Hit
+     Request: *1.609
+ - Hit
+     Request: *1.341
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.456
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1168
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.770
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1144
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.692
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.739
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.67
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1349
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.456
+ - Hit
+     Request: *1.218
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.659
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.630
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.792
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.441
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1459
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1353
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.565
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1108
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.225
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1176
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.564
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.391
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1261
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.338
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.352
+ - Hit
+     Request: *1.836
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.333
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.548
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.753
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.878
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1172
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.284
+ - Hit
+     Request: *1.155
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.594
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.217
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.722
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.880
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.805
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.521
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1326
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.989
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.5
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.41
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1
+ - Hit
+     Request: *1.980
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.648
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1501
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1003
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1425
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1204
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.488
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.18
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.107
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.158
+ - Hit
+     Request: *1.173
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.969
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.507
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1424
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.807
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.442
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1007
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.409
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.471
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.19
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.63
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.443
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.51
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.145
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1305
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.283
+ - Hit
+     Request: *1.627
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.876
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1042
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1313
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.397
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.802
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1172
+ - Hit
+     Request: *1.15
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1366
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.555
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.366
+ - Hit
+     Request: *1.1503
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.350
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.738
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1024
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.84
+ - Hit
+     Request: *1.156
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.89
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.994
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.886
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.850
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1042
+ - Hit
+     Request: *1.723
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1225
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.849
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1299
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1489
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.394
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1246
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.279
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.462
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.113
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.804
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.533
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1085
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.3
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1223
+ - Hit
+     Request: *1.883
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1115
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.782
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.414
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1063
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.237
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1068
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.415
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.371
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.332
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.162
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1020
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.18
+ - Hit
+     Request: *1.487
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.35
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.978
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.689
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.919
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.745
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.709
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.970
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.586
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.702
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.173
+ - Hit
+     Request: *1.402
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.738
+ - Hit
+     Request: *1.66
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1076
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1071
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.892
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.48
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.644
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1281
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.3
+ - Hit
+     Request: *1.1238
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.552
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1226
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.432
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.446
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1188
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1284
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1439
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.579
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.956
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1149
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.294
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.60
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.246
+ - Hit
+     Request: *1.123
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.348
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.693
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.477
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.912
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.612
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.309
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1156
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1006
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.768
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.872
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.351
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.15
+ - Hit
+     Request: *1.1077
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.251
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.411
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1163
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.228
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.701
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.178
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.236
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.273
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.540
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1344
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.57
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.446
+ - Hit
+     Request: *1.273
+ - Hit
+     Request: *1.1461
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.138
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1285
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.870
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1165
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.719
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.925
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1308
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.577
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.621
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.779
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.604
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.584
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1367
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1447
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.997
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.244
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.488
+ - Hit
+     Request: *1.1444
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1078
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.462
+ - Hit
+     Request: *1.1078
+ - Hit
+     Request: *1.703
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1487
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.860
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1266
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.206
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.833
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.821
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1222
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.909
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.900
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1261
+ - Hit
+     Request: *1.1401
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.229
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1480
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1043
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1158
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.155
+ - Hit
+     Request: *1.446
+ - Hit
+     Request: *1.294
+ - Hit
+     Request: *1.1287
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1047
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1116
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1396
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.348
+ - Hit
+     Request: *1.1066
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.221
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1087
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1103
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.716
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.678
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1115
+ - Hit
+     Request: *1.1204
+ - Hit
+     Request: *1.192
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.72
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.839
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1168
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.423
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.645
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1248
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1404
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.459
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1149
+ - Hit
+     Request: *1.936
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.481
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.67
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.648
+ - Hit
+     Request: *1.1413
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.493
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.983
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.851
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.452
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.667
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.202
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1414
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.574
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1358
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.766
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1463
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.304
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1470
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1190
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.28
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.603
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.292
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.272
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.10
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.956
+ - Hit
+     Request: *1.818
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.122
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.439
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.388
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.799
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.788
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.317
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.743
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1060
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.785
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.107
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.501
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1133
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.217
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.272
+ - Hit
+     Request: *1.1260
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.963
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.484
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1063
+ - Hit
+     Request: *1.131
+       - Miss
+         Tempo para buscar em disco: 5
+
+     Request: *1.1132
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.630
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.943
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.840
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.33
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.266
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1470
+ - Hit
+     Request: *1.861
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.249
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.340
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.729
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.463
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.420
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1381
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.916
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.197
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.707
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.679
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1266
+ - Hit
+     Request: *1.166
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1060
+ - Hit
+     Request: *1.246
+ - Hit
+     Request: *1.1398
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1078
+ - Hit
+     Request: *1.948
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.698
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.311
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.888
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.7
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.611
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.900
+ - Hit
+     Request: *1.1313
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.566
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.967
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1160
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1068
+ - Hit
+     Request: *1.806
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1165
+ - Hit
+     Request: *1.1031
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.743
+ - Hit
+     Request: *1.1395
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.779
+ - Hit
+     Request: *1.548
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.954
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.978
+ - Hit
+     Request: *1.974
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.965
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1363
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1485
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.879
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.57
+ - Hit
+     Request: *1.596
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.304
+ - Hit
+     Request: *1.1406
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1422
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1336
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.154
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1432
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1447
+ - Hit
+     Request: *1.450
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1390
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1172
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1197
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.876
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1465
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.839
+ - Hit
+     Request: *1.1260
+ - Hit
+     Request: *1.838
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.58
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.791
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.759
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.519
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.641
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1237
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.385
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.876
+ - Hit
+     Request: *1.706
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.738
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.455
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.585
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.510
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.269
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1206
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.13
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.906
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1000
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.578
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.890
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.936
+ - Hit
+     Request: *1.1486
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.451
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.607
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.984
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1402
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1387
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1085
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.858
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.953
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.547
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1354
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.23
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1291
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.218
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.820
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.68
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.942
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.170
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1117
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1172
+ - Hit
+     Request: *1.1335
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1465
+ - Hit
+     Request: *1.1202
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1146
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.90
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1480
+ - Hit
+     Request: *1.1143
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.702
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1298
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.298
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.971
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1001
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.9
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.655
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.691
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.24
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1081
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.625
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1249
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.840
+ - Hit
+     Request: *1.431
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.278
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.38
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1365
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.377
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.200
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.679
+ - Hit
+     Request: *1.1072
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.827
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1395
+ - Hit
+     Request: *1.1165
+ - Hit
+     Request: *1.317
+ - Hit
+     Request: *1.18
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1350
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.280
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.216
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.879
+ - Hit
+     Request: *1.1339
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1252
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.883
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1371
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.693
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.988
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.942
+ - Hit
+     Request: *1.1191
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1241
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.242
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.126
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.304
+ - Hit
+     Request: *1.1195
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1503
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.586
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.433
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.759
+ - Hit
+     Request: *1.915
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.108
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1379
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1278
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.792
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.689
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.922
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.679
+ - Hit
+     Request: *1.1488
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1483
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1006
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.578
+ - Hit
+     Request: *1.78
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.771
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.514
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.406
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.425
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.587
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.46
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.171
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1032
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.843
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.136
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1122
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1424
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.51
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.927
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.685
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *2.1509
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1238
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1437
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.194
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.779
+ - Hit
+     Request: *1.804
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.554
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.912
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1091
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1244
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1454
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.642
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1461
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1237
+ - Hit
+     Request: *1.1220
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.714
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.777
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.737
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.842
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1126
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1301
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1258
+       - Miss
+         Tempo para buscar em disco: 3
+
+     Request: *1.1076
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.979
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1481
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.423
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1362
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1456
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.965
+ - Hit
+     Request: *1.1263
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1280
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1217
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1402
+ - Hit
+     Request: *1.248
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1136
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.803
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.983
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.1075
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.981
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.466
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.677
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.286
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.537
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.838
+ - Hit
+     Request: *1.1244
+ - Hit
+     Request: *1.188
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.619
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1176
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.1020
+       - Miss
+         Tempo para buscar em disco: 1
+
+     Request: *1.610
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.361
+       - Miss
+         Tempo para buscar em disco: 2
+
+     Request: *1.439
+       - Miss
+         Tempo para buscar em disco: 3
+
+Tempo de execução: 21473
+
+ **Finalizado** as Requisições dos RowIds Sorteados
+
+------------------------------------------------------------------------------------------------------
+
+Tamanho dos blocos usado: 1024
+Tamanho do Gerenciador de Buffer usado: 200
+Quantidade de Hits: 185
+Quantidade de Miss: 1329
+Taxa de Hits: 0.87780714%

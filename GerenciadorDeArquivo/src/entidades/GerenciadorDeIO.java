@@ -24,18 +24,13 @@ public class GerenciadorDeIO {
 
     public static void gravarString(String diretorio, String conteudo) throws IOException {
         File file = new File(diretorio);
-        if (file.exists())
-            file.delete();
-        file.createNewFile();
+        if (!file.exists())
+            file.createNewFile();
 
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-
-            randomAccessFile.writeUTF(conteudo);
-            randomAccessFile.close();
-        }catch (IOException e)
-        {
-            System.out.println(e.getMessage());
+        try(  PrintWriter out = new PrintWriter(file)  ){
+            out.print(conteudo);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -44,8 +39,6 @@ public class GerenciadorDeIO {
         if (file.exists())
             file.delete();
         file.createNewFile();
-
-
 
         try(  PrintWriter out = new PrintWriter(file)  ){
             conteudo.stream().forEach(linha -> out.print( linha ));
