@@ -55,7 +55,11 @@ public class Main {
         println("Taxa de Hits: " + gb.taxaAcerto() + "%");
 
         println("");
-        println("Tempo total de execução: " + (System.currentTimeMillis() - tempoInicioTotal));
+        printTempoExecucao(tempoInicioTotal);
+    }
+
+    private static void printTempoExecucao(long tempoInicio) {
+        println("Tempo de execução " + new SimpleDateFormat("mm:ss").format(new Date((System.currentTimeMillis() - tempoInicio))) + " minutos");
     }
 
     private static File[] selecionarArquivosParaProcessar() {
@@ -108,7 +112,7 @@ public class Main {
                     containerNoExistent.printStackTrace();
                 }
                 println(" **Finalizado** o Processo de Criação da Tabela *" + file.getName() + "*");
-                println("Tempo de execução: " + (System.currentTimeMillis() - tempoInicio));
+                printTempoExecucao(tempoInicio);
             }
         }
 
@@ -129,7 +133,7 @@ public class Main {
         ArrayList<RowId> rowIds = SorteadorDeRowId.Sortear(allRowIds);
 
         println(" **Finalizado** o Sorteamento dos RowIds");
-        println("Tempo de execução: " + (System.currentTimeMillis() - tempoInicio) + "\n");
+        printTempoExecucao(tempoInicio);
 
         println("\n------------------------------------------------------------------------------------------------------\n");
         println(" **Inicializando** o Gravamento do RowIds Sorteados");
@@ -142,7 +146,7 @@ public class Main {
             e.printStackTrace();
         }
         println(" **Finalizado** o Gravamento do RowIds Sorteados");
-        println("Tempo de execução: " + (System.currentTimeMillis() - tempoInicio) + "\n");
+        printTempoExecucao(tempoInicio);
 
         return rowIds;
     }
@@ -167,8 +171,7 @@ public class Main {
                 }
             }
         });
-
-        println("Tempo de execução: " + (System.currentTimeMillis() - tempoInicio) + "\n");
+        printTempoExecucao(tempoInicio);
         println(" **Finalizado** as Requisições dos RowIds Sorteados");
 
     }

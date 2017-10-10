@@ -47,4 +47,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-GerenciadorDeArquivo/SAIDA/Tabela1.txt
+GerenciadorDeArquivo/SAIDA/Sorteados.txt
+GerenciadorDeArquivo/SAIDA/BINARIOS/
+GerenciadorDeArquivo/SAIDA/RESULTADOS
+GerenciadorDeArquivo/SAIDA/TEXTOS
