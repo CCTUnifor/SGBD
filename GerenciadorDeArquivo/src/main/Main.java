@@ -28,6 +28,8 @@ public class Main {
     private static Date date = new Date();
 
     public static void main(String[] args) throws IOException {
+        long tempoInicioTotal = System.currentTimeMillis();
+
         println("Pasta onde está localizado os arquivos input's: ");
         println(inputPath());
         println("");
@@ -52,6 +54,8 @@ public class Main {
 
         println("Taxa de Hits: " + gb.taxaAcerto() + "%");
 
+        println("");
+        println("Tempo total de execução: " + (System.currentTimeMillis() - tempoInicioTotal));
     }
 
     private static File[] selecionarArquivosParaProcessar() {

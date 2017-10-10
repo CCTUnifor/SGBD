@@ -1,0 +1,4603 @@
+Pasta onde está localizado os arquivos input's: 
+C:\Users\thiag\Documents\Workspace\SistemaGerenciamentoBD\GerenciadorDeArquivo\ENTRADA/
+
+Arquivos localizados: 
+0. Começar
+1. forn-tpch-original.txt
+2. forn-tpch.txt
+3. teste.txt
+
+Arquivos selecionados:
+1. forn-tpch-original.txt
+2. forn-tpch.txt
+3. teste.txt
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *forn-tpch-original.txt*
+ **Finalizado** o Processo de Criação da Tabela *forn-tpch-original.txt*
+Tempo de execução: 173421
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *forn-tpch.txt*
+ **Finalizado** o Processo de Criação da Tabela *forn-tpch.txt*
+Tempo de execução: 896
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Processo de Criação da Tabela *teste.txt*
+ **Finalizado** o Processo de Criação da Tabela *teste.txt*
+Tempo de execução: 134
+
+------------------------------------------------------------------------------------------------------
+
+ **Iniciando** o Sorteamento dos RowIds
+ **Finalizado** o Sorteamento dos RowIds
+Tempo de execução: 58
+
+
+------------------------------------------------------------------------------------------------------
+
+ **Inicializando** o Gravamento do RowIds Sorteados
+ **Finalizado** o Gravamento do RowIds Sorteados
+Tempo de execução: 44
+
+
+------------------------------------------------------------------------------------------------------
+
+ **Inicializando** as Requisições dos RowIds Sorteados
+
+     Request: *1.930
+       - Miss
+
+     Request: *1.1409
+       - Miss
+
+     Request: *1.52
+       - Miss
+
+     Request: *1.1280
+       - Miss
+
+     Request: *1.1193
+       - Miss
+
+     Request: *1.579
+       - Miss
+
+     Request: *1.1191
+       - Miss
+
+     Request: *1.167
+       - Miss
+
+     Request: *1.968
+       - Miss
+
+     Request: *1.895
+       - Miss
+
+     Request: *1.417
+       - Miss
+
+     Request: *1.485
+       - Miss
+
+     Request: *1.140
+       - Miss
+
+     Request: *1.1074
+       - Miss
+
+     Request: *1.58
+       - Miss
+
+     Request: *1.410
+       - Miss
+
+     Request: *1.563
+       - Miss
+
+     Request: *1.599
+       - Miss
+
+     Request: *1.1358
+       - Miss
+
+     Request: *1.427
+       - Miss
+
+     Request: *1.744
+       - Miss
+
+     Request: *1.1115
+       - Miss
+
+     Request: *1.679
+       - Miss
+
+     Request: *1.138
+       - Miss
+
+     Request: *1.510
+       - Miss
+
+     Request: *1.671
+       - Miss
+
+     Request: *1.413
+       - Miss
+
+     Request: *1.311
+       - Miss
+
+     Request: *1.395
+       - Miss
+
+     Request: *1.1258
+       - Miss
+
+     Request: *1.599
+    - << Hit >>
+
+     Request: *1.923
+       - Miss
+
+     Request: *1.182
+       - Miss
+
+     Request: *1.1065
+       - Miss
+
+     Request: *1.1133
+       - Miss
+
+     Request: *1.587
+       - Miss
+
+     Request: *1.997
+       - Miss
+
+     Request: *1.876
+       - Miss
+
+     Request: *1.900
+       - Miss
+
+     Request: *1.481
+       - Miss
+
+     Request: *1.200
+       - Miss
+
+     Request: *1.802
+       - Miss
+
+     Request: *1.809
+       - Miss
+
+     Request: *1.64
+       - Miss
+
+     Request: *1.238
+       - Miss
+
+     Request: *1.642
+       - Miss
+
+     Request: *1.1376
+       - Miss
+
+     Request: *1.146
+       - Miss
+
+     Request: *1.530
+       - Miss
+
+     Request: *1.158
+       - Miss
+
+     Request: *1.1018
+       - Miss
+
+     Request: *1.710
+       - Miss
+
+     Request: *1.449
+       - Miss
+
+     Request: *1.561
+       - Miss
+
+     Request: *1.1255
+       - Miss
+
+     Request: *1.1048
+       - Miss
+
+     Request: *1.250
+       - Miss
+
+     Request: *1.1204
+       - Miss
+
+     Request: *1.1414
+       - Miss
+
+     Request: *1.1385
+       - Miss
+
+     Request: *1.1448
+       - Miss
+
+     Request: *1.340
+       - Miss
+
+     Request: *1.872
+       - Miss
+
+     Request: *1.448
+       - Miss
+
+     Request: *1.1416
+       - Miss
+
+     Request: *1.1354
+       - Miss
+
+     Request: *1.234
+       - Miss
+
+     Request: *1.506
+       - Miss
+
+     Request: *1.721
+       - Miss
+
+     Request: *1.529
+       - Miss
+
+     Request: *1.1428
+       - Miss
+
+     Request: *1.201
+       - Miss
+
+     Request: *1.1095
+       - Miss
+
+     Request: *1.1002
+       - Miss
+
+     Request: *1.832
+       - Miss
+
+     Request: *1.317
+       - Miss
+
+     Request: *1.16
+       - Miss
+
+     Request: *1.439
+       - Miss
+
+     Request: *1.69
+       - Miss
+
+     Request: *1.775
+       - Miss
+
+     Request: *1.85
+       - Miss
+
+     Request: *1.887
+       - Miss
+
+     Request: *1.1387
+       - Miss
+
+     Request: *1.747
+       - Miss
+
+     Request: *1.1308
+       - Miss
+
+     Request: *1.171
+       - Miss
+
+     Request: *1.504
+       - Miss
+
+     Request: *1.1079
+       - Miss
+
+     Request: *1.527
+       - Miss
+
+     Request: *1.317
+    - << Hit >>
+
+     Request: *1.901
+       - Miss
+
+     Request: *1.1224
+       - Miss
+
+     Request: *1.482
+       - Miss
+
+     Request: *1.65
+       - Miss
+
+     Request: *1.457
+       - Miss
+
+     Request: *1.679
+    - << Hit >>
+
+     Request: *1.1394
+       - Miss
+
+     Request: *1.1143
+       - Miss
+
+     Request: *1.735
+       - Miss
+
+     Request: *1.406
+       - Miss
+
+     Request: *1.668
+       - Miss
+
+     Request: *1.48
+       - Miss
+
+     Request: *1.105
+       - Miss
+
+     Request: *1.1398
+       - Miss
+
+     Request: *1.1121
+       - Miss
+
+     Request: *1.874
+       - Miss
+
+     Request: *1.1493
+       - Miss
+
+     Request: *2.1509
+       - Miss
+
+     Request: *1.929
+       - Miss
+
+     Request: *1.470
+       - Miss
+
+     Request: *1.1330
+       - Miss
+
+     Request: *1.535
+       - Miss
+
+     Request: *1.1240
+       - Miss
+
+     Request: *1.781
+       - Miss
+
+     Request: *1.461
+       - Miss
+
+     Request: *1.301
+       - Miss
+
+     Request: *1.1379
+       - Miss
+
+     Request: *1.381
+       - Miss
+
+     Request: *1.1229
+       - Miss
+
+     Request: *1.359
+       - Miss
+
+     Request: *1.357
+       - Miss
+
+     Request: *1.208
+       - Miss
+
+     Request: *1.54
+       - Miss
+
+     Request: *1.817
+       - Miss
+
+     Request: *1.9
+       - Miss
+
+     Request: *1.452
+       - Miss
+
+     Request: *1.369
+       - Miss
+
+     Request: *1.1116
+       - Miss
+
+     Request: *1.1438
+       - Miss
+
+     Request: *1.42
+       - Miss
+
+     Request: *1.441
+       - Miss
+
+     Request: *1.1331
+       - Miss
+
+     Request: *1.835
+       - Miss
+
+     Request: *1.743
+       - Miss
+
+     Request: *1.441
+    - << Hit >>
+
+     Request: *1.338
+       - Miss
+
+     Request: *1.1077
+       - Miss
+
+     Request: *1.35
+       - Miss
+
+     Request: *1.898
+       - Miss
+
+     Request: *1.955
+       - Miss
+
+     Request: *1.359
+    - << Hit >>
+
+     Request: *1.578
+       - Miss
+
+     Request: *1.397
+       - Miss
+
+     Request: *1.1287
+       - Miss
+
+     Request: *1.521
+       - Miss
+
+     Request: *1.1263
+       - Miss
+
+     Request: *1.801
+       - Miss
+
+     Request: *1.1344
+       - Miss
+
+     Request: *1.1169
+       - Miss
+
+     Request: *1.230
+       - Miss
+
+     Request: *1.1312
+       - Miss
+
+     Request: *1.1020
+       - Miss
+
+     Request: *1.780
+       - Miss
+
+     Request: *1.335
+       - Miss
+
+     Request: *1.313
+       - Miss
+
+     Request: *1.561
+    - << Hit >>
+
+     Request: *1.442
+       - Miss
+
+     Request: *1.123
+       - Miss
+
+     Request: *1.321
+       - Miss
+
+     Request: *1.1264
+       - Miss
+
+     Request: *1.748
+       - Miss
+
+     Request: *1.1150
+       - Miss
+
+     Request: *1.127
+       - Miss
+
+     Request: *1.1487
+       - Miss
+
+     Request: *1.1454
+       - Miss
+
+     Request: *1.1407
+       - Miss
+
+     Request: *1.291
+       - Miss
+
+     Request: *1.1461
+       - Miss
+
+     Request: *1.1085
+       - Miss
+
+     Request: *1.194
+       - Miss
+
+     Request: *1.513
+       - Miss
+
+     Request: *1.1227
+       - Miss
+
+     Request: *1.945
+       - Miss
+
+     Request: *1.1017
+       - Miss
+
+     Request: *1.1046
+       - Miss
+
+     Request: *1.841
+       - Miss
+
+     Request: *1.408
+       - Miss
+
+     Request: *1.1250
+       - Miss
+
+     Request: *1.1396
+       - Miss
+
+     Request: *1.1359
+       - Miss
+
+     Request: *1.187
+       - Miss
+
+     Request: *1.764
+       - Miss
+
+     Request: *1.1221
+       - Miss
+
+     Request: *1.902
+       - Miss
+
+     Request: *1.905
+       - Miss
+
+     Request: *1.511
+       - Miss
+
+     Request: *1.35
+    - << Hit >>
+
+     Request: *1.203
+       - Miss
+
+     Request: *1.570
+       - Miss
+
+     Request: *1.874
+    - << Hit >>
+
+     Request: *1.960
+       - Miss
+
+     Request: *1.1171
+       - Miss
+
+     Request: *1.1328
+       - Miss
+
+     Request: *1.216
+       - Miss
+
+     Request: *1.133
+       - Miss
+
+     Request: *1.301
+    - << Hit >>
+
+     Request: *1.1176
+       - Miss
+
+     Request: *1.270
+       - Miss
+
+     Request: *1.816
+       - Miss
+
+     Request: *1.1415
+       - Miss
+
+     Request: *1.243
+       - Miss
+
+     Request: *1.1470
+       - Miss
+
+     Request: *1.960
+    - << Hit >>
+
+     Request: *1.1100
+       - Miss
+
+     Request: *1.329
+       - Miss
+
+     Request: *1.43
+       - Miss
+
+     Request: *1.635
+       - Miss
+
+     Request: *1.175
+       - Miss
+
+     Request: *1.115
+       - Miss
+
+     Request: *1.485
+    - << Hit >>
+
+     Request: *1.726
+       - Miss
+
+     Request: *1.289
+       - Miss
+
+     Request: *1.180
+       - Miss
+
+     Request: *1.247
+       - Miss
+
+     Request: *1.163
+       - Miss
+
+     Request: *1.887
+    - << Hit >>
+
+     Request: *1.1405
+       - Miss
+
+     Request: *1.1062
+       - Miss
+
+     Request: *1.1397
+       - Miss
+
+     Request: *1.1375
+       - Miss
+
+     Request: *1.1130
+       - Miss
+
+     Request: *1.537
+       - Miss
+
+     Request: *1.397
+    - << Hit >>
+
+     Request: *1.1297
+       - Miss
+
+     Request: *1.939
+       - Miss
+
+     Request: *1.989
+       - Miss
+
+     Request: *1.395
+    - << Hit >>
+
+     Request: *1.239
+       - Miss
+
+     Request: *1.1163
+       - Miss
+
+     Request: *1.1148
+       - Miss
+
+     Request: *1.294
+       - Miss
+
+     Request: *1.1077
+    - << Hit >>
+
+     Request: *1.309
+       - Miss
+
+     Request: *1.265
+       - Miss
+
+     Request: *1.1487
+    - << Hit >>
+
+     Request: *1.1121
+    - << Hit >>
+
+     Request: *1.840
+       - Miss
+
+     Request: *1.497
+       - Miss
+
+     Request: *1.727
+       - Miss
+
+     Request: *1.346
+       - Miss
+
+     Request: *1.1283
+       - Miss
+
+     Request: *1.1260
+       - Miss
+
+     Request: *1.13
+       - Miss
+
+     Request: *1.421
+       - Miss
+
+     Request: *1.1019
+       - Miss
+
+     Request: *1.967
+       - Miss
+
+     Request: *1.104
+       - Miss
+
+     Request: *1.620
+       - Miss
+
+     Request: *1.733
+       - Miss
+
+     Request: *1.98
+       - Miss
+
+     Request: *1.1111
+       - Miss
+
+     Request: *1.328
+       - Miss
+
+     Request: *1.1041
+       - Miss
+
+     Request: *1.236
+       - Miss
+
+     Request: *1.681
+       - Miss
+
+     Request: *1.633
+       - Miss
+
+     Request: *1.170
+       - Miss
+
+     Request: *1.252
+       - Miss
+
+     Request: *1.598
+       - Miss
+
+     Request: *1.1127
+       - Miss
+
+     Request: *1.763
+       - Miss
+
+     Request: *1.303
+       - Miss
+
+     Request: *1.1085
+    - << Hit >>
+
+     Request: *1.975
+       - Miss
+
+     Request: *1.629
+       - Miss
+
+     Request: *1.1360
+       - Miss
+
+     Request: *1.614
+       - Miss
+
+     Request: *1.754
+       - Miss
+
+     Request: *1.794
+       - Miss
+
+     Request: *1.18
+       - Miss
+
+     Request: *2.1507
+       - Miss
+
+     Request: *1.1216
+       - Miss
+
+     Request: *1.1435
+       - Miss
+
+     Request: *1.1040
+       - Miss
+
+     Request: *1.1433
+       - Miss
+
+     Request: *1.860
+       - Miss
+
+     Request: *1.1134
+       - Miss
+
+     Request: *1.512
+       - Miss
+
+     Request: *1.286
+       - Miss
+
+     Request: *1.870
+       - Miss
+
+     Request: *1.1448
+       - Miss
+
+     Request: *1.689
+       - Miss
+
+     Request: *1.743
+    - << Hit >>
+
+     Request: *1.31
+       - Miss
+
+     Request: *1.145
+       - Miss
+
+     Request: *1.208
+    - << Hit >>
+
+     Request: *1.1014
+       - Miss
+
+     Request: *1.1447
+       - Miss
+
+     Request: *1.817
+    - << Hit >>
+
+     Request: *1.286
+    - << Hit >>
+
+     Request: *1.153
+       - Miss
+
+     Request: *1.721
+       - Miss
+
+     Request: *1.1181
+       - Miss
+
+     Request: *1.1478
+       - Miss
+
+     Request: *1.592
+       - Miss
+
+     Request: *1.173
+       - Miss
+
+     Request: *1.1363
+       - Miss
+
+     Request: *3.1514
+       - Miss
+
+     Request: *1.888
+       - Miss
+
+     Request: *1.408
+    - << Hit >>
+
+     Request: *1.920
+       - Miss
+
+     Request: *1.904
+       - Miss
+
+     Request: *1.649
+       - Miss
+
+     Request: *1.1479
+       - Miss
+
+     Request: *1.1465
+       - Miss
+
+     Request: *1.706
+       - Miss
+
+     Request: *1.382
+       - Miss
+
+     Request: *1.150
+       - Miss
+
+     Request: *1.810
+       - Miss
+
+     Request: *1.257
+       - Miss
+
+     Request: *1.1134
+    - << Hit >>
+
+     Request: *1.648
+       - Miss
+
+     Request: *1.178
+       - Miss
+
+     Request: *1.1140
+       - Miss
+
+     Request: *1.531
+       - Miss
+
+     Request: *1.1444
+       - Miss
+
+     Request: *1.971
+       - Miss
+
+     Request: *1.1487
+    - << Hit >>
+
+     Request: *1.1226
+       - Miss
+
+     Request: *1.1417
+       - Miss
+
+     Request: *1.467
+       - Miss
+
+     Request: *1.1068
+       - Miss
+
+     Request: *1.1292
+       - Miss
+
+     Request: *1.1419
+       - Miss
+
+     Request: *1.1335
+       - Miss
+
+     Request: *1.705
+       - Miss
+
+     Request: *1.265
+    - << Hit >>
+
+     Request: *1.90
+       - Miss
+
+     Request: *1.328
+    - << Hit >>
+
+     Request: *1.684
+       - Miss
+
+     Request: *1.537
+    - << Hit >>
+
+     Request: *1.522
+       - Miss
+
+     Request: *1.1455
+       - Miss
+
+     Request: *1.248
+       - Miss
+
+     Request: *1.748
+    - << Hit >>
+
+     Request: *1.1352
+       - Miss
+
+     Request: *1.632
+       - Miss
+
+     Request: *1.919
+       - Miss
+
+     Request: *1.1488
+       - Miss
+
+     Request: *1.359
+    - << Hit >>
+
+     Request: *1.1065
+       - Miss
+
+     Request: *1.900
+       - Miss
+
+     Request: *1.1305
+       - Miss
+
+     Request: *1.40
+       - Miss
+
+     Request: *1.793
+       - Miss
+
+     Request: *1.347
+       - Miss
+
+     Request: *1.725
+       - Miss
+
+     Request: *1.912
+       - Miss
+
+     Request: *1.1183
+       - Miss
+
+     Request: *1.137
+       - Miss
+
+     Request: *1.1353
+       - Miss
+
+     Request: *1.500
+       - Miss
+
+     Request: *1.1491
+       - Miss
+
+     Request: *1.1002
+       - Miss
+
+     Request: *1.1151
+       - Miss
+
+     Request: *1.1061
+       - Miss
+
+     Request: *1.877
+       - Miss
+
+     Request: *1.1377
+       - Miss
+
+     Request: *1.892
+       - Miss
+
+     Request: *1.182
+       - Miss
+
+     Request: *1.304
+       - Miss
+
+     Request: *1.431
+       - Miss
+
+     Request: *1.698
+       - Miss
+
+     Request: *1.52
+       - Miss
+
+     Request: *1.730
+       - Miss
+
+     Request: *1.1190
+       - Miss
+
+     Request: *1.910
+       - Miss
+
+     Request: *1.1059
+       - Miss
+
+     Request: *1.18
+    - << Hit >>
+
+     Request: *1.818
+       - Miss
+
+     Request: *1.238
+       - Miss
+
+     Request: *1.874
+    - << Hit >>
+
+     Request: *1.460
+       - Miss
+
+     Request: *1.1025
+       - Miss
+
+     Request: *1.273
+       - Miss
+
+     Request: *1.1468
+       - Miss
+
+     Request: *1.797
+       - Miss
+
+     Request: *1.1383
+       - Miss
+
+     Request: *1.35
+    - << Hit >>
+
+     Request: *1.50
+       - Miss
+
+     Request: *1.878
+       - Miss
+
+     Request: *1.1294
+       - Miss
+
+     Request: *1.1181
+    - << Hit >>
+
+     Request: *1.970
+       - Miss
+
+     Request: *1.455
+       - Miss
+
+     Request: *1.827
+       - Miss
+
+     Request: *1.1141
+       - Miss
+
+     Request: *1.1453
+       - Miss
+
+     Request: *1.754
+    - << Hit >>
+
+     Request: *1.63
+       - Miss
+
+     Request: *1.874
+    - << Hit >>
+
+     Request: *1.153
+    - << Hit >>
+
+     Request: *1.1466
+       - Miss
+
+     Request: *1.908
+       - Miss
+
+     Request: *1.842
+       - Miss
+
+     Request: *1.1409
+       - Miss
+
+     Request: *1.536
+       - Miss
+
+     Request: *1.279
+       - Miss
+
+     Request: *1.923
+       - Miss
+
+     Request: *2.1512
+       - Miss
+
+     Request: *1.243
+    - << Hit >>
+
+     Request: *1.325
+       - Miss
+
+     Request: *1.706
+    - << Hit >>
+
+     Request: *1.26
+       - Miss
+
+     Request: *1.1458
+       - Miss
+
+     Request: *2.1512
+    - << Hit >>
+
+     Request: *1.422
+       - Miss
+
+     Request: *1.290
+       - Miss
+
+     Request: *1.723
+       - Miss
+
+     Request: *1.1121
+    - << Hit >>
+
+     Request: *1.378
+       - Miss
+
+     Request: *1.746
+       - Miss
+
+     Request: *1.527
+       - Miss
+
+     Request: *1.598
+    - << Hit >>
+
+     Request: *1.446
+       - Miss
+
+     Request: *1.1005
+       - Miss
+
+     Request: *1.1006
+       - Miss
+
+     Request: *1.216
+       - Miss
+
+     Request: *1.1385
+       - Miss
+
+     Request: *1.305
+       - Miss
+
+     Request: *1.81
+       - Miss
+
+     Request: *1.152
+       - Miss
+
+     Request: *1.1124
+       - Miss
+
+     Request: *1.1006
+    - << Hit >>
+
+     Request: *1.42
+       - Miss
+
+     Request: *1.793
+    - << Hit >>
+
+     Request: *1.7
+       - Miss
+
+     Request: *1.14
+       - Miss
+
+     Request: *1.796
+       - Miss
+
+     Request: *1.781
+       - Miss
+
+     Request: *1.396
+       - Miss
+
+     Request: *1.1287
+       - Miss
+
+     Request: *1.1304
+       - Miss
+
+     Request: *1.175
+       - Miss
+
+     Request: *1.1111
+    - << Hit >>
+
+     Request: *1.666
+       - Miss
+
+     Request: *1.1372
+       - Miss
+
+     Request: *1.821
+       - Miss
+
+     Request: *1.51
+       - Miss
+
+     Request: *1.473
+       - Miss
+
+     Request: *1.369
+       - Miss
+
+     Request: *1.460
+    - << Hit >>
+
+     Request: *3.1514
+    - << Hit >>
+
+     Request: *1.377
+       - Miss
+
+     Request: *1.769
+       - Miss
+
+     Request: *1.574
+       - Miss
+
+     Request: *1.220
+       - Miss
+
+     Request: *1.1426
+       - Miss
+
+     Request: *1.546
+       - Miss
+
+     Request: *1.936
+       - Miss
+
+     Request: *1.1265
+       - Miss
+
+     Request: *1.619
+       - Miss
+
+     Request: *1.243
+    - << Hit >>
+
+     Request: *1.733
+    - << Hit >>
+
+     Request: *1.142
+       - Miss
+
+     Request: *1.93
+       - Miss
+
+     Request: *1.1132
+       - Miss
+
+     Request: *1.1209
+       - Miss
+
+     Request: *1.1404
+       - Miss
+
+     Request: *1.799
+       - Miss
+
+     Request: *1.743
+    - << Hit >>
+
+     Request: *1.1427
+       - Miss
+
+     Request: *1.810
+    - << Hit >>
+
+     Request: *1.655
+       - Miss
+
+     Request: *1.1461
+       - Miss
+
+     Request: *1.418
+       - Miss
+
+     Request: *1.834
+       - Miss
+
+     Request: *1.1449
+       - Miss
+
+     Request: *1.738
+       - Miss
+
+     Request: *1.391
+       - Miss
+
+     Request: *1.516
+       - Miss
+
+     Request: *1.220
+    - << Hit >>
+
+     Request: *1.80
+       - Miss
+
+     Request: *1.928
+       - Miss
+
+     Request: *1.404
+       - Miss
+
+     Request: *1.846
+       - Miss
+
+     Request: *1.68
+       - Miss
+
+     Request: *1.1048
+       - Miss
+
+     Request: *1.704
+       - Miss
+
+     Request: *1.513
+       - Miss
+
+     Request: *1.695
+       - Miss
+
+     Request: *1.286
+    - << Hit >>
+
+     Request: *1.1034
+       - Miss
+
+     Request: *1.1411
+       - Miss
+
+     Request: *1.463
+       - Miss
+
+     Request: *1.918
+       - Miss
+
+     Request: *1.1496
+       - Miss
+
+     Request: *1.1502
+       - Miss
+
+     Request: *1.259
+       - Miss
+
+     Request: *1.1123
+       - Miss
+
+     Request: *1.112
+       - Miss
+
+     Request: *1.1229
+       - Miss
+
+     Request: *1.2
+       - Miss
+
+     Request: *1.2
+    - << Hit >>
+
+     Request: *1.161
+       - Miss
+
+     Request: *1.1008
+       - Miss
+
+     Request: *1.645
+       - Miss
+
+     Request: *1.1228
+       - Miss
+
+     Request: *1.1085
+       - Miss
+
+     Request: *1.223
+       - Miss
+
+     Request: *1.267
+       - Miss
+
+     Request: *1.609
+       - Miss
+
+     Request: *1.591
+       - Miss
+
+     Request: *1.568
+       - Miss
+
+     Request: *1.192
+       - Miss
+
+     Request: *1.352
+       - Miss
+
+     Request: *1.745
+       - Miss
+
+     Request: *1.858
+       - Miss
+
+     Request: *1.37
+       - Miss
+
+     Request: *1.624
+       - Miss
+
+     Request: *1.202
+       - Miss
+
+     Request: *1.194
+       - Miss
+
+     Request: *1.855
+       - Miss
+
+     Request: *1.418
+    - << Hit >>
+
+     Request: *1.207
+       - Miss
+
+     Request: *1.667
+       - Miss
+
+     Request: *1.562
+       - Miss
+
+     Request: *1.336
+       - Miss
+
+     Request: *1.885
+       - Miss
+
+     Request: *1.370
+       - Miss
+
+     Request: *1.267
+    - << Hit >>
+
+     Request: *1.1284
+       - Miss
+
+     Request: *1.203
+       - Miss
+
+     Request: *1.1279
+       - Miss
+
+     Request: *1.1052
+       - Miss
+
+     Request: *1.1352
+    - << Hit >>
+
+     Request: *1.457
+       - Miss
+
+     Request: *1.168
+       - Miss
+
+     Request: *1.272
+       - Miss
+
+     Request: *1.643
+       - Miss
+
+     Request: *1.325
+    - << Hit >>
+
+     Request: *1.742
+       - Miss
+
+     Request: *1.878
+    - << Hit >>
+
+     Request: *1.1097
+       - Miss
+
+     Request: *1.1362
+       - Miss
+
+     Request: *1.1501
+       - Miss
+
+     Request: *1.320
+       - Miss
+
+     Request: *1.1254
+       - Miss
+
+     Request: *1.987
+       - Miss
+
+     Request: *1.545
+       - Miss
+
+     Request: *1.1029
+       - Miss
+
+     Request: *1.42
+    - << Hit >>
+
+     Request: *1.472
+       - Miss
+
+     Request: *1.1470
+       - Miss
+
+     Request: *1.810
+    - << Hit >>
+
+     Request: *1.133
+       - Miss
+
+     Request: *1.328
+       - Miss
+
+     Request: *1.865
+       - Miss
+
+     Request: *1.1313
+       - Miss
+
+     Request: *1.505
+       - Miss
+
+     Request: *1.1368
+       - Miss
+
+     Request: *1.391
+    - << Hit >>
+
+     Request: *1.1121
+    - << Hit >>
+
+     Request: *1.183
+       - Miss
+
+     Request: *1.983
+       - Miss
+
+     Request: *1.152
+    - << Hit >>
+
+     Request: *1.648
+       - Miss
+
+     Request: *1.611
+       - Miss
+
+     Request: *1.587
+       - Miss
+
+     Request: *1.940
+       - Miss
+
+     Request: *1.562
+    - << Hit >>
+
+     Request: *1.35
+    - << Hit >>
+
+     Request: *1.1259
+       - Miss
+
+     Request: *1.243
+    - << Hit >>
+
+     Request: *1.562
+    - << Hit >>
+
+     Request: *1.124
+       - Miss
+
+     Request: *1.1063
+       - Miss
+
+     Request: *1.143
+       - Miss
+
+     Request: *1.424
+       - Miss
+
+     Request: *1.806
+       - Miss
+
+     Request: *1.573
+       - Miss
+
+     Request: *1.781
+    - << Hit >>
+
+     Request: *1.533
+       - Miss
+
+     Request: *1.248
+       - Miss
+
+     Request: *1.917
+       - Miss
+
+     Request: *1.651
+       - Miss
+
+     Request: *1.636
+       - Miss
+
+     Request: *1.106
+       - Miss
+
+     Request: *1.867
+       - Miss
+
+     Request: *1.81
+    - << Hit >>
+
+     Request: *1.734
+       - Miss
+
+     Request: *1.1095
+       - Miss
+
+     Request: *1.1221
+       - Miss
+
+     Request: *1.479
+       - Miss
+
+     Request: *1.1244
+       - Miss
+
+     Request: *1.412
+       - Miss
+
+     Request: *2.1513
+       - Miss
+
+     Request: *1.932
+       - Miss
+
+     Request: *1.1137
+       - Miss
+
+     Request: *1.556
+       - Miss
+
+     Request: *1.459
+       - Miss
+
+     Request: *1.1266
+       - Miss
+
+     Request: *1.37
+    - << Hit >>
+
+     Request: *1.1111
+    - << Hit >>
+
+     Request: *1.755
+       - Miss
+
+     Request: *1.65
+       - Miss
+
+     Request: *1.1044
+       - Miss
+
+     Request: *1.113
+       - Miss
+
+     Request: *1.1320
+       - Miss
+
+     Request: *1.30
+       - Miss
+
+     Request: *1.830
+       - Miss
+
+     Request: *1.88
+       - Miss
+
+     Request: *1.448
+       - Miss
+
+     Request: *1.986
+       - Miss
+
+     Request: *1.1250
+       - Miss
+
+     Request: *1.831
+       - Miss
+
+     Request: *1.285
+       - Miss
+
+     Request: *1.1505
+       - Miss
+
+     Request: *1.217
+       - Miss
+
+     Request: *1.884
+       - Miss
+
+     Request: *1.1003
+       - Miss
+
+     Request: *1.1403
+       - Miss
+
+     Request: *1.976
+       - Miss
+
+     Request: *1.214
+       - Miss
+
+     Request: *1.184
+       - Miss
+
+     Request: *1.334
+       - Miss
+
+     Request: *1.130
+       - Miss
+
+     Request: *1.1340
+       - Miss
+
+     Request: *1.568
+    - << Hit >>
+
+     Request: *1.733
+    - << Hit >>
+
+     Request: *1.995
+       - Miss
+
+     Request: *1.1355
+       - Miss
+
+     Request: *1.241
+       - Miss
+
+     Request: *1.1006
+    - << Hit >>
+
+     Request: *1.1267
+       - Miss
+
+     Request: *1.23
+       - Miss
+
+     Request: *1.345
+       - Miss
+
+     Request: *1.1085
+    - << Hit >>
+
+     Request: *1.843
+       - Miss
+
+     Request: *1.400
+       - Miss
+
+     Request: *1.91
+       - Miss
+
+     Request: *1.1068
+       - Miss
+
+     Request: *1.1302
+       - Miss
+
+     Request: *1.1020
+       - Miss
+
+     Request: *1.676
+       - Miss
+
+     Request: *1.363
+       - Miss
+
+     Request: *1.121
+       - Miss
+
+     Request: *1.401
+       - Miss
+
+     Request: *1.1482
+       - Miss
+
+     Request: *1.885
+    - << Hit >>
+
+     Request: *1.65
+    - << Hit >>
+
+     Request: *1.62
+       - Miss
+
+     Request: *1.319
+       - Miss
+
+     Request: *1.668
+       - Miss
+
+     Request: *1.287
+       - Miss
+
+     Request: *1.1035
+       - Miss
+
+     Request: *1.574
+    - << Hit >>
+
+     Request: *1.597
+       - Miss
+
+     Request: *1.1021
+       - Miss
+
+     Request: *1.1176
+       - Miss
+
+     Request: *1.634
+       - Miss
+
+     Request: *1.935
+       - Miss
+
+     Request: *1.163
+       - Miss
+
+     Request: *1.9
+       - Miss
+
+     Request: *1.1248
+       - Miss
+
+     Request: *1.1219
+       - Miss
+
+     Request: *1.352
+    - << Hit >>
+
+     Request: *1.1456
+       - Miss
+
+     Request: *1.996
+       - Miss
+
+     Request: *1.2
+    - << Hit >>
+
+     Request: *1.1229
+    - << Hit >>
+
+     Request: *1.774
+       - Miss
+
+     Request: *1.1332
+       - Miss
+
+     Request: *1.1392
+       - Miss
+
+     Request: *1.624
+    - << Hit >>
+
+     Request: *1.161
+    - << Hit >>
+
+     Request: *1.1265
+    - << Hit >>
+
+     Request: *1.328
+    - << Hit >>
+
+     Request: *1.1042
+       - Miss
+
+     Request: *1.735
+       - Miss
+
+     Request: *1.1156
+       - Miss
+
+     Request: *1.319
+    - << Hit >>
+
+     Request: *1.1090
+       - Miss
+
+     Request: *1.746
+       - Miss
+
+     Request: *1.845
+       - Miss
+
+     Request: *1.374
+       - Miss
+
+     Request: *1.144
+       - Miss
+
+     Request: *1.16
+       - Miss
+
+     Request: *1.323
+       - Miss
+
+     Request: *1.1327
+       - Miss
+
+     Request: *1.51
+       - Miss
+
+     Request: *1.845
+    - << Hit >>
+
+     Request: *1.1287
+       - Miss
+
+     Request: *1.1061
+       - Miss
+
+     Request: *1.27
+       - Miss
+
+     Request: *1.316
+       - Miss
+
+     Request: *1.1203
+       - Miss
+
+     Request: *1.1319
+       - Miss
+
+     Request: *1.1476
+       - Miss
+
+     Request: *1.1091
+       - Miss
+
+     Request: *1.1427
+       - Miss
+
+     Request: *1.826
+       - Miss
+
+     Request: *1.444
+       - Miss
+
+     Request: *1.624
+    - << Hit >>
+
+     Request: *1.559
+       - Miss
+
+     Request: *1.1103
+       - Miss
+
+     Request: *1.286
+    - << Hit >>
+
+     Request: *1.1405
+       - Miss
+
+     Request: *1.824
+       - Miss
+
+     Request: *1.131
+       - Miss
+
+     Request: *1.585
+       - Miss
+
+     Request: *1.410
+       - Miss
+
+     Request: *1.1223
+       - Miss
+
+     Request: *1.1375
+       - Miss
+
+     Request: *1.274
+       - Miss
+
+     Request: *1.101
+       - Miss
+
+     Request: *1.992
+       - Miss
+
+     Request: *1.1305
+       - Miss
+
+     Request: *1.103
+       - Miss
+
+     Request: *1.1170
+       - Miss
+
+     Request: *1.937
+       - Miss
+
+     Request: *1.1163
+       - Miss
+
+     Request: *1.1436
+       - Miss
+
+     Request: *1.318
+       - Miss
+
+     Request: *1.254
+       - Miss
+
+     Request: *1.341
+       - Miss
+
+     Request: *1.1502
+       - Miss
+
+     Request: *1.82
+       - Miss
+
+     Request: *1.570
+       - Miss
+
+     Request: *1.744
+       - Miss
+
+     Request: *1.1154
+       - Miss
+
+     Request: *1.750
+       - Miss
+
+     Request: *1.346
+       - Miss
+
+     Request: *1.506
+       - Miss
+
+     Request: *1.1044
+    - << Hit >>
+
+     Request: *1.414
+       - Miss
+
+     Request: *1.1392
+    - << Hit >>
+
+     Request: *1.1365
+       - Miss
+
+     Request: *1.908
+       - Miss
+
+     Request: *1.71
+       - Miss
+
+     Request: *1.1419
+       - Miss
+
+     Request: *1.893
+       - Miss
+
+     Request: *1.146
+       - Miss
+
+     Request: *1.57
+       - Miss
+
+     Request: *1.257
+       - Miss
+
+     Request: *1.1
+       - Miss
+
+     Request: *1.1329
+       - Miss
+
+     Request: *1.978
+       - Miss
+
+     Request: *1.875
+       - Miss
+
+     Request: *1.958
+       - Miss
+
+     Request: *1.287
+    - << Hit >>
+
+     Request: *1.440
+       - Miss
+
+     Request: *1.1023
+       - Miss
+
+     Request: *1.1417
+       - Miss
+
+     Request: *1.378
+       - Miss
+
+     Request: *1.368
+       - Miss
+
+     Request: *1.236
+       - Miss
+
+     Request: *1.201
+       - Miss
+
+     Request: *1.1476
+    - << Hit >>
+
+     Request: *1.145
+       - Miss
+
+     Request: *1.615
+       - Miss
+
+     Request: *1.1317
+       - Miss
+
+     Request: *1.992
+    - << Hit >>
+
+     Request: *1.70
+       - Miss
+
+     Request: *1.1101
+       - Miss
+
+     Request: *1.61
+       - Miss
+
+     Request: *1.977
+       - Miss
+
+     Request: *1.642
+       - Miss
+
+     Request: *1.917
+    - << Hit >>
+
+     Request: *1.74
+       - Miss
+
+     Request: *1.872
+       - Miss
+
+     Request: *1.132
+       - Miss
+
+     Request: *1.1221
+    - << Hit >>
+
+     Request: *1.117
+       - Miss
+
+     Request: *1.1163
+    - << Hit >>
+
+     Request: *1.1393
+       - Miss
+
+     Request: *1.475
+       - Miss
+
+     Request: *1.708
+       - Miss
+
+     Request: *1.301
+       - Miss
+
+     Request: *1.882
+       - Miss
+
+     Request: *1.1360
+       - Miss
+
+     Request: *1.274
+    - << Hit >>
+
+     Request: *1.716
+       - Miss
+
+     Request: *1.949
+       - Miss
+
+     Request: *1.122
+       - Miss
+
+     Request: *1.1480
+       - Miss
+
+     Request: *1.241
+    - << Hit >>
+
+     Request: *1.665
+       - Miss
+
+     Request: *1.325
+       - Miss
+
+     Request: *1.430
+       - Miss
+
+     Request: *1.606
+       - Miss
+
+     Request: *1.1468
+       - Miss
+
+     Request: *1.943
+       - Miss
+
+     Request: *1.1424
+       - Miss
+
+     Request: *1.55
+       - Miss
+
+     Request: *1.621
+       - Miss
+
+     Request: *1.529
+       - Miss
+
+     Request: *1.1095
+    - << Hit >>
+
+     Request: *1.262
+       - Miss
+
+     Request: *1.936
+       - Miss
+
+     Request: *1.959
+       - Miss
+
+     Request: *1.1158
+       - Miss
+
+     Request: *1.150
+       - Miss
+
+     Request: *1.1023
+    - << Hit >>
+
+     Request: *1.1017
+       - Miss
+
+     Request: *1.1012
+       - Miss
+
+     Request: *1.1499
+       - Miss
+
+     Request: *1.254
+    - << Hit >>
+
+     Request: *1.1293
+       - Miss
+
+     Request: *1.646
+       - Miss
+
+     Request: *1.787
+       - Miss
+
+     Request: *1.164
+       - Miss
+
+     Request: *1.1421
+       - Miss
+
+     Request: *1.823
+       - Miss
+
+     Request: *1.629
+       - Miss
+
+     Request: *1.1060
+       - Miss
+
+     Request: *1.946
+       - Miss
+
+     Request: *1.373
+       - Miss
+
+     Request: *1.397
+       - Miss
+
+     Request: *1.72
+       - Miss
+
+     Request: *1.826
+    - << Hit >>
+
+     Request: *1.613
+       - Miss
+
+     Request: *1.740
+       - Miss
+
+     Request: *1.764
+       - Miss
+
+     Request: *1.292
+       - Miss
+
+     Request: *1.1383
+       - Miss
+
+     Request: *1.1259
+       - Miss
+
+     Request: *1.421
+       - Miss
+
+     Request: *1.1105
+       - Miss
+
+     Request: *1.217
+    - << Hit >>
+
+     Request: *1.712
+       - Miss
+
+     Request: *1.896
+       - Miss
+
+     Request: *1.280
+       - Miss
+
+     Request: *1.1045
+       - Miss
+
+     Request: *1.320
+       - Miss
+
+     Request: *1.345
+    - << Hit >>
+
+     Request: *1.1479
+       - Miss
+
+     Request: *1.731
+       - Miss
+
+     Request: *1.1347
+       - Miss
+
+     Request: *1.87
+       - Miss
+
+     Request: *1.863
+       - Miss
+
+     Request: *1.1413
+       - Miss
+
+     Request: *1.135
+       - Miss
+
+     Request: *1.488
+       - Miss
+
+     Request: *1.161
+    - << Hit >>
+
+     Request: *1.552
+       - Miss
+
+     Request: *1.152
+       - Miss
+
+     Request: *1.615
+    - << Hit >>
+
+     Request: *2.1511
+       - Miss
+
+     Request: *1.1138
+       - Miss
+
+     Request: *1.796
+       - Miss
+
+     Request: *1.458
+       - Miss
+
+     Request: *1.198
+       - Miss
+
+     Request: *1.637
+       - Miss
+
+     Request: *1.646
+    - << Hit >>
+
+     Request: *1.827
+       - Miss
+
+     Request: *1.1062
+       - Miss
+
+     Request: *1.692
+       - Miss
+
+     Request: *1.84
+       - Miss
+
+     Request: *1.940
+       - Miss
+
+     Request: *1.344
+       - Miss
+
+     Request: *1.28
+       - Miss
+
+     Request: *1.112
+       - Miss
+
+     Request: *1.489
+       - Miss
+
+     Request: *1.1188
+       - Miss
+
+     Request: *1.1184
+       - Miss
+
+     Request: *1.1480
+    - << Hit >>
+
+     Request: *1.40
+       - Miss
+
+     Request: *1.1254
+       - Miss
+
+     Request: *1.98
+       - Miss
+
+     Request: *1.884
+       - Miss
+
+     Request: *1.1302
+       - Miss
+
+     Request: *1.224
+       - Miss
+
+     Request: *1.416
+       - Miss
+
+     Request: *1.962
+       - Miss
+
+     Request: *1.163
+    - << Hit >>
+
+     Request: *1.481
+       - Miss
+
+     Request: *1.644
+       - Miss
+
+     Request: *1.1342
+       - Miss
+
+     Request: *1.573
+       - Miss
+
+     Request: *1.1201
+       - Miss
+
+     Request: *1.1347
+    - << Hit >>
+
+     Request: *1.883
+       - Miss
+
+     Request: *1.1229
+    - << Hit >>
+
+     Request: *1.283
+       - Miss
+
+     Request: *1.721
+       - Miss
+
+     Request: *1.1039
+       - Miss
+
+     Request: *1.625
+       - Miss
+
+     Request: *1.1314
+       - Miss
+
+     Request: *1.728
+       - Miss
+
+     Request: *1.1221
+    - << Hit >>
+
+     Request: *1.1186
+       - Miss
+
+     Request: *1.1054
+       - Miss
+
+     Request: *1.802
+       - Miss
+
+     Request: *1.321
+       - Miss
+
+     Request: *1.955
+       - Miss
+
+     Request: *1.966
+       - Miss
+
+     Request: *1.757
+       - Miss
+
+     Request: *1.310
+       - Miss
+
+     Request: *1.321
+    - << Hit >>
+
+     Request: *1.1014
+       - Miss
+
+     Request: *1.1365
+    - << Hit >>
+
+     Request: *1.456
+       - Miss
+
+     Request: *1.409
+       - Miss
+
+     Request: *1.1224
+       - Miss
+
+     Request: *1.571
+       - Miss
+
+     Request: *1.89
+       - Miss
+
+     Request: *1.626
+       - Miss
+
+     Request: *1.1037
+       - Miss
+
+     Request: *1.1226
+       - Miss
+
+     Request: *1.674
+       - Miss
+
+     Request: *1.1172
+       - Miss
+
+     Request: *1.335
+       - Miss
+
+     Request: *1.418
+       - Miss
+
+     Request: *1.57
+    - << Hit >>
+
+     Request: *1.130
+       - Miss
+
+     Request: *1.900
+       - Miss
+
+     Request: *1.1413
+    - << Hit >>
+
+     Request: *1.1293
+    - << Hit >>
+
+     Request: *1.1354
+       - Miss
+
+     Request: *1.1173
+       - Miss
+
+     Request: *1.798
+       - Miss
+
+     Request: *1.948
+       - Miss
+
+     Request: *1.834
+       - Miss
+
+     Request: *1.397
+    - << Hit >>
+
+     Request: *1.234
+       - Miss
+
+     Request: *1.746
+       - Miss
+
+     Request: *1.1024
+       - Miss
+
+     Request: *1.155
+       - Miss
+
+     Request: *1.862
+       - Miss
+
+     Request: *1.1376
+       - Miss
+
+     Request: *1.675
+       - Miss
+
+     Request: *1.1320
+       - Miss
+
+     Request: *1.1379
+       - Miss
+
+     Request: *1.1318
+       - Miss
+
+     Request: *1.501
+       - Miss
+
+     Request: *1.133
+       - Miss
+
+     Request: *1.530
+       - Miss
+
+     Request: *1.924
+       - Miss
+
+     Request: *1.96
+       - Miss
+
+     Request: *1.754
+       - Miss
+
+     Request: *1.3
+       - Miss
+
+     Request: *1.267
+       - Miss
+
+     Request: *1.400
+       - Miss
+
+     Request: *1.628
+       - Miss
+
+     Request: *1.897
+       - Miss
+
+     Request: *1.1194
+       - Miss
+
+     Request: *1.1375
+       - Miss
+
+     Request: *1.1239
+       - Miss
+
+     Request: *1.388
+       - Miss
+
+     Request: *1.590
+       - Miss
+
+     Request: *1.1224
+    - << Hit >>
+
+     Request: *1.1167
+       - Miss
+
+     Request: *1.265
+       - Miss
+
+     Request: *1.954
+       - Miss
+
+     Request: *1.608
+       - Miss
+
+     Request: *1.1000
+       - Miss
+
+     Request: *1.177
+       - Miss
+
+     Request: *2.1509
+       - Miss
+
+     Request: *1.950
+       - Miss
+
+     Request: *1.851
+       - Miss
+
+     Request: *1.1408
+       - Miss
+
+     Request: *1.745
+       - Miss
+
+     Request: *1.743
+       - Miss
+
+     Request: *1.721
+    - << Hit >>
+
+     Request: *1.651
+       - Miss
+
+     Request: *1.104
+       - Miss
+
+     Request: *1.932
+       - Miss
+
+     Request: *1.666
+       - Miss
+
+     Request: *1.1068
+       - Miss
+
+     Request: *1.1456
+       - Miss
+
+     Request: *1.234
+    - << Hit >>
+
+     Request: *1.1323
+       - Miss
+
+     Request: *1.43
+       - Miss
+
+     Request: *1.1200
+       - Miss
+
+     Request: *1.392
+       - Miss
+
+     Request: *1.1320
+    - << Hit >>
+
+     Request: *1.225
+       - Miss
+
+     Request: *1.1007
+       - Miss
+
+     Request: *1.1323
+    - << Hit >>
+
+     Request: *1.922
+       - Miss
+
+     Request: *1.168
+       - Miss
+
+     Request: *1.414
+       - Miss
+
+     Request: *1.878
+       - Miss
+
+     Request: *1.486
+       - Miss
+
+     Request: *1.397
+    - << Hit >>
+
+     Request: *1.144
+       - Miss
+
+     Request: *1.991
+       - Miss
+
+     Request: *1.1422
+       - Miss
+
+     Request: *1.313
+       - Miss
+
+     Request: *1.1339
+       - Miss
+
+     Request: *1.1194
+    - << Hit >>
+
+     Request: *1.1482
+       - Miss
+
+     Request: *1.289
+       - Miss
+
+     Request: *1.731
+    - << Hit >>
+
+     Request: *1.150
+    - << Hit >>
+
+     Request: *1.63
+       - Miss
+
+     Request: *1.570
+       - Miss
+
+     Request: *1.573
+    - << Hit >>
+
+     Request: *1.741
+       - Miss
+
+     Request: *1.332
+       - Miss
+
+     Request: *1.1081
+       - Miss
+
+     Request: *1.908
+       - Miss
+
+     Request: *1.486
+    - << Hit >>
+
+     Request: *1.1032
+       - Miss
+
+     Request: *1.1076
+       - Miss
+
+     Request: *1.974
+       - Miss
+
+     Request: *1.1166
+       - Miss
+
+     Request: *1.359
+       - Miss
+
+     Request: *1.1275
+       - Miss
+
+     Request: *1.336
+       - Miss
+
+     Request: *1.548
+       - Miss
+
+     Request: *1.523
+       - Miss
+
+     Request: *1.134
+       - Miss
+
+     Request: *1.897
+    - << Hit >>
+
+     Request: *1.504
+       - Miss
+
+     Request: *1.1391
+       - Miss
+
+     Request: *1.1369
+       - Miss
+
+     Request: *1.1156
+       - Miss
+
+     Request: *1.1486
+       - Miss
+
+     Request: *1.557
+       - Miss
+
+     Request: *1.327
+       - Miss
+
+     Request: *1.351
+       - Miss
+
+     Request: *1.466
+       - Miss
+
+     Request: *1.1358
+       - Miss
+
+     Request: *1.182
+       - Miss
+
+     Request: *1.955
+    - << Hit >>
+
+     Request: *1.858
+       - Miss
+
+     Request: *1.356
+       - Miss
+
+     Request: *1.799
+       - Miss
+
+     Request: *1.495
+       - Miss
+
+     Request: *1.1303
+       - Miss
+
+     Request: *1.803
+       - Miss
+
+     Request: *1.85
+       - Miss
+
+     Request: *1.1292
+       - Miss
+
+     Request: *1.419
+       - Miss
+
+     Request: *1.277
+       - Miss
+
+     Request: *1.605
+       - Miss
+
+     Request: *1.698
+       - Miss
+
+     Request: *1.691
+       - Miss
+
+     Request: *1.412
+       - Miss
+
+     Request: *1.957
+       - Miss
+
+     Request: *1.1278
+       - Miss
+
+     Request: *1.364
+       - Miss
+
+     Request: *1.1238
+       - Miss
+
+     Request: *1.441
+       - Miss
+
+     Request: *1.406
+       - Miss
+
+     Request: *1.1240
+       - Miss
+
+     Request: *1.1396
+       - Miss
+
+     Request: *1.1132
+       - Miss
+
+     Request: *1.1482
+    - << Hit >>
+
+     Request: *1.1040
+       - Miss
+
+     Request: *1.491
+       - Miss
+
+     Request: *1.480
+       - Miss
+
+     Request: *1.568
+       - Miss
+
+     Request: *1.1174
+       - Miss
+
+     Request: *1.146
+       - Miss
+
+     Request: *1.919
+       - Miss
+
+     Request: *1.1398
+       - Miss
+
+     Request: *1.46
+       - Miss
+
+     Request: *1.517
+       - Miss
+
+     Request: *1.1398
+    - << Hit >>
+
+     Request: *1.741
+    - << Hit >>
+
+     Request: *1.227
+       - Miss
+
+     Request: *1.311
+       - Miss
+
+     Request: *1.295
+       - Miss
+
+     Request: *1.1320
+    - << Hit >>
+
+     Request: *1.1151
+       - Miss
+
+     Request: *1.155
+    - << Hit >>
+
+     Request: *1.894
+       - Miss
+
+     Request: *1.1246
+       - Miss
+
+     Request: *1.228
+       - Miss
+
+     Request: *1.558
+       - Miss
+
+     Request: *1.1002
+       - Miss
+
+     Request: *1.675
+    - << Hit >>
+
+     Request: *1.1008
+       - Miss
+
+     Request: *1.969
+       - Miss
+
+     Request: *1.1433
+       - Miss
+
+     Request: *1.1247
+       - Miss
+
+     Request: *1.690
+       - Miss
+
+     Request: *1.472
+       - Miss
+
+     Request: *1.1200
+    - << Hit >>
+
+     Request: *1.360
+       - Miss
+
+     Request: *1.802
+    - << Hit >>
+
+     Request: *1.1130
+       - Miss
+
+     Request: *1.388
+    - << Hit >>
+
+     Request: *1.736
+       - Miss
+
+     Request: *1.234
+    - << Hit >>
+
+     Request: *1.757
+    - << Hit >>
+
+     Request: *1.118
+       - Miss
+
+     Request: *1.820
+       - Miss
+
+     Request: *1.1227
+       - Miss
+
+     Request: *1.199
+       - Miss
+
+     Request: *1.34
+       - Miss
+
+     Request: *1.425
+       - Miss
+
+     Request: *1.336
+    - << Hit >>
+
+     Request: *1.55
+       - Miss
+
+     Request: *1.375
+       - Miss
+
+     Request: *1.68
+       - Miss
+
+     Request: *1.532
+       - Miss
+
+     Request: *1.5
+       - Miss
+
+     Request: *1.651
+    - << Hit >>
+
+     Request: *1.1217
+       - Miss
+
+     Request: *1.526
+       - Miss
+
+     Request: *2.1507
+       - Miss
+
+     Request: *1.319
+       - Miss
+
+     Request: *1.372
+       - Miss
+
+     Request: *1.276
+       - Miss
+
+     Request: *1.447
+       - Miss
+
+     Request: *1.643
+       - Miss
+
+     Request: *1.1452
+       - Miss
+
+     Request: *1.1192
+       - Miss
+
+     Request: *1.1092
+       - Miss
+
+     Request: *1.1335
+       - Miss
+
+     Request: *1.110
+       - Miss
+
+     Request: *1.402
+       - Miss
+
+     Request: *1.846
+       - Miss
+
+     Request: *1.194
+       - Miss
+
+     Request: *1.1273
+       - Miss
+
+     Request: *1.980
+       - Miss
+
+     Request: *1.823
+       - Miss
+
+     Request: *1.1193
+       - Miss
+
+     Request: *1.276
+    - << Hit >>
+
+     Request: *1.452
+       - Miss
+
+     Request: *1.20
+       - Miss
+
+     Request: *1.294
+       - Miss
+
+     Request: *1.275
+       - Miss
+
+     Request: *1.738
+       - Miss
+
+     Request: *1.4
+       - Miss
+
+     Request: *2.1509
+    - << Hit >>
+
+     Request: *1.1466
+       - Miss
+
+     Request: *1.1126
+       - Miss
+
+     Request: *1.839
+       - Miss
+
+     Request: *1.1078
+       - Miss
+
+     Request: *1.1495
+       - Miss
+
+     Request: *1.560
+       - Miss
+
+     Request: *1.185
+       - Miss
+
+     Request: *1.1439
+       - Miss
+
+     Request: *1.1177
+       - Miss
+
+     Request: *1.457
+       - Miss
+
+     Request: *1.1161
+       - Miss
+
+     Request: *1.1134
+       - Miss
+
+     Request: *1.572
+       - Miss
+
+     Request: *1.467
+       - Miss
+
+     Request: *1.1199
+       - Miss
+
+     Request: *1.526
+    - << Hit >>
+
+     Request: *1.256
+       - Miss
+
+     Request: *1.563
+       - Miss
+
+     Request: *1.167
+       - Miss
+
+     Request: *1.813
+       - Miss
+
+     Request: *1.778
+       - Miss
+
+     Request: *1.1005
+       - Miss
+
+     Request: *1.902
+       - Miss
+
+     Request: *1.1446
+       - Miss
+
+     Request: *1.1059
+       - Miss
+
+     Request: *1.796
+       - Miss
+
+     Request: *1.1443
+       - Miss
+
+     Request: *1.520
+       - Miss
+
+     Request: *1.856
+       - Miss
+
+     Request: *1.584
+       - Miss
+
+     Request: *1.134
+    - << Hit >>
+
+     Request: *1.245
+       - Miss
+
+     Request: *1.1288
+       - Miss
+
+     Request: *1.677
+       - Miss
+
+     Request: *1.1284
+       - Miss
+
+     Request: *1.1410
+       - Miss
+
+     Request: *1.79
+       - Miss
+
+     Request: *1.1096
+       - Miss
+
+     Request: *1.604
+       - Miss
+
+     Request: *1.60
+       - Miss
+
+     Request: *1.756
+       - Miss
+
+     Request: *1.931
+       - Miss
+
+     Request: *1.121
+       - Miss
+
+     Request: *1.761
+       - Miss
+
+     Request: *1.272
+       - Miss
+
+     Request: *1.663
+       - Miss
+
+     Request: *1.39
+       - Miss
+
+     Request: *1.180
+       - Miss
+
+     Request: *1.1340
+       - Miss
+
+     Request: *1.154
+       - Miss
+
+     Request: *1.248
+       - Miss
+
+     Request: *1.815
+       - Miss
+
+     Request: *1.941
+       - Miss
+
+     Request: *1.798
+       - Miss
+
+     Request: *1.37
+       - Miss
+
+     Request: *1.1164
+       - Miss
+
+     Request: *1.1055
+       - Miss
+
+     Request: *1.929
+       - Miss
+
+     Request: *1.1091
+       - Miss
+
+     Request: *1.1007
+       - Miss
+
+     Request: *1.1435
+       - Miss
+
+     Request: *1.358
+       - Miss
+
+     Request: *1.181
+       - Miss
+
+     Request: *1.962
+       - Miss
+
+     Request: *1.360
+    - << Hit >>
+
+     Request: *1.1122
+       - Miss
+
+     Request: *1.644
+       - Miss
+
+     Request: *1.114
+       - Miss
+
+     Request: *1.494
+       - Miss
+
+     Request: *1.1035
+       - Miss
+
+     Request: *1.1015
+       - Miss
+
+     Request: *1.714
+       - Miss
+
+     Request: *1.1103
+       - Miss
+
+     Request: *1.1433
+    - << Hit >>
+
+     Request: *2.1509
+    - << Hit >>
+
+     Request: *1.552
+       - Miss
+
+     Request: *1.469
+       - Miss
+
+     Request: *1.426
+       - Miss
+
+     Request: *1.1126
+    - << Hit >>
+
+     Request: *1.890
+       - Miss
+
+     Request: *1.1068
+       - Miss
+
+     Request: *1.1374
+       - Miss
+
+     Request: *1.1018
+       - Miss
+
+     Request: *1.535
+       - Miss
+
+     Request: *1.488
+       - Miss
+
+     Request: *1.1065
+       - Miss
+
+     Request: *1.1440
+       - Miss
+
+     Request: *1.54
+       - Miss
+
+     Request: *1.1304
+       - Miss
+
+     Request: *1.244
+       - Miss
+
+     Request: *1.958
+       - Miss
+
+     Request: *1.506
+       - Miss
+
+     Request: *1.705
+       - Miss
+
+     Request: *1.1294
+       - Miss
+
+     Request: *1.600
+       - Miss
+
+     Request: *3.1514
+       - Miss
+
+     Request: *1.960
+       - Miss
+
+     Request: *1.757
+    - << Hit >>
+
+     Request: *1.233
+       - Miss
+
+     Request: *1.1297
+       - Miss
+
+     Request: *1.1361
+       - Miss
+
+     Request: *1.781
+       - Miss
+
+     Request: *1.415
+       - Miss
+
+     Request: *1.1083
+       - Miss
+
+     Request: *1.1126
+    - << Hit >>
+
+     Request: *1.1062
+       - Miss
+
+     Request: *1.1485
+       - Miss
+
+     Request: *1.788
+       - Miss
+
+     Request: *1.901
+       - Miss
+
+     Request: *1.1490
+       - Miss
+
+     Request: *1.542
+       - Miss
+
+     Request: *1.187
+       - Miss
+
+     Request: *1.1460
+       - Miss
+
+     Request: *1.562
+       - Miss
+
+     Request: *1.1408
+       - Miss
+
+     Request: *1.1078
+    - << Hit >>
+
+     Request: *1.583
+       - Miss
+
+     Request: *1.1421
+       - Miss
+
+     Request: *1.597
+       - Miss
+
+     Request: *1.824
+       - Miss
+
+     Request: *1.670
+       - Miss
+
+     Request: *1.1044
+       - Miss
+
+     Request: *1.394
+       - Miss
+
+     Request: *1.1139
+       - Miss
+
+     Request: *1.529
+       - Miss
+
+     Request: *1.1476
+       - Miss
+
+     Request: *1.527
+       - Miss
+
+     Request: *1.533
+       - Miss
+
+     Request: *1.14
+       - Miss
+
+     Request: *1.53
+       - Miss
+
+     Request: *1.327
+       - Miss
+
+     Request: *1.1279
+       - Miss
+
+     Request: *1.1058
+       - Miss
+
+     Request: *1.756
+    - << Hit >>
+
+     Request: *1.394
+    - << Hit >>
+
+     Request: *1.856
+    - << Hit >>
+
+     Request: *1.1453
+       - Miss
+
+     Request: *1.286
+       - Miss
+
+     Request: *1.891
+       - Miss
+
+     Request: *1.416
+       - Miss
+
+     Request: *1.989
+       - Miss
+
+     Request: *1.661
+       - Miss
+
+     Request: *1.1121
+       - Miss
+
+     Request: *1.304
+       - Miss
+
+     Request: *1.763
+       - Miss
+
+     Request: *1.1420
+       - Miss
+
+     Request: *1.490
+       - Miss
+
+     Request: *1.217
+       - Miss
+
+     Request: *1.864
+       - Miss
+
+     Request: *1.214
+       - Miss
+
+     Request: *1.1126
+    - << Hit >>
+
+     Request: *1.614
+       - Miss
+
+     Request: *1.103
+       - Miss
+
+     Request: *1.8
+       - Miss
+
+     Request: *1.1300
+       - Miss
+
+     Request: *1.449
+       - Miss
+
+     Request: *1.671
+       - Miss
+
+     Request: *1.275
+    - << Hit >>
+
+     Request: *1.860
+       - Miss
+
+     Request: *1.1302
+       - Miss
+
+     Request: *1.271
+       - Miss
+
+     Request: *1.15
+       - Miss
+
+     Request: *1.508
+       - Miss
+
+     Request: *1.743
+       - Miss
+
+     Request: *1.846
+    - << Hit >>
+
+     Request: *1.308
+       - Miss
+
+     Request: *1.1492
+       - Miss
+
+     Request: *1.1392
+       - Miss
+
+     Request: *1.518
+       - Miss
+
+     Request: *1.552
+    - << Hit >>
+
+     Request: *1.105
+       - Miss
+
+     Request: *1.1390
+       - Miss
+
+     Request: *1.180
+    - << Hit >>
+
+     Request: *1.1136
+       - Miss
+
+     Request: *1.112
+       - Miss
+
+     Request: *1.1056
+       - Miss
+
+     Request: *1.212
+       - Miss
+
+     Request: *1.1445
+       - Miss
+
+     Request: *1.666
+       - Miss
+
+     Request: *1.1288
+    - << Hit >>
+
+     Request: *1.1320
+       - Miss
+
+     Request: *1.1497
+       - Miss
+
+     Request: *1.365
+       - Miss
+
+     Request: *1.822
+       - Miss
+
+     Request: *1.1375
+       - Miss
+
+     Request: *1.1007
+    - << Hit >>
+
+     Request: *1.771
+       - Miss
+
+     Request: *1.371
+       - Miss
+
+     Request: *1.1083
+    - << Hit >>
+
+     Request: *1.1061
+       - Miss
+
+     Request: *1.1288
+    - << Hit >>
+
+     Request: *1.331
+       - Miss
+
+     Request: *1.482
+       - Miss
+
+     Request: *1.883
+       - Miss
+
+     Request: *1.1428
+       - Miss
+
+     Request: *1.52
+       - Miss
+
+     Request: *1.350
+       - Miss
+
+     Request: *1.535
+    - << Hit >>
+
+     Request: *1.718
+       - Miss
+
+     Request: *1.1126
+    - << Hit >>
+
+     Request: *1.423
+       - Miss
+
+     Request: *1.1447
+       - Miss
+
+     Request: *1.960
+    - << Hit >>
+
+     Request: *1.1241
+       - Miss
+
+     Request: *1.19
+       - Miss
+
+     Request: *1.173
+       - Miss
+
+     Request: *1.1315
+       - Miss
+
+     Request: *1.997
+       - Miss
+
+     Request: *1.493
+       - Miss
+
+     Request: *1.418
+       - Miss
+
+     Request: *1.1438
+       - Miss
+
+     Request: *1.602
+       - Miss
+
+     Request: *1.1025
+       - Miss
+
+     Request: *1.328
+       - Miss
+
+     Request: *1.1108
+       - Miss
+
+     Request: *1.1136
+    - << Hit >>
+
+     Request: *1.1472
+       - Miss
+
+     Request: *1.509
+       - Miss
+
+     Request: *1.1257
+       - Miss
+
+     Request: *1.1195
+       - Miss
+
+     Request: *1.594
+       - Miss
+
+     Request: *1.427
+       - Miss
+
+     Request: *1.138
+       - Miss
+
+     Request: *1.2
+       - Miss
+
+     Request: *1.1093
+       - Miss
+
+     Request: *1.636
+       - Miss
+
+     Request: *1.242
+       - Miss
+
+     Request: *1.1346
+       - Miss
+
+     Request: *1.543
+       - Miss
+
+     Request: *1.1136
+    - << Hit >>
+
+     Request: *1.162
+       - Miss
+
+     Request: *1.264
+       - Miss
+
+     Request: *1.396
+       - Miss
+
+     Request: *1.1220
+       - Miss
+
+     Request: *1.1380
+       - Miss
+
+     Request: *1.526
+       - Miss
+
+     Request: *1.614
+    - << Hit >>
+
+     Request: *1.974
+       - Miss
+
+     Request: *1.615
+       - Miss
+
+     Request: *1.955
+       - Miss
+
+     Request: *1.29
+       - Miss
+
+     Request: *1.6
+       - Miss
+
+     Request: *1.777
+       - Miss
+
+     Request: *1.1490
+    - << Hit >>
+
+     Request: *1.1099
+       - Miss
+
+     Request: *1.430
+       - Miss
+
+     Request: *1.76
+       - Miss
+
+     Request: *1.1399
+       - Miss
+
+     Request: *1.1453
+    - << Hit >>
+
+     Request: *1.85
+       - Miss
+
+     Request: *1.531
+       - Miss
+
+     Request: *1.958
+    - << Hit >>
+
+     Request: *1.179
+       - Miss
+
+     Request: *1.190
+       - Miss
+
+     Request: *1.134
+       - Miss
+
+     Request: *1.854
+       - Miss
+
+     Request: *1.141
+       - Miss
+
+     Request: *1.196
+       - Miss
+
+     Request: *1.747
+       - Miss
+
+     Request: *1.1102
+       - Miss
+
+     Request: *1.676
+       - Miss
+
+     Request: *1.1493
+       - Miss
+
+     Request: *1.416
+    - << Hit >>
+
+     Request: *1.313
+       - Miss
+
+     Request: *1.645
+       - Miss
+
+     Request: *1.1216
+       - Miss
+
+     Request: *1.1286
+       - Miss
+
+     Request: *1.703
+       - Miss
+
+     Request: *1.3
+       - Miss
+
+     Request: *1.237
+       - Miss
+
+     Request: *1.236
+       - Miss
+
+     Request: *1.1237
+       - Miss
+
+     Request: *1.454
+       - Miss
+
+     Request: *1.24
+       - Miss
+
+     Request: *1.312
+       - Miss
+
+     Request: *1.692
+       - Miss
+
+     Request: *1.923
+       - Miss
+
+     Request: *1.826
+       - Miss
+
+     Request: *1.159
+       - Miss
+
+     Request: *1.335
+       - Miss
+
+     Request: *1.671
+    - << Hit >>
+
+     Request: *1.1162
+       - Miss
+
+     Request: *1.441
+       - Miss
+
+     Request: *1.1343
+       - Miss
+
+     Request: *1.511
+       - Miss
+
+     Request: *1.1061
+    - << Hit >>
+
+     Request: *1.392
+       - Miss
+
+     Request: *1.627
+       - Miss
+
+     Request: *1.1372
+       - Miss
+
+     Request: *1.559
+       - Miss
+
+     Request: *1.338
+       - Miss
+
+     Request: *1.1285
+       - Miss
+
+     Request: *1.266
+       - Miss
+
+     Request: *1.932
+       - Miss
+
+     Request: *1.1484
+       - Miss
+
+     Request: *1.1072
+       - Miss
+
+     Request: *1.1451
+       - Miss
+
+     Request: *1.9
+       - Miss
+
+     Request: *1.1313
+       - Miss
+
+     Request: *1.1053
+       - Miss
+
+     Request: *1.83
+       - Miss
+
+     Request: *1.572
+       - Miss
+
+     Request: *1.992
+       - Miss
+
+     Request: *1.81
+       - Miss
+
+     Request: *1.1254
+       - Miss
+
+     Request: *1.878
+       - Miss
+
+     Request: *1.1470
+       - Miss
+
+     Request: *1.247
+       - Miss
+
+     Request: *1.387
+       - Miss
+
+     Request: *1.490
+    - << Hit >>
+
+     Request: *1.1173
+       - Miss
+
+     Request: *1.641
+       - Miss
+
+     Request: *1.1208
+       - Miss
+
+     Request: *1.601
+       - Miss
+
+     Request: *1.26
+       - Miss
+
+     Request: *1.794
+       - Miss
+
+     Request: *1.94
+       - Miss
+
+     Request: *1.673
+       - Miss
+
+     Request: *1.734
+       - Miss
+
+     Request: *1.1375
+    - << Hit >>
+
+     Request: *1.692
+    - << Hit >>
+
+     Request: *1.926
+       - Miss
+
+     Request: *1.951
+       - Miss
+
+     Request: *1.319
+       - Miss
+
+     Request: *1.430
+    - << Hit >>
+
+     Request: *1.161
+       - Miss
+
+     Request: *1.344
+       - Miss
+
+     Request: *1.373
+       - Miss
+
+     Request: *1.432
+       - Miss
+
+     Request: *1.1156
+       - Miss
+
+     Request: *1.1207
+       - Miss
+
+     Request: *1.319
+    - << Hit >>
+
+     Request: *1.595
+       - Miss
+
+     Request: *1.721
+       - Miss
+
+     Request: *1.1070
+       - Miss
+
+     Request: *1.582
+       - Miss
+
+     Request: *1.728
+       - Miss
+
+     Request: *1.1469
+       - Miss
+
+     Request: *1.961
+       - Miss
+
+     Request: *1.856
+    - << Hit >>
+
+     Request: *1.254
+       - Miss
+
+     Request: *1.482
+    - << Hit >>
+
+     Request: *1.116
+       - Miss
+
+     Request: *1.637
+       - Miss
+
+     Request: *1.717
+       - Miss
+
+     Request: *1.895
+       - Miss
+
+     Request: *1.999
+       - Miss
+
+     Request: *1.540
+       - Miss
+
+     Request: *1.753
+       - Miss
+
+     Request: *1.184
+       - Miss
+
+     Request: *1.1173
+    - << Hit >>
+
+     Request: *1.1037
+       - Miss
+
+     Request: *1.352
+       - Miss
+
+     Request: *1.1056
+    - << Hit >>
+
+     Request: *1.202
+       - Miss
+
+     Request: *1.1481
+       - Miss
+
+     Request: *1.1265
+       - Miss
+
+     Request: *1.404
+       - Miss
+
+     Request: *1.796
+       - Miss
+
+     Request: *1.1225
+       - Miss
+
+     Request: *1.1471
+       - Miss
+
+     Request: *1.699
+       - Miss
+
+     Request: *1.463
+       - Miss
+
+     Request: *1.1305
+       - Miss
+
+     Request: *1.514
+       - Miss
+
+     Request: *1.591
+       - Miss
+
+     Request: *1.1337
+       - Miss
+
+     Request: *1.1302
+    - << Hit >>
+
+     Request: *1.228
+       - Miss
+
+     Request: *1.313
+    - << Hit >>
+
+     Request: *1.131
+       - Miss
+
+     Request: *1.673
+    - << Hit >>
+
+     Request: *1.96
+       - Miss
+
+     Request: *1.1475
+       - Miss
+
+     Request: *1.1489
+       - Miss
+
+     Request: *1.1035
+       - Miss
+
+     Request: *1.30
+       - Miss
+
+     Request: *1.1475
+    - << Hit >>
+
+     Request: *1.632
+       - Miss
+
+     Request: *1.252
+       - Miss
+
+     Request: *1.1292
+       - Miss
+
+     Request: *1.1279
+       - Miss
+
+     Request: *1.1170
+       - Miss
+
+     Request: *1.539
+       - Miss
+
+     Request: *1.200
+       - Miss
+
+     Request: *1.1403
+       - Miss
+
+     Request: *1.762
+       - Miss
+
+     Request: *1.1434
+       - Miss
+
+     Request: *1.946
+       - Miss
+
+     Request: *1.994
+       - Miss
+
+     Request: *1.848
+       - Miss
+
+     Request: *1.1443
+       - Miss
+
+     Request: *1.340
+       - Miss
+
+     Request: *1.1262
+       - Miss
+Tempo de execução: 33697
+
+ **Finalizado** as Requisições dos RowIds Sorteados
+
+------------------------------------------------------------------------------------------------------
+
+Tamanho dos blocos usado: 1024
+Tamanho do Gerenciador de Buffer usado: 200
+Quantidade de Hits: 194
+Quantidade de Miss: 1320
+Taxa de Hits: 0.87186265%
+Tempo total de execução: 281866
