@@ -17,21 +17,21 @@ public class ArquivoBinario extends ArquivoTesteBase {
     public void GravarArquivoBasico() throws IOException, ContainerNoExistent {
         GerenciadorArquivoService gaService = new GerenciadorArquivoService(ga);
 
-        BlocoContainer container = gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
+        gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
     }
 
     @Test
     public void GravarArquivoCompleto() throws IOException, ContainerNoExistent {
         GerenciadorArquivoService gaService = new GerenciadorArquivoService(ga);
 
-        BlocoContainer container = gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
     }
 
     @Test
     public void GravarDoisArquivosCompleto() throws IOException, ContainerNoExistent {
         GerenciadorArquivoService gaService = new GerenciadorArquivoService(ga);
 
-        BlocoContainer container = gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
-        BlocoContainer container2 = gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
+        gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA);
+        gaService.gerarContainerByInput(GlobalVariables.LOCAL_ARQUIVO_ENTRADA + GlobalVariables.ARQUIVO_ENTRADA_MENOR);
     }
 }

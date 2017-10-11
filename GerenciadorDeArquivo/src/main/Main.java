@@ -38,8 +38,8 @@ public class Main {
         ga = new GerenciadorArquivo();
         gaService = new GerenciadorArquivoService(ga);
 
-        ArrayList<BlocoContainer> containers = processarArquivos(arquivos);
-        ArrayList<RowId> rowIds = sortearRowId(containers);
+        ArrayList<RowId> todosRowIds = processarArquivos(arquivos);
+        ArrayList<RowId> rowIds = sortearRowId(todosRowIds);
 
         gb = new GerenciadorBuffer(GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
         processarRowIds(rowIds);
@@ -91,8 +91,8 @@ public class Main {
         return arquivosSelecionados;
     }
 
-    private static ArrayList<BlocoContainer> processarArquivos(File[] arquivos)  {
-        ArrayList<BlocoContainer> containers = new ArrayList<BlocoContainer>();
+    private static ArrayList<RowId> processarArquivos(File[] arquivos)  {
+        ArrayList<RowId> rowIds = new ArrayList<RowId>();
 
         for (File file: arquivos) {
             if (file != null)
@@ -103,7 +103,7 @@ public class Main {
                 long tempoInicio = System.currentTimeMillis();
 
                 try {
-                    containers.add(gaService.gerarContainerByInput(file.getAbsolutePath()));
+                    rowIds.addAll(gaService.gerarContainerByInput(file.getAbsolutePath()));
                 } catch (FileNotFoundException e) {
                     println("\nErro ao Gerar o Arquivo Binario da tabela " + file.getName());
                 } catch (IOException e) {
@@ -116,19 +116,13 @@ public class Main {
             }
         }
 
-        return containers;
+        return rowIds;
     }
 
-    private static ArrayList<RowId> sortearRowId(ArrayList<BlocoContainer> containers) {
+    private static ArrayList<RowId> sortearRowId(ArrayList<RowId> allRowIds) {
         println("\n------------------------------------------------------------------------------------------------------\n");
         println(" **Iniciando** o Sorteamento dos RowIds");
-
-        ArrayList<RowId> allRowIds = new ArrayList<RowId>();
         long tempoInicio = System.currentTimeMillis();
-
-        containers.stream().forEach(container -> {
-            allRowIds.addAll(container.getBlocosDados().stream().map(b -> new RowId(b.getHeader().getContainerId(), b.getHeader().getBlocoId())).collect(Collectors.toList()));
-        });
 
         ArrayList<RowId> rowIds = SorteadorDeRowId.Sortear(allRowIds);
 
@@ -157,7 +151,6 @@ public class Main {
         long tempoInicio = System.currentTimeMillis();
 
         rowIds.stream().forEach(rowId -> {
-
             BlocoDado blocoCache = gb.existRowId(rowId);
             print("\n     Request: *"+rowId.toString() );
             println(blocoCache == null ? "       - Miss" : "    - << Hit >>");
@@ -173,7 +166,6 @@ public class Main {
         });
         printTempoExecucao(tempoInicio);
         println(" **Finalizado** as Requisições dos RowIds Sorteados");
-
     }
 
     private static File[] todosOsArquivosDisponiveis(){
