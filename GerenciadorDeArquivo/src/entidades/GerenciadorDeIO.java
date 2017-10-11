@@ -105,11 +105,8 @@ public class GerenciadorDeIO {
 
     public static byte[] getBytes(String diretorio, int start, int length) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
-
         byte[] bytes = null;
-
         try {
-
             int tamanho = length;
             if (tamanho == 0)
                 return null;
@@ -122,7 +119,7 @@ public class GerenciadorDeIO {
             randomAccessFile.close();
 
         }catch (IOException e){
-            System.out.println(e.getMessage());
+            return null;
         }
         return bytes;
     }

@@ -32,7 +32,10 @@ public class SorteadorDeRowId {
         Random random = new Random();
 
         for (int i = 0; i < length; i++) {
-            sorted.add(rows.get(random.nextInt(length)));
+            if (i - length > 3)
+                sorted.add(rows.get(random.nextInt(i )));
+            else
+                sorted.add(rows.get(random.nextInt(i + 3)));
         }
         return sorted;
     }

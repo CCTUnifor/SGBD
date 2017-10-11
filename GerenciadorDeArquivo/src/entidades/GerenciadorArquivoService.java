@@ -27,6 +27,8 @@ public class GerenciadorArquivoService {
                 ga.gravarBloco(container, bloco);
             } catch (IOException e) {
                 System.out.println("Não foi possível gravar a linha: " + linha);
+            } catch (ContainerNoExistent containerNoExistent) {
+                containerNoExistent.printStackTrace();
             }
         });
 

@@ -20,5 +20,5 @@ public interface IFileManager {
     public BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent;
     public BlocoDado lerBloco(RowId rowId) throws IOException;
     public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws FileNotFoundException;
-    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException;
+    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException, ContainerNoExistent;
 }

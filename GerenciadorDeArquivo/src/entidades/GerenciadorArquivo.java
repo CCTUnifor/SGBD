@@ -82,7 +82,7 @@ public class GerenciadorArquivo implements IFileManager {
     public BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent {
         BlocoContainer container = this.criarBlocoContainer();
         container.getBlocoControle().adicionarDescritores(this.processarDescritores(container, containerString));
-        container.adicionarBloco(this.criarBlocoDeDado(container.getContainerId()));
+//        container.adicionarBloco(this.criarBlocoDeDado(container.getContainerId()));
 
         GerenciadorDeIO.gravarBytes(container.getDiretorio(), container.toByteArray());
         return container;
@@ -97,9 +97,11 @@ public class GerenciadorArquivo implements IFileManager {
         int indexOndeComecaOBlocoDeDados = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor();
         int tamanhoBloco = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
-        BlocoDado bloco = new BlocoDado(GerenciadorDeIO.getBytes(diretorio, indexOndeComecaOBlocoDeDados + (tamanhoBloco * (rowId.getBlocoId() - 1)), tamanhoBloco));
+        byte[] blocoBytes = GerenciadorDeIO.getBytes(diretorio, indexOndeComecaOBlocoDeDados + (tamanhoBloco * (rowId.getBlocoId() - 1)), tamanhoBloco);
+        if (blocoBytes == null)
+            return null;
 
-        return bloco;
+        return new BlocoDado(blocoBytes);
     }
 
     @Override
@@ -112,14 +114,20 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws FileNotFoundException {
+    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException, ContainerNoExistent {
         String[] colunas = linha.split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
 
         Linha tuple = new Linha();
         tuple.adicionarColunas(colunas);
 
-        int blocoIndex = container.getBlocoControle().getHeader().getProximoBlocoLivre();
-        BlocoDado bloco = container.getBlocosDados().get(blocoIndex / container.getBlocoControle().getHeader().getTamanhoDosBlocos());
+        int proximoBlocoLivre = container.getBlocoControle().getHeader().getProximoBlocoLivre();
+        int blocoId = (proximoBlocoLivre / container.getBlocoControle().getHeader().getTamanhoDosBlocos()) + 1;
+        BlocoDado bloco = this.lerBloco(new RowId(container.getBlocoControle().getHeader().getContainerId(), blocoId));
+
+        if (bloco == null){
+            bloco = this.criarBlocoDeDado(container.getContainerId());
+            container.adicionarBloco(bloco);
+        }
 
         if (podeAdicionarMaisTuple(bloco, tuple, container))
             bloco.adicionarTupla(tuple);
@@ -129,6 +137,8 @@ public class GerenciadorArquivo implements IFileManager {
 
             container.adicionarBloco(blocoAux);
             container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
+
+            return blocoAux;
         }
 
         return bloco;

@@ -64,7 +64,7 @@ public class GerenciadorBuffer {
     }
 
     public float taxaAcerto(){
-        return 1 - ((float)this.hit / (float)(this.hit+this.miss));
+        return ((float)this.hit / (float)(this.hit + this.miss))*100;
     }
 
     public int getHit(){
