@@ -46,10 +46,10 @@ public class GerenciadorBuffer {
 
     public BlocoDado existRowId(RowId rowId) {
         BlocoDado result = this.lru.search(rowId);
-        if (result == null)
-            this.miss++;
-        else
+        if (result != null)
             this.hit++;
+        else if (!checkSize())
+            this.miss++;
 
         return result;
     }
