@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="227b4a9e-fddd-4db0-927e-cacdff3b273f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" afterPath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" afterPath="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/GlobalVariables.java" afterPath="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="167" column="42" lean-forward="true" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
+            <state relative-caret-position="166">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3298#3305#0" expanded="true" />
@@ -50,21 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArquivoInput.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GerenciadorArquivoService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#807#814#0" expanded="true" />
@@ -73,67 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RowId.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/RowId.java">
+      <file leaf-file-name="SorteadorDeRowId.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GerenciadorBuffer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding>
-                <element signature="e#1737#1738#0" expanded="true" />
-                <marker date="1507683116067" expanded="true" signature="1808:1814" ph=" }" />
-                <marker date="1507683116067" expanded="false" signature="1839:1849" ph=" { " />
-                <marker date="1507683116067" expanded="false" signature="1865:1871" ph=" }" />
-                <marker date="1507683116067" expanded="false" signature="1897:1912" ph=" { " />
-                <marker date="1507683116067" expanded="false" signature="1929:1935" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="116" column="21" lean-forward="false" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
-              <folding>
-                <element signature="e#2294#2305#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlocoDado.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="101" column="28" lean-forward="false" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
-              <folding>
-                <element signature="e#3092#3093#0" expanded="true" />
-                <element signature="e#3126#3127#0" expanded="true" />
-                <element signature="e#3843#3844#0" expanded="true" />
-                <element signature="e#3932#3933#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GerenciadorDeIO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="105" column="25" lean-forward="false" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
+            <state relative-caret-position="408">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -241,14 +173,14 @@
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/RowId.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
-        <option value="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
-        <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorBuffer.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java" />
       </list>
     </option>
   </component>
@@ -723,6 +655,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -733,7 +666,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5295031" sideWeight="0.5043924" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27824268" sideWeight="0.49707174" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27824268" sideWeight="0.49707174" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -743,7 +676,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42364016" sideWeight="0.4956076" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42364016" sideWeight="0.4956076" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -806,27 +739,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>167</line>
-          <properties />
-          <option name="timeStamp" value="274" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
           <line>40</line>
           <properties />
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java</url>
-          <line>38</line>
+          <url>file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="285" />
+          <option name="timeStamp" value="293" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="286" />
+      <option name="time" value="294" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -840,6 +767,7 @@
         <watch expression="rowIdAnterior.equals(bloco.getRowId())" language="JAVA" />
         <watch expression="rowIdAnterior != bloco.getRowId()" language="JAVA" />
         <watch expression="rowId instanceof RowId &amp;&amp; this.getContainerId() == ((RowId)rowId).getContainerId() &amp;&amp; this.getBlocoId() == ((RowId)rowId).getBlocoId();" language="JAVA" />
+        <watch expression="random.nextInt(i)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -848,7 +776,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPossoLerUmArquivo.java" />
     <entry file="file://$PROJECT_DIR$/src/interfaces/IBinary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1092,22 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="196" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="196" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/Writer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1159,7 +1070,7 @@
         <state relative-caret-position="404">
           <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1179,10 +1090,10 @@
         <state relative-caret-position="166">
           <caret line="101" column="28" lean-forward="false" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
           <folding>
-            <element signature="e#3092#3093#0" expanded="true" />
-            <element signature="e#3126#3127#0" expanded="true" />
-            <element signature="e#3843#3844#0" expanded="true" />
-            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3092#3093#0" expanded="false" />
+            <element signature="e#3126#3127#0" expanded="false" />
+            <element signature="e#3843#3844#0" expanded="false" />
+            <element signature="e#3932#3933#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1197,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#807#814#0" expanded="true" />
@@ -1206,14 +1117,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="387" column="0" lean-forward="false" selection-start-line="387" selection-start-column="0" selection-end-line="387" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="167" column="42" lean-forward="true" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
+        <state relative-caret-position="166">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3298#3305#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="59" lean-forward="false" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/SorteadorDeRowId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

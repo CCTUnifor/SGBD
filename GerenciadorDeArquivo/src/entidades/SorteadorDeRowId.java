@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 import static utils.GlobalVariables.LOCAL_ARQUIVO_FINAL;
@@ -29,13 +30,18 @@ public class SorteadorDeRowId {
         ArrayList<RowId> sorted = new ArrayList<RowId>();
 
         int length = rows.size();
-        Random random = new Random();
-
+        Random rand = new Random();
         for (int i = 0; i < length; i++) {
-            if (i - length > 3)
-                sorted.add(rows.get(random.nextInt(i )));
-            else
-                sorted.add(rows.get(random.nextInt(i + 3)));
+            int min = i  - 2;
+            int max = i + 2;
+            if (min < 0)
+                min = 0;
+            if (max > length - 1)
+                max = length - 1;
+
+            int random2 = rand.nextInt((max - min) + 1) + min;
+
+            sorted.add(rows.get(random2));
         }
         return sorted;
     }
