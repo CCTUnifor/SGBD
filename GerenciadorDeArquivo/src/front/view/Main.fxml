@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="front.controller.MainController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="338.0" prefWidth="288.0">
+         <children>
+            <ComboBox fx:id="tablesComboBox" layoutX="39.0" layoutY="38.0" prefHeight="25.0" prefWidth="200.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="19.0" prefHeight="17.0" prefWidth="200.0" text="Selecionar tabela" textAlignment="CENTER" />
+            <ListView fx:id="collumnsListView" layoutX="40.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="79.0" prefHeight="17.0" prefWidth="200.0" text="Selecionar colunas" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
