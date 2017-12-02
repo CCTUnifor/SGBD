@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import services.CollumnService;
 import services.TableService;
 
@@ -14,10 +15,16 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     private CollumnService _collumnService;
+    private TableService __tableService;
 
     @FXML private ComboBox<String> tablesComboBox;
     @FXML private ListView<String> collumnsListView;
-    private TableService __tableService;
+    @FXML private TextField chaveUm;
+    @FXML private TextField chaveDois;
+
+    private String tableSelected() {
+        return tablesComboBox.getSelectionModel().getSelectedItem();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -35,5 +42,18 @@ public class MainController implements Initializable {
     private void loadCollumnsListView() {
         collumnsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         collumnsListView.getItems().addAll(_collumnService.mockColunas());
+    }
+
+    public void onSelecionarTable() {
+        if (tableSelected() == null)
+            return;
+
+        System.out.println("Table selecionada: " + tableSelected());
+        collumnsListView.setDisable(false);
+    }
+
+    public void onAdicionarChavesClick() {
+        System.out.println("Chave um: " + chaveUm.getText());
+        System.out.println("Chave dois: " + chaveDois.getText());
     }
 }
