@@ -13,14 +13,19 @@ public class GraphViewController implements Initializable {
     @FXML
     private SwingNode swingNode;
     private Graph _graph;
+    private String _label;
 
     public void setGraph(Graph graph) {
         this._graph = graph;
     }
 
+    public void setLabel(String label) {
+        this._label= label;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        GraphView jPanel = new GraphView(_graph, "name");
+        GraphView jPanel = new GraphView(_graph, _label);
         swingNode.setContent(jPanel);
     }
 }

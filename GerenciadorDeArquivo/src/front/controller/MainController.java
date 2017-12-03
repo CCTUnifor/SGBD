@@ -45,8 +45,6 @@ public class MainController implements Initializable {
 
         loadTablesComboBox();
         loadCollumnsListView();
-
-
     }
 
     private void loadTablesComboBox() {
@@ -126,6 +124,7 @@ public class MainController implements Initializable {
                 loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
                 GraphViewController controller = new GraphViewController();
                 controller.setGraph(g);
+                controller.setLabel("name");
                 loader.setController(controller);
             }
 
