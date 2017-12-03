@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.embed.swing.SwingNode?>
 <AnchorPane prefHeight="472.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="front.controller.MainController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutY="2.0" prefHeight="471.0" prefWidth="757.0">
@@ -62,7 +63,7 @@
                               </Pane>
                               <Pane layoutX="265.0" layoutY="-2.0" prefHeight="59.0" prefWidth="263.0">
                                  <children>
-                                    <Button layoutX="79.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Browser" />
+                                    <Button layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="108.0" text="Browser" />
                                  </children>
                               </Pane>
                            </children></AnchorPane>

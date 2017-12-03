@@ -17,5 +17,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="prefuse" level="project" />
+    <orderEntry type="library" name="prefuse (2)" level="project" />
   </component>
 </module>
