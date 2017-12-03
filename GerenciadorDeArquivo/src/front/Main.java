@@ -1,12 +1,11 @@
 package front;
 
-import front.view.GraphView;
+import front.modelos.GraphView;
 import javafx.application.Application;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import prefuse.data.Graph;
 

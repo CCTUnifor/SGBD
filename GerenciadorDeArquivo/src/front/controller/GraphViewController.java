@@ -1,6 +1,6 @@
 package front.controller;
 
-import front.view.GraphView;
+import front.modelos.GraphView;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +20,7 @@ public class GraphViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        GraphView jPanel = new GraphView(_graph, "teste");
+        GraphView jPanel = new GraphView(_graph, "name");
         swingNode.setContent(jPanel);
     }
 }

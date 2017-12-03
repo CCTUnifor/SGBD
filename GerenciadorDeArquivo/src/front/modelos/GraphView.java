@@ -1,4 +1,4 @@
-package front.view;
+package front.modelos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
