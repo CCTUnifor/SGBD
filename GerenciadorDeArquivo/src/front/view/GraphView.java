@@ -94,7 +94,8 @@ public class GraphView extends JPanel {
         // register the data with a visualization
 
         // adds graph to visualization and sets renderer label field
-        setGraph(g, label);
+        if (g.getNodeCount() > 0 )
+            setGraph(g, label);
 
         // fix selected focus nodes
         TupleSet focusGroup = m_vis.getGroup(Visualization.FOCUS_ITEMS);

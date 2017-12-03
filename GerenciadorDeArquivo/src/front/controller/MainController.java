@@ -13,6 +13,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import prefuse.data.Graph;
+import prefuse.data.Node;
 import services.CollumnService;
 import services.TableService;
 
@@ -71,12 +72,31 @@ public class MainController implements Initializable {
 
     public void onBrowserClick() {
         System.out.println("onBrowserClick");
+        Graph g = new Graph();
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addNode();
+        g.addNode();
+
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
 
         try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
+
+
+            GraphViewController controller = new GraphViewController();
+            controller.setGraph(g);
+
+            loader.setController(controller);
+            Parent root = loader.load();
+
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../view/GraphViewWindow.fxml"));
             stage.setTitle("Graph");
             stage.setScene(new Scene(root, 1020, 700));
+
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(GraphViewController.class.getName()).log(Level.SEVERE, null, ex);

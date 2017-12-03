@@ -12,14 +12,15 @@ import java.util.ResourceBundle;
 public class GraphViewController implements Initializable {
     @FXML
     private SwingNode swingNode;
+    private Graph _graph;
+
+    public void setGraph(Graph graph) {
+        this._graph = graph;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Graph graph = new Graph();
-        graph.addNode();
-        graph.addNode();
-        graph.addEdge(0, 1);
-        GraphView jPanel = new GraphView(graph, "teste");
+        GraphView jPanel = new GraphView(_graph, "teste");
         swingNode.setContent(jPanel);
     }
 }
