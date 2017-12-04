@@ -6,10 +6,9 @@ import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-/**
- * Created by José Victor on 09/08/2017.
- */
 public class BlocoControle implements IBinary, IPrint {
     private BlocoContainerHeader blocoHeader;
     private ArrayList<Descritor> descritores;
@@ -54,6 +53,10 @@ public class BlocoControle implements IBinary, IPrint {
 
     public void adicionarDescritores(ArrayList<Descritor> descritores) {
         this.descritores.addAll(descritores);
+    }
+    public ArrayList<Descritor> getDescritores() {return this.descritores;}
+    public List<String> getDescritoresName() {
+        return this.descritores.stream().map(x -> x.getNome()).collect(Collectors.toList());
     }
 
     private byte[] bytesDescritores() {

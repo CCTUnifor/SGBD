@@ -2,13 +2,18 @@ package entidades;
 
 import entidades.blocos.*;
 import exceptions.ContainerNoExistent;
+import factories.ContainerId;
 import interfaces.IFileManager;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class GerenciadorArquivo implements IFileManager {
 
@@ -53,6 +58,25 @@ public class GerenciadorArquivo implements IFileManager {
         byte[] bytes = GerenciadorDeIO.getBytes(diretorio);
         container.fromByteArray(bytes);
         return container;
+    }
+
+    @Override
+    public HashMap<ContainerId, String> getContainers() throws IOException {
+        String path = System.getProperty("user.dir") + "\\" + GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO;
+        File file = new File(path);
+        File[] directores = file.listFiles();
+        HashMap<ContainerId, String> containers = new HashMap<ContainerId, String>();
+
+        for (int i = 0; i < directores.length; i++) {
+            File containerFile = directores[i];
+            byte[] idBytes = GerenciadorDeIO.getBytes(containerFile.getAbsolutePath(), 0, 1);
+            int idInt = ByteArrayUtils.byteArrayToInt(idBytes);
+
+            ContainerId id = ContainerId.create(idInt);
+            containers.put(id, containerFile.getName());
+        }
+
+        return containers;
     }
 
     @Override
@@ -153,4 +177,18 @@ public class GerenciadorArquivo implements IFileManager {
         return tamanhoUsadoDoBloco + tamanhoTupla + tamanhoHeader <= tamanhoMaximoBloco;
     }
 
+    public List<String> getDescritores(ContainerId containerId) {
+        BlocoControle controle = new BlocoControle(containerId.getValue());
+        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + containerId .getValue()+ ".bin";
+
+        byte[] bytes = new byte[0];
+        try {
+            bytes = GerenciadorDeIO.getBytes(diretorio);
+        } catch (FileNotFoundException e) {
+            System.out.println("Não foi achado o Container: " + containerId.getValue());
+            return null;
+        }
+        controle.fromByteArray(bytes);
+        return controle.getDescritoresName();
+    }
 }

@@ -1,5 +1,11 @@
 package front.controller;
 
+import entidades.GerenciadorArquivo;
+import entidades.GerenciadorArquivoService;
+import entidades.blocos.BlocoContainer;
+import entidades.blocos.BlocoControle;
+import entidades.blocos.Descritor;
+import factories.ContainerId;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,14 +22,23 @@ import services.TableService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 
 public class MainController implements Initializable {
     private CollumnService _collumnService;
     private TableService __tableService;
+
+    GerenciadorArquivo _ga;
+    GerenciadorArquivoService _gaService;
+
+    private ContainerId[] containerIds;
 
     @FXML
     private ComboBox<String> tablesComboBox;
@@ -34,8 +49,8 @@ public class MainController implements Initializable {
     @FXML
     private TextField chaveDois;
 
-    private String tableSelected() {
-        return tablesComboBox.getSelectionModel().getSelectedItem();
+    private int tableSelected() {
+        return tablesComboBox.getSelectionModel().getSelectedIndex();
     }
 
     @Override
@@ -43,25 +58,36 @@ public class MainController implements Initializable {
         __tableService = new TableService();
         _collumnService = new CollumnService();
 
+        _ga = new GerenciadorArquivo();
+        _gaService = new GerenciadorArquivoService(_ga);
+
         loadTablesComboBox();
-        loadCollumnsListView();
     }
 
     private void loadTablesComboBox() {
-        tablesComboBox.getItems().addAll(__tableService.mockTables());
-    }
+        HashMap<ContainerId, String> containers = _gaService.getTables();
 
-    private void loadCollumnsListView() {
-        collumnsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        collumnsListView.getItems().addAll(_collumnService.mockColunas());
+        containerIds = __tableService.convertContainerIds(containers);
+        tablesComboBox.getItems().addAll(__tableService.convertContainerNames(containers));
     }
 
     public void onSelecionarTable() {
-        if (tableSelected() == null)
-            return;
-
         System.out.println("Table selecionada: " + tableSelected());
         collumnsListView.setDisable(false);
+
+        loadCollumnsListView(tableSelected());
+    }
+
+    private void loadCollumnsListView(int tableSelecionada) {
+        ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
+        List<String> descritors = _ga.getDescritores(containerIdSelecionado);
+
+        if (descritors == null)
+            return;
+
+        collumnsListView.getItems().clear();
+        collumnsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        collumnsListView.getItems().addAll(descritors);
     }
 
     public void onAdicionarChavesClick() {
@@ -84,7 +110,7 @@ public class MainController implements Initializable {
             edges.addColumn("id1", int.class);
             edges.addColumn("id2", int.class);
 
-            boolean treeVisualization = false;
+            boolean treeVisualization = true;
 
             if (treeVisualization) {
                 Tree tree = new Tree(table, edges, "id1", "id2");
@@ -106,20 +132,21 @@ public class MainController implements Initializable {
                 Graph g = new Graph(table, edges, true, "id1", "id2");
 
                 Node n1 = g.addNode();
-                n1.set("name", "Thiago");
+                n1.set("name", "0002");
                 n1.set("gender", "M");
 
                 Node n2 = g.addNode();
-                n2.set("name", "Vitor");
+                n2.set("name", "0001");
                 n2.set("gender", "M");
 
                 Node n3 = g.addNode();
-                n3.set("name", "teste");
+                n3.set("name", "0002    0003");
                 n3.set("gender", "M");
 
                 Edge e1 = g.addEdge(n1, n2);
-//                Edge e2 = g.addEdge(n2, n3);
-                Edge e3 = g.addEdge(n3, n1);
+                Edge e2 = g.addEdge(n1, n3);
+                Edge e3 = g.addEdge(n2, n3);
+
 
                 loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
                 GraphViewController controller = new GraphViewController();

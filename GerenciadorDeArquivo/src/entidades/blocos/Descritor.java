@@ -43,6 +43,10 @@ public class Descritor implements IBinary, IPrint {
         return tamanhoDescritorHeader + tamanhoTipoDados + tamanhoDoTamanho + tamanhoDoNome;
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
