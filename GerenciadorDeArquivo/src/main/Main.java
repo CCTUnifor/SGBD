@@ -38,24 +38,31 @@ public class Main {
         ga = new GerenciadorArquivo();
         gaService = new GerenciadorArquivoService(ga);
 
-        ArrayList<RowId> todosRowIds = processarArquivos(arquivos);
-        ArrayList<RowId> rowIds = sortearRowId(todosRowIds);
+        if (arquivos != null) {
+            ArrayList<RowId> todosRowIds = processarArquivos(arquivos);
+            ArrayList<RowId> rowIds = sortearRowId(todosRowIds);
 
-        gb = new GerenciadorBuffer(GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
-        processarRowIds(rowIds);
+            gb = new GerenciadorBuffer(GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
+            processarRowIds(rowIds);
 
-        println("\n------------------------------------------------------------------------------------------------------\n");
+            println("\n------------------------------------------------------------------------------------------------------\n");
 
-        println("Tamanho dos blocos usado: " + GlobalVariables.TAMANHO_BLOCO);
-        println("Tamanho do Gerenciador de Buffer usado: " + GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
+            println("Tamanho dos blocos usado: " + GlobalVariables.TAMANHO_BLOCO);
+            println("Tamanho do Gerenciador de Buffer usado: " + GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
 
-        println("Quantidade de Hits: " + gb.getHit());
-        println("Quantidade de Miss: " + gb.getMiss());
+            println("Quantidade de Hits: " + gb.getHit());
+            println("Quantidade de Miss: " + gb.getMiss());
 
-        println("Taxa de Hits: " + gb.taxaAcerto() + "%");
+            println("Taxa de Hits: " + gb.taxaAcerto() + "%");
 
-        println("");
-        printTempoExecucao(tempoInicioTotal);
+            println("");
+            printTempoExecucao(tempoInicioTotal);
+        }
+
+        println("\n**Iniciando interface gráfica**");
+
+        front.Main front = new front.Main();
+        front.caller(args);
     }
 
     private static void printTempoExecucao(long tempoInicio) {
@@ -84,6 +91,9 @@ public class Main {
 
             quantidadeSelecionados++;
         } while (indexSelecionado != 0);
+
+        if (quantidadeSelecionados == 1)
+            return null;
 
         println("\nArquivos selecionados:");
         printarTodosOsArquivos(arquivosSelecionados);

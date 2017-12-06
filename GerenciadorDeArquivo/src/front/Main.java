@@ -19,16 +19,6 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 757, 472));
 
-        /**/
-//        final SwingNode swingNode = new SwingNode();
-//        createAndSetSwingContent(swingNode);
-//
-//        Pane pane = new Pane();
-//        pane.getChildren().add(swingNode); // Adding swing node
-//        /**/
-//
-//        primaryStage.setScene(new Scene(pane, 100, 50));
-
         primaryStage.show();
     }
 
@@ -42,10 +32,13 @@ public class Main extends Application {
                 graph.addEdge(0, 1);
 
                 JPanel panel = new GraphView(graph, "teste");
-//                panel.add(new JButton("Click me!"));
                 swingNode.setContent(panel);
             }
         });
+    }
+
+    public void caller(String[] args) {
+        launch(args);
     }
 
 
