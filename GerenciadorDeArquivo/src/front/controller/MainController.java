@@ -33,8 +33,8 @@ public class MainController implements Initializable {
     private CollumnService _collumnService;
     private TableService __tableService;
 
-    GerenciadorArquivo _ga;
-    GerenciadorArquivoService _gaService;
+    private GerenciadorArquivo _ga;
+    private GerenciadorArquivoService _gaService;
 
     private ContainerId[] containerIds;
 
@@ -110,11 +110,11 @@ public class MainController implements Initializable {
     }
 
     public void onAdicionarIndiceClick() {
-        if (Integer.parseInt(this.ordemDoIndice.getText()) <= 2) {
+        if (Integer.parseInt(this.ordemDoIndice.getText()) < 2) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ordem da Arvore");
             alert.setHeaderText("");
-            alert.setContentText("A árvore não pode ter ordem menor que 3!");
+            alert.setContentText("A árvore não pode ter ordem menor que 2!");
 
             alert.showAndWait();
             return;
