@@ -19,8 +19,8 @@ public class GraphViewController implements Initializable {
     @FXML private SwingNode swingNode;
     @FXML private Canvas myCanvas;
 
-    public static final double HEIGHT = 700;
-    public static final double WIDTH = 1200;
+    public static final double HEIGHT = 900;
+    public static final double WIDTH = 1700;
 
     private Graph _graph;
     private String _label;

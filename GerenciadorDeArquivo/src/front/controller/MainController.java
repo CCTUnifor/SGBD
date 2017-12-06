@@ -4,15 +4,15 @@ import entidades.GerenciadorArquivo;
 import entidades.GerenciadorArquivoService;
 import entidades.arvoreBMais.ArvoreBPlus;
 import factories.ContainerId;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import prefuse.data.*;
 import services.CollumnService;
@@ -20,7 +20,6 @@ import services.TableService;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,7 +37,19 @@ public class MainController implements Initializable {
     GerenciadorArquivoService _gaService;
 
     private ContainerId[] containerIds;
-    private ArrayList<ArvoreBPlus> arvores;
+
+    private ObservableList<TableViewIndice> tableViewIndiceValues;
+
+    @FXML
+    TableView<TableViewIndice> tableViewIndices;
+    @FXML
+    TableColumn<TableViewIndice, String> tableViewIndices_id;
+    @FXML
+    TableColumn<TableViewIndice, String> tableViewIndices_tabela;
+    @FXML
+    TableColumn<TableViewIndice, String> tableViewIndices_colunas;
+    @FXML
+    TableColumn<TableViewIndice, String> tableViewIndices_ordem;
 
     @FXML
     private ComboBox<String> tablesComboBox;
@@ -59,7 +70,15 @@ public class MainController implements Initializable {
         _ga = new GerenciadorArquivo();
         _gaService = new GerenciadorArquivoService(_ga);
 
-        this.arvores = new ArrayList<ArvoreBPlus>();
+        this.tableViewIndiceValues = FXCollections.observableArrayList();
+
+        this.tableViewIndices_id.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().index));
+        this.tableViewIndices_tabela.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().tabela));
+        this.tableViewIndices_colunas.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().colunas));
+        this.tableViewIndices_ordem.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().ordem));
+
+        this.tableViewIndices.setItems(this.tableViewIndiceValues);
+        this.tableViewIndices.setEditable(true);
 
         loadTablesComboBox();
     }
@@ -91,9 +110,35 @@ public class MainController implements Initializable {
     }
 
     public void onAdicionarIndiceClick() {
+        if (Integer.parseInt(this.ordemDoIndice.getText()) <= 2) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ordem da Arvore");
+            alert.setHeaderText("");
+            alert.setContentText("A árvore não pode ter ordem menor que 3!");
+
+            alert.showAndWait();
+            return;
+        }
+
         System.out.println("onAdicionarIndiceClick");
-        this.arvores.add(new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText())));
+        TableViewIndice x = new TableViewIndice();
+        x.index = "" + this.tableViewIndiceValues.size();
+        x.arvore = new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText()));
+        x.colunas = this.colunasSelecionadas();
+        x.tabela = this.tablesComboBox.getSelectionModel().getSelectedItem();
+        x.ordem = this.ordemDoIndice.getText();
+
+        this.tableViewIndiceValues.add(x);
         this.ordemDoIndice.setText("");
+    }
+
+    private String colunasSelecionadas() {
+        StringBuilder x = new StringBuilder();
+        for (String c : this.collumnsListView.getSelectionModel().getSelectedItems()) {
+            x.append(c).append("; ");
+        }
+
+        return x.toString();
     }
 
     public void onBrowserClick() {

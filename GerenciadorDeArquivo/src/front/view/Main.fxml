@@ -6,32 +6,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="472.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="front.controller.MainController">
+<AnchorPane prefHeight="900.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="front.controller.MainController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" layoutY="2.0" prefHeight="471.0" prefWidth="757.0">
+      <SplitPane dividerPositions="0.1348645465253239" layoutY="2.0" prefHeight="900.0" prefWidth="1700.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="331.0">
                <children>
-                  <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="283.0" prefWidth="200.0">
+                  <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="693.0" prefWidth="200.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="200.0" text="Selecionar tabela" textAlignment="CENTER" />
                         <ComboBox fx:id="tablesComboBox" layoutY="17.0" onAction="#onSelecionarTable" prefHeight="25.0" prefWidth="200.0" />
-                        <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="622.0" prefWidth="200.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" prefHeight="17.0" prefWidth="200.0" text="Selecionar colunas" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="11.0" layoutY="297.0" prefHeight="124.0" prefWidth="200.0">
+                  <AnchorPane layoutX="13.0" layoutY="714.0" prefHeight="124.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="ordemDoIndice" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
                         <Button fx:id="addKeysButton" layoutY="70.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
                         <Label alignment="CENTER" layoutX="-4.0" layoutY="17.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="11.0" layoutY="421.0" prefHeight="46.0" prefWidth="200.0">
+                  <AnchorPane layoutX="13.0" layoutY="838.0" prefHeight="46.0" prefWidth="200.0">
                      <children>
                         <Label alignment="TOP_LEFT" layoutX="-2.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Key:" textAlignment="CENTER" />
                         <TextField disable="true" editable="false" layoutX="30.0" layoutY="11.0" prefHeight="25.0" prefWidth="166.0">
@@ -43,19 +44,24 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="476.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="744.0" prefWidth="890.0">
                <children>
-                  <SplitPane dividerPositions="0.8840262582056893" orientation="VERTICAL" prefHeight="469.0" prefWidth="527.0">
+                  <SplitPane dividerPositions="0.8840262582056893" orientation="VERTICAL" prefHeight="902.0" prefWidth="1466.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="525.0" />
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="827.0" prefWidth="1464.0">
                            <children>
-                              <Pane layoutY="-1.0" prefHeight="51.0" prefWidth="263.0" />
-                              <Pane layoutX="265.0" layoutY="-2.0" prefHeight="59.0" prefWidth="263.0">
-                                 <children>
-                                    <Button layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="108.0" text="Browser" />
-                                 </children>
-                              </Pane>
+                              <TableView fx:id="tableViewIndices" layoutX="14.0" layoutY="34.0" prefHeight="739.0" prefWidth="654.0">
+                                <columns>
+                                  <TableColumn fx:id="tableViewIndices_id" prefWidth="28.0" text="#" />
+                                  <TableColumn fx:id="tableViewIndices_tabela" prefWidth="140.99996948242188" text="Tabela" />
+                                    <TableColumn fx:id="tableViewIndices_ordem" minWidth="7.0" prefWidth="69.0" text="Ordem" />
+                                    <TableColumn fx:id="tableViewIndices_colunas" prefWidth="415.0" text="Colunas" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="73.0" prefWidth="1464.0">
+                           <children>
+                              <Button layoutX="487.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="251.0" text="Browser" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
