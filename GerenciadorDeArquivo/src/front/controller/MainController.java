@@ -2,6 +2,7 @@ package front.controller;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorArquivoService;
+import entidades.arvoreBMais.ArvoreBPlus;
 import factories.ContainerId;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import services.TableService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,15 +38,14 @@ public class MainController implements Initializable {
     GerenciadorArquivoService _gaService;
 
     private ContainerId[] containerIds;
+    private ArrayList<ArvoreBPlus> arvores;
 
     @FXML
     private ComboBox<String> tablesComboBox;
     @FXML
     private ListView<String> collumnsListView;
     @FXML
-    private TextField chaveUm;
-    @FXML
-    private TextField chaveDois;
+    private TextField ordemDoIndice;
 
     private int tableSelected() {
         return tablesComboBox.getSelectionModel().getSelectedIndex();
@@ -57,6 +58,8 @@ public class MainController implements Initializable {
 
         _ga = new GerenciadorArquivo();
         _gaService = new GerenciadorArquivoService(_ga);
+
+        this.arvores = new ArrayList<ArvoreBPlus>();
 
         loadTablesComboBox();
     }
@@ -87,9 +90,10 @@ public class MainController implements Initializable {
         collumnsListView.getItems().addAll(descritors);
     }
 
-    public void onAdicionarChavesClick() {
-        System.out.println("Chave um: " + chaveUm.getText());
-        System.out.println("Chave dois: " + chaveDois.getText());
+    public void onAdicionarIndiceClick() {
+        System.out.println("onAdicionarIndiceClick");
+        this.arvores.add(new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText())));
+        this.ordemDoIndice.setText("");
     }
 
     public void onBrowserClick() {
@@ -158,6 +162,8 @@ public class MainController implements Initializable {
                 GraphViewController controller = new GraphViewController();
                 controller.setGraph(g);
                 controller.setLabel("name");
+                controller.setArvoreBMais(this.mock());
+
                 loader.setController(controller);
             }
 
@@ -173,4 +179,13 @@ public class MainController implements Initializable {
             Logger.getLogger(GraphViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    private ArvoreBPlus mock() {
+        ArvoreBPlus p = new ArvoreBPlus(7);
+        p.insert("Thiago;16");
+//        p.insert("Victor;18");
+        p.printTreeBPlus();
+        return p;
+    }
+
 }

@@ -26,9 +26,9 @@
                   </AnchorPane>
                   <AnchorPane layoutX="11.0" layoutY="297.0" prefHeight="124.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="chaveUm" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" visible="false" />
-                        <TextField fx:id="chaveDois" layoutY="49.0" prefHeight="25.0" prefWidth="200.0" visible="false" />
-                        <Button fx:id="addKeysButton" layoutY="85.0" mnemonicParsing="false" onAction="#onAdicionarChavesClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Chaves" visible="false" />
+                        <TextField fx:id="ordemDoIndice" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Button fx:id="addKeysButton" layoutY="70.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
+                        <Label alignment="CENTER" layoutX="-4.0" layoutY="17.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="11.0" layoutY="421.0" prefHeight="46.0" prefWidth="200.0">
@@ -47,19 +47,10 @@
                <children>
                   <SplitPane dividerPositions="0.8840262582056893" orientation="VERTICAL" prefHeight="469.0" prefWidth="527.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="525.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="49.0" text="Ordem:" textAlignment="CENTER" />
-                              <TextField disable="true" editable="false" layoutX="63.0" layoutY="10.0" />
-                           </children>
-                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="432.0" prefWidth="525.0" />
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Pane layoutY="-1.0" prefHeight="51.0" prefWidth="263.0">
-                                 <children>
-                                    <Button layoutX="77.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Criar Indice" />
-                                 </children>
-                              </Pane>
+                              <Pane layoutY="-1.0" prefHeight="51.0" prefWidth="263.0" />
                               <Pane layoutX="265.0" layoutY="-2.0" prefHeight="59.0" prefWidth="263.0">
                                  <children>
                                     <Button layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="108.0" text="Browser" />
