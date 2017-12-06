@@ -4,12 +4,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.canvas.Canvas?>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-       <Pane fx:id="graphPane" prefHeight="700.0" prefWidth="1020.0">
+       <Pane fx:id="graphPane" prefHeight="500.0" prefWidth="1020.0">
            <children>
                <SwingNode fx:id="swingNode" />
            </children>
        </Pane>
+      <Pane prefHeight="500.0" prefWidth="1020.0">
+          <children>
+              <Canvas fx:id="myCanvas" height="500.0" width="1020.0">
+              </Canvas>
+          </children>
+      </Pane>
    </children>
 </AnchorPane>

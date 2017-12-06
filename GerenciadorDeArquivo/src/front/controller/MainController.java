@@ -2,9 +2,6 @@ package front.controller;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorArquivoService;
-import entidades.blocos.BlocoContainer;
-import entidades.blocos.BlocoControle;
-import entidades.blocos.Descritor;
 import factories.ContainerId;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +19,13 @@ import services.TableService;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
+
+import static utils.GlobalVariables.TREEVIEW_VISUALIZATION;
 
 
 public class MainController implements Initializable {
@@ -110,9 +107,7 @@ public class MainController implements Initializable {
             edges.addColumn("id1", int.class);
             edges.addColumn("id2", int.class);
 
-            boolean treeVisualization = true;
-
-            if (treeVisualization) {
+            if (TREEVIEW_VISUALIZATION) {
                 Tree tree = new Tree(table, edges, "id1", "id2");
 
                 Node root = tree.addRoot();
@@ -128,6 +123,7 @@ public class MainController implements Initializable {
                 loader = new FXMLLoader(getClass().getResource("../view/TreeViewWindow.fxml"));
                 TreeViewController controller = new TreeViewController();
                 controller.setTree(tree);
+                loader.setController(controller);
             } else {
                 Graph g = new Graph(table, edges, true, "id1", "id2");
 
@@ -143,9 +139,19 @@ public class MainController implements Initializable {
                 n3.set("name", "0002    0003");
                 n3.set("gender", "M");
 
+                Node n4 = g.addNode();
+                n3.set("name", "0002    0003");
+                n3.set("gender", "M");
+
+                Node n5 = g.addNode();
+                n3.set("name", "0002    0003");
+                n3.set("gender", "M");
+
                 Edge e1 = g.addEdge(n1, n2);
                 Edge e2 = g.addEdge(n1, n3);
                 Edge e3 = g.addEdge(n2, n3);
+
+                Edge e4 = g.addEdge(n4, n5);
 
 
                 loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
@@ -160,7 +166,7 @@ public class MainController implements Initializable {
 
             Stage stage = new Stage();
             stage.setTitle("Graph");
-            stage.setScene(new Scene(root, 1020, 700));
+            stage.setScene(new Scene(root, GraphViewController.WIDTH, GraphViewController.HEIGHT));
 
             stage.show();
         } catch (IOException ex) {

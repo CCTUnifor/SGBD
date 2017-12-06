@@ -12,4 +12,8 @@ public class GlobalVariables {
     public static final String LOCAL_ARQUIVO_FINAL_TEXTO = LOCAL_ARQUIVO_FINAL + "TEXTOS/";
     public static final String LOCAL_ARQUIVO_FINAL_RESULTADOS = LOCAL_ARQUIVO_FINAL + "RESULTADOS/";
     public static final String REGEX_SEPARADOR_COLUNA= "\\|";
+
+    public static  final boolean MOSTRAR_PREFUSE = false;
+    public static  final boolean TREEVIEW_VISUALIZATION = false;
+
 }
