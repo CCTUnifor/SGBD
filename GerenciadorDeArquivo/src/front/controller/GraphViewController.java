@@ -1,6 +1,7 @@
 package front.controller;
 
 import entidades.arvoreBMais.ArvoreBPlus;
+import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
 import front.modelos.GraphView;
 import javafx.embed.swing.SwingNode;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import prefuse.data.Graph;
 
@@ -21,6 +23,8 @@ import static utils.GlobalVariables.MOSTRAR_PREFUSE;
 public class GraphViewController implements Initializable {
     @FXML private SwingNode swingNode;
     @FXML private Canvas myCanvas;
+    @FXML
+    ScrollPane scrollPane;
 
     public static final double HEIGHT = 900;
     public static final double WIDTH = 1700;
@@ -54,39 +58,49 @@ public class GraphViewController implements Initializable {
 
             int quantidadeDeRoots = 1;
             int countNivel = 0;
+            scrollPane.setMaxHeight(Double.MAX_VALUE);
+            scrollPane.setMaxWidth(Double.MAX_VALUE);
 
-//            double tamanhoNo = arvore.root.numberOfValidKeys() * 80;
-//            double tamanhoTexto = arvore.root.numberOfValidKeys() * 70;
-//
-//            double xInicial = ((WIDTH / quantidadeDeRoots) / 2) - (tamanhoNo / 2);
-//            double yInicial = 20;
-//
-//            gc.strokeRoundRect(xInicial, yInicial, tamanhoNo, 30, 10, 10);
-//            gc.fillText(arvore.root.getValues(), xInicial + 8, yInicial + 18, tamanhoTexto);
+
 //
 //            xInicial = xInicial/2;
 //            yInicial += 20;
 
+            ArvoreBPlus arv = this.arvore;
 
-            if (!arvore.isEmpty()) {
+            if (!arv.isEmpty()) {
                 Queue<Node> queue = new LinkedList<Node>();
-                queue.add(arvore.getRoot());
+                queue.add(arv.getRoot());
                 Node tempNode = null;
-                int nivel = 0;
+                int yCount = 0;
+                int xCount = 0;
 
                 while (!queue.isEmpty()) {
                     tempNode = queue.remove();
+                    xCount = 0;
+                    yCount++;
+
                     for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
                         if (tempNode.getKey(i) != null) {
+                            Key keyTemp = tempNode.getKey(i);
 
+                            /* */
 
+                            double tamanhoNo = tempNode.getIndexInsertionKeys() * 2;
+                            double tamanhoTexto = tempNode.getIndexInsertionKeys() * 2;
+                            if (tamanhoNo == 0)
+                                tamanhoNo = 80;
+                            if (tamanhoTexto == 0)
+                                tamanhoTexto = 70;
+//
+                            double xInicial = (xCount * tamanhoNo) * 5;
+                            double yInicial = yCount * 30 + 10;
+//
+                            gc.strokeRoundRect(xInicial, yInicial, tamanhoNo, 30, 10, 10);
+                            gc.fillText(keyTemp.getValueColumn(0), xInicial + 8, yInicial + 18, tamanhoTexto);
+                            xCount++;
 
-
-
-
-
-//                            this.print(nivel, tempNode.getKey(i).getValue());
-
+                            /**/
                             if (!tempNode.isLeaf()) {
                                 for (int j = 0; j < tempNode.getChildrens().length; j++) {
                                     if (tempNode.getChildren(j) != null)
