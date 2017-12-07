@@ -1,8 +1,11 @@
 package entidades.arvoreBMais;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class ArvoreBPlus {
 
-    public Node root;
+    private Node root;
     private final int order;
     private final int partition;
 
@@ -117,7 +120,7 @@ public class ArvoreBPlus {
         }
 
         if (node.getFather() == null) {
-            if (node.getChildren(0) == null) {
+            if (node.pointersNull()) {
                 node.clearNode();
                 node.insertionKey(partitionKey);
                 node.setChildren(node.getIndexInsertionKeys() - 1, nodeLeft);
@@ -218,7 +221,7 @@ public class ArvoreBPlus {
                 nR.setFather(nodeRight);
             }
             for (int i = 0; i < nodeLeft.getIndexInsertionKeys(); i++) {
-                if (nodeLeft.getChildren(i).equals(null)) {
+                if (nodeLeft.getChildren(i) != null && nodeLeft.getChildren(i).equals(null)) {
                     for (int j = 0; j < node.getIndexInsertionKeys(); j++) {
                         if (nodeLeft.getKey(i).equals(node.getKey(j))) {
                             nodeLeft.setChildren(i, node.getChildren(j));
@@ -229,7 +232,7 @@ public class ArvoreBPlus {
                 }
             }
             for (int i = 0; i < nodeRight.getIndexInsertionKeys(); i++) {
-                if (nodeRight.getChildren(i).equals(null)) {
+                if (nodeRight.getChildren(i) != null && nodeRight.getChildren(i).equals(null)) {
                     for (int j = 0; j < node.getIndexInsertionKeys(); j++) {
                         if (nodeRight.getKey(i).equals(node.getKey(j))) {
                             nodeRight.setChildren(i, node.getChildren(j));
@@ -253,11 +256,37 @@ public class ArvoreBPlus {
 
     public void printTreeBPlus() {
         if (!this.isEmpty()) {
+            Queue<Node> queue = new LinkedList<Node>();
+            queue.add(this.root);
+            Node tempNode = null;
+            while (!queue.isEmpty()) {
+                tempNode = queue.remove();
+                for (int i = 0; i < this.order - 1; i++) {
+                    System.out.print(" | " + tempNode.getKey(i).getValue() + " | ");
+                    if (!tempNode.isLeaf()) {
+                        for (int j = 0; j < this.order; j++) {
+                            queue.add(tempNode.getChildren(j));
+                        }
+                    }
+                }
+            }
 
         }
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return this.root == null ? true : false;
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public int getPartition() {
+        return partition;
     }
 }

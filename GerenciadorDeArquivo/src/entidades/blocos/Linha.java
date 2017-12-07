@@ -35,6 +35,10 @@ public class Linha implements IBinary, IPrint {
         return soma;
     }
 
+    public ArrayList<Coluna> getColunas() {
+        return colunas;
+    }
+
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();

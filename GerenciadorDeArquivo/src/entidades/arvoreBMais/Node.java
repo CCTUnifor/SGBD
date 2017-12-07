@@ -53,16 +53,6 @@ public class Node {
         return keys;
     }
 
-    public int numberOfValidKeys() {
-        int x = 0;
-        for (Key k : this.keys) {
-            if (k != null)
-                x++;
-        }
-
-        return x;
-    }
-
     public void setKeys(Key[] keys) {
         this.keys = keys;
     }
@@ -83,6 +73,17 @@ public class Node {
         return childrens;
     }
 
+    public boolean pointersNull() {
+        int pos = -1;
+        for (int i = 0; i < this.childrens.length; i++) {
+            if (this.childrens[i] != null) {
+                pos = i;
+                break;
+            }
+        }
+        return pos == -1 ? true : false;
+    }
+
     public void setChildrens(Node[] childrens) {
         this.childrens = childrens;
     }
@@ -92,7 +93,7 @@ public class Node {
     }
 
     public boolean isLeaf() {
-        return leaf;
+        return this.childrens.length == 0;
     }
 
     public void setLeaf(boolean leaf) {
@@ -162,15 +163,5 @@ public class Node {
         for (int i = 0; i < this.childrens.length; i++) this.childrens[i] = null;
         for (int i = 0; i < this.keys.length; i++) this.keys[i] = null;
         this.indexInsertionKeys = 0;
-    }
-
-    public String getValues() {
-        StringBuilder x = new StringBuilder();
-        x.append("| ");
-        for (Key key : this.keys) {
-            if (key != null)
-                x.append(key.getValue()).append(" | ");
-        }
-        return x.toString();
     }
 }

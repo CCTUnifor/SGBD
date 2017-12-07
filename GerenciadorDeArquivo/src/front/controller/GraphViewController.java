@@ -38,9 +38,10 @@ public class GraphViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        GraphView jPanel = new GraphView(_graph, _label);
-        if (MOSTRAR_PREFUSE)
+        if (MOSTRAR_PREFUSE){
+            GraphView jPanel = new GraphView(_graph, _label);
             swingNode.setContent(jPanel);
+        }
         else {
             gc = this.myCanvas.getGraphicsContext2D();
             this.myCanvas.setHeight(HEIGHT);
@@ -51,23 +52,19 @@ public class GraphViewController implements Initializable {
             int quantidadeDeRoots = 1;
             int countNivel = 0;
 
-
-
-            double tamanhoNo = arvore.root.numberOfValidKeys() * 80;
-            double tamanhoTexto = arvore.root.numberOfValidKeys() * 70;
-
-            double xInicial = ((WIDTH / quantidadeDeRoots) / 2) - (tamanhoNo / 2);
-            double yInicial = 20;
-
-            gc.strokeRoundRect(xInicial, yInicial, tamanhoNo, 30, 10, 10);
-            gc.fillText(arvore.root.getValues(), xInicial + 8, yInicial + 18, tamanhoTexto);
-
-            xInicial = xInicial/2;
-            yInicial += 20;
+//            double tamanhoNo = arvore.root.numberOfValidKeys() * 80;
+//            double tamanhoTexto = arvore.root.numberOfValidKeys() * 70;
+//
+//            double xInicial = ((WIDTH / quantidadeDeRoots) / 2) - (tamanhoNo / 2);
+//            double yInicial = 20;
+//
+//            gc.strokeRoundRect(xInicial, yInicial, tamanhoNo, 30, 10, 10);
+//            gc.fillText(arvore.root.getValues(), xInicial + 8, yInicial + 18, tamanhoTexto);
+//
+//            xInicial = xInicial/2;
+//            yInicial += 20;
 
 
         }
     }
-
-
 }

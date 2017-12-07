@@ -1,6 +1,5 @@
 package entidades.arvoreBMais;
 
-
 public class Key {
 
     private String value;
@@ -23,17 +22,12 @@ public class Key {
         return valuesColumns;
     }
 
-    public int compareToKey(Key key)
-    {
+    public int compareToKey(Key key) {
         for (int i = 0; i < this.valuesColumns.length; i++) {
-            if(this.valuesColumns[i].compareToIgnoreCase(key.getValueColumn(i)) < 0)
-            {
+            if (this.valuesColumns[i].compareToIgnoreCase(key.getValueColumn(i)) < 0) {
                 return -1;
-            }
-            else
-            {
-                if(this.valuesColumns[i].compareToIgnoreCase(key.getValueColumn(i)) > 0)
-                {
+            } else {
+                if (this.valuesColumns[i].compareToIgnoreCase(key.getValueColumn(i)) > 0) {
                     return 1;
                 }
             }
@@ -41,13 +35,13 @@ public class Key {
         return 0;
     }
 
-    public String getValueColumn(int index)
-    {
-        if(index > -1 && index < this.getValuesColumns().length) {
+    public String getValueColumn(int index) {
+        if (index > -1 && index < this.getValuesColumns().length) {
             return this.valuesColumns[index];
         }
         return null;
     }
+
     private void setValuesColumns() {
         this.valuesColumns = this.value.split(";");
     }

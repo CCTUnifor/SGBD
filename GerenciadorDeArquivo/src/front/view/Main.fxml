@@ -50,18 +50,28 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="827.0" prefWidth="1464.0">
                            <children>
-                              <TableView fx:id="tableViewIndices" layoutX="14.0" layoutY="34.0" prefHeight="739.0" prefWidth="654.0">
-                                <columns>
-                                  <TableColumn fx:id="tableViewIndices_id" prefWidth="28.0" text="#" />
-                                  <TableColumn fx:id="tableViewIndices_tabela" prefWidth="140.99996948242188" text="Tabela" />
-                                    <TableColumn fx:id="tableViewIndices_ordem" minWidth="7.0" prefWidth="69.0" text="Ordem" />
-                                    <TableColumn fx:id="tableViewIndices_colunas" prefWidth="415.0" text="Colunas" />
-                                </columns>
-                              </TableView>
+                              <AnchorPane prefHeight="793.0" prefWidth="662.0">
+                                 <children>
+                                    <TableView fx:id="tableViewIndices" layoutX="8.0" layoutY="9.0" prefHeight="770.0" prefWidth="646.0">
+                                      <columns>
+                                        <TableColumn fx:id="tableViewIndices_id" prefWidth="28.0" text="#" />
+                                        <TableColumn fx:id="tableViewIndices_tabela" prefWidth="140.99996948242188" text="Tabela" />
+                                          <TableColumn fx:id="tableViewIndices_ordem" minWidth="7.0" prefWidth="69.0" text="Ordem" />
+                                          <TableColumn fx:id="tableViewIndices_colunas" prefWidth="415.0" text="Colunas" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="661.0" prefHeight="793.0" prefWidth="808.0">
+                                 <children>
+                                    <TableView fx:id="tableViewBancoValores" layoutX="7.0" layoutY="9.0" prefHeight="770.0" prefWidth="783.0" />
+                                 </children>
+                              </AnchorPane>
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="73.0" prefWidth="1464.0">
                            <children>
-                              <Button layoutX="487.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="251.0" text="Browser" />
+                              <Button layoutX="711.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="251.0" text="Browser" />
+                              <Button layoutX="373.0" layoutY="38.0" mnemonicParsing="false" onAction="#onVizualizarClick" prefHeight="25.0" prefWidth="251.0" text="Visualizar" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
