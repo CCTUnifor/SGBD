@@ -306,5 +306,6 @@ public class MainController implements Initializable {
                 e.printStackTrace();
             }
         }
+        this.findKeyText.setText("");
     }
 }
