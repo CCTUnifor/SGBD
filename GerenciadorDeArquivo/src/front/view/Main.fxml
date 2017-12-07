@@ -21,25 +21,15 @@
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="200.0" text="Selecionar tabela" textAlignment="CENTER" />
                         <ComboBox fx:id="tablesComboBox" layoutY="17.0" onAction="#onSelecionarTable" prefHeight="25.0" prefWidth="200.0" />
-                        <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="622.0" prefWidth="200.0" />
+                        <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="693.0" prefWidth="200.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" prefHeight="17.0" prefWidth="200.0" text="Selecionar colunas" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="13.0" layoutY="714.0" prefHeight="124.0" prefWidth="200.0">
+                  <AnchorPane layoutX="13.0" layoutY="779.0" prefHeight="113.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="ordemDoIndice" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
-                        <Button fx:id="addKeysButton" layoutY="70.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
-                        <Label alignment="CENTER" layoutX="-4.0" layoutY="17.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="13.0" layoutY="838.0" prefHeight="46.0" prefWidth="200.0">
-                     <children>
-                        <Label alignment="TOP_LEFT" layoutX="-2.0" layoutY="15.0" prefHeight="17.0" prefWidth="31.0" text="Key:" textAlignment="CENTER" />
-                        <TextField disable="true" editable="false" layoutX="30.0" layoutY="11.0" prefHeight="25.0" prefWidth="166.0">
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
-                        </TextField>
+                        <TextField fx:id="ordemDoIndice" layoutY="40.0" prefHeight="25.0" prefWidth="200.0" />
+                        <Button fx:id="addKeysButton" layoutX="4.0" layoutY="72.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
+                        <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                </children>
@@ -68,10 +58,35 @@
                                  </children>
                               </AnchorPane>
                            </children></AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="73.0" prefWidth="1464.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="88.0" prefWidth="1464.0">
                            <children>
-                              <Button layoutX="711.0" layoutY="38.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="251.0" text="Browser" />
-                              <Button layoutX="373.0" layoutY="38.0" mnemonicParsing="false" onAction="#onVizualizarClick" prefHeight="25.0" prefWidth="251.0" text="Visualizar" />
+                              <AnchorPane layoutX="1101.0" layoutY="7.0" prefHeight="94.0" prefWidth="363.0">
+                                 <children>
+                                    <Button layoutX="88.0" layoutY="35.0" mnemonicParsing="false" onAction="#onVizualizarClick" prefHeight="25.0" prefWidth="108.0" text="Visualizar" />
+                                    <Button layoutX="208.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBrowserClick" prefHeight="25.0" prefWidth="108.0" text="Browser" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="101.0" prefWidth="662.0">
+                                 <children>
+                                    <AnchorPane layoutX="-2.0" prefHeight="101.0" prefWidth="294.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="31.0" text="Key:" textAlignment="CENTER" />
+                                          <TextField fx:id="findKeyText" layoutX="53.0" layoutY="17.0" prefHeight="25.0" prefWidth="200.0">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </TextField>
+                                          <Button layoutX="13.0" layoutY="51.0" mnemonicParsing="false" onAction="#onFindKey" prefHeight="25.0" prefWidth="238.0" text="Buscar" />
+                                       </children></AnchorPane>
+                                    <AnchorPane layoutX="263.0" prefHeight="101.0" prefWidth="877.0">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="-1.0" text="Resultado busca key" />
+                                          <TextField fx:id="findKeyResultado" disable="true" layoutY="16.0" prefHeight="25.0" prefWidth="136.0" />
+                                          <ListView fx:id="findKeyResultadoCompleto" layoutX="150.0" layoutY="14.0" prefHeight="78.0" prefWidth="717.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
                            </children></AnchorPane>
                     </items>
                   </SplitPane>

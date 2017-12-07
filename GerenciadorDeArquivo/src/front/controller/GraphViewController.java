@@ -1,6 +1,7 @@
 package front.controller;
 
 import entidades.arvoreBMais.ArvoreBPlus;
+import entidades.arvoreBMais.Node;
 import front.modelos.GraphView;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
@@ -11,6 +12,8 @@ import javafx.scene.paint.Color;
 import prefuse.data.Graph;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.ResourceBundle;
 
 import static utils.GlobalVariables.MOSTRAR_PREFUSE;
@@ -65,6 +68,41 @@ public class GraphViewController implements Initializable {
 //            yInicial += 20;
 
 
+            if (!arvore.isEmpty()) {
+                Queue<Node> queue = new LinkedList<Node>();
+                queue.add(arvore.getRoot());
+                Node tempNode = null;
+                int nivel = 0;
+
+                while (!queue.isEmpty()) {
+                    tempNode = queue.remove();
+                    for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
+                        if (tempNode.getKey(i) != null) {
+
+
+
+
+
+
+
+//                            this.print(nivel, tempNode.getKey(i).getValue());
+
+                            if (!tempNode.isLeaf()) {
+                                for (int j = 0; j < tempNode.getChildrens().length; j++) {
+                                    if (tempNode.getChildren(j) != null)
+                                        queue.add(tempNode.getChildren(j));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
         }
+    }
+
+    private void print(int nivel, String value) {
+
     }
 }

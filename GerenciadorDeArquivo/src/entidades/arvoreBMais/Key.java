@@ -1,13 +1,22 @@
 package entidades.arvoreBMais;
 
+import entidades.blocos.RowId;
+
 public class Key {
 
     private String value;
     private String[] valuesColumns;
+    private RowId rowId;
 
     public Key(String value) {
         this.value = value;
         this.setValuesColumns();
+    }
+
+    public Key(String value, RowId rowId) {
+        this.value = value;
+        this.setValuesColumns();
+        this.rowId = rowId;
     }
 
     public String getValue() {
@@ -46,4 +55,7 @@ public class Key {
         this.valuesColumns = this.value.split(";");
     }
 
+    public RowId getRowId() {
+        return rowId;
+    }
 }

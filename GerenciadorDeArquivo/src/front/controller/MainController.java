@@ -3,10 +3,9 @@ package front.controller;
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorArquivoService;
 import entidades.arvoreBMais.ArvoreBPlus;
+import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
-import entidades.blocos.BlocoContainer;
-import entidades.blocos.BlocoDado;
-import entidades.blocos.Linha;
+import entidades.blocos.*;
 import factories.ContainerId;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
@@ -62,6 +61,13 @@ public class MainController implements Initializable {
 
     @FXML
     TableView<ObservableList<String>> tableViewBancoValores;
+
+    @FXML
+    TextField findKeyText;
+    @FXML
+    TextField findKeyResultado;
+    @FXML
+    ListView<String> findKeyResultadoCompleto;
 
     private int tableSelected() {
         return tablesComboBox.getSelectionModel().getSelectedIndex();
@@ -131,7 +137,7 @@ public class MainController implements Initializable {
         }
 
         TableViewIndice x = new TableViewIndice();
-        x.index = "" + this.tableViewIndiceValues.size();
+        x.index = (this.tableViewIndiceValues.size() + 1) + "";
         x.arvore = new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText()));
         x.colunas = this.colunasSelecionadasConcatenadas();
         x.colunasId = this.colunasSelecionadasIds();
@@ -186,7 +192,7 @@ public class MainController implements Initializable {
                         c.append(tuple.getColunas().get(Integer.parseInt(colunas[i])).getInformacao());
                         c.append(";");
                     }
-                    indice.arvore.insert(c.toString());
+                    indice.arvore.insert(c.toString(), bd.getRowId());
                 }
             }
         } catch (FileNotFoundException e) {
@@ -202,10 +208,14 @@ public class MainController implements Initializable {
         tableColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(0)));
         this.tableViewBancoValores.getColumns().add(tableColumn);
 
+        tableColumn = new TableColumn<>("RowId");
+        tableColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(1)));
+        this.tableViewBancoValores.getColumns().add(tableColumn);
+
         for (int i = 0; i < indice.colunasId.split(";").length; i++) {
             String c = indice.colunas.split(";")[i];
 
-            final int indexColuna = i + 1;
+            final int indexColuna = i + 2;
             tableColumn = new TableColumn<>(c);
             tableColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(indexColuna)));
             this.tableViewBancoValores.getColumns().add(tableColumn);
@@ -222,7 +232,7 @@ public class MainController implements Initializable {
                 tempNode = queue.remove();
                 for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
                     if (tempNode.getKey(i) != null) {
-                        this.add((++count + ";") + tempNode.getKey(i).getValue());
+                        this.add((++count + ";") + (tempNode.getKey(i).getRowId() + ";") + tempNode.getKey(i).getValue());
                         if (!tempNode.isLeaf()) {
                             for (int j = 0; j < tempNode.getChildrens().length; j++) {
                                 if (tempNode.getChildren(j) != null)
@@ -246,7 +256,6 @@ public class MainController implements Initializable {
         try {
             FXMLLoader loader;
 
-
             loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
             GraphViewController controller = new GraphViewController();
             controller.setArvoreBMais(arvore);
@@ -260,6 +269,42 @@ public class MainController implements Initializable {
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(GraphViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void onFindKey() {
+        if (this.tableViewIndices.getSelectionModel().getSelectedIndices().size() == 0)
+            return;
+
+        String findKey = findKeyText.getText();
+        TableViewIndice indice = this.tableViewIndices.getSelectionModel().getSelectedItem();
+        ArvoreBPlus arv = indice.arvore;
+
+        Key keyToSearch = new Key(findKey);
+        RowId keyback = arv.findKey(keyToSearch);
+
+        this.findKeyResultadoCompleto.getItems().removeAll(this.findKeyResultadoCompleto.getItems());
+        if (keyback == null) {
+            this.findKeyResultado.setText("Não achou!");
+            this.findKeyResultadoCompleto.getItems().add("Não achou!");
+        }
+        else {
+            this.findKeyResultado.setText("Row Id: " + keyback.toString());
+            try {
+                ArrayList<Linha> tuplas = this._ga.lerBloco(keyback).getTuples();
+                List<String> cc = new ArrayList<String>();
+
+                for (Linha t : tuplas) {
+                    StringBuilder tupleString = new StringBuilder();
+                    for (Coluna c : t.getColunas()) {
+                        tupleString.append(c.getInformacao()).append("; ");
+                    }
+                    cc.add(tupleString.toString());
+                }
+                this.findKeyResultadoCompleto.getItems().addAll(cc);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package entidades.arvoreBMais;
 
+import entidades.blocos.RowId;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -15,8 +17,8 @@ public class ArvoreBPlus {
         this.root = null;
     }
 
-    public void insert(String valuesColumns) {
-        Key key = new Key(valuesColumns);
+    public void insert(String valuesColumns, RowId rowId) {
+        Key key = new Key(valuesColumns, rowId);
         if (this.isEmpty()) {
             Node node = new Node(this.order, this.order - 1);
             node.insertionKey(key);
@@ -26,12 +28,11 @@ public class ArvoreBPlus {
         }
     }
 
-    public void findKey(Key key) {
-        if (find(this.root, -1, key).equals(null)) {
-            System.out.println("N�o achou a chave");
-        } else {
-            System.out.println("Achou a chave");
-        }
+    public RowId findKey(Key key) {
+        Key k = find(this.root, -1, key);
+        if (k != null)
+            return k.getRowId();
+        return null;
     }
 
     private Key find(Node node, int positionNodeChildren, Key key) {
