@@ -26,8 +26,8 @@ public class GraphViewController implements Initializable {
     @FXML
     ScrollPane scrollPane;
 
-    public static final double HEIGHT = 900;
-    public static final double WIDTH = 1700;
+    public static final double HEIGHT = 700;
+    public static final double WIDTH = 1300;
 
     private Graph _graph;
     private String _label;
