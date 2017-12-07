@@ -86,6 +86,10 @@ public class MainController implements Initializable {
         this.tableViewIndices.setEditable(true);
 
         loadTablesComboBox();
+
+        tableViewIndices.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            this.onVizualizarClick();
+        });
     }
 
     private void loadTablesComboBox() {
@@ -129,16 +133,18 @@ public class MainController implements Initializable {
         TableViewIndice x = new TableViewIndice();
         x.index = "" + this.tableViewIndiceValues.size();
         x.arvore = new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText()));
-        x.colunas = this.colunasSelecionadas();
+        x.colunas = this.colunasSelecionadasConcatenadas();
+        x.colunasId = this.colunasSelecionadasIds();
         x.tabela = this.tablesComboBox.getSelectionModel().getSelectedItem();
         x.tabelaId = __tableService.getContainerIdBySelected(containerIds, this.tableSelected()).getValue();
         x.ordem = this.ordemDoIndice.getText();
 
         this.tableViewIndiceValues.add(x);
         this.ordemDoIndice.setText("");
+        this.collumnsListView.getSelectionModel().clearSelection();
     }
 
-    private String colunasSelecionadas() {
+    private String colunasSelecionadasConcatenadas() {
         StringBuilder x = new StringBuilder();
         for (String c : this.collumnsListView.getSelectionModel().getSelectedItems()) {
             x.append(c).append("; ");
@@ -147,24 +153,39 @@ public class MainController implements Initializable {
         return x.toString();
     }
 
+    private String colunasSelecionadasIds() {
+        StringBuilder x = new StringBuilder();
+        for (int i = 0; i < this.collumnsListView.getSelectionModel().getSelectedIndices().size(); i++) {
+            int c = this.collumnsListView.getSelectionModel().getSelectedIndices().get(i);
+            x.append(c);
+            if (i + 1 < this.collumnsListView.getSelectionModel().getSelectedIndices().size())
+                x.append(";");
+
+        }
+
+        return x.toString();
+    }
+
     public void onVizualizarClick() {
         System.out.println("onVizualizarClick");
         TableViewIndice indice = this.tableViewIndices.getSelectionModel().getSelectedItem();
+        indice.arvore = new ArvoreBPlus(Integer.parseInt(indice.ordem));
         this.carregarIndice(indice);
         this.carregarTableView(indice);
     }
 
     private void carregarIndice(TableViewIndice indice) {
+        String[] colunas = indice.colunasId.split(";");
+
         try {
             BlocoContainer container = this._ga.lerContainer(indice.tabelaId);
             for (BlocoDado bd : container.getBlocosDados()) {
                 for (Linha tuple : bd.getTuples()) {
                     StringBuilder c = new StringBuilder();
-                    for (int i = 0; i < this.getSelectedIndicesDasColunas().length; i++) {
-                        c.append(tuple.getColunas().get(this.getSelectedIndicesDasColunas()[i]).getInformacao());
+                    for (int i = 0; i < colunas.length; i++) {
+                        c.append(tuple.getColunas().get(Integer.parseInt(colunas[i])).getInformacao());
                         c.append(";");
                     }
-//                    System.out.println(c.toString());
                     indice.arvore.insert(c.toString());
                 }
             }
@@ -173,24 +194,21 @@ public class MainController implements Initializable {
         }
     }
 
-    private int[] getSelectedIndicesDasColunas() {
-        int[] c = new int[collumnsListView.getSelectionModel().getSelectedIndices().size()];
-        for (int i = 0; i < c.length; i++) {
-            c[i] = collumnsListView.getSelectionModel().getSelectedIndices().get(i);
-        }
-
-        return c;
-    }
-
     private void carregarTableView(TableViewIndice indice) {
-        this.tableViewBancoValores.getColumns().removeAll();
-        for (int i = 0; i < this.collumnsListView.getSelectionModel().getSelectedItems().size(); i++) {
-            String c = this.collumnsListView.getSelectionModel().getSelectedItems().get(i);
+        this.tableViewBancoValores.getColumns().removeAll(this.tableViewBancoValores.getColumns());
+        this.tableViewBancoValores.getItems().removeAll(this.tableViewBancoValores.getItems());
 
-            final int xxx = i;
-            TableColumn<ObservableList<String>, String> x = new TableColumn<>(c);
-            x.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(xxx)));
-            this.tableViewBancoValores.getColumns().add(x);
+        TableColumn<ObservableList<String>, String> tableColumn = new TableColumn<>("#");
+        tableColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(0)));
+        this.tableViewBancoValores.getColumns().add(tableColumn);
+
+        for (int i = 0; i < indice.colunasId.split(";").length; i++) {
+            String c = indice.colunas.split(";")[i];
+
+            final int indexColuna = i + 1;
+            tableColumn = new TableColumn<>(c);
+            tableColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(indexColuna)));
+            this.tableViewBancoValores.getColumns().add(tableColumn);
         }
 
         ArvoreBPlus arv = indice.arvore;
@@ -198,12 +216,13 @@ public class MainController implements Initializable {
             Queue<Node> queue = new LinkedList<Node>();
             queue.add(arv.getRoot());
             Node tempNode = null;
+            int count = 0;
+
             while (!queue.isEmpty()) {
                 tempNode = queue.remove();
-                for (int i = 0; i < arv.getOrder() - 1; i++) {
+                for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
                     if (tempNode.getKey(i) != null) {
-                        this.add(tempNode.getKey(i).getValue());
-//                        System.out.print(" | " + tempNode.getKey(i).getValue() + " | \n");
+                        this.add((++count + ";") + tempNode.getKey(i).getValue());
                         if (!tempNode.isLeaf()) {
                             for (int j = 0; j < tempNode.getChildrens().length; j++) {
                                 if (tempNode.getChildren(j) != null)
@@ -217,7 +236,7 @@ public class MainController implements Initializable {
     }
 
     private void add(String value) {
-    this.tableViewBancoValores.getItems().add(FXCollections.observableArrayList(value.split(";")));
+        this.tableViewBancoValores.getItems().add(FXCollections.observableArrayList(value.split(";")));
     }
 
     public void onBrowserClick() {

@@ -9,4 +9,5 @@ public class TableViewIndice {
     public int tabelaId;
     public String ordem;
     public String colunas;
+    public String colunasId;
 }
