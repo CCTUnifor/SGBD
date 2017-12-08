@@ -19,9 +19,11 @@ public class Main {
     private static String absolutePathProject() {
         return System.getProperty("user.dir") + "\\";
     }
+
     private static String inputPath() {
         return absolutePathProject() + GlobalVariables.LOCAL_ARQUIVO_ENTRADA;
     }
+
     private static GerenciadorArquivo ga;
     private static GerenciadorArquivoService gaService;
     private static GerenciadorBuffer gb;
@@ -101,12 +103,11 @@ public class Main {
         return arquivosSelecionados;
     }
 
-    private static ArrayList<RowId> processarArquivos(File[] arquivos)  {
+    private static ArrayList<RowId> processarArquivos(File[] arquivos) {
         ArrayList<RowId> rowIds = new ArrayList<RowId>();
 
-        for (File file: arquivos) {
-            if (file != null)
-            {
+        for (File file : arquivos) {
+            if (file != null) {
                 println("\n------------------------------------------------------------------------------------------------------\n");
                 println(" **Iniciando** o Processo de Criação da Tabela *" + file.getName() + "*");
 
@@ -162,7 +163,7 @@ public class Main {
 
         rowIds.stream().forEach(rowId -> {
             BlocoDado blocoCache = gb.existRowId(rowId);
-            print("\n     Request: *"+rowId.toString() );
+            print("\n     Request: *" + rowId.toString());
             println(blocoCache == null ? "       - Miss" : "    - << Hit >>");
 
             if (blocoCache == null) {
@@ -178,28 +179,32 @@ public class Main {
         println(" **Finalizado** as Requisições dos RowIds Sorteados");
     }
 
-    private static File[] todosOsArquivosDisponiveis(){
+    private static File[] todosOsArquivosDisponiveis() {
         File file = new File(inputPath());
         File[] directores = file.listFiles();
 
         return directores;
     }
 
-    private static void printarTodosOsArquivos(File[] directores){
+    private static void printarTodosOsArquivos(File[] directores) {
         for (int i = 0; i < directores.length; i++) {
             if (directores[i] != null)
-                println(String.format("%s. %s", i+1, directores[i].getName()));
+                println(String.format("%s. %s", i + 1, directores[i].getName()));
         }
     }
 
     private static void print(String mensagem) {
         System.out.print(mensagem);
-        File file = new File(GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_"+ identificador() + ".txt");
+        String _path = GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_" + identificador() + ".txt";
+        try {
+            GerenciadorDeIO.makeFiles(_path);
+            File file = new File(_path);
 
-        try(  FileWriter out = new FileWriter(file, true)  ){
-            out.append(mensagem);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try (FileWriter out = new FileWriter(file, true)) {
+                out.append(mensagem).append("\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -207,12 +212,16 @@ public class Main {
 
     private static void println(String mensagem) {
         System.out.println(mensagem);
-        File file = new File(GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_"+ identificador() + ".txt");
+        String _path = GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_" + identificador() + ".txt";
+        try {
+            GerenciadorDeIO.makeFiles(_path);
+            File file = new File(_path);
 
-        try(  FileWriter out = new FileWriter(file, true)  ){
-            out.append(mensagem + "\n");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try (FileWriter out = new FileWriter(file, true)) {
+                out.append(mensagem).append("\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -222,4 +231,5 @@ public class Main {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HHmmss");
         return dateFormat.format(date);
     }
+
 }

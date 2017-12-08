@@ -16,8 +16,15 @@ public class BlocoContainerHeader implements IBinary{
     private int proximoBlocoLivre = 0;
     private int tamanhoDescritor;
 
-    public BlocoContainerHeader(int containerId) {
+    public BlocoContainerHeader() {
+    }
+
+    BlocoContainerHeader(int containerId) {
         this.containerId = ContainerId.create(containerId);
+    }
+
+    BlocoContainerHeader(byte[] bytes) {
+        this.fromByteArray(bytes);
     }
 
     public int getContainerId() {

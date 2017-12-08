@@ -6,7 +6,10 @@ import entidades.arvoreBMais.ArvoreBPlus;
 import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
 import entidades.blocos.*;
+import entidades.index.IndexFileManager;
 import factories.ContainerId;
+import interfaces.IFileManager;
+import interfaces.IIndexFileManager;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -21,7 +24,6 @@ import javafx.stage.Stage;
 import services.CollumnService;
 import services.TableService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -33,9 +35,9 @@ public class MainController implements Initializable {
     private CollumnService _collumnService;
     private TableService __tableService;
 
-    private GerenciadorArquivo _ga;
+    private IFileManager _ga;
     private GerenciadorArquivoService _gaService;
-
+    IIndexFileManager indexFileManager;
 
     private ContainerId[] containerIds;
 
@@ -58,6 +60,7 @@ public class MainController implements Initializable {
     private ListView<String> collumnsListView;
     @FXML
     private TextField ordemDoIndice;
+    @FXML TextField nomeIndiceTextField;
 
     @FXML
     TableView<ObservableList<String>> tableViewBancoValores;
@@ -72,6 +75,7 @@ public class MainController implements Initializable {
     private int tableSelected() {
         return tablesComboBox.getSelectionModel().getSelectedIndex();
     }
+    private ContainerId containerIdSelected() { return containerIds[tableSelected()]; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -82,6 +86,7 @@ public class MainController implements Initializable {
 
         _ga = new GerenciadorArquivo();
         _gaService = new GerenciadorArquivoService(_ga);
+        indexFileManager = new IndexFileManager();
 
         this.tableViewIndiceValues = FXCollections.observableArrayList();
 
@@ -112,44 +117,91 @@ public class MainController implements Initializable {
         collumnsListView.setDisable(false);
 
         loadCollumnsListView(tableSelected());
+        loadIndexTable(tableSelected());
     }
 
     private void loadCollumnsListView(int tableSelecionada) {
+        this.collumnsListView.getItems().removeAll(this.collumnsListView.getItems());
         ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
-        List<String> descritors = _ga.getDescritores(containerIdSelecionado);
+        List<String> columns = null;
+        try {
+            columns = _ga.getColumns(containerIdSelecionado);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        if (descritors == null)
+        if (columns == null)
             return;
 
         collumnsListView.getItems().clear();
         collumnsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        collumnsListView.getItems().addAll(descritors);
+        collumnsListView.getItems().addAll(columns);
     }
+
 
     public void onAdicionarIndiceClick() {
         System.out.println("onAdicionarIndiceClick");
-        if (Integer.parseInt(this.ordemDoIndice.getText()) < 2) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ordem da Arvore");
-            alert.setHeaderText("");
-            alert.setContentText("A árvore não pode ter ordem menor que 2!");
-
-            alert.showAndWait();
+        if (this.indexFileManager.existIndice(containerIdSelected(), nomeIndiceTextField.getText())) {
+            this.alert(Alert.AlertType.ERROR, "Index", "Index já existe!");
             return;
         }
 
+        try {
+            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
+            _ga.adicionarIndiceAoContainerId(containerIdSelected(), nomeIndiceTextField.getText());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
+
+        try {
+            adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadIndexTable(int tableSelecionada) {
+        this.tableViewIndices.getItems().removeAll(this.tableViewIndices.getItems());
+        ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
+        List<String> indicesPath = null;
+        try {
+            indicesPath = indexFileManager.getIndicesPath(containerIdSelecionado);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (indicesPath == null)
+            return;
+
+        for (String anIndicesPath : indicesPath) {
+            this.adicionarIndiceNaTableView(anIndicesPath);
+        }
+    }
+
+    private void adicionarIndiceNaTableView(String indicePath) {
+//        int ordem = Integer.parseInt(this.ordemDoIndice.getText());
+        int ordem = 10;
+
         TableViewIndice x = new TableViewIndice();
         x.index = (this.tableViewIndiceValues.size() + 1) + "";
-        x.arvore = new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText()));
+        x.arvore = new ArvoreBPlus(ordem);
         x.colunas = this.colunasSelecionadasConcatenadas();
         x.colunasId = this.colunasSelecionadasIds();
-        x.tabela = this.tablesComboBox.getSelectionModel().getSelectedItem();
-        x.tabelaId = __tableService.getContainerIdBySelected(containerIds, this.tableSelected()).getValue();
-        x.ordem = this.ordemDoIndice.getText();
+        x.tabela = indicePath;
+        x.tabelaId = containerIdSelected().getValue();
+        x.ordem = ordem + "";
 
         this.tableViewIndiceValues.add(x);
-        this.ordemDoIndice.setText("");
-        this.collumnsListView.getSelectionModel().clearSelection();
+    }
+
+    private void alert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText("");
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     private String colunasSelecionadasConcatenadas() {
@@ -186,18 +238,18 @@ public class MainController implements Initializable {
         String[] colunas = indice.colunasId.split(";");
 
         try {
-            BlocoContainer container = this._ga.lerContainer(indice.tabelaId);
+            BlocoContainer container = this._ga.selectAllFrom(indice.tabelaId);
             for (BlocoDado bd : container.getBlocosDados()) {
                 for (Linha tuple : bd.getTuples()) {
                     StringBuilder c = new StringBuilder();
-                    for (int i = 0; i < colunas.length; i++) {
-                        c.append(tuple.getColunas().get(Integer.parseInt(colunas[i])).getInformacao());
+                    for (String coluna : colunas) {
+                        c.append(tuple.getColunas().get(Integer.parseInt(coluna)).getInformacao());
                         c.append(";");
                     }
                     indice.arvore.insert(c.toString(), bd.getRowId());
                 }
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

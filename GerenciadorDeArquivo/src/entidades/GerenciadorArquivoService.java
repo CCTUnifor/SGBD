@@ -18,13 +18,6 @@ import java.util.stream.Collectors;
 public class GerenciadorArquivoService {
     private IFileManager ga;
 
-    private static String absolutePathProject() {
-        return System.getProperty("user.dir") + "\\";
-    }
-    private static String inputPath() {
-        return absolutePathProject() + GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO;
-    }
-
     public GerenciadorArquivoService(IFileManager _ga) {
         ga = _ga;
     }
@@ -36,7 +29,7 @@ public class GerenciadorArquivoService {
         linhas.remove(0);
 
         ArrayList<RowId> rowIds = new ArrayList<RowId>();
-        BlocoDado blocoAnterior = new BlocoDado(1, 1);
+        BlocoDado blocoAnterior = new BlocoDado(container.getContainerId(), 1);
 
         for (String linha : linhas) {
             BlocoDado bloco = ga.adicionarLinha(container, linha);

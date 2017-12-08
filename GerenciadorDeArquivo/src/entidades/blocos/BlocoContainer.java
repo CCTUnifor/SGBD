@@ -1,6 +1,8 @@
 package entidades.blocos;
 
+import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
@@ -8,6 +10,7 @@ import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class BlocoContainer implements IBinary, IPrint {
@@ -17,6 +20,12 @@ public class BlocoContainer implements IBinary, IPrint {
     public BlocoContainer(int containerId) {
         this.blocoControle = new BlocoControle(containerId);
         this.blocosDados = new ArrayList<BlocoDado>();
+    }
+
+    public BlocoContainer(byte[] bytes) {
+        this.blocoControle = new BlocoControle(bytes);
+        this.blocosDados = new ArrayList<BlocoDado>();
+        this.blocosDados.addAll(this.blocoDadosFromByteArray(bytes));
     }
 
     public int getContainerId () {
@@ -53,7 +62,7 @@ public class BlocoContainer implements IBinary, IPrint {
     }
 
     @Override
-    public BlocoContainer fromByteArray(byte[] byteArray) {
+    public  BlocoContainer fromByteArray(byte[] byteArray) {
         this.blocoControle.fromByteArray(byteArray);
         this.blocosDados.addAll(this.blocoDadosFromByteArray(byteArray));
 
@@ -63,16 +72,13 @@ public class BlocoContainer implements IBinary, IPrint {
     private ArrayList<BlocoDado> blocoDadosFromByteArray(byte[] byteArray) {
         ArrayList<BlocoDado> dados = new ArrayList<BlocoDado>();
 
-        int indexOndeComecaOBlocoDeDados = blocoControle.toByteArray().length;
+        int indexOndeComecaOBlocoDeDados = blocoControle.getHeader().getTamanhoDescritor() + 11;
         for (int i = indexOndeComecaOBlocoDeDados; i < byteArray.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
             BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(byteArray, i, this.blocoControle.getHeader().getTamanhoDosBlocos()));
             dados.add(bloco);
         }
 
         return dados;
-    }
-    public void adicionarBlocos(ArrayList<BlocoDado> blocos) {
-        this.blocosDados.addAll(blocos);
     }
 
     private byte[] bytesBlocosDados() {
@@ -84,29 +90,12 @@ public class BlocoContainer implements IBinary, IPrint {
         return bc.getFinalByteArray();
     }
 
-    public BlocoDado getBloco(byte[] bytes, RowId rowId) {
-        this.blocoControle.fromByteArray(bytes);
-
-        int indexOndeComecaOBlocoDeDados = blocoControle.toByteArray().length;
-        for (int i = indexOndeComecaOBlocoDeDados; i < bytes.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
-            BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(bytes, i, this.blocoControle.getHeader().getTamanhoDosBlocos()));
-            if (bloco.getHeader().getContainerId() == rowId.getContainerId() && bloco.getHeader().getBlocoId() == rowId.getBlocoId())
-                return bloco;
-        }
-
-        return null;
-    }
-
     public void adicionarBloco(BlocoDado bloco) {
         this.blocosDados.add(bloco);
     }
 
-    public void atualizar() throws FileNotFoundException {
-        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getBlocoControle().getHeader().getContainerId() + ".bin";
+    public void atualizarProximoBlocoLivre() throws IOException {
+        String diretorio = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getBlocoControle().getContainerId()));
         GerenciadorDeIO.atualizarBytes(diretorio, 5, ByteArrayUtils.intToBytes(this.getBlocoControle().getHeader().getProximoBlocoLivre()));
-    }
-
-    public String getDiretorio() {
-        return GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getBlocoControle().getHeader().getContainerId() + ".bin";
     }
 }
