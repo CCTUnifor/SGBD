@@ -19,19 +19,21 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="331.0">
                      <children>
-                        <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="561.0" prefWidth="200.0">
+                        <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="459.0" prefWidth="200.0">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="200.0" text="Selecionar tabela" textAlignment="CENTER" />
                               <ComboBox fx:id="tablesComboBox" layoutY="17.0" onAction="#onSelecionarTable" prefHeight="25.0" prefWidth="200.0" />
-                              <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="497.0" prefWidth="200.0" />
+                              <ListView fx:id="collumnsListView" disable="true" layoutY="67.0" prefHeight="391.0" prefWidth="200.0" />
                               <Label alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" prefHeight="17.0" prefWidth="200.0" text="Selecionar colunas" textAlignment="CENTER" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="13.0" layoutY="579.0" prefHeight="113.0" prefWidth="200.0">
+                        <AnchorPane layoutX="13.0" layoutY="481.0" prefHeight="211.0" prefWidth="207.0">
                            <children>
-                              <TextField fx:id="ordemDoIndice" layoutY="40.0" prefHeight="25.0" prefWidth="200.0" />
-                              <Button fx:id="addKeysButton" layoutX="4.0" layoutY="72.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
-                              <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
+                              <TextField fx:id="ordemDoIndice" layoutY="33.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Button fx:id="addKeysButton" layoutX="7.0" layoutY="172.0" mnemonicParsing="false" onAction="#onAdicionarIndiceClick" prefHeight="25.0" prefWidth="200.0" text="Adicionar Indice" />
+                              <Label alignment="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="Ordem do Índice" textAlignment="CENTER" />
+                              <TextField fx:id="nomeIndiceTextField" layoutX="5.0" layoutY="119.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label alignment="CENTER" layoutX="9.0" layoutY="97.0" prefHeight="17.0" prefWidth="200.0" text="Nome indice" textAlignment="CENTER" />
                            </children>
                         </AnchorPane>
                      </children>

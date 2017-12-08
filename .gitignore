@@ -48,6 +48,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 GerenciadorDeArquivo/SAIDA/Sorteados.txt
+GerenciadorDeArquivo/SAIDA/TABLES/
+GerenciadorDeArquivo/SAIDA/INDICES/
 GerenciadorDeArquivo/SAIDA/BINARIOS/
-GerenciadorDeArquivo/SAIDA/RESULTADOS
-GerenciadorDeArquivo/SAIDA/TEXTOS
+GerenciadorDeArquivo/SAIDA/RESULTADOS/
+GerenciadorDeArquivo/SAIDA/TEXTOS/
+GerenciadorDeArquivo/SAIDA/TEXTOS/
+*.index
+*.table

@@ -1,10 +1,14 @@
 package entidades.blocos;
 
+import entidades.GerenciadorArquivo;
+import entidades.GerenciadorDeIO;
+import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,11 +22,18 @@ public class BlocoControle implements IBinary, IPrint {
         this.blocoHeader = new BlocoContainerHeader(containerId);
     }
 
+    public BlocoControle(byte[] bytes) {
+        this.blocoHeader = new BlocoContainerHeader(bytes);
+        this.descritores = new ArrayList<Descritor>();
+        if (bytes.length > 11)
+            this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(bytes, 11, this.blocoHeader.getTamanhoDescritor())));
+    }
+
     public BlocoContainerHeader getHeader() {
         return blocoHeader;
     }
-
     public int getContainerId() { return this.blocoHeader.getContainerId(); }
+
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
@@ -51,12 +62,20 @@ public class BlocoControle implements IBinary, IPrint {
         return this;
     }
 
+    public void adicionarDescritor(Descritor descritor) {
+        try {
+            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId())), 11 + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void adicionarDescritores(ArrayList<Descritor> descritores) {
         this.descritores.addAll(descritores);
     }
-    public ArrayList<Descritor> getDescritores() {return this.descritores;}
     public List<String> getDescritoresName() {
-        return this.descritores.stream().map(x -> x.getNome()).collect(Collectors.toList());
+        return this.descritores.stream()
+//                .filter(x -> x.getTipoDado() != TipoDado.PATH)
+                .map(Descritor::getNome).collect(Collectors.toList());
     }
 
     private byte[] bytesDescritores() {
@@ -77,7 +96,7 @@ public class BlocoControle implements IBinary, IPrint {
             descritores.add(new Descritor(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex,  tamanho)));
 
             proximoIndex += tamanho;
-            whileTrue = whileTrue && proximoIndex < descritoresByteArray.length;
+            whileTrue = whileTrue && proximoIndex + 4 < descritoresByteArray.length;
         }
 
         return descritores;
