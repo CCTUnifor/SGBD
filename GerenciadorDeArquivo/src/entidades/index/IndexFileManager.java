@@ -1,15 +1,19 @@
 package entidades.index;
 
+import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoContainer;
+import entidades.blocos.BlocoControle;
 import entidades.blocos.Descritor;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
 import utils.GlobalVariables;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class IndexFileManager implements IIndexFileManager {
 
@@ -49,5 +53,20 @@ public class IndexFileManager implements IIndexFileManager {
             }
         }
         return false;
+    }
+
+    @Override
+    public List<String> getIndicesPath(ContainerId containerIdSelecionado) throws IOException {
+        BlocoControle controle = new BlocoControle(containerIdSelecionado.getValue());
+        String tablePath = GerenciadorArquivo.getDiretorio(containerIdSelecionado);
+
+        try {
+            controle.fromByteArray(GerenciadorDeIO.getBytes(tablePath, 0, 11));
+            controle.fromByteArray(GerenciadorDeIO.getBytes(tablePath, 0, 11 + controle.getHeader().getTamanhoDescritor()));
+        } catch (FileNotFoundException e) {
+            System.out.println("Não foi achado o Container: " + containerIdSelecionado.getValue());
+            return null;
+        }
+        return controle.getIndexName();
     }
 }

@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="227b4a9e-fddd-4db0-927e-cacdff3b273f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entidades/index/IndexFileManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/interfaces/IIndexFileManager.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorArquivoPossoCriarUmBlocoDeDados.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/ArquivoTesteBase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoBinario.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoTexto.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoBinario.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Ler/ArquivoInput.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" afterPath="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/TipoDado.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/TipoDado.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java" afterPath="$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entidades/index/IndexFileManager.java" afterPath="$PROJECT_DIR$/src/entidades/index/IndexFileManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/front/controller/MainController.java" afterPath="$PROJECT_DIR$/src/front/controller/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/front/view/Main.fxml" afterPath="$PROJECT_DIR$/src/front/view/Main.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IFileManager.java" afterPath="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/GlobalVariables.java" afterPath="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/interfaces/IIndexFileManager.java" afterPath="$PROJECT_DIR$/src/interfaces/IIndexFileManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,45 +52,24 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/front/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="148" column="34" lean-forward="true" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="325">
+              <caret line="243" column="49" lean-forward="false" selection-start-line="243" selection-start-column="49" selection-end-line="243" selection-end-column="49" />
+              <folding>
+                <element signature="e#2147#2148#0" expanded="true" />
+                <element signature="e#2223#2224#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GerenciadorArquivo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="197" column="32" lean-forward="false" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="32" />
+            <state relative-caret-position="403">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
-                <element signature="e#2554#2575#0" expanded="true" />
-                <element signature="e#3101#3112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexFileManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/index/IndexFileManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IIndexFileManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/interfaces/IIndexFileManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2436#2457#0" expanded="true" />
+                <element signature="e#3076#3087#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,28 +78,11 @@
       <file leaf-file-name="BlocoContainer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="71" column="33" lean-forward="false" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
+            <state relative-caret-position="562">
+              <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
               <folding>
-                <element signature="e#1060#1061#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
                 <element signature="e#1533#1541#0" expanded="true" />
                 <element signature="e#2105#2116#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Descritor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
-              <folding>
-                <element signature="e#1807#1808#0" expanded="true" />
-                <element signature="e#1852#1853#0" expanded="true" />
-                <element signature="e#3724#3725#0" expanded="true" />
-                <element signature="e#3755#3756#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,24 +91,74 @@
       <file leaf-file-name="ByteArrayUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding>
+                <element signature="e#2735#2736#0" expanded="true" />
+                <element signature="e#2799#2800#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Descritor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="87" column="27" lean-forward="false" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlocoControle.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReadOnlyObjectPropertyBase.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectPropertyBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="e#1722#1723#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlocoDadoHeader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDadoHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="62" column="37" lean-forward="false" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlocoControle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-              <folding>
-                <element signature="e#1062#1063#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
-                <element signature="e#2459#2460#0" expanded="true" />
-                <element signature="e#2511#2512#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="492">
+              <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlocoContainerHeader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TipoBloco.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,8 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ordemDoIndice</find>
-      <find>onAd</find>
       <find>adicio</find>
       <find>colunasId</find>
       <find>find</find>
@@ -208,6 +206,8 @@
       <find>descritoresFromByteArray</find>
       <find>collumnsListView</find>
       <find>indexPath</find>
+      <find>prefHeight</find>
+      <find>Bloco</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -224,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/testes/ComoSorteadorDeRowIdPosso/SortearTodosOsRowIdDeUmContainer.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/Escrever/ArquivoTexto.java" />
         <option value="$PROJECT_DIR$/src/utils/ByteArrayConcater.java" />
         <option value="$PROJECT_DIR$/src/testes/ComoGerenciadorDeArquivoPosso/EscreverArquivoTesteBase.java" />
@@ -251,7 +250,6 @@
         <option value="$PROJECT_DIR$/src/front/controller/TreeViewController.java" />
         <option value="$PROJECT_DIR$/src/front/modelos/GraphView.java" />
         <option value="$PROJECT_DIR$/src/services/TableService.java" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/Linha.java" />
         <option value="$PROJECT_DIR$/src/front/controller/TableViewIndice.java" />
         <option value="$PROJECT_DIR$/src/entidades/arvoreBMais/ArvoreBPlus.java" />
@@ -262,19 +260,21 @@
         <option value="$PROJECT_DIR$/src/front/controller/GraphViewController.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java" />
         <option value="$PROJECT_DIR$/src/utils/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/front/view/Main.fxml" />
         <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivoService.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoDado.java" />
-        <option value="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/TipoDado.java" />
+        <option value="$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java" />
+        <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
+        <option value="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
+        <option value="$PROJECT_DIR$/src/entidades/index/IndexFileManager.java" />
+        <option value="$PROJECT_DIR$/src/interfaces/IIndexFileManager.java" />
+        <option value="$PROJECT_DIR$/src/front/view/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/front/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/Descritor.java" />
         <option value="$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java" />
-        <option value="$PROJECT_DIR$/src/interfaces/IFileManager.java" />
-        <option value="$PROJECT_DIR$/src/interfaces/IIndexFileManager.java" />
-        <option value="$PROJECT_DIR$/src/entidades/index/IndexFileManager.java" />
-        <option value="$PROJECT_DIR$/src/front/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java" />
       </list>
     </option>
   </component>
@@ -791,12 +791,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19399786" sideWeight="0.5170576" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.357985" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27652735" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3376206" sideWeight="0.49573562" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20788912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20788912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32690248" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -897,27 +897,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java</url>
-          <line>194</line>
+          <line>49</line>
           <properties />
-          <option name="timeStamp" value="376" />
+          <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java</url>
-          <line>202</line>
+          <url>file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java</url>
+          <line>73</line>
           <properties />
-          <option name="timeStamp" value="378" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="384" />
+          <option name="timeStamp" value="393" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="390" />
+      <option name="time" value="394" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -935,29 +929,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="e#546#547#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/index/IndexNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -979,8 +950,6 @@
         <state relative-caret-position="292">
           <caret line="99" column="23" lean-forward="false" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
           <folding>
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
             <element signature="e#1533#1541#0" expanded="true" />
             <element signature="e#2105#2116#0" expanded="true" />
           </folding>
@@ -999,7 +968,26 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
-          <folding />
+          <folding>
+            <marker date="1512712386354" expanded="true" signature="1937:2868" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="1975:2830" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3031:7036" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3063:7004" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3251:6934" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3251:6971" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3273:6899" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3317:6855" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3459:4105" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3509:4054" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="4375:4913" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="4427:4861" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5016:6810" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5068:6758" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5385:5635" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5441:5578" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5940:6705" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5998:6052" ph="..." />
+          </folding>
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
@@ -1047,7 +1035,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#2147#2148#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1090,14 +1081,6 @@
             <element signature="e#1238#1239#0" expanded="false" />
             <element signature="e#2001#2007#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/front/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,25 +1131,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Linha.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDadoHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1176,16 +1144,6 @@
         <state relative-caret-position="348">
           <caret line="154" column="46" lean-forward="true" selection-start-line="154" selection-start-column="46" selection-end-line="154" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
-          <folding>
-            <element signature="e#3584#3591#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1260,14 +1218,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/blocos/TipoDado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1276,27 +1226,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="92" column="23" lean-forward="false" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Estrut-storage-engine.jpg">
       <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/front/view/Main.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
     </entry>
@@ -1308,19 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
-          <folding>
-            <element signature="e#1807#1808#0" expanded="true" />
-            <element signature="e#1852#1853#0" expanded="true" />
-            <element signature="e#3724#3725#0" expanded="true" />
-            <element signature="e#3755#3756#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Override.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1329,84 +1247,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/interfaces/IFileManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="78" lean-forward="false" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
+        <state relative-caret-position="127">
+          <caret line="197" column="20" lean-forward="false" selection-start-line="197" selection-start-column="15" selection-end-line="197" selection-end-column="20" />
+          <folding>
+            <element signature="e#3585#3592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/front/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorDeIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="71" column="33" lean-forward="false" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-          <folding>
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-            <element signature="e#1533#1541#0" expanded="true" />
-            <element signature="e#2105#2116#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="557">
+          <caret line="137" column="29" lean-forward="false" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaces/IIndexFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="180">
+          <caret line="12" column="66" lean-forward="false" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/front/view/Main.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="73" column="58" lean-forward="false" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
+          <folding>
+            <marker date="1512712386354" expanded="true" signature="1937:2868" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="1975:2830" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3031:7036" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3063:7004" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3251:6934" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3251:6971" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3273:6899" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3317:6855" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3459:4105" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="3509:4054" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="4375:4913" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="4427:4861" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5016:6810" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5068:6758" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5385:5635" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5441:5578" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5940:6705" ph="..." />
+            <marker date="1512712386354" expanded="true" signature="5998:6052" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/index/IndexFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="422">
+          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/interfaces/IFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="100">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/front/controller/MainController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="148" column="34" lean-forward="true" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
+        <state relative-caret-position="291">
+          <caret line="101" column="53" lean-forward="true" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/TipoBloco.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
-            <element signature="e#1062#1063#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-            <element signature="e#2459#2460#0" expanded="true" />
-            <element signature="e#2511#2512#0" expanded="true" />
+            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entidades/GerenciadorArquivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="197" column="32" lean-forward="false" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="32" />
+        <state relative-caret-position="403">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
-            <element signature="e#2554#2575#0" expanded="true" />
-            <element signature="e#3101#3112#0" expanded="true" />
+            <element signature="e#2436#2457#0" expanded="true" />
+            <element signature="e#3076#3087#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/ByteArrayUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2799#2800#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/front/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="243" column="49" lean-forward="false" selection-start-line="243" selection-start-column="49" selection-end-line="243" selection-end-column="49" />
+          <folding>
+            <element signature="e#2147#2148#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/Descritor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="87" column="27" lean-forward="false" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="e#1533#1541#0" expanded="true" />
+            <element signature="e#2105#2116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoDadoHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="62" column="37" lean-forward="false" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoContainerHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entidades/blocos/BlocoControle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

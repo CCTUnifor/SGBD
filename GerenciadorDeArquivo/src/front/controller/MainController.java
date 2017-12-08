@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 import services.CollumnService;
 import services.TableService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -118,24 +117,27 @@ public class MainController implements Initializable {
         collumnsListView.setDisable(false);
 
         loadCollumnsListView(tableSelected());
+        loadIndexTable(tableSelected());
     }
 
     private void loadCollumnsListView(int tableSelecionada) {
+        this.collumnsListView.getItems().removeAll(this.collumnsListView.getItems());
         ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
-        List<String> descritors = null;
+        List<String> columns = null;
         try {
-            descritors = _ga.getDescritores(containerIdSelecionado);
+            columns = _ga.getColumns(containerIdSelecionado);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        if (descritors == null)
+        if (columns == null)
             return;
 
         collumnsListView.getItems().clear();
         collumnsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        collumnsListView.getItems().addAll(descritors);
+        collumnsListView.getItems().addAll(columns);
     }
+
 
     public void onAdicionarIndiceClick() {
         System.out.println("onAdicionarIndiceClick");
@@ -152,29 +154,46 @@ public class MainController implements Initializable {
         }
 
         this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
-        loadCollumnsListView(tableSelected());
-//        if (Integer.parseInt(this.ordemDoIndice.getText()) < 2) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("Ordem da Arvore");
-//            alert.setHeaderText("");
-//            alert.setContentText("A árvore não pode ter ordem menor que 2!");
-//
-//            alert.showAndWait();
-//            return;
-//        }
-//
-//        TableViewIndice x = new TableViewIndice();
-//        x.index = (this.tableViewIndiceValues.size() + 1) + "";
-//        x.arvore = new ArvoreBPlus(Integer.parseInt(this.ordemDoIndice.getText()));
-//        x.colunas = this.colunasSelecionadasConcatenadas();
-//        x.colunasId = this.colunasSelecionadasIds();
-//        x.tabela = this.tablesComboBox.getSelectionModel().getSelectedItem();
-//        x.tabelaId = __tableService.getContainerIdBySelected(containerIds, this.tableSelected()).getValue();
-//        x.ordem = this.ordemDoIndice.getText();
-//
-//        this.tableViewIndiceValues.add(x);
-//        this.ordemDoIndice.setText("");
-//        this.collumnsListView.getSelectionModel().clearSelection();
+
+        try {
+            adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadIndexTable(int tableSelecionada) {
+        this.tableViewIndices.getItems().removeAll(this.tableViewIndices.getItems());
+        ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
+        List<String> indicesPath = null;
+        try {
+            indicesPath = indexFileManager.getIndicesPath(containerIdSelecionado);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (indicesPath == null)
+            return;
+
+        for (String anIndicesPath : indicesPath) {
+            this.adicionarIndiceNaTableView(anIndicesPath);
+        }
+    }
+
+    private void adicionarIndiceNaTableView(String indicePath) {
+//        int ordem = Integer.parseInt(this.ordemDoIndice.getText());
+        int ordem = 10;
+
+        TableViewIndice x = new TableViewIndice();
+        x.index = (this.tableViewIndiceValues.size() + 1) + "";
+        x.arvore = new ArvoreBPlus(ordem);
+        x.colunas = this.colunasSelecionadasConcatenadas();
+        x.colunasId = this.colunasSelecionadasIds();
+        x.tabela = indicePath;
+        x.tabelaId = containerIdSelected().getValue();
+        x.ordem = ordem + "";
+
+        this.tableViewIndiceValues.add(x);
     }
 
     private void alert(Alert.AlertType alertType, String title, String content) {

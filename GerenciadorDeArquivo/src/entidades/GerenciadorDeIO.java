@@ -132,4 +132,11 @@ public class GerenciadorDeIO {
         } catch (FileAlreadyExistsException ignored) {
         }
     }
+
+    public static void makeFiles(String path) throws IOException {
+        try {
+            Files.createFile(FileSystems.getDefault().getPath(path));
+        } catch (FileAlreadyExistsException ignored) {
+        }
+    }
 }

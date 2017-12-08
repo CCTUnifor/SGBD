@@ -72,9 +72,16 @@ public class BlocoControle implements IBinary, IPrint {
     public void adicionarDescritores(ArrayList<Descritor> descritores) {
         this.descritores.addAll(descritores);
     }
-    public List<String> getDescritoresName() {
+
+    public List<String> getColumnsName() {
         return this.descritores.stream()
-//                .filter(x -> x.getTipoDado() != TipoDado.PATH)
+                .filter(x -> x.getTipoDado() != TipoDado.PATH)
+                .map(Descritor::getNome).collect(Collectors.toList());
+    }
+
+    public List<String> getIndexName() {
+        return this.descritores.stream()
+                .filter(x -> x.getTipoDado() == TipoDado.PATH)
                 .map(Descritor::getNome).collect(Collectors.toList());
     }
 
@@ -96,7 +103,7 @@ public class BlocoControle implements IBinary, IPrint {
             descritores.add(new Descritor(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex,  tamanho)));
 
             proximoIndex += tamanho;
-            whileTrue = whileTrue && proximoIndex + 4 < descritoresByteArray.length;
+            whileTrue = whileTrue && proximoIndex < descritoresByteArray.length;
         }
 
         return descritores;

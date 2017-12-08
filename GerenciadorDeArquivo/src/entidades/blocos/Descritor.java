@@ -37,28 +37,6 @@ public class Descritor implements IBinary, IPrint {
         }
     }
 
-    public Descritor(String coluna, boolean index) {
-        if (index) {
-            tamanho = 100;
-            tipoDado = TipoDado.PATH;
-            nome = coluna;
-        } else {
-            String[] x = coluna.split("\\[");
-            this.nome = x[0];
-            this.tipoDado = x[1].contains("I") ? TipoDado.INTEIRO : TipoDado.STRING;
-
-            Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
-            Matcher mat = pat.matcher(coluna);
-            if (mat.find()) {
-                if (this.tipoDado == TipoDado.INTEIRO)
-                    this.tamanho = 4;
-                else
-                    this.tamanho = Integer.parseInt(mat.group(1));
-            }
-        }
-
-    }
-
     public Descritor(byte[] byteArray) {
         this.fromByteArray(byteArray);
     }
