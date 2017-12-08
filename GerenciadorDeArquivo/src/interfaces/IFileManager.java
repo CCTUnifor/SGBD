@@ -10,20 +10,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 public interface IFileManager {
-    public BlocoContainer criarBlocoContainer();
+    BlocoContainer criarBlocoContainer();
+    BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
+    BlocoContainer selectAllFrom(int containerId) throws IOException;
 
-    public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent;
-    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent;
+    BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent;
+    BlocoDado lerBloco(RowId rowId) throws IOException;
+    void gravarBloco(BlocoContainer container, BlocoDado bloco) throws IOException;
+    BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException, ContainerNoExistent;
 
-    public BlocoContainer lerContainer(int containerId) throws FileNotFoundException;
-    public void gravarArquivoTexto(BlocoContainer container) throws IOException;
+    HashMap<ContainerId, String> getContainers() throws IOException;
 
-    public BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent;
-    public BlocoDado lerBloco(RowId rowId) throws IOException;
-    public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws FileNotFoundException;
-    public BlocoDado adicionarLinha(BlocoContainer container, String linha) throws IOException, ContainerNoExistent;
-
-    public HashMap<ContainerId, String> getContainers() throws IOException;
+    List<String> getColumns(ContainerId containerId) throws IOException;
+    void adicionarIndiceAoContainerId(ContainerId containerId, String indexNam) throws IOException;
 }

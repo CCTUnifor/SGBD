@@ -1,6 +1,7 @@
 package entidades;
 
 import entidades.blocos.*;
+import entidades.index.IndexFileManager;
 import exceptions.ContainerNoExistent;
 import factories.ContainerId;
 import interfaces.IFileManager;
@@ -10,37 +11,52 @@ import utils.GlobalVariables;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class GerenciadorArquivo implements IFileManager {
+    private static final String PATH = GlobalVariables.LOCAL_ARQUIVO_FINAL + "TABLES/";
+    private static final String PREFIX = "db.";
+    private static final String EXTENSION = ".table";
 
     private int containerIdCount = 0;
     private int blocoIdCount = 1;
+
+    public GerenciadorArquivo() {
+        try {
+            File file = new File(PATH);
+            File[] directores = file.listFiles();
+
+            if (directores != null && directores.length > 0) {
+                byte[] idBytes = GerenciadorDeIO.getBytes(directores[directores.length - 1].getAbsolutePath(), 0, 1);
+                this.containerIdCount = ByteArrayUtils.byteArrayToInt(idBytes);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public BlocoDado criarBlocoDeDado(int containerId) throws ContainerNoExistent {
         if (this.containerIdCount == 0 || containerId == 0)
             throw new ContainerNoExistent();
-        BlocoDado bloco = new BlocoDado(containerId, this.blocoIdCount++);
-        return bloco;
+        return new BlocoDado(containerId, this.blocoIdCount++);
     }
 
     @Override
-    public BlocoDado criarBlocoDeDado(byte[] bytes) throws ContainerNoExistent {
-        BlocoDado bloco = new BlocoDado(bytes);
-        if (bloco.getHeader().getContainerId() < this.containerIdCount)
-            throw new ContainerNoExistent();
+    public BlocoContainer selectAllFrom(int containerId) throws IOException {
+        BlocoContainer container = this.criarBlocoContainer();
+        String diretorio = getDiretorio(ContainerId.create(containerId));
 
-        return bloco;
+        byte[] bytes = GerenciadorDeIO.getBytes(diretorio);
+        container.fromByteArray(bytes);
+        return container;
     }
 
     @Override
     public BlocoContainer criarBlocoContainer() {
-        BlocoContainer container = new BlocoContainer(++this.containerIdCount);
-        return container;
+        return new BlocoContainer(++this.containerIdCount);
     }
 
     private BlocoContainer criarBlocoContainer(byte[] bytes) {
@@ -51,48 +67,29 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public BlocoContainer lerContainer(int containerId) throws FileNotFoundException {
-        BlocoContainer container = this.criarBlocoContainer();
-        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + containerId + ".bin";
-
-        byte[] bytes = GerenciadorDeIO.getBytes(diretorio);
-        container.fromByteArray(bytes);
-        return container;
-    }
-
-    @Override
     public HashMap<ContainerId, String> getContainers() throws IOException {
-        String path = System.getProperty("user.dir") + "\\" + GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO;
-        File file = new File(path);
+        File file = new File(PATH);
         File[] directores = file.listFiles();
         HashMap<ContainerId, String> containers = new HashMap<ContainerId, String>();
 
-        for (int i = 0; i < directores.length; i++) {
-            File containerFile = directores[i];
-            byte[] idBytes = GerenciadorDeIO.getBytes(containerFile.getAbsolutePath(), 0, 1);
-            int idInt = ByteArrayUtils.byteArrayToInt(idBytes);
+        if (directores != null && directores.length > 0) {
+            for (File containerFile : directores) {
+                byte[] idBytes = GerenciadorDeIO.getBytes(containerFile.getAbsolutePath(), 0, 1);
+                int idInt = ByteArrayUtils.byteArrayToInt(idBytes);
 
-            ContainerId id = ContainerId.create(idInt);
-            containers.put(id, containerFile.getName());
+                ContainerId id = ContainerId.create(idInt);
+                containers.put(id, containerFile.getName());
+            }
         }
 
         return containers;
-    }
-
-    @Override
-    public void gravarArquivoTexto(BlocoContainer container) throws IOException {
-        String diretorioCompleto = GlobalVariables.LOCAL_ARQUIVO_FINAL_TEXTO  + "Tabela" + container.getContainerId() + ".txt";
-        ArrayList<String> linhas = container.print();
-
-        GerenciadorDeIO.gravarString(diretorioCompleto, linhas);
     }
 
     private ArrayList<Descritor> processarDescritores(BlocoContainer container, String descritor) {
         ArrayList<Descritor> descritores = new ArrayList<Descritor>();
         String[] colunas = descritor.split(GlobalVariables.REGEX_SEPARADOR_COLUNA);
 
-        for (int i = 0; i < colunas.length; i++) {
-            String coluna = colunas[i];
+        for (String coluna : colunas) {
             Descritor _descritor = new Descritor(coluna);
             descritores.add(_descritor);
             container.getBlocoControle().getHeader().atualizarTamanhoDescritor(_descritor.toByteArray().length);
@@ -106,15 +103,14 @@ public class GerenciadorArquivo implements IFileManager {
     public BlocoContainer criarArquivo(String containerString) throws IOException, ContainerNoExistent {
         BlocoContainer container = this.criarBlocoContainer();
         container.getBlocoControle().adicionarDescritores(this.processarDescritores(container, containerString));
-//        container.adicionarBloco(this.criarBlocoDeDado(container.getContainerId()));
 
-        GerenciadorDeIO.gravarBytes(container.getDiretorio(), container.toByteArray());
+        GerenciadorDeIO.gravarBytes(getDiretorio(ContainerId.create(container.getContainerId())), container.toByteArray());
         return container;
     }
 
     @Override
     public BlocoDado lerBloco(RowId rowId) throws IOException {
-        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "/Tabela" + rowId.getContainerId() + ".bin";
+        String diretorio = getDiretorio(ContainerId.create(rowId.getContainerId()));
         byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, 11);
         BlocoContainer container = this.criarBlocoContainer(containerBytes);
 
@@ -129,11 +125,11 @@ public class GerenciadorArquivo implements IFileManager {
     }
 
     @Override
-    public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws FileNotFoundException {
-        int offset = 0 + 11 + container.getBlocoControle().getHeader().getTamanhoDescritor() + ((bloco.getHeader().getBlocoId() -1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
+    public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws IOException {
+        int offset = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
         int length = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
-        container.atualizar();
+        container.atualizarProximoBlocoLivre();
         bloco.atualizar(offset, length);
     }
 
@@ -148,7 +144,7 @@ public class GerenciadorArquivo implements IFileManager {
         int blocoId = (proximoBlocoLivre / container.getBlocoControle().getHeader().getTamanhoDosBlocos()) + 1;
         BlocoDado bloco = this.lerBloco(new RowId(container.getBlocoControle().getHeader().getContainerId(), blocoId));
 
-        if (bloco == null){
+        if (bloco == null) {
             bloco = this.criarBlocoDeDado(container.getContainerId());
             container.adicionarBloco(bloco);
         }
@@ -177,18 +173,38 @@ public class GerenciadorArquivo implements IFileManager {
         return tamanhoUsadoDoBloco + tamanhoTupla + tamanhoHeader <= tamanhoMaximoBloco;
     }
 
-    public List<String> getDescritores(ContainerId containerId) {
+    @Override
+    public List<String> getColumns(ContainerId containerId) throws IOException {
         BlocoControle controle = new BlocoControle(containerId.getValue());
-        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + containerId .getValue()+ ".bin";
+        String diretorio = getDiretorio(containerId);
 
-        byte[] bytes = new byte[0];
         try {
-            bytes = GerenciadorDeIO.getBytes(diretorio);
+            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, 11));
+            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, 11 + controle.getHeader().getTamanhoDescritor()));
         } catch (FileNotFoundException e) {
             System.out.println("Não foi achado o Container: " + containerId.getValue());
             return null;
         }
-        controle.fromByteArray(bytes);
-        return controle.getDescritoresName();
+        return controle.getColumnsName();
+    }
+
+    @Override
+    public void adicionarIndiceAoContainerId(ContainerId containerId, String indexName) throws IOException {
+        String indexPath = IndexFileManager.getDiretorio(containerId, indexName);
+        String tablePath = getDiretorio(containerId);
+
+        BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, 11));
+        String descString = indexPath + "[P(101)];";
+        Descritor desc = new Descritor(descString);
+        int tamanhoNovoDescritor = container.getBlocoControle().getHeader().getTamanhoDescritor() + desc.toByteArray().length;
+
+        container.getBlocoControle().adicionarDescritor(desc);
+        GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
+    }
+
+    public static String getDiretorio(ContainerId containerId) throws IOException {
+        String _path = PATH + "/" + PREFIX + containerId.getValue() + EXTENSION;
+        GerenciadorDeIO.makeDirs(_path);
+        return _path;
     }
 }

@@ -1,6 +1,7 @@
 package front.controller;
 
 import entidades.arvoreBMais.ArvoreBPlus;
+import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
 import front.modelos.GraphView;
 import javafx.embed.swing.SwingNode;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import prefuse.data.Graph;
 
@@ -19,11 +21,15 @@ import java.util.ResourceBundle;
 import static utils.GlobalVariables.MOSTRAR_PREFUSE;
 
 public class GraphViewController implements Initializable {
-    @FXML private SwingNode swingNode;
-    @FXML private Canvas myCanvas;
+    @FXML
+    private SwingNode swingNode;
+    @FXML
+    private Canvas myCanvas;
+    @FXML
+    ScrollPane scrollPane;
 
-    public static final double HEIGHT = 900;
-    public static final double WIDTH = 1700;
+    public static final double HEIGHT = 700;
+    public static final double WIDTH = 1300;
 
     private Graph _graph;
     private String _label;
@@ -33,19 +39,21 @@ public class GraphViewController implements Initializable {
     public void setGraph(Graph graph) {
         this._graph = graph;
     }
+
     public void setLabel(String label) {
-        this._label= label;
+        this._label = label;
     }
 
-    public void setArvoreBMais(ArvoreBPlus _arvore) {this.arvore = _arvore;}
+    public void setArvoreBMais(ArvoreBPlus _arvore) {
+        this.arvore = _arvore;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (MOSTRAR_PREFUSE){
+        if (MOSTRAR_PREFUSE) {
             GraphView jPanel = new GraphView(_graph, _label);
             swingNode.setContent(jPanel);
-        }
-        else {
+        } else {
             gc = this.myCanvas.getGraphicsContext2D();
             this.myCanvas.setHeight(HEIGHT);
             this.myCanvas.setWidth(WIDTH);
@@ -54,43 +62,56 @@ public class GraphViewController implements Initializable {
 
             int quantidadeDeRoots = 1;
             int countNivel = 0;
+            scrollPane.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-//            double tamanhoNo = arvore.root.numberOfValidKeys() * 80;
-//            double tamanhoTexto = arvore.root.numberOfValidKeys() * 70;
-//
-//            double xInicial = ((WIDTH / quantidadeDeRoots) / 2) - (tamanhoNo / 2);
-//            double yInicial = 20;
-//
-//            gc.strokeRoundRect(xInicial, yInicial, tamanhoNo, 30, 10, 10);
-//            gc.fillText(arvore.root.getValues(), xInicial + 8, yInicial + 18, tamanhoTexto);
+
 //
 //            xInicial = xInicial/2;
 //            yInicial += 20;
 
+            ArvoreBPlus arv = this.arvore;
 
-            if (!arvore.isEmpty()) {
+            if (!arv.isEmpty()) {
                 Queue<Node> queue = new LinkedList<Node>();
-                queue.add(arvore.getRoot());
+                queue.add(arv.getRoot());
                 Node tempNode = null;
-                int nivel = 0;
+                int yCount = 0;
+                double xCount = 0;
 
                 while (!queue.isEmpty()) {
                     tempNode = queue.remove();
+                    xCount = 10;
+                    yCount++;
+                    int j = 0;
                     for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
                         if (tempNode.getKey(i) != null) {
+                            Key keyTemp = tempNode.getKey(i);
+
+                            /* */
+                            StringBuilder value = new StringBuilder();
+                            for (int k = 0; k < 2; k++) {
+                                if (keyTemp.getValueColumn(k) != null){
+                                    value.append(keyTemp.getValueColumn(k)).append(";");
+                                }
+                            }
 
 
+                            double tamanhoNo = value.length() * 6 + 8;
+                            double tamanhoTexto = tamanhoNo;
+//
+//                            double xInicial = (xCount * tamanhoNo);
+                            double yInicial = yCount * 30 + 50;
+//
+                            gc.strokeRoundRect(xCount, yInicial, tamanhoNo, 30, 0, 10);
+                            gc.fillText(value.toString(), xCount + 8, yInicial + 18, tamanhoTexto);
 
+                            xCount += tamanhoNo;
 
-
-
-
-//                            this.print(nivel, tempNode.getKey(i).getValue());
-
+                            /**/
                             if (!tempNode.isLeaf()) {
-                                for (int j = 0; j < tempNode.getChildrens().length; j++) {
-                                    if (tempNode.getChildren(j) != null)
-                                        queue.add(tempNode.getChildren(j));
+                                while (j < tempNode.getNumberNodeInsertion()) {
+                                    queue.add(tempNode.getChildren(j));
+                                    j++;
                                 }
                             }
                         }

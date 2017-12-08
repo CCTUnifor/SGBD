@@ -3,6 +3,10 @@ package entidades;
 import entidades.blocos.BlocoContainer;
 
 import java.io.*;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class GerenciadorDeIO {
@@ -16,8 +20,7 @@ public class GerenciadorDeIO {
         try {
             randomAccessFile.write(bytes);
             randomAccessFile.close();
-        }catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -27,7 +30,7 @@ public class GerenciadorDeIO {
         if (!file.exists())
             file.createNewFile();
 
-        try(  PrintWriter out = new PrintWriter(file)  ){
+        try (PrintWriter out = new PrintWriter(file)) {
             out.print(conteudo);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -40,8 +43,8 @@ public class GerenciadorDeIO {
             file.delete();
         file.createNewFile();
 
-        try(  PrintWriter out = new PrintWriter(file)  ){
-            conteudo.stream().forEach(linha -> out.print( linha ));
+        try (PrintWriter out = new PrintWriter(file)) {
+            conteudo.stream().forEach(linha -> out.print(linha));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -76,12 +79,12 @@ public class GerenciadorDeIO {
                 return null;
 
             bytes = new byte[tamanho];
-            for (int i = 0; i < tamanho; i++){
+            for (int i = 0; i < tamanho; i++) {
                 bytes[i] = randomAccessFile.readByte();
             }
             randomAccessFile.close();
 
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         return bytes;
@@ -97,8 +100,7 @@ public class GerenciadorDeIO {
             randomAccessFile.seek(offset);
             randomAccessFile.write(bytes);
             randomAccessFile.close();
-        }catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -113,14 +115,28 @@ public class GerenciadorDeIO {
 
             bytes = new byte[tamanho];
             randomAccessFile.seek(start);
-            for (int i = 0; i < tamanho; i++){
+            for (int i = 0; i < tamanho; i++) {
                 bytes[i] = randomAccessFile.readByte();
             }
             randomAccessFile.close();
 
-        }catch (IOException e){
+        } catch (IOException e) {
             return null;
         }
         return bytes;
+    }
+
+    public static void makeDirs(String path) throws IOException {
+        try {
+            Files.createDirectories(FileSystems.getDefault().getPath(path));
+        } catch (FileAlreadyExistsException ignored) {
+        }
+    }
+
+    public static void makeFiles(String path) throws IOException {
+        try {
+            Files.createFile(FileSystems.getDefault().getPath(path));
+        } catch (FileAlreadyExistsException ignored) {
+        }
     }
 }

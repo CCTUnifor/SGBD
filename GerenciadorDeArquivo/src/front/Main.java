@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
         primaryStage.setTitle("Hello World");
-//        primaryStage.setMaximized(true);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(new Scene(root, GraphViewController.WIDTH, GraphViewController.HEIGHT));
 
         primaryStage.show();

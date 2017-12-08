@@ -15,19 +15,26 @@ public class Descritor implements IBinary, IPrint {
     private String nome;
 
     public Descritor(String coluna) {
-        String[] x = coluna.split( "\\[");
+        String[] x = coluna.split("\\[");
         this.nome = x[0];
-        this.tipoDado = x[1].contains("I") ? TipoDado.INTEIRO : TipoDado.STRING;
+        if (x[1].contains("I"))
+            this.tipoDado = TipoDado.INTEIRO;
+        else if (x[1].contains("A"))
+            this.tipoDado = TipoDado.STRING;
+        else
+            this.tipoDado = TipoDado.PATH;
 
         Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
         Matcher mat = pat.matcher(coluna);
-        if (mat.find()){
-            if (this.tipoDado == TipoDado.INTEIRO)
-                this.tamanho = 4;
-            else
-                this.tamanho = Integer.parseInt(mat.group(1));
+        if (mat.find()) {
+            switch (tipoDado) {
+                case INTEIRO:
+                    this.tamanho = 4;
+                case STRING:
+                case PATH:
+                    this.tamanho = Integer.parseInt(mat.group(1));
+            }
         }
-
     }
 
     public Descritor(byte[] byteArray) {
@@ -51,9 +58,9 @@ public class Descritor implements IBinary, IPrint {
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
         bc.concat(ByteArrayUtils.intToBytes(this.getTamanhoTotalDescritor()))
-          .concat(ByteArrayUtils.intTo1Bytes(tipoDado.ordinal()))
-          .concat(ByteArrayUtils.intTo1Bytes(this.tamanho))
-          .concat(ByteArrayUtils.stringToByteArray(this.nome));
+                .concat(ByteArrayUtils.intTo1Bytes(tipoDado.ordinal()))
+                .concat(ByteArrayUtils.intTo1Bytes(this.tamanho))
+                .concat(ByteArrayUtils.stringToByteArray(this.nome));
 
         return bc.getFinalByteArray();
     }
@@ -85,6 +92,10 @@ public class Descritor implements IBinary, IPrint {
         this.nome = ByteArrayUtils.byteArrayToString(ByteArrayUtils.subArray(byteArray, tamanhoDescritorHeader + 2, byteArray.length - 6));
 
         return this;
+    }
+
+    public TipoDado getTipoDado() {
+        return tipoDado;
     }
 }
 

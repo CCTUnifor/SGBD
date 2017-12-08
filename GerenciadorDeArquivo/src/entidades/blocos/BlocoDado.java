@@ -1,6 +1,8 @@
 package entidades.blocos;
 
+import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
@@ -9,6 +11,7 @@ import utils.GlobalVariables;
 
 import java.awt.color.ICC_ProfileRGB;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class BlocoDado implements IBinary, IPrint {
@@ -92,7 +95,6 @@ public class BlocoDado implements IBinary, IPrint {
     }
 
     public boolean adicionarTupla(Linha tupla) {
-
         this.tuples.add(tupla);
         this.header.incrementarTamanhoUsado(tupla.getTamanhoCompleto());
 
@@ -115,9 +117,8 @@ public class BlocoDado implements IBinary, IPrint {
         return "Row Id: " + this.getHeader().getContainerId() + "." + this.getHeader().getBlocoId() + " | Tipo: " + this.header.getTipoBloco().toString() + " | Tuplas: " + this.tuples.size();
     }
 
-    public void atualizar(int offset, int length) throws FileNotFoundException {
-        String diretorio = GlobalVariables.LOCAL_ARQUIVO_FINAL_BINARIO + "Tabela" + this.getHeader().getContainerId() + ".bin";
-
+    public void atualizar(int offset, int length) throws IOException {
+        String diretorio = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getHeader().getContainerId()));
         GerenciadorDeIO.atualizarBytes(diretorio, offset, this.toByteArray());
     }
 
