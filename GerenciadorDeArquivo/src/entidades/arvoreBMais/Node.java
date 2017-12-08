@@ -165,4 +165,10 @@ public class Node {
         this.indexInsertionKeys = 0;
     }
 
+    public int getNumberNodeInsertion()
+    {
+        int i = 0;
+        while(i < this.childrens.length && this.childrens[i++] != null);
+        return i-1;
+    }
 }
