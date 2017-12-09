@@ -2,12 +2,14 @@ package entidades.blocos;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import exceptions.ContainerNoExistentException;
 import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +64,11 @@ public class BlocoControle implements IBinary, IPrint {
         return this;
     }
 
-    public void adicionarDescritor(Descritor descritor) {
+    public void adicionarDescritor(Descritor descritor) throws ContainerNoExistentException {
         try {
-            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId())), 11 + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
-        } catch (IOException e) {
-            e.printStackTrace();
+            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(this.getContainerId()), 11 + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+        } catch (FileNotFoundException e) {
+            throw new ContainerNoExistentException("");
         }
     }
     public void adicionarDescritores(ArrayList<Descritor> descritores) {

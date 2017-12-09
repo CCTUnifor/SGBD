@@ -13,51 +13,41 @@ import java.util.Arrays;
 
 public class GerenciadorDeIO {
     public static void gravarBytes(String diretorio, byte[] bytes) throws FileNotFoundException {
-        try {
-            makeFiles(diretorio);
-        } catch (IOException e) {
-            throw new FileNotFoundException();
-        }
-
         File file = new File(diretorio);
-        if (file.exists())
-            file.delete();
+        try {
+            if (!file.exists())
+                file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
         try {
             randomAccessFile.write(bytes);
             randomAccessFile.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void gravarString(String diretorio, String conteudo) throws IOException {
-        File file = new File(diretorio);
-        if (!file.exists())
-            file.createNewFile();
-
-        try (PrintWriter out = new PrintWriter(file)) {
-            out.print(Arrays.toString(ByteArrayUtils.stringToByteArray(conteudo)));
-        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static void gravarString(String diretorio, ArrayList<String> conteudo) throws IOException {
+    static void gravarString(String diretorio, ArrayList<String> conteudo) throws FileNotFoundException {
         File file = new File(diretorio);
         if (file.exists())
             file.delete();
-        file.createNewFile();
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         try (PrintWriter out = new PrintWriter(file)) {
             conteudo.forEach(linha -> out.print(Arrays.toString(ByteArrayUtils.stringToByteArray(linha))));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileNotFoundException();
         }
     }
 
-    public static ArrayList<String> getStrings(String diretorio) throws IOException {
+    static ArrayList<String> getStrings(String diretorio) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         ArrayList<String> linhas = new ArrayList<String>();
@@ -75,7 +65,7 @@ public class GerenciadorDeIO {
         return linhas;
     }
 
-    public static byte[] getBytes(String diretorio) throws FileNotFoundException {
+    static byte[] getBytes(String diretorio) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
 
         byte[] bytes = null;
@@ -140,10 +130,12 @@ public class GerenciadorDeIO {
         }
     }
 
-    public static void makeFiles(String path) throws IOException {
+    public static void makeFiles(String path) {
         try {
             Files.createFile(FileSystems.getDefault().getPath(path));
         } catch (FileAlreadyExistsException ignored) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

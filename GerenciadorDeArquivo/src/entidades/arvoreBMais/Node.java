@@ -5,9 +5,9 @@ public class Node {
 
     private int numberMaxPointersNode;
     private int numberMaxKeys;
-    private Key[] keys;
+    private Key[] keys; // "tupla"
     private Node father;
-    private Node[] childrens;
+    private Node[] childrens; // "lista de ponteiro de nodes filhos"
     private boolean leaf;
     private Node next;
     private Node previous;

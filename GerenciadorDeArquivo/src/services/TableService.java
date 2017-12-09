@@ -7,15 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class TableService {
-    public List<String> mockTables() {
-        List<String> tables = new ArrayList<String>();
-        tables.add("Table");
-        tables.add("Table2");
-        tables.add("Table3");
-
-        return tables;
-    }
-
     public ContainerId[] convertContainerIds(HashMap<ContainerId, String> containers) {
         Object[] x = containers.keySet().toArray();
         ContainerId[] containerIds = new ContainerId[x.length];

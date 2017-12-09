@@ -2,6 +2,7 @@ package entidades.blocos;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import exceptions.ContainerNoExistentException;
 import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
@@ -94,8 +95,12 @@ public class BlocoContainer implements IBinary, IPrint {
         this.blocosDados.add(bloco);
     }
 
-    public void atualizarProximoBlocoLivre() throws IOException {
-        String diretorio = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getBlocoControle().getContainerId()));
-        GerenciadorDeIO.atualizarBytes(diretorio, 5, ByteArrayUtils.intToBytes(this.getBlocoControle().getHeader().getProximoBlocoLivre()));
+    public void atualizarProximoBlocoLivre() throws ContainerNoExistentException {
+        String diretorio = GerenciadorArquivo.getDiretorio(this.getBlocoControle().getContainerId());
+        try {
+            GerenciadorDeIO.atualizarBytes(diretorio, 5, ByteArrayUtils.intToBytes(this.getBlocoControle().getHeader().getProximoBlocoLivre()));
+        } catch (FileNotFoundException e) {
+            throw new ContainerNoExistentException("");
+        }
     }
 }

@@ -116,10 +116,6 @@ public class Main {
                     rowIds.addAll(gaService.gerarContainerByInput(file.getAbsolutePath()));
                 } catch (FileNotFoundException e) {
                     println("\nErro ao Gerar o Arquivo Binario da tabela " + file.getName());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ContainerNoExistentException containerNoExistent) {
-                    containerNoExistent.printStackTrace();
                 }
                 println(" **Finalizado** o Processo de Criação da Tabela *" + file.getName() + "*");
                 printTempoExecucao(tempoInicio);
@@ -195,15 +191,11 @@ public class Main {
     private static void print(String mensagem) {
         System.out.print(mensagem);
         String _path = GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_" + identificador() + ".txt";
-        try {
-            GerenciadorDeIO.makeFiles(_path);
-            File file = new File(_path);
+        GerenciadorDeIO.makeFiles(_path);
+        File file = new File(_path);
 
-            try (FileWriter out = new FileWriter(file, true)) {
-                out.append(mensagem).append("\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try (FileWriter out = new FileWriter(file, true)) {
+            out.append(mensagem).append("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -212,15 +204,12 @@ public class Main {
     private static void println(String mensagem) {
         System.out.println(mensagem);
         String _path = GlobalVariables.LOCAL_ARQUIVO_FINAL_RESULTADOS + "RESULTADO_" + identificador() + ".txt";
-        try {
-            GerenciadorDeIO.makeFiles(_path);
-            File file = new File(_path);
 
-            try (FileWriter out = new FileWriter(file, true)) {
-                out.append(mensagem).append("\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        GerenciadorDeIO.makeFiles(_path);
+        File file = new File(_path);
+
+        try (FileWriter out = new FileWriter(file, true)) {
+            out.append(mensagem).append("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

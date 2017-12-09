@@ -16,7 +16,7 @@ public class BlocoContainerHeader implements IBinary{
     BlocoContainerHeader(int containerId) {
         this.containerId = ContainerId.create(containerId);
     }
-    BlocoContainerHeader(byte[] bytes) {
+    public BlocoContainerHeader(byte[] bytes) {
         this.fromByteArray(bytes);
     }
 

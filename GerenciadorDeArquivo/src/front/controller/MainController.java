@@ -7,6 +7,8 @@ import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
 import entidades.blocos.*;
 import entidades.index.IndexFileManager;
+import exceptions.ContainerNoExistentException;
+import exceptions.IndexNoExistentException;
 import factories.ContainerId;
 import interfaces.IFileManager;
 import interfaces.IIndexFileManager;
@@ -58,7 +60,8 @@ public class MainController implements Initializable {
     private ListView<String> collumnsListView;
     @FXML
     private TextField ordemDoIndice;
-    @FXML TextField nomeIndiceTextField;
+    @FXML
+    TextField nomeIndiceTextField;
 
     @FXML
     TableView<ObservableList<String>> tableViewBancoValores;
@@ -73,7 +76,10 @@ public class MainController implements Initializable {
     private int tableSelected() {
         return tablesComboBox.getSelectionModel().getSelectedIndex();
     }
-    private ContainerId containerIdSelected() { return containerIds[tableSelected()]; }
+
+    private ContainerId containerIdSelected() {
+        return containerIds[tableSelected()];
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,7 +127,7 @@ public class MainController implements Initializable {
         List<String> columns = null;
         try {
             columns = _ga.getColumns(containerIdSelecionado);
-        } catch (IOException e) {
+        } catch (ContainerNoExistentException e) {
             e.printStackTrace();
         }
 
@@ -144,7 +150,7 @@ public class MainController implements Initializable {
         try {
             indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
             _ga.adicionarIndiceAoContainerId(containerIdSelected(), nomeIndiceTextField.getText());
-        } catch (IOException e) {
+        } catch (ContainerNoExistentException | IndexNoExistentException e) {
             e.printStackTrace();
         }
 
@@ -152,7 +158,7 @@ public class MainController implements Initializable {
 
         try {
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
-        } catch (IOException e) {
+        } catch (IndexNoExistentException e) {
             e.printStackTrace();
         }
     }
@@ -336,8 +342,7 @@ public class MainController implements Initializable {
         if (keyback == null) {
             this.findKeyResultado.setText("Não achou!");
             this.findKeyResultadoCompleto.getItems().add("Não achou!");
-        }
-        else {
+        } else {
             this.findKeyResultado.setText("Row Id: " + keyback.toString());
             try {
                 ArrayList<Tuple> tuplas = this._ga.lerBloco(keyback).getTuples();

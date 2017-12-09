@@ -2,19 +2,22 @@ package entidades.blocos;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import exceptions.ContainerNoExistentException;
 import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class BlocoDado implements IBinary, IPrint {
 
     private BlocoDadoHeader header;
-    private ArrayList<Tuple> tuples;
+    private ArrayList<Tuple> tuples; //values
+    // ponteiros quando for de dados -> não gravar no arquivo, quando for index, gravar no arquivo
     private int posicaoLRU;
 
     public BlocoDado(int containerId, int blocoId) {
@@ -114,9 +117,13 @@ public class BlocoDado implements IBinary, IPrint {
         return "Row Id: " + this.getHeader().getContainerId() + "." + this.getHeader().getBlocoId() + " | Tipo: " + this.header.getTipoBloco().toString() + " | Tuplas: " + this.tuples.size();
     }
 
-    public void atualizar(int offset, int length) throws IOException {
-        String diretorio = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getHeader().getContainerId()));
-        GerenciadorDeIO.atualizarBytes(diretorio, offset, this.toByteArray());
+    public void atualizar(int offset, int length) throws ContainerNoExistentException {
+        String diretorio = GerenciadorArquivo.getDiretorio(this.getHeader().getContainerId());
+        try {
+            GerenciadorDeIO.atualizarBytes(diretorio, offset, this.toByteArray());
+        } catch (FileNotFoundException e) {
+            throw new ContainerNoExistentException("");
+        }
     }
 
     public RowId getRowId() {
