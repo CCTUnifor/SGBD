@@ -1,6 +1,7 @@
 package entidades;
 
 import entidades.blocos.BlocoContainer;
+import utils.ByteArrayUtils;
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
@@ -8,13 +9,19 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GerenciadorDeIO {
-    public static void gravarBytes(String diretorio, byte[] bytes) throws IOException {
+    public static void gravarBytes(String diretorio, byte[] bytes) throws FileNotFoundException {
+        try {
+            makeFiles(diretorio);
+        } catch (IOException e) {
+            throw new FileNotFoundException();
+        }
+
         File file = new File(diretorio);
         if (file.exists())
             file.delete();
-        file.createNewFile();
 
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
         try {
@@ -31,7 +38,7 @@ public class GerenciadorDeIO {
             file.createNewFile();
 
         try (PrintWriter out = new PrintWriter(file)) {
-            out.print(conteudo);
+            out.print(Arrays.toString(ByteArrayUtils.stringToByteArray(conteudo)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -44,7 +51,7 @@ public class GerenciadorDeIO {
         file.createNewFile();
 
         try (PrintWriter out = new PrintWriter(file)) {
-            conteudo.stream().forEach(linha -> out.print(linha));
+            conteudo.forEach(linha -> out.print(Arrays.toString(ByteArrayUtils.stringToByteArray(linha))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -105,7 +112,7 @@ public class GerenciadorDeIO {
         }
     }
 
-    public static byte[] getBytes(String diretorio, int start, int length) throws IOException {
+    public static byte[] getBytes(String diretorio, int start, int length) throws FileNotFoundException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(diretorio, "r");
         byte[] bytes = null;
         try {

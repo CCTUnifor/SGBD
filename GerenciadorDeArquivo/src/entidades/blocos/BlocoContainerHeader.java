@@ -6,23 +6,16 @@ import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
-import java.awt.*;
-
 public class BlocoContainerHeader implements IBinary{
-
     private ContainerId containerId;
-    private int tamanhoDosBlocos = GlobalVariables.TAMANHO_BLOCO;
+    private int tamanhoDosBlocos = BlocoDadoHeader.TABLE_BLOCK_LENGTH;
     private int statusContainer;
     private int proximoBlocoLivre = 0;
     private int tamanhoDescritor;
 
-    public BlocoContainerHeader() {
-    }
-
     BlocoContainerHeader(int containerId) {
         this.containerId = ContainerId.create(containerId);
     }
-
     BlocoContainerHeader(byte[] bytes) {
         this.fromByteArray(bytes);
     }
@@ -30,15 +23,9 @@ public class BlocoContainerHeader implements IBinary{
     public int getContainerId() {
         return this.containerId.getValue();
     }
-
     public int getTamanhoDosBlocos() {
         return this.tamanhoDosBlocos;
     }
-
-    public int getStatusContainer() {
-        return this.statusContainer;
-    }
-
     public int getProximoBlocoLivre() {
         return this.proximoBlocoLivre;
     }
@@ -46,7 +33,6 @@ public class BlocoContainerHeader implements IBinary{
     public void adicionarProximoBlocoLivre() {
         this.proximoBlocoLivre += tamanhoDosBlocos;
     }
-
     public int getTamanhoDescritor() {
         return  this.tamanhoDescritor;
     }

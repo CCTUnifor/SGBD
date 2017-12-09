@@ -3,17 +3,13 @@ package entidades;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoDado;
 import entidades.blocos.RowId;
-import exceptions.ContainerNoExistent;
+import exceptions.ContainerNoExistentException;
 import factories.ContainerId;
 import interfaces.IFileManager;
-import utils.GlobalVariables;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 public class GerenciadorArquivoService {
     private IFileManager ga;
@@ -22,7 +18,7 @@ public class GerenciadorArquivoService {
         ga = _ga;
     }
 
-    public ArrayList<RowId> gerarContainerByInput(String diretorio) throws IOException, ContainerNoExistent {
+    public ArrayList<RowId> gerarContainerByInput(String diretorio) throws IOException, ContainerNoExistentException {
         ArrayList<String> linhas = GerenciadorDeIO.getStrings(diretorio);
 
         BlocoContainer container = ga.criarArquivo(linhas.get(0));

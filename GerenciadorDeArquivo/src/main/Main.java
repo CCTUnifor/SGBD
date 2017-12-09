@@ -1,10 +1,10 @@
 package main;
 
 import entidades.*;
-import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoDado;
+import entidades.blocos.BlocoDadoHeader;
 import entidades.blocos.RowId;
-import exceptions.ContainerNoExistent;
+import exceptions.ContainerNoExistentException;
 import utils.GlobalVariables;
 
 import java.io.*;
@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
     private static String absolutePathProject() {
@@ -49,7 +48,7 @@ public class Main {
 
             println("\n------------------------------------------------------------------------------------------------------\n");
 
-            println("Tamanho dos blocos usado: " + GlobalVariables.TAMANHO_BLOCO);
+            println("Tamanho dos blocos usado: " + BlocoDadoHeader.TABLE_BLOCK_LENGTH);
             println("Tamanho do Gerenciador de Buffer usado: " + GlobalVariables.TAMANHO_GERENCIADOR_BUFFER);
 
             println("Quantidade de Hits: " + gb.getHit());
@@ -119,7 +118,7 @@ public class Main {
                     println("\nErro ao Gerar o Arquivo Binario da tabela " + file.getName());
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (ContainerNoExistent containerNoExistent) {
+                } catch (ContainerNoExistentException containerNoExistent) {
                     containerNoExistent.printStackTrace();
                 }
                 println(" **Finalizado** o Processo de Criação da Tabela *" + file.getName() + "*");

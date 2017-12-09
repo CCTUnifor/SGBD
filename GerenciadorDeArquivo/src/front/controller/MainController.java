@@ -21,7 +21,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import services.CollumnService;
 import services.TableService;
 
 import java.io.IOException;
@@ -32,7 +31,6 @@ import java.util.logging.Logger;
 
 
 public class MainController implements Initializable {
-    private CollumnService _collumnService;
     private TableService __tableService;
 
     private IFileManager _ga;
@@ -79,10 +77,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.
-
         __tableService = new TableService();
-        _collumnService = new CollumnService();
 
         _ga = new GerenciadorArquivo();
         _gaService = new GerenciadorArquivoService(_ga);
@@ -240,7 +235,7 @@ public class MainController implements Initializable {
         try {
             BlocoContainer container = this._ga.selectAllFrom(indice.tabelaId);
             for (BlocoDado bd : container.getBlocosDados()) {
-                for (Linha tuple : bd.getTuples()) {
+                for (Tuple tuple : bd.getTuples()) {
                     StringBuilder c = new StringBuilder();
                     for (String coluna : colunas) {
                         c.append(tuple.getColunas().get(Integer.parseInt(coluna)).getInformacao());
@@ -345,10 +340,10 @@ public class MainController implements Initializable {
         else {
             this.findKeyResultado.setText("Row Id: " + keyback.toString());
             try {
-                ArrayList<Linha> tuplas = this._ga.lerBloco(keyback).getTuples();
+                ArrayList<Tuple> tuplas = this._ga.lerBloco(keyback).getTuples();
                 List<String> cc = new ArrayList<String>();
 
-                for (Linha t : tuplas) {
+                for (Tuple t : tuplas) {
                     StringBuilder tupleString = new StringBuilder();
                     for (Coluna c : t.getColunas()) {
                         tupleString.append(c.getInformacao()).append("; ");

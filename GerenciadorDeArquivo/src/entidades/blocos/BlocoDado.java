@@ -7,32 +7,29 @@ import interfaces.IBinary;
 import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
-import utils.GlobalVariables;
 
-import java.awt.color.ICC_ProfileRGB;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class BlocoDado implements IBinary, IPrint {
 
     private BlocoDadoHeader header;
-    private ArrayList<Linha> tuples;
+    private ArrayList<Tuple> tuples;
     private int posicaoLRU;
 
     public BlocoDado(int containerId, int blocoId) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
-        this.tuples = new ArrayList<Linha>();
+        this.tuples = new ArrayList<Tuple>();
     }
 
-    public BlocoDado(int containerId, int blocoId, ArrayList<Linha> dados) {
+    public BlocoDado(int containerId, int blocoId, ArrayList<Tuple> dados) {
         this.header = new BlocoDadoHeader(containerId, blocoId);
         this.tuples = dados;
     }
 
     public BlocoDado(byte[] bytes) {
         this.header = new BlocoDadoHeader();
-        this.tuples = new ArrayList<Linha>();
+        this.tuples = new ArrayList<Tuple>();
         this.fromByteArray(bytes);
     }
 
@@ -43,7 +40,7 @@ public class BlocoDado implements IBinary, IPrint {
     @Override
     public byte[] toByteArray() {
 
-        ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
+        ByteArrayConcater byteConcater = new ByteArrayConcater(BlocoDadoHeader.TABLE_BLOCK_LENGTH);
         byteConcater
                 .concat(this.header.toByteArray())
                 .concat(this.bytesTuples());
@@ -54,7 +51,7 @@ public class BlocoDado implements IBinary, IPrint {
     @Override
     public ArrayList<String> print() {
         ArrayList<String> parse = new ArrayList<String>();
-        for (Linha linha : tuples){
+        for (Tuple linha : tuples){
             parse.addAll(linha.print());
             parse.add("\n");
         }
@@ -78,15 +75,15 @@ public class BlocoDado implements IBinary, IPrint {
         return  this;
     }
 
-    private ArrayList<Linha> linhasFromByteArray(byte[] byteArray) {
-        ArrayList<Linha> linhas = new ArrayList<Linha>();
+    private ArrayList<Tuple> linhasFromByteArray(byte[] byteArray) {
+        ArrayList<Tuple> linhas = new ArrayList<Tuple>();
         int indexOndeComecaOsDados = 8;
 
         while(indexOndeComecaOsDados < byteArray.length && indexOndeComecaOsDados < this.header.getTamanhoUsado()) {
             int tamanhoLinha = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 4));
             byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, tamanhoLinha);
 
-            Linha tuple = new Linha(linhaBytes);
+            Tuple tuple = new Tuple(linhaBytes);
             indexOndeComecaOsDados += tuple.getTamanho();
             linhas.add(tuple);
         }
@@ -94,14 +91,14 @@ public class BlocoDado implements IBinary, IPrint {
         return linhas;
     }
 
-    public boolean adicionarTupla(Linha tupla) {
+    public boolean adicionarTupla(Tuple tupla) {
         this.tuples.add(tupla);
         this.header.incrementarTamanhoUsado(tupla.getTamanhoCompleto());
 
         return true;
     }
 
-    public ArrayList<Linha> getTuples() {
+    public ArrayList<Tuple> getTuples() {
         return this.tuples;
     }
 

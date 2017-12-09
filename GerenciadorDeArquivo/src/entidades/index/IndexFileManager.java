@@ -4,7 +4,7 @@ import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoControle;
-import entidades.blocos.Descritor;
+import exceptions.IndexNoExistentException;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
 import utils.GlobalVariables;
@@ -12,7 +12,6 @@ import utils.GlobalVariables;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class IndexFileManager implements IIndexFileManager {
@@ -22,22 +21,20 @@ public class IndexFileManager implements IIndexFileManager {
     private static final String EXTENSION = ".index";
 
     @Override
-    public BlocoContainer createIndex(ContainerId containerId, String indexName) throws IOException {
+    public BlocoContainer createIndex(ContainerId containerId, String indexName) throws IndexNoExistentException {
         BlocoContainer controller = new BlocoContainer(containerId.getValue());
         GerenciadorDeIO.gravarBytes(getDiretorio(containerId, indexName), controller.toByteArray());
+
         return controller;
     }
 
-    private void adicionarIndexNameToIndexContainer(BlocoContainer controller, String indexName) {
-        ArrayList<Descritor> descritors = new ArrayList<>();
-        descritors.add(new Descritor(indexName));
-
-        controller.getBlocoControle().adicionarDescritores(descritors);
-    }
-
-    public static String getDiretorio(ContainerId containerId, String indexName) throws IOException {
+    public static String getDiretorio(ContainerId containerId, String indexName) throws IndexNoExistentException {
         String _path = PATH + "/" + containerId.getValue() + "/" + PREFIX + indexName + EXTENSION;
-        GerenciadorDeIO.makeDirs(_path);
+        try {
+            GerenciadorDeIO.makeDirs(_path);
+        } catch (IOException e) {
+            throw new IndexNoExistentException(indexName);
+        }
         return _path;
     }
 
@@ -69,4 +66,6 @@ public class IndexFileManager implements IIndexFileManager {
         }
         return controle.getIndexName();
     }
+
+
 }

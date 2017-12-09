@@ -7,6 +7,7 @@ import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 public class BlocoDadoHeader implements IBinary {
+    public static final int TABLE_BLOCK_LENGTH = 1024;
 
     private ContainerId containerId;
     private BlocoId blocoId;

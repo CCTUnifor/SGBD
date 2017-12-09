@@ -5,18 +5,17 @@ import interfaces.IPrint;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class Linha implements IBinary, IPrint {
+public class Tuple implements IBinary, IPrint {
     private int tamanho;
     private ArrayList<Coluna> colunas;
 
-    public Linha() {
+    public Tuple() {
         this.colunas = new ArrayList<Coluna>();
     }
 
-    public Linha(byte[] linhaBytes) {
+    public Tuple(byte[] linhaBytes) {
         this.colunas = new ArrayList<Coluna>();
         this.fromByteArray(linhaBytes);
     }
@@ -63,7 +62,7 @@ public class Linha implements IBinary, IPrint {
     }
 
     @Override
-    public Linha fromByteArray(byte[] byteArray) {
+    public Tuple fromByteArray(byte[] byteArray) {
         this.tamanho = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 0, 4));
 
         // TODO

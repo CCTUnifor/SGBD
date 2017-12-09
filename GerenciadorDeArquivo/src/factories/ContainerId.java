@@ -3,7 +3,7 @@ package factories;
 import interfaces.IBinary;
 import utils.ByteArrayUtils;
 
-public class ContainerId implements IBinary{
+public class ContainerId implements IBinary, Comparable{
 
     private int id;
 
@@ -38,4 +38,9 @@ public class ContainerId implements IBinary{
         return this.id;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        ContainerId x = (ContainerId) o;
+        return Integer.compare(this.getValue(), x.getValue());
+    }
 }
