@@ -45,7 +45,6 @@ public class BlocoDadoHeader implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-
         ByteArrayConcater byteConcater = new ByteArrayConcater(8);
         byteConcater
                 .concat(this.containerId.toByteArray())
@@ -58,7 +57,6 @@ public class BlocoDadoHeader implements IBinary {
 
     @Override
     public BlocoDadoHeader fromByteArray(byte[] byteArray) {
-
         this.containerId = this.containerId.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 1));
         this.blocoId =  this.blocoId.fromByteArray(ByteArrayUtils.subArray(byteArray, 1, 3));
         this.tipoBloco = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
