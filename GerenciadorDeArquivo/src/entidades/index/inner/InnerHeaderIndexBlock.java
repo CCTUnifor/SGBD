@@ -1,7 +1,6 @@
 package entidades.index.inner;
 
 import entidades.GerenciadorDeIO;
-import entidades.blocos.BlocoControle;
 import entidades.blocos.TipoBloco;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
@@ -23,7 +22,6 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
 
     private int lastByteUsedByCollumnValue;
     private boolean isLeaf;
-//    private int bytesUsedByChildren;
 
     InnerHeaderIndexBlock() {
         super(TipoBloco.INDEX);
@@ -43,9 +41,6 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         super(blockBytes);
         super.byteHeaderLength = HEADER_LENGTH;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
-
-//        if (blockBytes.length > HEADER_LENGTH)
-//            fromByteArray(blockBytes);
     }
 
     public InnerHeaderIndexBlock(int numberOfChildrens) {
@@ -90,8 +85,13 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         return this;
     }
 
+    public boolean isLeaf() {
+        return this.isLeaf;
+    }
+
     public boolean existsSpaceForNewValueCollumn(CollumnValue col) throws IOException, ContainerNoExistent {
-        IndexContainer i = IndexContainer.getJustContainer(this.getContainerId());
+        IndexContainer i = IndexContainer.getJustContainer(ContainerId.create(this.getContainerId()));
         return col.toByteArray().length + this.getBytesUsedByCollumnValue() <= i.getBlocoControle().getHeader().getTamanhoDosBlocos();
     }
+
 }

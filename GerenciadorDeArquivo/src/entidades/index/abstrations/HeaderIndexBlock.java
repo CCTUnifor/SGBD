@@ -82,21 +82,18 @@ public abstract class HeaderIndexBlock implements IBinary {
     public void setBlockId(int blockId) {
         this.blockId = BlocoId.create(blockId);
     }
-
     public void setContainerId(int containerId) {
         this.containerId = ContainerId.create(containerId);
     }
-
     public int getContainerId() {
         return containerId.getValue();
     }
-
     public int getBlockId() {
         return blockId.getValue();
     }
 
     public int getBlockPosition() throws IOException, ContainerNoExistent {
-        IndexContainer container = IndexContainer.getJustContainer(getContainerId());
+        IndexContainer container = IndexContainer.getJustContainer(ContainerId.create(getContainerId()));
         int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
         int descritor = container.getBlocoControle().getHeader().getTamanhoDescritor();
         int position = (getBlockId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
@@ -105,6 +102,6 @@ public abstract class HeaderIndexBlock implements IBinary {
     }
 
     public int getMaxBlockLength() throws IOException, ContainerNoExistent {
-        return IndexContainer.getJustContainer(getContainerId()).getBlocoControle().getHeader().getTamanhoDosBlocos();
+        return IndexContainer.getJustContainer(ContainerId.create(getContainerId())).getBlocoControle().getHeader().getTamanhoDosBlocos();
     }
 }

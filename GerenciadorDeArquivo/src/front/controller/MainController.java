@@ -8,11 +8,11 @@ import entidades.arvoreBMais.Node;
 import entidades.blocos.*;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
-import entidades.index.inner.InnerIndexBlock;
-import entidades.index.inner.InnerIndexBlockFullCollumnValueException;
-import entidades.index.inner.CollumnValue;
-import entidades.index.inner.InnerIndexBlockValueCollumnNotFoundException;
+import entidades.index.abstrations.IndexBlock;
+import entidades.index.inner.*;
 import exceptions.ContainerNoExistent;
+import exceptions.innerBlock.*;
+import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IFileManager;
 import interfaces.IIndexFileManager;
@@ -162,19 +162,19 @@ public class MainController implements Initializable {
             /** CREATE THE INDEX **/
 
             /* GET JUST INDEX CONTAINER WITHOUT DATA */
-            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected().getValue());
+            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected());
             /* GET JUST INDEX CONTAINER WITHOUT DATA */
 
             /* CREATE A NEW INNER INDEX BLOCK */
             int numberOfChildrens = 5; // TODO number of children that we can have in each InnerIndexBlock
             InnerIndexBlock block = new InnerIndexBlock(numberOfChildrens); // somente instancia um bloco
-            indexFileManager.createBlock(containerIdSelected().getValue(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 1
-            indexFileManager.createBlock(containerIdSelected().getValue(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 2
+            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 1
+            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 2
             /* CREATE A NEW INNER INDEX BLOCK */
 
             /* CARREGAR INDEX BLOCK */
-            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(containerIdSelected().getValue(), 1); // load a index block, inner or leaf
-            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(containerIdSelected().getValue(), 2); // load a index block, inner or leaf
+            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(RowId.create(containerIdSelected().getValue(), 1)); // load a index block, inner or leaf
+            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(RowId.create(containerIdSelected().getValue(), 2)); // load a index block, inner or leaf
             // TODO block = (LeafIndexBlock) IndexContainer.loadIndexBlock(containerIdSelected().getValue(), 2);
             /* CARREGAR INDEX BLOCK */
 
@@ -186,11 +186,13 @@ public class MainController implements Initializable {
             CollumnValue col = block.loadCollumnValue(0); // load a CollumnValue putted in this block
             col = block.loadCollumnValue(1); // load a CollumnValue putted in this block
 
+            block.pushPointerToChild(BlocoId.create(1));
+            IndexBlock childBlock = block.loadPointerToChild(0);
 
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
 
-        } catch (IOException | ContainerNoExistent | InnerIndexBlockFullCollumnValueException | InnerIndexBlockValueCollumnNotFoundException e) {
+        } catch (IOException | ContainerNoExistent | InnerIndexBlockFullCollumnValueException | InnerIndexBlockValueCollumnNotFoundException | InnerIndexBlockPointerToChildIsFullException | IndexLeafBlockCannotPushPointerChildException | IndexBlockNotFoundException e) {
             e.printStackTrace();
         }
     }

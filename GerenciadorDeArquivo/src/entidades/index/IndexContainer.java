@@ -2,10 +2,13 @@ package entidades.index;
 
 import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoControle;
+import entidades.blocos.RowId;
 import entidades.index.abstrations.HeaderIndexBlock;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import exceptions.ContainerNoExistent;
+import exceptions.innerBlock.IndexBlockNotFoundException;
+import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
@@ -33,8 +36,7 @@ public class IndexContainer implements IBinary {
     @Override
     public byte[] toByteArray() {
         ByteArrayConcater bc = new ByteArrayConcater();
-        bc.concat(blocoControle.toByteArray())
-                .concat(this.blockToBytes());
+        bc.concat(blocoControle.toByteArray());
 
         return bc.getFinalByteArray();
     }
@@ -42,23 +44,16 @@ public class IndexContainer implements IBinary {
     @Override
     public IndexContainer fromByteArray(byte[] byteArray) {
         this.blocoControle.fromByteArray(byteArray);
-        this.blockFromBytesArray();
 
         return this;
     }
 
-    private void blockFromBytesArray() {
-        // TODO
-
+    public BlocoControle getBlocoControle() {
+        return blocoControle;
     }
 
-    private byte[] blockToBytes() {
-        // TODO
-        return new byte[0];
-    }
-
-    public static IndexContainer getJustContainer(int indexId) throws IOException, ContainerNoExistent {
-        String diretorio = IndexFileManager.getDiretorio(indexId);
+    public static IndexContainer getJustContainer(ContainerId indexId) throws IOException, ContainerNoExistent {
+        String diretorio = IndexFileManager.getDiretorio(indexId.getValue());
         byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, BlocoControle.CONTROLLER_BLOCK_LENGTH);
         return new IndexContainer(containerBytes);
     }
@@ -73,16 +68,18 @@ public class IndexContainer implements IBinary {
         return this.NEXT_BLOCK_ID;
     }
 
-    public BlocoControle getBlocoControle() {
-        return blocoControle;
-    }
+    public static IndexBlock loadIndexBlock(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+        IndexContainer ic = getJustContainer(ContainerId.create(rowId.getContainerId()));
 
-    public static IndexBlock loadIndexBlock(int indexId, int blockId) throws IOException, ContainerNoExistent {
-        IndexContainer ic = getJustContainer(indexId);
-        String indexPath = IndexFileManager.getDiretorio(indexId);
+        int nextFreeBlock = ic.getBlocoControle().getHeader().getProximoBlocoLivre();
+        int blockPosition = (rowId.getBlocoId() - 1) * ic.getBlocoControle().getHeader().getTamanhoDosBlocos();
+        if (nextFreeBlock < blockPosition)
+            throw new IndexBlockNotFoundException();
+
+        String indexPath = IndexFileManager.getDiretorio(rowId.getContainerId());
 
         int blockLength = ic.getBlocoControle().getHeader().getTamanhoDosBlocos();
-        int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + (blockLength * (blockId - 1));
+        int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + (blockLength * (rowId.getBlocoId() - 1));
 
         byte[] blockBytes = GerenciadorDeIO.getBytes(indexPath, offset, blockLength);
         return new InnerIndexBlock(blockBytes);

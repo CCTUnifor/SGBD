@@ -15,5 +15,5 @@ public interface IIndexFileManager {
 
     List<String> getIndicesPath(ContainerId containerIdSelecionado) throws IOException;
 
-    void createBlock(int indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent;
+    void createBlock(ContainerId indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent;
 }

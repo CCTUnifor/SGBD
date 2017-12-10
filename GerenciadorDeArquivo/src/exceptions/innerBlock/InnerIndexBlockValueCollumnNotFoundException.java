@@ -1,7 +1,7 @@
-package entidades.index.inner;
+package exceptions.innerBlock;
 
 public class InnerIndexBlockValueCollumnNotFoundException extends Exception {
-    InnerIndexBlockValueCollumnNotFoundException() {
+    public InnerIndexBlockValueCollumnNotFoundException() {
         super("Value Collumn not found in this Index!");
     }
 }

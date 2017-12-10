@@ -97,11 +97,11 @@ public class IndexFileManager implements IIndexFileManager {
     }
 
     @Override
-    public void createBlock(int indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent {
+    public void createBlock(ContainerId indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent {
         IndexContainer ic = IndexContainer.getJustContainer(indexContainerId);
-        block.getHeader().setContainerId(indexContainerId);
+        block.getHeader().setContainerId(indexContainerId.getValue());
 
-        String indexPath = getDiretorio(indexContainerId);
+        String indexPath = getDiretorio(indexContainerId.getValue());
         int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
         block.getHeader().setBlockId(ic.incrementNextFreeBlock());
 

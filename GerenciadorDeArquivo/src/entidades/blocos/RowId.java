@@ -4,11 +4,14 @@ import interfaces.IPrint;
 
 import java.util.ArrayList;
 
-public class RowId implements IPrint{
+public class RowId implements IPrint {
     private int containerId;
     private int blocoId;
 
-    public RowId(int _containerId, int _blocoId){
+    private RowId() {
+    }
+
+    public RowId(int _containerId, int _blocoId) {
         this.containerId = _containerId;
         this.blocoId = _blocoId;
     }
@@ -28,7 +31,7 @@ public class RowId implements IPrint{
 
     @Override
     public ArrayList<String> print() {
-        ArrayList<String> parse=  new ArrayList<String>();
+        ArrayList<String> parse = new ArrayList<String>();
         parse.add(this.containerId + "." + this.blocoId + "\n");
 
         return parse;
@@ -36,6 +39,10 @@ public class RowId implements IPrint{
 
     @Override
     public boolean equals(Object rowId) {
-        return rowId instanceof RowId && this.getContainerId() == ((RowId)rowId).getContainerId() && this.getBlocoId() == ((RowId)rowId).getBlocoId();
+        return rowId instanceof RowId && this.getContainerId() == ((RowId) rowId).getContainerId() && this.getBlocoId() == ((RowId) rowId).getBlocoId();
+    }
+
+    public static RowId create(int value, int i) {
+        return new RowId(value, i);
     }
 }

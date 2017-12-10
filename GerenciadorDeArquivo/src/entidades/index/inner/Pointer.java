@@ -1,4 +1,4 @@
 package entidades.index.inner;
 
-public class Pointer {
+public class Pointer{
 }
