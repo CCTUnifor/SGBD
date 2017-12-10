@@ -2,6 +2,7 @@ package entidades.blocos;
 
 public enum TipoBloco {
     DADOS,
-    INDEX,
+    INDEX_INNER,
     INDEX_LEAF,
+    INDEX_ROOT,
 }

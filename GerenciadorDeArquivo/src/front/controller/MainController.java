@@ -8,6 +8,7 @@ import entidades.arvoreBMais.Node;
 import entidades.blocos.*;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
+import entidades.index.TreeBPlus;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.*;
 import exceptions.ContainerNoExistent;
@@ -157,42 +158,45 @@ public class MainController implements Initializable {
         }
 
         try {
-            /** CREATE THE INDEX **/
-            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
-            /** CREATE THE INDEX **/
-
-            /* GET JUST INDEX CONTAINER WITHOUT DATA */
-            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected());
-            /* GET JUST INDEX CONTAINER WITHOUT DATA */
-
-            /* CREATE A NEW INNER INDEX BLOCK */
-            int numberOfChildrens = 5; // TODO number of children that we can have in each InnerIndexBlock
-            InnerIndexBlock block = new InnerIndexBlock(numberOfChildrens); // somente instancia um bloco
-            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 1
-            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 2
-            /* CREATE A NEW INNER INDEX BLOCK */
-
-            /* CARREGAR INDEX BLOCK */
-            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(RowId.create(containerIdSelected().getValue(), 1)); // load a index block, inner or leaf
-            block = (InnerIndexBlock) IndexContainer.loadIndexBlock(RowId.create(containerIdSelected().getValue(), 2)); // load a index block, inner or leaf
-            // TODO block = (LeafIndexBlock) IndexContainer.loadIndexBlock(containerIdSelected().getValue(), 2);
-            /* CARREGAR INDEX BLOCK */
-
-            /* ADICIONAR VALORES DE COLUNAS */
-            block.pushColumnValue("thiago; victor"); // push collumn value to the index block;
-            block.pushColumnValue("thiago1; victor1"); // push collumn value to the index block;
-            /* ADICIONAR VALORES DE COLUNAS */
-
-            CollumnValue col = block.loadCollumnValue(0); // load a CollumnValue putted in this block
-            col = block.loadCollumnValue(1); // load a CollumnValue putted in this block
-
-            block.pushPointerToChild(BlocoId.create(1));
-            IndexBlock childBlock = block.loadPointerToChild(0);
+            TreeBPlus tree = new TreeBPlus(containerIdSelected(), nomeIndiceTextField.getText());
+            tree.insert(new CollumnValue("thiago;victor"), RowId.create(1,1));
+//            /** CREATE THE INDEX_INNER **/
+//            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
+//            /** CREATE THE INDEX_INNER **/
+//
+//            /* GET JUST INDEX_INNER CONTAINER WITHOUT DATA */
+//            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected());
+//            /* GET JUST INDEX_INNER CONTAINER WITHOUT DATA */
+//
+//            /* CREATE A NEW INNER INDEX_INNER BLOCK */
+//            int numberOfChildrens = 5; // TODO number of children that we can have in each InnerIndexBlock
+//            InnerIndexBlock block = new InnerIndexBlock(numberOfChildrens); // somente instancia um bloco
+//            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 1
+//            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 2
+//            /* CREATE A NEW INNER INDEX_INNER BLOCK */
+//
+//            /* CARREGAR INDEX_INNER BLOCK */
+//            block = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1)); // load a index block, inner or leaf
+//            block = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 2)); // load a index block, inner or leaf
+//            // TODO block = (LeafIndexBlock) IndexContainer.loadInnerIndexBlock(containerIdSelected().getValue(), 2);
+//            /* CARREGAR INDEX_INNER BLOCK */
+//
+//            /* ADICIONAR VALORES DE COLUNAS */
+//            block.pushColumnValue("thiago; victor"); // push collumn value to the index block;
+//            block.pushColumnValue("thiago1; victor1"); // push collumn value to the index block;
+//            /* ADICIONAR VALORES DE COLUNAS */
+//
+//
+//            CollumnValue col = block.loadCollumnValue(0); // load a CollumnValue putted in this block
+//            col = block.loadCollumnValue(1); // load a CollumnValue putted in this block
+//
+//            block.pushPointerToChild(BlocoId.create(1));
+//            IndexBlock childBlock = block.loadPointerToChild(0);
 
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
 
-        } catch (IOException | ContainerNoExistent | InnerIndexBlockFullCollumnValueException | InnerIndexBlockValueCollumnNotFoundException | InnerIndexBlockPointerToChildIsFullException | IndexLeafBlockCannotPushPointerChildException | IndexBlockNotFoundException e) {
+        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException e) {
             e.printStackTrace();
         }
     }

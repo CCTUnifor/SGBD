@@ -122,7 +122,7 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         if (this.getHeader().isLeaf())
             throw new IndexLeafBlockCannotPushPointerChildException();
 
-        IndexBlock block = IndexContainer.loadIndexBlock(RowId.create(this.getHeader().getContainerId(), refToChild.getValue()));
+        IndexBlock block = IndexContainer.loadInnerIndexBlock(RowId.create(this.getHeader().getContainerId(), refToChild.getValue()));
         int offset = lastPointerChildFree();
         if (offset < 0)
             throw new InnerIndexBlockPointerToChildIsFullException();
@@ -155,7 +155,7 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         int blockIdFinded = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, InnerHeaderIndexBlock.POINTER_LENGTH));
 
         BlocoId block = BlocoId.create(blockIdFinded);
-        return IndexContainer.loadIndexBlock(RowId.create(this.getHeader().getContainerId(), block.getValue()));
+        return IndexContainer.loadInnerIndexBlock(RowId.create(this.getHeader().getContainerId(), block.getValue()));
     }
 
     private int getPointerChildOffset(int i) throws IOException, ContainerNoExistent {

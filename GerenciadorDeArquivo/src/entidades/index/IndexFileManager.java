@@ -5,8 +5,11 @@ import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoControle;
 import entidades.blocos.Descritor;
-import entidades.index.inner.InnerIndexBlock;
+import entidades.blocos.TipoBloco;
+import entidades.index.abstrations.IndexBlock;
+import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
+import exceptions.innerBlock.IndexBlockNotFoundException;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
 import utils.ByteArrayUtils;
@@ -37,12 +40,10 @@ public class IndexFileManager implements IIndexFileManager {
         String tablePath = GerenciadorArquivo.getDiretorio(containerId);
 
         BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, 11));
-        String descString = indexPath + "[P(101)];";
+        String descString = indexPath + "[P(101)]|";
         Descritor desc = new Descritor(descString);
-        int tamanhoNovoDescritor = container.getBlocoControle().getHeader().getTamanhoDescritor() + desc.toByteArray().length;
 
         container.getBlocoControle().adicionarDescritor(desc);
-        GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
     }
 
     public static String getDiretorio(ContainerId containerId, String indexName) throws IOException {
@@ -97,7 +98,7 @@ public class IndexFileManager implements IIndexFileManager {
     }
 
     @Override
-    public void createBlock(ContainerId indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent {
+    public void createBlock(ContainerId indexContainerId, IndexBlock block) throws IOException, ContainerNoExistent {
         IndexContainer ic = IndexContainer.getJustContainer(indexContainerId);
         block.getHeader().setContainerId(indexContainerId.getValue());
 
@@ -106,5 +107,13 @@ public class IndexFileManager implements IIndexFileManager {
         block.getHeader().setBlockId(ic.incrementNextFreeBlock());
 
         GerenciadorDeIO.atualizarBytes(indexPath, offset, block.toByteArray());
+    }
+
+    public void createRoot(ContainerId indexContainerId, LeafIndexBlock block) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+        block.getHeader().setBlockType(TipoBloco.INDEX_LEAF);
+
+        this.createBlock(indexContainerId, block);
+        Descritor rootDescritor = new Descritor("0[R(4)]|");
+        IndexContainer.getJustContainer(indexContainerId).getBlocoControle().adicionarDescritor(rootDescritor);
     }
 }

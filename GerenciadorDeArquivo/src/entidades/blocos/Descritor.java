@@ -21,14 +21,17 @@ public class Descritor implements IBinary, IPrint {
             this.tipoDado = TipoDado.INTEIRO;
         else if (x[1].contains("A"))
             this.tipoDado = TipoDado.STRING;
-        else
+        else if (x[1].contains("P"))
             this.tipoDado = TipoDado.PATH;
+        else if (x[1].contains("R"))
+            this.tipoDado = TipoDado.ROOT;
 
         Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
         Matcher mat = pat.matcher(coluna);
         if (mat.find()) {
             switch (tipoDado) {
                 case INTEIRO:
+                case ROOT:
                     this.tamanho = 4;
                 case STRING:
                 case PATH:
@@ -71,10 +74,18 @@ public class Descritor implements IBinary, IPrint {
         String parse = "";
         parse += nome;
         parse += "[";
-        if (this.tipoDado == TipoDado.INTEIRO)
-            parse += "I";
-        else
-            parse += "A";
+
+        switch (this.tipoDado ){
+            case INTEIRO:
+                parse += "I";
+            case STRING:
+                parse += "A";
+            case PATH:
+                parse += "P";
+            case ROOT:
+                parse += "R";
+        }
+
         parse += "]";
         parse += "(";
         parse += this.tamanho;

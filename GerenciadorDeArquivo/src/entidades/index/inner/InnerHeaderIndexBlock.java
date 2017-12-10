@@ -15,26 +15,24 @@ import utils.ByteArrayUtils;
 import java.io.IOException;
 
 public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
-    public static final int HEADER_LENGTH = 12;
+    public static final int HEADER_LENGTH = 11;
     public static final int POINTER_LENGTH = 4;
 
     private int numberOfChildrens;
 
     private int lastByteUsedByCollumnValue;
-    private boolean isLeaf;
 
     InnerHeaderIndexBlock() {
-        super(TipoBloco.INDEX);
+        super(TipoBloco.INDEX_INNER);
         super.byteHeaderLength = HEADER_LENGTH;
     }
 
     InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int _numberOfChildrens) {
-        super(containerId, blockId, TipoBloco.INDEX);
+        super(containerId, blockId, TipoBloco.INDEX_INNER);
         super.byteHeaderLength = HEADER_LENGTH;
 
         this.numberOfChildrens = _numberOfChildrens;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
-        this.isLeaf = false;
     }
 
     public InnerHeaderIndexBlock(byte[] blockBytes) {
@@ -44,7 +42,7 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     }
 
     public InnerHeaderIndexBlock(int numberOfChildrens) {
-        super(TipoBloco.INDEX);
+        super(TipoBloco.INDEX_INNER);
         this.numberOfChildrens = numberOfChildrens;
         super.byteHeaderLength = HEADER_LENGTH;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
@@ -70,7 +68,6 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         byteConcater
                 .concat(super.toByteArray())
                 .concat(ByteArrayUtils.intTo3Bytes(this.lastByteUsedByCollumnValue))
-                .concat(ByteArrayUtils.booleanToByte(this.isLeaf))
                 .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByChildren()));
 
         return byteConcater.getFinalByteArray();
@@ -79,14 +76,10 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     @Override
     public InnerHeaderIndexBlock fromByteArray(byte[] byteArray) {
         super.fromByteArray(byteArray);
-        this.isLeaf = ByteArrayUtils.byteArrayToBoolean(ByteArrayUtils.subArray(byteArray, 6, 1));
-        this.numberOfChildrens = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 9, 3)) / POINTER_LENGTH;
+        this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 3));
+        this.numberOfChildrens = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 8, 3)) / POINTER_LENGTH;
 
         return this;
-    }
-
-    public boolean isLeaf() {
-        return this.isLeaf;
     }
 
     public boolean existsSpaceForNewValueCollumn(CollumnValue col) throws IOException, ContainerNoExistent {

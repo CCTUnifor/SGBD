@@ -5,6 +5,7 @@ import utils.ByteArrayUtils;
 
 public class BlocoId implements IBinary {
 
+    public static final int LENGTH = 4;
     private int id;
 
     public BlocoId() {}

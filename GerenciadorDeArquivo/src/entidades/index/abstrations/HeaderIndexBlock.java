@@ -1,11 +1,9 @@
 package entidades.index.abstrations;
 
-import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoControle;
 import entidades.blocos.TipoBloco;
 import entidades.index.IndexContainer;
 import entidades.index.inner.InnerHeaderIndexBlock;
-import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafHeaderIndexBlock;
 import exceptions.ContainerNoExistent;
 import factories.BlocoId;
@@ -73,7 +71,7 @@ public abstract class HeaderIndexBlock implements IBinary {
 
     public static HeaderIndexBlock fromByteArrayStatic(byte[] byteArray) throws ContainerNoExistent, IOException {
         TipoBloco blockType = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
-        if (blockType == TipoBloco.INDEX)
+        if (blockType == TipoBloco.INDEX_INNER)
             return new InnerHeaderIndexBlock(byteArray);
 
         return new LeafHeaderIndexBlock(byteArray);
@@ -92,6 +90,10 @@ public abstract class HeaderIndexBlock implements IBinary {
         return blockId.getValue();
     }
 
+    public void setBlockType(TipoBloco blockType) {
+        this.blockType = blockType;
+    }
+
     public int getBlockPosition() throws IOException, ContainerNoExistent {
         IndexContainer container = IndexContainer.getJustContainer(ContainerId.create(getContainerId()));
         int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
@@ -103,5 +105,9 @@ public abstract class HeaderIndexBlock implements IBinary {
 
     public int getMaxBlockLength() throws IOException, ContainerNoExistent {
         return IndexContainer.getJustContainer(ContainerId.create(getContainerId())).getBlocoControle().getHeader().getTamanhoDosBlocos();
+    }
+
+    public boolean isLeaf() {
+        return blockType == TipoBloco.INDEX_LEAF;
     }
 }

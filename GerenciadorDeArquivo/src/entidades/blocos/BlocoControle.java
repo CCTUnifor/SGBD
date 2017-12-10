@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 public class BlocoControle implements IBinary, IPrint {
     public static final int CONTROLLER_BLOCK_LENGTH = 11;
+
     private BlocoContainerHeader blocoHeader;
     private ArrayList<Descritor> descritores;
 
@@ -64,7 +65,12 @@ public class BlocoControle implements IBinary, IPrint {
 
     public void adicionarDescritor(Descritor descritor) {
         try {
-            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId())), CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+            String tablePath = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId()));
+            int tamanhoNovoDescritor = getHeader().getTamanhoDescritor() + descritor.toByteArray().length;
+
+            GerenciadorDeIO.atualizarBytes(tablePath, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+            GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
