@@ -9,6 +9,7 @@ import entidades.blocos.*;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
 import entidades.index.inner.InnerIndexBlock;
+import entidades.index.inner.InnerIndexBlockFullCollumnValueException;
 import exceptions.ContainerNoExistent;
 import factories.BlocoId;
 import factories.ContainerId;
@@ -178,12 +179,14 @@ public class MainController implements Initializable {
             block.addColumnValue("thiago1; victor1");
             block.addColumnValue("thiago2; victor2");
             block.addColumnValue("thiago3; victor3");
-            block.addColumnValue("thiago4; victor4");
-//            block.addChildren(BlocoId.create(1));
+            block.addColumnValue("thiago3; victor3");
+            block.addColumnValue("thiago3; victor3");
             /* ADICIONAR VALORES DE COLUNAS */
 
+            
+
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
-        } catch (IOException | ContainerNoExistent e) {
+        } catch (IOException | ContainerNoExistent | InnerIndexBlockFullCollumnValueException e) {
             e.printStackTrace();
         }
     }

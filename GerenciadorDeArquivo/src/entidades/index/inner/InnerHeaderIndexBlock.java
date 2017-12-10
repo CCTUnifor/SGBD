@@ -1,12 +1,19 @@
 package entidades.index.inner;
 
+import entidades.GerenciadorDeIO;
+import entidades.blocos.BlocoControle;
 import entidades.blocos.TipoBloco;
+import entidades.index.IndexContainer;
+import entidades.index.IndexFileManager;
 import entidades.index.abstrations.HeaderIndexBlock;
+import exceptions.ContainerNoExistent;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
+
+import java.io.IOException;
 
 public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     public static final int HEADER_LENGTH = 12;
@@ -49,7 +56,23 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     }
 
     public int getBytesUsedByChildren() { return this.numberOfChildrens * POINTER_LENGTH; }
-    public int getBytesUsedByCollumnValue() { return lastByteUsedByCollumnValue; }
+
+    public int getBytesUsedByCollumnValue() throws IOException, ContainerNoExistent {
+        String path = IndexFileManager.getDiretorio(this.getContainerId());
+        int offset = this.getBlockPosition() + 5;
+
+        this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, 3));
+        return lastByteUsedByCollumnValue;
+    }
+
+    public int getBlockPosition() throws IOException, ContainerNoExistent {
+        IndexContainer container = IndexContainer.getJustContainer(getContainerId());
+        int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
+        int descritor = container.getBlocoControle().getHeader().getTamanhoDescritor();
+        int position = (getBlockId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+
+        return controllerBlock + descritor + position;
+    }
 
     public void setLastByteUsedByCollumnValue(int lastByteUsedByCollumnValue) {
         this.lastByteUsedByCollumnValue = lastByteUsedByCollumnValue;
@@ -60,7 +83,7 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         ByteArrayConcater byteConcater = new ByteArrayConcater(this.byteHeaderLength);
         byteConcater
                 .concat(super.toByteArray())
-                .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByCollumnValue()))
+                .concat(ByteArrayUtils.intTo3Bytes(this.lastByteUsedByCollumnValue))
                 .concat(ByteArrayUtils.booleanToByte(this.isLeaf))
                 .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByChildren()));
 
@@ -76,4 +99,8 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         return this;
     }
 
+    public boolean existsSpaceForNewValueCollumn(ValueColumn col) throws IOException, ContainerNoExistent {
+        IndexContainer i = IndexContainer.getJustContainer(this.getContainerId());
+        return col.toByteArray().length + this.getBytesUsedByCollumnValue() <= i.getBlocoControle().getHeader().getTamanhoDosBlocos();
+    }
 }

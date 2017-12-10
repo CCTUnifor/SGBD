@@ -1,5 +1,7 @@
 package entidades.index.abstrations;
 
+import entidades.blocos.BlocoContainer;
+import entidades.blocos.BlocoControle;
 import entidades.blocos.TipoBloco;
 import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.inner.InnerIndexBlock;
