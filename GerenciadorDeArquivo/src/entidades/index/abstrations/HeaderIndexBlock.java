@@ -3,14 +3,18 @@ package entidades.index.abstrations;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoControle;
 import entidades.blocos.TipoBloco;
+import entidades.index.IndexContainer;
 import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafHeaderIndexBlock;
+import exceptions.ContainerNoExistent;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
+
+import java.io.IOException;
 
 public abstract class HeaderIndexBlock implements IBinary {
     protected ContainerId containerId;
@@ -49,14 +53,25 @@ public abstract class HeaderIndexBlock implements IBinary {
 
     @Override
     public HeaderIndexBlock fromByteArray(byte[] byteArray) {
+        try {
+            int containerId = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 0, 1));
+            this.containerId = ContainerId.create(containerId);
+
+            if (byteArray.length > 5 && byteArray.length > this.getMaxBlockLength())
+                byteArray = ByteArrayUtils.subArray(byteArray, this.getBlockPosition(), 5);
+
+        } catch (IOException | ContainerNoExistent e) {
+            e.printStackTrace();
+        }
+
         this.containerId = this.containerId.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 1));
-        this.blockId =  this.blockId.fromByteArray(ByteArrayUtils.subArray(byteArray, 1, 3));
+        this.blockId = this.blockId.fromByteArray(ByteArrayUtils.subArray(byteArray, 1, 3));
         this.blockType = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
 
         return this;
     }
 
-    public static HeaderIndexBlock fromByteArrayStatic(byte[] byteArray) {
+    public static HeaderIndexBlock fromByteArrayStatic(byte[] byteArray) throws ContainerNoExistent, IOException {
         TipoBloco blockType = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
         if (blockType == TipoBloco.INDEX)
             return new InnerHeaderIndexBlock(byteArray);
@@ -67,9 +82,29 @@ public abstract class HeaderIndexBlock implements IBinary {
     public void setBlockId(int blockId) {
         this.blockId = BlocoId.create(blockId);
     }
+
     public void setContainerId(int containerId) {
         this.containerId = ContainerId.create(containerId);
     }
-    public int getContainerId() { return containerId.getValue(); }
-    public int getBlockId() { return blockId.getValue(); }
+
+    public int getContainerId() {
+        return containerId.getValue();
+    }
+
+    public int getBlockId() {
+        return blockId.getValue();
+    }
+
+    public int getBlockPosition() throws IOException, ContainerNoExistent {
+        IndexContainer container = IndexContainer.getJustContainer(getContainerId());
+        int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
+        int descritor = container.getBlocoControle().getHeader().getTamanhoDescritor();
+        int position = (getBlockId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+
+        return controllerBlock + descritor + position;
+    }
+
+    public int getMaxBlockLength() throws IOException, ContainerNoExistent {
+        return IndexContainer.getJustContainer(getContainerId()).getBlocoControle().getHeader().getTamanhoDosBlocos();
+    }
 }

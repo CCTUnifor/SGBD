@@ -61,14 +61,14 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         return new InnerIndexBlock().fromByteArray(blockBytes);
     }
 
-    public void addColumnValue(String value) throws ContainerNoExistent, IOException, InnerIndexBlockFullCollumnValueException {
+    public void pushColumnValue(String value) throws ContainerNoExistent, IOException, InnerIndexBlockFullCollumnValueException {
         if (this.header.getContainerId() == 0 || this.header.getContainerId() == -1)
             throw new ContainerNoExistent();
 
         String indexPath = IndexFileManager.getDiretorio(header.getContainerId());
         int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByCollumnValue();
 
-        ValueColumn col = new ValueColumn(value);
+        CollumnValue col = new CollumnValue(value);
         if (!this.getHeader().existsSpaceForNewValueCollumn(col))
             throw new InnerIndexBlockFullCollumnValueException();
 
@@ -76,7 +76,7 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         this.incrementCollumnCount(col);
     }
 
-    private void incrementCollumnCount(ValueColumn col) throws IOException, ContainerNoExistent {
+    private void incrementCollumnCount(CollumnValue col) throws IOException, ContainerNoExistent {
         int newIncrementedValue = this.getHeader().getBytesUsedByCollumnValue() + col.getFullLength();
         this.getHeader().setLastByteUsedByCollumnValue(newIncrementedValue);
         String indexPath = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
@@ -85,37 +85,36 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         GerenciadorDeIO.atualizarBytes(indexPath, offset, ByteArrayUtils.intTo3Bytes(newIncrementedValue));
     }
 
-    private int havePositionFreeForNewCollumnValue() throws IOException, ContainerNoExistent {
-        int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH;
+    public InnerHeaderIndexBlock getHeader() {
+        return (InnerHeaderIndexBlock) this.header;
+    }
+
+    public CollumnValue loadCollumnValue(int i) throws IOException, ContainerNoExistent, InnerIndexBlockValueCollumnNotFoundException {
+        int offset = this.getCollumnValueOffset(i);
+        if (offset < 0)
+            throw new InnerIndexBlockValueCollumnNotFoundException();
+        String path = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
+        int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, CollumnValue.LENGTH));
+
+        return new CollumnValue(GerenciadorDeIO.getBytes(path, offset, CollumnValue.LENGTH + length));
+    }
+
+    private int getCollumnValueOffset(int i) throws IOException, ContainerNoExistent {
+        int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByChildren() + 1;
         String indexPath = IndexFileManager.getDiretorio(this.header.getContainerId());
         boolean continueWhile = true;
 
-        int x = offset + this.getHeader().getBytesUsedByCollumnValue();
+        int offsetMax = offset + this.getHeader().getBytesUsedByCollumnValue();
+        int count = 0;
 
-        while (continueWhile && offset < x) {
-            int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, ValueColumn.LENGTH));
-            if (length == 0)
+        while (continueWhile && offset < offsetMax && count <= i) {
+            int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH));
+            if (length != 0 && count == i)
                 return offset;
-            offset += ValueColumn.LENGTH + length;
+            offset += CollumnValue.LENGTH + length;
+            count++;
         }
 
         return -1;
-    }
-
-    public void addChildren(BlocoId blockId) {
-
-    }
-
-
-    public ValueColumn getValueCollumn(int i) throws IOException, ContainerNoExistent {
-        String indexPath = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
-        int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + ((InnerHeaderIndexBlock) this.header).getBytesUsedByCollumnValue();
-        int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, 4));
-
-        return new ValueColumn(GerenciadorDeIO.getBytes(indexPath, offset, length));
-    }
-
-    public InnerHeaderIndexBlock getHeader() {
-        return (InnerHeaderIndexBlock) this.header;
     }
 }

@@ -4,7 +4,7 @@ import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
-public class ValueColumn implements IBinary {
+public class CollumnValue implements IBinary {
     public static final int LENGTH = 4;
 
     private int lengthOfCollumnValue;
@@ -12,13 +12,13 @@ public class ValueColumn implements IBinary {
 
     private String collumnValue;
 
-    public ValueColumn(String collumnValue) {
+    public CollumnValue(String collumnValue) {
         this.collumnValue = collumnValue;
         this.collumnNameInBytes = ByteArrayUtils.stringToByteArray(collumnValue);
         lengthOfCollumnValue = this.collumnNameInBytes.length;
     }
 
-    public ValueColumn(byte[] bytes) {
+    public CollumnValue(byte[] bytes) {
         this.fromByteArray(bytes);
     }
 
@@ -32,7 +32,7 @@ public class ValueColumn implements IBinary {
     }
 
     @Override
-    public ValueColumn fromByteArray(byte[] byteArray) {
+    public CollumnValue fromByteArray(byte[] byteArray) {
         this.lengthOfCollumnValue = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 0, LENGTH));
         this.collumnValue = ByteArrayUtils.byteArrayToString(ByteArrayUtils.subArray(byteArray, LENGTH, lengthOfCollumnValue));
         return this;

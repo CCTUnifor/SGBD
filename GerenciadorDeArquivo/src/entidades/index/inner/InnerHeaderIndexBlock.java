@@ -44,8 +44,8 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         super.byteHeaderLength = HEADER_LENGTH;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
 
-        if (blockBytes.length > HEADER_LENGTH)
-            fromByteArray(blockBytes);
+//        if (blockBytes.length > HEADER_LENGTH)
+//            fromByteArray(blockBytes);
     }
 
     public InnerHeaderIndexBlock(int numberOfChildrens) {
@@ -63,15 +63,6 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
 
         this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, 3));
         return lastByteUsedByCollumnValue;
-    }
-
-    public int getBlockPosition() throws IOException, ContainerNoExistent {
-        IndexContainer container = IndexContainer.getJustContainer(getContainerId());
-        int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
-        int descritor = container.getBlocoControle().getHeader().getTamanhoDescritor();
-        int position = (getBlockId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
-
-        return controllerBlock + descritor + position;
     }
 
     public void setLastByteUsedByCollumnValue(int lastByteUsedByCollumnValue) {
@@ -99,7 +90,7 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         return this;
     }
 
-    public boolean existsSpaceForNewValueCollumn(ValueColumn col) throws IOException, ContainerNoExistent {
+    public boolean existsSpaceForNewValueCollumn(CollumnValue col) throws IOException, ContainerNoExistent {
         IndexContainer i = IndexContainer.getJustContainer(this.getContainerId());
         return col.toByteArray().length + this.getBytesUsedByCollumnValue() <= i.getBlocoControle().getHeader().getTamanhoDosBlocos();
     }

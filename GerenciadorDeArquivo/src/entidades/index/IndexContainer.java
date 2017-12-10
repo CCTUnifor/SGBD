@@ -77,7 +77,7 @@ public class IndexContainer implements IBinary {
         return blocoControle;
     }
 
-    public static IndexBlock getIndexBlock(int indexId, int blockId) throws IOException, ContainerNoExistent {
+    public static IndexBlock loadIndexBlock(int indexId, int blockId) throws IOException, ContainerNoExistent {
         IndexContainer ic = getJustContainer(indexId);
         String indexPath = IndexFileManager.getDiretorio(indexId);
 
