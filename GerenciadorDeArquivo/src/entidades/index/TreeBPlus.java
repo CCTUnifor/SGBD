@@ -1,12 +1,14 @@
 package entidades.index;
 
 import entidades.blocos.RowId;
-import entidades.index.abstrations.HeaderIndexBlock;
 import entidades.index.inner.CollumnValue;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
 import exceptions.innerBlock.IndexBlockNotFoundException;
+import exceptions.innerBlock.IndexLeafBlockCannotPushPointerChildException;
+import exceptions.innerBlock.InnerIndexBlockFullCollumnValueException;
+import exceptions.innerBlock.InnerIndexBlockPointerToChildIsFullException;
 import factories.ContainerId;
 
 import java.io.IOException;
@@ -40,10 +42,12 @@ public class TreeBPlus {
     }
 
 
-    public void insert(CollumnValue col, RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+    public void insert(CollumnValue col, RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException, InnerIndexBlockFullCollumnValueException, InnerIndexBlockPointerToChildIsFullException, IndexLeafBlockCannotPushPointerChildException {
         if (this.isEmpty()) {
-            LeafIndexBlock block = new LeafIndexBlock(rowId);
+            InnerIndexBlock block = new InnerIndexBlock(this.ordem);
             this.indexFileManager.createRoot(this.indexContainer, block);
+
+            block.pushColumnValue(col.getCollumnValue());
         }
     }
 }

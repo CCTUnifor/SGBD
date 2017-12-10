@@ -27,7 +27,7 @@ public class BlocoControle implements IBinary, IPrint {
     public BlocoControle(byte[] bytes) {
         this.blocoHeader = new BlocoContainerHeader(bytes);
         this.descritores = new ArrayList<Descritor>();
-        if (bytes.length > CONTROLLER_BLOCK_LENGTH)
+        if (blocoHeader.getTamanhoDescritor() > 0)
             this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(bytes, 11, this.blocoHeader.getTamanhoDescritor())));
     }
 
@@ -38,7 +38,7 @@ public class BlocoControle implements IBinary, IPrint {
 
     @Override
     public byte[] toByteArray() {
-        ByteArrayConcater bc = new ByteArrayConcater();
+        ByteArrayConcater bc = new ByteArrayConcater(this.getHeader().getTamanhoDosBlocos());
         bc.concat(this.blocoHeader.toByteArray())
                 .concat(this.bytesDescritores());
         return bc.getFinalByteArray();
@@ -56,7 +56,7 @@ public class BlocoControle implements IBinary, IPrint {
 
     @Override
     public BlocoControle fromByteArray(byte[] byteArray) {
-        this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, CONTROLLER_BLOCK_LENGTH));
+        this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, getBlockLengthFile(byteArray)));
         if (byteArray.length > CONTROLLER_BLOCK_LENGTH)
             this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(byteArray, CONTROLLER_BLOCK_LENGTH, this.blocoHeader.getTamanhoDescritor())));
 
@@ -66,9 +66,9 @@ public class BlocoControle implements IBinary, IPrint {
     public void adicionarDescritor(Descritor descritor) {
         try {
             String tablePath = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId()));
-            int tamanhoNovoDescritor = getHeader().getTamanhoDescritor() + descritor.toByteArray().length;
+            int tamanhoNovoDescritor = getHeader().getTamanhoDescritorFile() + descritor.toByteArray().length;
 
-            GerenciadorDeIO.atualizarBytes(tablePath, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+            GerenciadorDeIO.atualizarBytes(tablePath, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritorFile(), descritor.toByteArray());
             GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
 
         } catch (IOException e) {
@@ -113,5 +113,14 @@ public class BlocoControle implements IBinary, IPrint {
         }
 
         return descritores;
+    }
+
+    public static int getBlockLengthFile(String path) throws IOException {
+        byte[] byteArray = GerenciadorDeIO.getBytes(path, 1, 3);
+        return ByteArrayUtils.byteArrayToInt(byteArray);
+    }
+
+    public static int getBlockLengthFile(byte[] byteArray) {
+        return ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 1, 3));
     }
 }

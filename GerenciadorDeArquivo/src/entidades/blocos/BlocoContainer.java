@@ -72,7 +72,7 @@ public class BlocoContainer implements IBinary, IPrint {
     private ArrayList<BlocoDado> blocoDadosFromByteArray(byte[] byteArray) {
         ArrayList<BlocoDado> dados = new ArrayList<BlocoDado>();
 
-        int indexOndeComecaOBlocoDeDados = blocoControle.getHeader().getTamanhoDescritor() + 11;
+        int indexOndeComecaOBlocoDeDados = blocoControle.getHeader().getTamanhoDosBlocos();
         for (int i = indexOndeComecaOBlocoDeDados; i < byteArray.length; i += this.blocoControle.getHeader().getTamanhoDosBlocos()) {
             BlocoDado bloco = new BlocoDado(ByteArrayUtils.subArray(byteArray, i, this.blocoControle.getHeader().getTamanhoDosBlocos()));
             dados.add(bloco);

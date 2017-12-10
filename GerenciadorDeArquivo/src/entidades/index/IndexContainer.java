@@ -36,7 +36,7 @@ public class IndexContainer implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        ByteArrayConcater bc = new ByteArrayConcater();
+        ByteArrayConcater bc = new ByteArrayConcater(this.getBlocoControle().getHeader().getTamanhoDosBlocos());
         bc.concat(blocoControle.toByteArray());
 
         return bc.getFinalByteArray();
@@ -55,7 +55,8 @@ public class IndexContainer implements IBinary {
 
     public static IndexContainer getJustContainer(ContainerId indexId) throws IOException, ContainerNoExistent {
         String diretorio = IndexFileManager.getDiretorio(indexId.getValue());
-        byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, BlocoControle.CONTROLLER_BLOCK_LENGTH);
+        int blockLenght = BlocoControle.getBlockLengthFile(diretorio);
+        byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, blockLenght);
         return new IndexContainer(containerBytes);
     }
 

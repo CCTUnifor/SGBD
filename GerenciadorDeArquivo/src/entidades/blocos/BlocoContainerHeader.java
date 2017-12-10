@@ -1,5 +1,6 @@
 package entidades.blocos;
 
+import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
 import entidades.index.IndexFileManager;
 import exceptions.ContainerNoExistent;
@@ -41,6 +42,10 @@ public class BlocoContainerHeader implements IBinary{
     }
     public int getTamanhoDescritor() {
         return  this.tamanhoDescritor;
+    }
+    public int getTamanhoDescritorFile() throws IOException {
+        String path = GerenciadorArquivo.getDiretorio(this.containerId);
+        return ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, 9, 2));
     }
 
     public void setProximoBlocoLivre(int proximoBlocoLivre) {

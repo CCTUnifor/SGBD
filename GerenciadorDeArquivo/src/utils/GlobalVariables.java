@@ -1,7 +1,7 @@
 package utils;
 
 public class GlobalVariables {
-    public static final int TAMANHO_BLOCO = 200;
+    public static final int TAMANHO_BLOCO = 500;
     public static final int TAMANHO_GERENCIADOR_BUFFER = 200;
 
     public static final String LOCAL_ARQUIVO_ENTRADA = "ENTRADA/";

@@ -150,7 +150,7 @@ public class MainController implements Initializable {
     }
 
 
-    public void onAdicionarIndiceClick() {
+    public void onAdicionarIndiceClick() throws InnerIndexBlockPointerToChildIsFullException, InnerIndexBlockFullCollumnValueException {
         System.out.println("onAdicionarIndiceClick");
         if (this.indexFileManager.existIndice(containerIdSelected(), nomeIndiceTextField.getText())) {
             this.alert(Alert.AlertType.ERROR, "Index", "Index já existe!");
@@ -159,7 +159,8 @@ public class MainController implements Initializable {
 
         try {
             TreeBPlus tree = new TreeBPlus(containerIdSelected(), nomeIndiceTextField.getText());
-            tree.insert(new CollumnValue("thiago;victor"), RowId.create(1,1));
+            tree.insert(new CollumnValue("thiago;victor"), RowId.create(containerIdSelected().getValue(),1));
+            InnerIndexBlock root = IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
 //            /** CREATE THE INDEX_INNER **/
 //            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
 //            /** CREATE THE INDEX_INNER **/
@@ -196,7 +197,7 @@ public class MainController implements Initializable {
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
 
-        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException e) {
+        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException | IndexLeafBlockCannotPushPointerChildException e) {
             e.printStackTrace();
         }
     }

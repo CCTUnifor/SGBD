@@ -2,14 +2,15 @@ package entidades.index;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
-import entidades.blocos.BlocoContainer;
-import entidades.blocos.BlocoControle;
-import entidades.blocos.Descritor;
-import entidades.blocos.TipoBloco;
+import entidades.blocos.*;
 import entidades.index.abstrations.IndexBlock;
+import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
 import exceptions.innerBlock.IndexBlockNotFoundException;
+import exceptions.innerBlock.IndexLeafBlockCannotPushPointerChildException;
+import exceptions.innerBlock.InnerIndexBlockPointerToChildIsFullException;
+import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
 import utils.ByteArrayUtils;
@@ -39,7 +40,7 @@ public class IndexFileManager implements IIndexFileManager {
         String indexPath = getDiretorio(containerId, indexName);
         String tablePath = GerenciadorArquivo.getDiretorio(containerId);
 
-        BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, 11));
+        BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, BlocoControle.getBlockLengthFile(tablePath)));
         String descString = indexPath + "[P(101)]|";
         Descritor desc = new Descritor(descString);
 
@@ -58,7 +59,9 @@ public class IndexFileManager implements IIndexFileManager {
         File file = new File(diretorio);
         File[] indices = file.listFiles();
         for (File index : indices) {
-            byte[] containerBytes = GerenciadorDeIO.getBytes(index.getAbsolutePath(), 0, 11);
+            int blockLength = BlocoControle.getBlockLengthFile(index.getAbsolutePath());
+
+            byte[] containerBytes = GerenciadorDeIO.getBytes(index.getAbsolutePath(), 0, blockLength);
             IndexContainer ic = new IndexContainer(containerBytes);
 
             if (ic.getBlocoControle().getContainerId() == containerId)
@@ -88,8 +91,7 @@ public class IndexFileManager implements IIndexFileManager {
         String tablePath = GerenciadorArquivo.getDiretorio(containerIdSelecionado);
 
         try {
-            controle.fromByteArray(GerenciadorDeIO.getBytes(tablePath, 0, 11));
-            controle.fromByteArray(GerenciadorDeIO.getBytes(tablePath, 0, 11 + controle.getHeader().getTamanhoDescritor()));
+            controle.fromByteArray(GerenciadorDeIO.getBytes(tablePath, 0, controle.getHeader().getTamanhoDosBlocos()));
         } catch (FileNotFoundException e) {
             System.out.println("Não foi achado o Container: " + containerIdSelecionado.getValue());
             return null;
@@ -109,11 +111,15 @@ public class IndexFileManager implements IIndexFileManager {
         GerenciadorDeIO.atualizarBytes(indexPath, offset, block.toByteArray());
     }
 
-    public void createRoot(ContainerId indexContainerId, LeafIndexBlock block) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
-        block.getHeader().setBlockType(TipoBloco.INDEX_LEAF);
-
-        this.createBlock(indexContainerId, block);
-        Descritor rootDescritor = new Descritor("0[R(4)]|");
+    public void createRoot(ContainerId indexContainerId, InnerIndexBlock root) throws IOException, ContainerNoExistent, IndexBlockNotFoundException, InnerIndexBlockPointerToChildIsFullException, IndexLeafBlockCannotPushPointerChildException {
+        Descritor rootDescritor = new Descritor("1[R(4)]|");
         IndexContainer.getJustContainer(indexContainerId).getBlocoControle().adicionarDescritor(rootDescritor);
+
+        LeafIndexBlock leaf = new LeafIndexBlock(RowId.create(-1, -1));
+
+        this.createBlock(indexContainerId, root);
+        this.createBlock(indexContainerId, leaf);
+
+        root.pushPointerToChild(BlocoId.create(2));
     }
 }

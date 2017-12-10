@@ -64,7 +64,9 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        ByteArrayConcater byteConcater = new ByteArrayConcater(this.byteHeaderLength);
+        int tamanhoBloco = 200;
+
+        ByteArrayConcater byteConcater = new ByteArrayConcater(tamanhoBloco);
         byteConcater
                 .concat(super.toByteArray())
                 .concat(ByteArrayUtils.intTo3Bytes(this.lastByteUsedByCollumnValue))

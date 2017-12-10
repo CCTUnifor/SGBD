@@ -111,10 +111,10 @@ public class GerenciadorArquivo implements IFileManager {
     @Override
     public BlocoDado lerBloco(RowId rowId) throws IOException {
         String diretorio = getDiretorio(ContainerId.create(rowId.getContainerId()));
-        byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio, 0, 11);
+        byte[] containerBytes = GerenciadorDeIO.getBytes(diretorio);
         BlocoContainer container = this.criarBlocoContainer(containerBytes);
 
-        int indexOndeComecaOBlocoDeDados = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor();
+        int indexOndeComecaOBlocoDeDados = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
         int tamanhoBloco = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
         byte[] blocoBytes = GerenciadorDeIO.getBytes(diretorio, indexOndeComecaOBlocoDeDados + (tamanhoBloco * (rowId.getBlocoId() - 1)), tamanhoBloco);
@@ -126,7 +126,9 @@ public class GerenciadorArquivo implements IFileManager {
 
     @Override
     public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws IOException {
-        int offset = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
+        // TODO
+//        int offset = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
+        int offset = container.getBlocoControle().getHeader().getTamanhoDosBlocos() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
         int length = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
         container.atualizarProximoBlocoLivre();
@@ -178,9 +180,9 @@ public class GerenciadorArquivo implements IFileManager {
         BlocoControle controle = new BlocoControle(containerId.getValue());
         String diretorio = getDiretorio(containerId);
 
+
         try {
-            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, 11));
-            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, 11 + controle.getHeader().getTamanhoDescritor()));
+            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, controle.getHeader().getTamanhoDosBlocos()));
         } catch (FileNotFoundException e) {
             System.out.println("Não foi achado o Container: " + containerId.getValue());
             return null;

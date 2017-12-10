@@ -41,4 +41,8 @@ public class CollumnValue implements IBinary {
     public int getFullLength() {
         return LENGTH + this.lengthOfCollumnValue;
     }
+
+    public String getCollumnValue() {
+        return this.collumnValue;
+    }
 }
