@@ -25,5 +25,4 @@ public interface IFileManager {
     HashMap<ContainerId, String> getContainers() throws IOException;
 
     List<String> getColumns(ContainerId containerId) throws IOException;
-    void adicionarIndiceAoContainerId(ContainerId containerId, String indexNam) throws IOException;
 }

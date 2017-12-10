@@ -1,52 +1,79 @@
 package entidades.index.inner;
 
 import entidades.blocos.TipoBloco;
-import entidades.index.HeaderIndexBlock;
+import entidades.index.abstrations.HeaderIndexBlock;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
-class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
+public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
+    public static final int HEADER_LENGTH = 12;
+    public static final int POINTER_LENGTH = 4;
 
-    private int lastValueRef;
+    private int numberOfChildrens;
+
+    private int lastByteUsedByCollumnValue;
     private boolean isLeaf;
-    private int lastPointerRef;
+//    private int bytesUsedByChildren;
 
-    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId) {
-        this.containerId = containerId;
-        this.blockId = blockId;
-        this.blockType = TipoBloco.INDEX;
-        this.lastValueRef = -1;
-        this.isLeaf = false;
-        this.lastPointerRef = -1;
+    InnerHeaderIndexBlock() {
+        super(TipoBloco.INDEX);
+        super.byteHeaderLength = HEADER_LENGTH;
     }
 
+    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int _numberOfChildrens) {
+        super(containerId, blockId, TipoBloco.INDEX);
+        super.byteHeaderLength = HEADER_LENGTH;
+
+        this.numberOfChildrens = _numberOfChildrens;
+        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+        this.isLeaf = false;
+    }
+
+    public InnerHeaderIndexBlock(byte[] blockBytes) {
+        super(blockBytes);
+        super.byteHeaderLength = HEADER_LENGTH;
+        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+
+        if (blockBytes.length > HEADER_LENGTH)
+            fromByteArray(blockBytes);
+    }
+
+    public InnerHeaderIndexBlock(int numberOfChildrens) {
+        super(TipoBloco.INDEX);
+        this.numberOfChildrens = numberOfChildrens;
+        super.byteHeaderLength = HEADER_LENGTH;
+        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+    }
+
+    public int getBytesUsedByChildren() { return this.numberOfChildrens * POINTER_LENGTH; }
+    public int getBytesUsedByCollumnValue() { return lastByteUsedByCollumnValue; }
+
+    public void setLastByteUsedByCollumnValue(int lastByteUsedByCollumnValue) {
+        this.lastByteUsedByCollumnValue = lastByteUsedByCollumnValue;
+    }
 
     @Override
     public byte[] toByteArray() {
-        ByteArrayConcater byteConcater = new ByteArrayConcater(11);
+        ByteArrayConcater byteConcater = new ByteArrayConcater(this.byteHeaderLength);
         byteConcater
-                .concat(this.containerId.toByteArray())
-                .concat(this.blockId.toByteArray())
-                .concat(ByteArrayUtils.intTo1Bytes(this.blockType.ordinal()))
-                .concat(ByteArrayUtils.intTo3Bytes(this.lastValueRef))
+                .concat(super.toByteArray())
+                .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByCollumnValue()))
                 .concat(ByteArrayUtils.booleanToByte(this.isLeaf))
-                .concat(ByteArrayUtils.intTo3Bytes(this.lastPointerRef));
+                .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByChildren()));
 
         return byteConcater.getFinalByteArray();
     }
 
     @Override
     public InnerHeaderIndexBlock fromByteArray(byte[] byteArray) {
-        this.containerId = this.containerId.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 1));
-        this.blockId =  this.blockId.fromByteArray(ByteArrayUtils.subArray(byteArray, 1, 3));
-        this.blockType = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(byteArray, 4, 1), TipoBloco.values());
-        this.lastValueRef = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 3));
+        super.fromByteArray(byteArray);
         this.isLeaf = ByteArrayUtils.byteArrayToBoolean(ByteArrayUtils.subArray(byteArray, 6, 1));
-        this.lastPointerRef = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 9, 3));
+        this.numberOfChildrens = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 9, 3)) / POINTER_LENGTH;
 
         return this;
     }
+
 }

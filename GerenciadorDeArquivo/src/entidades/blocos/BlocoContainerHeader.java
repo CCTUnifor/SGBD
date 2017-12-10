@@ -1,5 +1,8 @@
 package entidades.blocos;
 
+import entidades.GerenciadorDeIO;
+import entidades.index.IndexFileManager;
+import exceptions.ContainerNoExistent;
 import factories.ContainerId;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
@@ -7,6 +10,7 @@ import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class BlocoContainerHeader implements IBinary{
 
@@ -16,13 +20,9 @@ public class BlocoContainerHeader implements IBinary{
     private int proximoBlocoLivre = 0;
     private int tamanhoDescritor;
 
-    public BlocoContainerHeader() {
-    }
-
     BlocoContainerHeader(int containerId) {
         this.containerId = ContainerId.create(containerId);
     }
-
     BlocoContainerHeader(byte[] bytes) {
         this.fromByteArray(bytes);
     }
@@ -30,25 +30,21 @@ public class BlocoContainerHeader implements IBinary{
     public int getContainerId() {
         return this.containerId.getValue();
     }
-
     public int getTamanhoDosBlocos() {
         return this.tamanhoDosBlocos;
     }
-
-    public int getStatusContainer() {
-        return this.statusContainer;
-    }
-
     public int getProximoBlocoLivre() {
         return this.proximoBlocoLivre;
     }
-
     public void adicionarProximoBlocoLivre() {
         this.proximoBlocoLivre += tamanhoDosBlocos;
     }
-
     public int getTamanhoDescritor() {
         return  this.tamanhoDescritor;
+    }
+
+    public void setProximoBlocoLivre(int proximoBlocoLivre) {
+        this.proximoBlocoLivre = proximoBlocoLivre;
     }
 
     @Override

@@ -188,20 +188,6 @@ public class GerenciadorArquivo implements IFileManager {
         return controle.getColumnsName();
     }
 
-    @Override
-    public void adicionarIndiceAoContainerId(ContainerId containerId, String indexName) throws IOException {
-        String indexPath = IndexFileManager.getDiretorio(containerId, indexName);
-        String tablePath = getDiretorio(containerId);
-
-        BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, 11));
-        String descString = indexPath + "[P(101)];";
-        Descritor desc = new Descritor(descString);
-        int tamanhoNovoDescritor = container.getBlocoControle().getHeader().getTamanhoDescritor() + desc.toByteArray().length;
-
-        container.getBlocoControle().adicionarDescritor(desc);
-        GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
-    }
-
     public static String getDiretorio(ContainerId containerId) throws IOException {
         String _path = PATH + "/" + PREFIX + containerId.getValue() + EXTENSION;
         GerenciadorDeIO.makeDirs(_path);

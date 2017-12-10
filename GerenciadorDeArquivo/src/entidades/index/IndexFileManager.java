@@ -5,40 +5,66 @@ import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoContainer;
 import entidades.blocos.BlocoControle;
 import entidades.blocos.Descritor;
+import entidades.index.inner.InnerIndexBlock;
+import exceptions.ContainerNoExistent;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class IndexFileManager implements IIndexFileManager {
-
     private static final String PATH = GlobalVariables.LOCAL_ARQUIVO_FINAL + "INDICES/";
     private static final String PREFIX = "db.";
     private static final String EXTENSION = ".index";
 
+
     @Override
-    public BlocoContainer createIndex(ContainerId containerId, String indexName) throws IOException {
-        BlocoContainer controller = new BlocoContainer(containerId.getValue());
+    public IndexContainer createIndex(ContainerId containerId, String indexName) throws IOException, ContainerNoExistent {
+        IndexContainer controller = new IndexContainer(containerId.getValue());
         GerenciadorDeIO.gravarBytes(getDiretorio(containerId, indexName), controller.toByteArray());
+        this.putIndexToContainer(containerId, indexName);
+
         return controller;
     }
 
-    private void adicionarIndexNameToIndexContainer(BlocoContainer controller, String indexName) {
-        ArrayList<Descritor> descritors = new ArrayList<>();
-        descritors.add(new Descritor(indexName));
+    private void putIndexToContainer(ContainerId containerId, String indexName) throws IOException, ContainerNoExistent {
+        String indexPath = getDiretorio(containerId, indexName);
+        String tablePath = GerenciadorArquivo.getDiretorio(containerId);
 
-        controller.getBlocoControle().adicionarDescritores(descritors);
+        BlocoContainer container = new BlocoContainer(GerenciadorDeIO.getBytes(tablePath, 0, 11));
+        String descString = indexPath + "[P(101)];";
+        Descritor desc = new Descritor(descString);
+        int tamanhoNovoDescritor = container.getBlocoControle().getHeader().getTamanhoDescritor() + desc.toByteArray().length;
+
+        container.getBlocoControle().adicionarDescritor(desc);
+        GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
     }
 
     public static String getDiretorio(ContainerId containerId, String indexName) throws IOException {
         String _path = PATH + "/" + containerId.getValue() + "/" + PREFIX + indexName + EXTENSION;
         GerenciadorDeIO.makeDirs(_path);
         return _path;
+    }
+
+    public static String getDiretorio(int containerId) throws IOException, ContainerNoExistent {
+        String diretorio = PATH + "/" + containerId + "/";
+
+        File file = new File(diretorio);
+        File[] indices = file.listFiles();
+        for (File index : indices) {
+            byte[] containerBytes = GerenciadorDeIO.getBytes(index.getAbsolutePath(), 0, 11);
+            IndexContainer ic = new IndexContainer(containerBytes);
+
+            if (ic.getBlocoControle().getContainerId() == containerId)
+                return index.getAbsolutePath();
+        }
+
+        throw new ContainerNoExistent();
     }
 
     @Override
@@ -67,6 +93,18 @@ public class IndexFileManager implements IIndexFileManager {
             System.out.println("Não foi achado o Container: " + containerIdSelecionado.getValue());
             return null;
         }
-        return controle.getIndexName();
+        return controle.getIndicesName();
+    }
+
+    @Override
+    public void createBlock(int indexContainerId, InnerIndexBlock block) throws IOException, ContainerNoExistent {
+        IndexContainer ic = IndexContainer.getJustContainer(indexContainerId);
+        block.getHeader().setContainerId(indexContainerId);
+
+        String indexPath = getDiretorio(indexContainerId);
+        int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
+        block.getHeader().setBlockId(ic.incrementNextFreeBlock());
+
+        GerenciadorDeIO.atualizarBytes(indexPath, offset, block.toByteArray());
     }
 }

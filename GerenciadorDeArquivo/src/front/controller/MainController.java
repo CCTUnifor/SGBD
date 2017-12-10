@@ -6,7 +6,11 @@ import entidades.arvoreBMais.ArvoreBPlus;
 import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
 import entidades.blocos.*;
+import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
+import entidades.index.inner.InnerIndexBlock;
+import exceptions.ContainerNoExistent;
+import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IFileManager;
 import interfaces.IIndexFileManager;
@@ -60,7 +64,8 @@ public class MainController implements Initializable {
     private ListView<String> collumnsListView;
     @FXML
     private TextField ordemDoIndice;
-    @FXML TextField nomeIndiceTextField;
+    @FXML
+    TextField nomeIndiceTextField;
 
     @FXML
     TableView<ObservableList<String>> tableViewBancoValores;
@@ -75,13 +80,16 @@ public class MainController implements Initializable {
     private int tableSelected() {
         return tablesComboBox.getSelectionModel().getSelectedIndex();
     }
-    private ContainerId containerIdSelected() { return containerIds[tableSelected()]; }
+
+    private ContainerId containerIdSelected() {
+        return containerIds[tableSelected()];
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.
 
-        __tableService = new TableService();
+                __tableService = new TableService();
         _collumnService = new CollumnService();
 
         _ga = new GerenciadorArquivo();
@@ -148,16 +156,34 @@ public class MainController implements Initializable {
 
         try {
             indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
-            _ga.adicionarIndiceAoContainerId(containerIdSelected(), nomeIndiceTextField.getText());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
-
-        try {
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
-        } catch (IOException e) {
+
+            // TODO testando
+            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected().getValue());
+
+            /* CREATE A NEW INNER INDEX BLOCK */
+            int numberOfChildrens = 5; // TODO
+            InnerIndexBlock block = new InnerIndexBlock(numberOfChildrens);
+            indexFileManager.createBlock(containerIdSelected().getValue(), block);
+            indexFileManager.createBlock(containerIdSelected().getValue(), block);
+            /* CREATE A NEW INNER INDEX BLOCK */
+
+            /* CARREGAR INDEX BLOCK */
+            block = (InnerIndexBlock) IndexContainer.getIndexBlock(containerIdSelected().getValue(), 1);
+            block = (InnerIndexBlock) IndexContainer.getIndexBlock(containerIdSelected().getValue(), 2);
+            /* CARREGAR INDEX BLOCK */
+
+            /* ADICIONAR VALORES DE COLUNAS */
+            block.addColumnValue("thiago; victor");
+            block.addColumnValue("thiago1; victor1");
+            block.addColumnValue("thiago2; victor2");
+            block.addColumnValue("thiago3; victor3");
+            block.addColumnValue("thiago4; victor4");
+//            block.addChildren(BlocoId.create(1));
+            /* ADICIONAR VALORES DE COLUNAS */
+
+            this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
+        } catch (IOException | ContainerNoExistent e) {
             e.printStackTrace();
         }
     }
@@ -341,8 +367,7 @@ public class MainController implements Initializable {
         if (keyback == null) {
             this.findKeyResultado.setText("Não achou!");
             this.findKeyResultadoCompleto.getItems().add("Não achou!");
-        }
-        else {
+        } else {
             this.findKeyResultado.setText("Row Id: " + keyback.toString());
             try {
                 ArrayList<Linha> tuplas = this._ga.lerBloco(keyback).getTuples();

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BlocoControle implements IBinary, IPrint {
+    public static final int CONTROLLER_BLOCK_LENGTH = 11;
     private BlocoContainerHeader blocoHeader;
     private ArrayList<Descritor> descritores;
 
@@ -25,7 +26,7 @@ public class BlocoControle implements IBinary, IPrint {
     public BlocoControle(byte[] bytes) {
         this.blocoHeader = new BlocoContainerHeader(bytes);
         this.descritores = new ArrayList<Descritor>();
-        if (bytes.length > 11)
+        if (bytes.length > CONTROLLER_BLOCK_LENGTH)
             this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(bytes, 11, this.blocoHeader.getTamanhoDescritor())));
     }
 
@@ -54,17 +55,16 @@ public class BlocoControle implements IBinary, IPrint {
 
     @Override
     public BlocoControle fromByteArray(byte[] byteArray) {
-
-        this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 11));
-        if (byteArray.length > 11)
-            this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(byteArray, 11, this.blocoHeader.getTamanhoDescritor())));
+        this.blocoHeader.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, CONTROLLER_BLOCK_LENGTH));
+        if (byteArray.length > CONTROLLER_BLOCK_LENGTH)
+            this.descritores.addAll(this.descritoresFromByteArray(ByteArrayUtils.subArray(byteArray, CONTROLLER_BLOCK_LENGTH, this.blocoHeader.getTamanhoDescritor())));
 
         return this;
     }
 
     public void adicionarDescritor(Descritor descritor) {
         try {
-            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId())), 11 + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
+            GerenciadorDeIO.atualizarBytes(GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId())), CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritor(), descritor.toByteArray());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,7 +79,7 @@ public class BlocoControle implements IBinary, IPrint {
                 .map(Descritor::getNome).collect(Collectors.toList());
     }
 
-    public List<String> getIndexName() {
+    public List<String> getIndicesName() {
         return this.descritores.stream()
                 .filter(x -> x.getTipoDado() == TipoDado.PATH)
                 .map(Descritor::getNome).collect(Collectors.toList());
