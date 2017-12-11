@@ -147,6 +147,7 @@ public class GerenciadorArquivo implements IFileManager {
         if (bloco == null) {
             bloco = this.criarBlocoDeDado(container.getContainerId());
             container.adicionarBloco(bloco);
+            container.getBlocoControle().getHeader().adicionarProximoBlocoLivre();
         }
 
         if (podeAdicionarMaisTuple(bloco, tuple, container))

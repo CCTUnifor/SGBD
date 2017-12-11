@@ -32,4 +32,14 @@ public abstract class IndexBlock implements IBinary {
     public boolean isLeaf() {
         return getHeader().getBlockType() == TipoBloco.INDEX_LEAF;
     }
+
+    public int getIndexInsertionKeys() {
+        // TODO
+        return 0;
+    }
+
+    public int getNumberMaxKeys() {
+        // TODO
+        return 0;
+    }
 }

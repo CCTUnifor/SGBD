@@ -5,14 +5,12 @@ import entidades.blocos.TipoBloco;
 import entidades.blocos.TipoDado;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.CollumnValue;
+import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
 import exceptions.IncorrectTypeToPushPointerException;
-import exceptions.innerBlock.IndexBlockNotFoundException;
-import exceptions.innerBlock.IndexLeafBlockCannotPushPointerChildException;
-import exceptions.innerBlock.InnerIndexBlockFullCollumnValueException;
-import exceptions.innerBlock.InnerIndexBlockPointerToChildIsFullException;
+import exceptions.innerBlock.*;
 import factories.ContainerId;
 
 import java.io.IOException;
@@ -61,12 +59,42 @@ public class TreeBPlus {
         return null;
     }
 
-    private void findInsertion(IndexBlock node, int positionNodeChildren, CollumnValue col, RowId rowId) throws IndexBlockNotFoundException, ContainerNoExistent, IOException {
-        LeafIndexBlock leafIndexBlock = (LeafIndexBlock) node;
+    private void findInsertion(IndexBlock node, int positionNodeChildren, CollumnValue col, RowId rowId) throws IndexBlockNotFoundException, ContainerNoExistent, IOException, InnerIndexBlockFullCollumnValueException {
+        // TODO leaf
+        //        LeafIndexBlock leafIndexBlock = (LeafIndexBlock) node;
         InnerIndexBlock innerIndexBlock = (InnerIndexBlock) node;
+
         if (positionNodeChildren != -1) {
-            if (node.isLeaf() && innerIndexBlock.getChildren(positionNodeChildren) == null){
-                if (node.)
+            if (innerIndexBlock.getChildren(positionNodeChildren) == null) {
+                if (node.getIndexInsertionKeys() == node.getNumberMaxKeys())
+                    indexFileManager.split(node, null, null, col, rowId);
+                else
+                    innerIndexBlock.pushColumnValue(col);
+            }else
+                findInsertion(innerIndexBlock.getChildren(positionNodeChildren), -1, col, rowId);
+        } else {
+            int i = 0;
+            int position = -1;
+            int count = InnerHeaderIndexBlock.HEADER_LENGTH + innerIndexBlock.getHeader().getBytesUsedByChildren() + 1;
+
+            try {
+                while (count < innerIndexBlock.getHeader().getBytesUsedByCollumnValue()) {
+                    CollumnValue key = innerIndexBlock.loadCollumnValue(i);
+                    if (col.compareTo(key) < 0) {
+                        position = i;
+                        break;
+                    }
+
+                    count += key.getFullLength();
+                    i++;
+                }
+                if (position != -1)
+                    findInsertion(node, position, col, rowId);
+                else
+                    findInsertion(node, i, col, rowId);
+
+            } catch (InnerIndexBlockValueCollumnNotFoundException e) {
+                e.printStackTrace();
             }
         }
     }

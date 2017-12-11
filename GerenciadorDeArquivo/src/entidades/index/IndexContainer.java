@@ -1,10 +1,8 @@
 package entidades.index;
 
 import entidades.GerenciadorDeIO;
-import entidades.blocos.BlocoControle;
-import entidades.blocos.Descritor;
-import entidades.blocos.RowId;
-import entidades.blocos.TipoDado;
+import entidades.blocos.*;
+import entidades.index.abstrations.HeaderIndexBlock;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
@@ -17,7 +15,6 @@ import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +22,6 @@ public class IndexContainer implements IBinary {
     private int NEXT_BLOCK_ID = 1;
 
     private BlocoControle blocoControle;
-    private IndexBlock block;
 
 
     IndexContainer(int containerId) {
@@ -74,12 +70,12 @@ public class IndexContainer implements IBinary {
         return this.NEXT_BLOCK_ID;
     }
 
-    public static InnerIndexBlock loadInnerIndexBlock(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+    public static IndexBlock loadInnerIndexBlock(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         byte[] blockBytes = loadIndexBlockBytes(rowId);
         return new InnerIndexBlock(blockBytes);
     }
 
-    public static LeafIndexBlock loadLeafIndexBlock(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+    public static IndexBlock loadLeafIndexBlock(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         byte[] blockBytes = loadIndexBlockBytes(rowId);
         return new LeafIndexBlock(blockBytes);
     }
@@ -106,14 +102,19 @@ public class IndexContainer implements IBinary {
         return this.NEXT_BLOCK_ID;
     }
 
-    public LeafIndexBlock getRoot() throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
-        // TODO
-        String path = IndexFileManager.getDiretorio(this.getBlocoControle().getContainerId());
+    public IndexBlock getRoot() throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         Descritor rootDescritor = IndexContainer.getIndexDescritorsByType(ContainerId.create(this.getBlocoControle().getContainerId()), TipoDado.ROOT).get(0);
-        BlocoId x = BlocoId.create(Integer.parseInt(rootDescritor.getNome()));
+        BlocoId rootBlockId = BlocoId.create(Integer.parseInt(rootDescritor.getNome()));
 
-        int blockRoot = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, BlocoControle.CONTROLLER_BLOCK_LENGTH, BlocoId.LENGTH));
-        return IndexContainer.loadLeafIndexBlock(RowId.create(this.blocoControle.getContainerId(), blockRoot));
+        RowId r = RowId.create(this.getBlocoControle().getContainerId(), rootBlockId.getValue());
+        TipoBloco blockType = HeaderIndexBlock.getBlockTypeByFile(r);
+
+        if (blockType == TipoBloco.INDEX_INNER)
+            return IndexContainer.loadInnerIndexBlock(r);
+        else if (blockType == TipoBloco.INDEX_LEAF)
+            return IndexContainer.loadLeafIndexBlock(r);
+
+        throw new IndexBlockNotFoundException();
     }
 
     public static List<Descritor> getIndexDescritorsByType(ContainerId containerId, TipoDado collumn) throws IOException, ContainerNoExistent {

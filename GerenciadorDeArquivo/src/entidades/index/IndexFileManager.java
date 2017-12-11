@@ -141,4 +141,8 @@ public class IndexFileManager implements IIndexFileManager {
         root.pushPointerToChild(BlocoId.create(2));
         root.pushColumnValue(col.getCollumnValue());
     }
+
+    public void split(IndexBlock node, IndexBlock nodeLeft, IndexBlock nodeRigth, CollumnValue col, RowId rowId) {
+        // TODO
+    }
 }

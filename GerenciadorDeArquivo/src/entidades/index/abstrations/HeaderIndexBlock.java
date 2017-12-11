@@ -1,9 +1,11 @@
 package entidades.index.abstrations;
 
+import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoControle;
 import entidades.blocos.RowId;
 import entidades.blocos.TipoBloco;
 import entidades.index.IndexContainer;
+import entidades.index.IndexFileManager;
 import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.leaf.LeafHeaderIndexBlock;
 import exceptions.ContainerNoExistent;
@@ -76,6 +78,15 @@ public abstract class HeaderIndexBlock implements IBinary {
             return new InnerHeaderIndexBlock(byteArray);
 
         return new LeafHeaderIndexBlock(byteArray);
+    }
+
+    public static TipoBloco getBlockTypeByFile(RowId rowId) throws IOException, ContainerNoExistent {
+        String path = IndexFileManager.getDiretorio(rowId.getContainerId());
+        int blockPosition = getBlockPosition(rowId);
+        int blockLength = BlocoControle.getBlockLengthFile(path);
+
+        byte[] blockArray = GerenciadorDeIO.getBytes(path, blockPosition, blockLength);
+        return ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(blockArray, 4, 1), TipoBloco.values());
     }
 
     public void setBlockId(int blockId) {

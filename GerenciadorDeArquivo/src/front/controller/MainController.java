@@ -187,7 +187,7 @@ public class MainController implements Initializable {
                 currentBlockCounter += blockLength;
             }
 
-            InnerIndexBlock root = IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
+            InnerIndexBlock root = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
 
 //            /** CREATE THE INDEX_INNER **/
 //            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());

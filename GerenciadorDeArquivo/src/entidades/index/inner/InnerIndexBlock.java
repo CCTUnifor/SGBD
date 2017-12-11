@@ -71,15 +71,57 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         if (this.header.getContainerId() == 0 || this.header.getContainerId() == -1)
             throw new ContainerNoExistent();
 
+        this.pushColumnValue(new CollumnValue(value));
+    }
+
+    public void pushColumnValue(CollumnValue col) throws IOException, ContainerNoExistent, InnerIndexBlockFullCollumnValueException {
         String indexPath = IndexFileManager.getDiretorio(header.getContainerId());
         int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByCollumnValue();
 
-        CollumnValue col = new CollumnValue(value);
         if (!this.getHeader().existsSpaceForNewValueCollumn(col))
             throw new InnerIndexBlockFullCollumnValueException();
 
         GerenciadorDeIO.atualizarBytes(indexPath, offset, col.toByteArray());
         this.incrementCollumnCount(col);
+
+        this.switchInOrder(col);
+    }
+
+    private void switchInOrder(CollumnValue col) throws IOException, ContainerNoExistent {
+        int offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByChildren() + 1;
+        String indexPath = IndexFileManager.getDiretorio(this.header.getContainerId());
+
+        int offsetMax = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByCollumnValue();
+
+        CollumnValue colToSwitch = null;
+
+        while (offset < offsetMax) {
+            int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH));
+            CollumnValue currentCol = new CollumnValue(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH + length));
+
+
+            offset += CollumnValue.LENGTH + length;
+
+            if (col.compareTo(currentCol) < 0) {
+                colToSwitch = currentCol;
+                break;
+            }
+        }
+
+        if (colToSwitch != null) {
+            GerenciadorDeIO.atualizarBytes(indexPath, offset, col.toByteArray());
+
+            while (offset < offsetMax) {
+                int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH));
+                CollumnValue currentCol = new CollumnValue(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH + length));
+
+                GerenciadorDeIO.atualizarBytes(indexPath, offset, colToSwitch.toByteArray());
+                colToSwitch = currentCol;
+
+                offset += CollumnValue.LENGTH + length;
+            }
+
+        }
     }
 
     private void incrementCollumnCount(CollumnValue col) throws IOException, ContainerNoExistent {
@@ -196,5 +238,4 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
 
         return -1;
     }
-
 }

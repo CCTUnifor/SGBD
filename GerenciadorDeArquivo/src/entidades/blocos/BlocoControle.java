@@ -67,7 +67,7 @@ public class BlocoControle implements IBinary, IPrint {
 
     public void adicionarDescritor(Descritor descritor, String path) {
         try {
-            int tamanhoNovoDescritor = getHeader().getTamanhoDescritorFile(path) + descritor.toByteArray().length;
+            int tamanhoNovoDescritor = getHeader().getTamanhoDescritorFile(path) + descritor.getTamanhoTotalDescritor();
 
             GerenciadorDeIO.atualizarBytes(path, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritorFile(path), descritor.toByteArray());
             GerenciadorDeIO.atualizarBytes(path, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
