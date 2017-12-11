@@ -19,7 +19,6 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     public static final int POINTER_LENGTH = 4;
 
     private int numberOfChildrens;
-
     private int lastByteUsedByCollumnValue;
 
     InnerHeaderIndexBlock() {
@@ -27,11 +26,11 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         super.byteHeaderLength = HEADER_LENGTH;
     }
 
-    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int _numberOfChildrens) {
+    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int ordem) {
         super(containerId, blockId, TipoBloco.INDEX_INNER);
         super.byteHeaderLength = HEADER_LENGTH;
 
-        this.numberOfChildrens = _numberOfChildrens;
+        this.numberOfChildrens = ordem;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
     }
 
@@ -41,14 +40,15 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
     }
 
-    public InnerHeaderIndexBlock(int numberOfChildrens) {
+    public InnerHeaderIndexBlock(int ordem) {
         super(TipoBloco.INDEX_INNER);
-        this.numberOfChildrens = numberOfChildrens;
+        this.numberOfChildrens = ordem;
         super.byteHeaderLength = HEADER_LENGTH;
         this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
     }
 
     public int getBytesUsedByChildren() { return this.numberOfChildrens * POINTER_LENGTH; }
+
 
     public int getBytesUsedByCollumnValue() throws IOException, ContainerNoExistent {
         String path = IndexFileManager.getDiretorio(this.getContainerId());
@@ -87,4 +87,7 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         return col.toByteArray().length + this.getBytesUsedByCollumnValue() <= i.getBlocoControle().getHeader().getTamanhoDosBlocos();
     }
 
+    public int getMaxChildren() {
+        return this.numberOfChildrens;
+    }
 }

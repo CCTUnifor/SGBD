@@ -1,6 +1,7 @@
 package entidades.index.leaf;
 
 import entidades.blocos.RowId;
+import entidades.index.abstrations.HeaderIndexBlock;
 import entidades.index.abstrations.IndexBlock;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
@@ -31,4 +32,9 @@ public class LeafIndexBlock extends IndexBlock implements IBinary {
     public LeafIndexBlock fromByteArray(byte[] byteArray) {
         return null;
     }
+
+    public LeafHeaderIndexBlock getHeader() {
+        return (LeafHeaderIndexBlock) header;
+    }
+
 }

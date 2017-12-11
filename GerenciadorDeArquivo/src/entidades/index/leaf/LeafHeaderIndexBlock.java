@@ -57,4 +57,8 @@ public class LeafHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
 
         return this;
     }
+
+    public RowId getRowIdData() {
+        return this.rowIdData;
+    }
 }

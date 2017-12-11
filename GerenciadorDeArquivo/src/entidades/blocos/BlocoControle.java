@@ -137,5 +137,7 @@ public class BlocoControle implements IBinary, IPrint {
     }
 
 
-
+    public ArrayList<Descritor> getDescritores() {
+        return descritores;
+    }
 }

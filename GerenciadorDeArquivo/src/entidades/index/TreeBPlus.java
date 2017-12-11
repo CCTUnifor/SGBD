@@ -1,13 +1,13 @@
 package entidades.index;
 
+import entidades.blocos.BlocoControle;
+import entidades.blocos.Descritor;
 import entidades.blocos.RowId;
-import entidades.blocos.TipoBloco;
 import entidades.blocos.TipoDado;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.CollumnValue;
 import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.inner.InnerIndexBlock;
-import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
 import exceptions.IncorrectTypeToPushPointerException;
 import exceptions.innerBlock.*;
@@ -15,11 +15,12 @@ import factories.ContainerId;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TreeBPlus {
     private ContainerId indexContainer;
     private IndexFileManager indexFileManager;
-    private int ordem = 5;
 
     public TreeBPlus(ContainerId indexContainer, String indexName, ArrayList<Integer> columns) throws IOException, ContainerNoExistent {
         this.indexContainer = indexContainer;
@@ -47,7 +48,7 @@ public class TreeBPlus {
 
     public void insert(CollumnValue col, RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException, InnerIndexBlockFullCollumnValueException, InnerIndexBlockPointerToChildIsFullException, IndexLeafBlockCannotPushPointerChildException, IncorrectTypeToPushPointerException {
         if (this.isEmpty()) {
-            InnerIndexBlock block = new InnerIndexBlock(this.ordem);
+            InnerIndexBlock block = new InnerIndexBlock(this.getOrder());
             this.indexFileManager.createRoot(this.indexContainer, block, col, rowId);
         } else {
             IndexContainer indexContainer = IndexContainer.getJustContainer(this.indexContainer);
@@ -70,7 +71,7 @@ public class TreeBPlus {
                     indexFileManager.split(node, null, null, col, rowId);
                 else
                     innerIndexBlock.pushColumnValue(col);
-            }else
+            } else
                 findInsertion(innerIndexBlock.getChildren(positionNodeChildren), -1, col, rowId);
         } else {
             int i = 0;
@@ -99,4 +100,21 @@ public class TreeBPlus {
         }
     }
 
+    public int getOrder() throws IOException, ContainerNoExistent {
+        BlocoControle controllerBlock = BlocoControle.getControllerBlock(this.indexContainer);
+
+        int blockPageLength = controllerBlock.getHeader().getTamanhoDosBlocos();
+
+        List<Integer> valores = controllerBlock.getDescritores().stream().map(Descritor::getTamanho).collect(Collectors.toList());
+        List<Integer> collumns = IndexContainer.getIndexDescritorsByType(this.indexContainer, TipoDado.COLLUMN).stream()
+                .map(x -> Integer.parseInt(x.getNome())).collect(Collectors.toList());
+
+        int valueLength = 0;
+        for (int c : collumns) {
+            valueLength += valores.get(c);
+        }
+
+        int order = (int) Math.floor((blockPageLength + valueLength) / (valueLength + ((int) Math.ceil(Math.log10(blockPageLength) / Math.log10(2)))));
+        return order;
+    }
 }

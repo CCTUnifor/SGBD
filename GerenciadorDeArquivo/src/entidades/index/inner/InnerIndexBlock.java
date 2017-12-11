@@ -3,7 +3,6 @@ package entidades.index.inner;
 import entidades.GerenciadorDeIO;
 import entidades.blocos.RowId;
 import entidades.blocos.TipoBloco;
-import entidades.blocos.TipoDado;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
 import entidades.index.abstrations.HeaderIndexBlock;
@@ -19,21 +18,23 @@ import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class InnerIndexBlock extends IndexBlock implements IBinary {
+
     private InnerIndexBlock() {
         super();
         this.header = new InnerHeaderIndexBlock();
     }
 
-    public InnerIndexBlock(int numberOfChildrens) {
+    public InnerIndexBlock(int ordem) {
         super();
-        this.header = new InnerHeaderIndexBlock(numberOfChildrens);
+        this.header = new InnerHeaderIndexBlock(ordem);
     }
 
-    public InnerIndexBlock(ContainerId containerId, BlocoId blockId, int numberOfChildrens) {
+    public InnerIndexBlock(ContainerId containerId, BlocoId blockId, int ordem) {
         super();
-        this.header = new InnerHeaderIndexBlock(containerId, blockId, numberOfChildrens);
+        this.header = new InnerHeaderIndexBlock(containerId, blockId, ordem);
     }
 
     public InnerIndexBlock(byte[] blockBytes) {
@@ -237,5 +238,42 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         }
 
         return -1;
+    }
+
+    public ArrayList<CollumnValue> getCollumns() {
+        ArrayList<CollumnValue> cols = new ArrayList<CollumnValue>();
+
+        int offset = 0;
+        try {
+            offset = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByChildren() + 1;
+            String indexPath = IndexFileManager.getDiretorio(this.header.getContainerId());
+            int offsetMax = this.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + this.getHeader().getBytesUsedByCollumnValue();
+
+            while (offset < offsetMax) {
+                int length = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH));
+                CollumnValue currentCol = new CollumnValue(GerenciadorDeIO.getBytes(indexPath, offset, CollumnValue.LENGTH + length));
+
+                cols.add(currentCol);
+
+                offset += CollumnValue.LENGTH + length;
+            }
+        } catch (IOException | ContainerNoExistent e) {
+            e.printStackTrace();
+        }
+
+        return cols;
+    }
+
+    public String getCollumnValues() {
+        StringBuilder x = new StringBuilder();
+        for (CollumnValue col :
+                this.getCollumns()) {
+            x.append(col.getCollumnValue());
+        }
+        return x.toString();
+    }
+
+    public int getNumberMaxChildren() {
+        return this.getHeader().getMaxChildren();
     }
 }

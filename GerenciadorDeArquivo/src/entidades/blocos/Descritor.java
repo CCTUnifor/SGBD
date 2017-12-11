@@ -111,5 +111,9 @@ public class Descritor implements IBinary, IPrint {
     public TipoDado getTipoDado() {
         return tipoDado;
     }
+
+    public int getTamanho() {
+        return this.tamanho;
+    }
 }
 
