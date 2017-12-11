@@ -121,6 +121,6 @@ public class IndexContainer implements IBinary {
         int blockLength = BlocoControle.getBlockLengthFile(indexPath);
 
         byte[] descritorsByte = GerenciadorDeIO.getBytes(indexPath, BlocoControle.CONTROLLER_BLOCK_LENGTH, blockLength - BlocoControle.CONTROLLER_BLOCK_LENGTH);
-        return IndexContainer.getJustContainer(containerId).getBlocoControle().descritoresFromByteArray(descritorsByte).stream().filter(x -> x.getTipoDado() == TipoDado.COLLUMN).collect(Collectors.toList());
+        return IndexContainer.getJustContainer(containerId).getBlocoControle().descritoresFromByteArray(descritorsByte).stream().filter(x -> x.getTipoDado() == collumn).collect(Collectors.toList());
     }
 }

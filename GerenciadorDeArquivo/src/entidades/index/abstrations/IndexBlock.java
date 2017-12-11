@@ -1,5 +1,6 @@
 package entidades.index.abstrations;
 
+import entidades.blocos.TipoBloco;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
@@ -26,5 +27,9 @@ public abstract class IndexBlock implements IBinary {
         this.header = this.header.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, header.byteHeaderLength));
 
         return this;
+    }
+
+    public boolean isLeaf() {
+        return getHeader().getBlockType() == TipoBloco.INDEX_LEAF;
     }
 }

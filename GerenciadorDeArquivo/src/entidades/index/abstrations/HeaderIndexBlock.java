@@ -90,6 +90,7 @@ public abstract class HeaderIndexBlock implements IBinary {
     public int getBlockId() {
         return blockId.getValue();
     }
+    public TipoBloco getBlockType() { return blockType; }
 
     public void setBlockType(TipoBloco blockType) {
         this.blockType = blockType;

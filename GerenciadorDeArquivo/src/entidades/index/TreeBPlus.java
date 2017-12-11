@@ -1,7 +1,9 @@
 package entidades.index;
 
 import entidades.blocos.RowId;
+import entidades.blocos.TipoBloco;
 import entidades.blocos.TipoDado;
+import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.CollumnValue;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
@@ -38,8 +40,7 @@ public class TreeBPlus {
 
     public boolean isEmpty() {
         try {
-
-            return IndexContainer.getIndexDescritorsByType(this.indexContainer, TipoDado.ROOT).get(0) != null;
+            return IndexContainer.getIndexDescritorsByType(this.indexContainer, TipoDado.ROOT).size() == 0;
         } catch (IOException | ContainerNoExistent e) {
             return false;
         }
@@ -60,8 +61,14 @@ public class TreeBPlus {
         return null;
     }
 
-    private void findInsertion(LeafIndexBlock root, int positionNodeChildren, CollumnValue col, RowId rowId) {
-
+    private void findInsertion(IndexBlock node, int positionNodeChildren, CollumnValue col, RowId rowId) throws IndexBlockNotFoundException, ContainerNoExistent, IOException {
+        LeafIndexBlock leafIndexBlock = (LeafIndexBlock) node;
+        InnerIndexBlock innerIndexBlock = (InnerIndexBlock) node;
+        if (positionNodeChildren != -1) {
+            if (node.isLeaf() && innerIndexBlock.getChildren(positionNodeChildren) == null){
+                if (node.)
+            }
+        }
     }
 
 }

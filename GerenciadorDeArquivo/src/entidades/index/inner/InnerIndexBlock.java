@@ -144,7 +144,6 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
             throw new InnerIndexBlockPointerToChildIsFullException();
 
         GerenciadorDeIO.atualizarBytes(indexPath, offset, ByteArrayUtils.intToBytes(refToChild.getValue()));
-
     }
 
     private int lastPointerChildFree() throws IOException, ContainerNoExistent {
@@ -163,15 +162,21 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         return -1;
     }
 
-    public IndexBlock loadPointerToChild(int i) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
-        int offset = getPointerChildOffset(i);
-        if (offset < 0)
-            throw new IndexBlockNotFoundException();
-        String path = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
-        int blockIdFinded = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, InnerHeaderIndexBlock.POINTER_LENGTH));
+    public IndexBlock getChildren(int i) {
+        int offset = 0;
+        try {
+            offset = getPointerChildOffset(i);
 
-        BlocoId block = BlocoId.create(blockIdFinded);
-        return IndexContainer.loadInnerIndexBlock(RowId.create(this.getHeader().getContainerId(), block.getValue()));
+            if (offset < 0)
+                throw new IndexBlockNotFoundException();
+            String path = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
+            int blockIdFinded = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, InnerHeaderIndexBlock.POINTER_LENGTH));
+
+            BlocoId block = BlocoId.create(blockIdFinded);
+            return IndexContainer.loadInnerIndexBlock(RowId.create(this.getHeader().getContainerId(), block.getValue()));
+        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException e) {
+            return null;
+        }
     }
 
     private int getPointerChildOffset(int i) throws IOException, ContainerNoExistent {

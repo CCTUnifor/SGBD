@@ -220,7 +220,7 @@ public class MainController implements Initializable {
 //            col = block.loadCollumnValue(1); // load a CollumnValue putted in this block
 //
 //            block.pushPointerToChild(BlocoId.create(1));
-//            IndexBlock childBlock = block.loadPointerToChild(0);
+//            IndexBlock childBlock = block.getChildren(0);
 
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
