@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import services.CollumnService;
 import services.TableService;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -129,7 +130,11 @@ public class MainController implements Initializable {
         collumnsListView.setDisable(false);
 
         loadCollumnsListView(tableSelected());
-        loadIndexTable(tableSelected());
+        try {
+            loadIndexTable(tableSelected());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadCollumnsListView(int tableSelecionada) {
@@ -189,39 +194,6 @@ public class MainController implements Initializable {
 
             InnerIndexBlock root = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
 
-//            /** CREATE THE INDEX_INNER **/
-//            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
-//            /** CREATE THE INDEX_INNER **/
-//
-//            /* GET JUST INDEX_INNER CONTAINER WITHOUT DATA */
-//            IndexContainer ic = IndexContainer.getJustContainer(containerIdSelected());
-//            /* GET JUST INDEX_INNER CONTAINER WITHOUT DATA */
-//
-//            /* CREATE A NEW INNER INDEX_INNER BLOCK */
-//            int numberOfChildrens = 5; // TODO number of children that we can have in each InnerIndexBlock
-//            InnerIndexBlock block = new InnerIndexBlock(numberOfChildrens); // somente instancia um bloco
-//            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 1
-//            indexFileManager.createBlock(containerIdSelected(), block); // create the index file and put the index ref to the table => gonna be generate a blockId 2
-//            /* CREATE A NEW INNER INDEX_INNER BLOCK */
-//
-//            /* CARREGAR INDEX_INNER BLOCK */
-//            block = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1)); // load a index block, inner or leaf
-//            block = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 2)); // load a index block, inner or leaf
-//            // TODO block = (LeafIndexBlock) IndexContainer.loadInnerIndexBlock(containerIdSelected().getValue(), 2);
-//            /* CARREGAR INDEX_INNER BLOCK */
-//
-//            /* ADICIONAR VALORES DE COLUNAS */
-//            block.pushColumnValue("thiago; victor"); // push collumn value to the index block;
-//            block.pushColumnValue("thiago1; victor1"); // push collumn value to the index block;
-//            /* ADICIONAR VALORES DE COLUNAS */
-//
-//
-//            CollumnValue col = block.loadCollumnValue(0); // load a CollumnValue putted in this block
-//            col = block.loadCollumnValue(1); // load a CollumnValue putted in this block
-//
-//            block.pushPointerToChild(BlocoId.create(1));
-//            IndexBlock childBlock = block.getChildren(0);
-
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
 
@@ -237,7 +209,7 @@ public class MainController implements Initializable {
         return x;
     }
 
-    private void loadIndexTable(int tableSelecionada) {
+    private void loadIndexTable(int tableSelecionada) throws FileNotFoundException {
         this.tableViewIndices.getItems().removeAll(this.tableViewIndices.getItems());
         ContainerId containerIdSelecionado = __tableService.getContainerIdBySelected(containerIds, tableSelecionada);
         List<String> indicesPath = null;
@@ -255,18 +227,29 @@ public class MainController implements Initializable {
         }
     }
 
-    private void adicionarIndiceNaTableView(String indicePath) {
-//        int ordem = Integer.parseInt(this.ordemDoIndice.getText());
-        int ordem = 10;
+    private void adicionarIndiceNaTableView(String indicePath) throws FileNotFoundException {
+        IndexContainer ic = new IndexContainer(GerenciadorDeIO.getBytes(indicePath));
 
         TableViewIndice x = new TableViewIndice();
         x.index = (this.tableViewIndiceValues.size() + 1) + "";
-        x.arvore = new ArvoreBPlus(ordem);
-        x.colunas = this.colunasSelecionadasConcatenadas();
+
+        List<Integer> collumns = null;
+        try {
+            collumns = IndexContainer.getIndexDescritorsByType(containerIdSelected(), TipoDado.COLLUMN).stream()
+                    .map(y -> Integer.parseInt(y.getNome())).collect(Collectors.toList());
+
+
+            x.colunas = collumns.toString();
+
+        } catch (IOException | ContainerNoExistent e) {
+            e.printStackTrace();
+        }
+
+
         x.colunasId = this.colunasSelecionadasIds();
         x.tabela = indicePath;
         x.tabelaId = containerIdSelected().getValue();
-        x.ordem = ordem + "";
+//        x.ordem = ic.get;
 
         this.tableViewIndiceValues.add(x);
     }

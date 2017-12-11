@@ -115,6 +115,8 @@ public class TreeBPlus {
         }
 
         int order = (int) Math.floor((blockPageLength + valueLength) / (valueLength + ((int) Math.ceil(Math.log10(blockPageLength) / Math.log10(2)))));
+
+        System.out.println(order);
         return order;
     }
 }
