@@ -18,7 +18,6 @@ public class LeafHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     private BlocoId leafNext;
     private RowId rowIdData;
 
-
     LeafHeaderIndexBlock(RowId rowId) {
         super(TipoBloco.INDEX_LEAF);
         super.byteHeaderLength = HEADER_LENGTH;
@@ -56,5 +55,9 @@ public class LeafHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         this.rowIdData = RowId.create(containerId.getValue(), blocoId.getValue());
 
         return this;
+    }
+
+    public RowId getRowIdData() {
+        return rowIdData;
     }
 }

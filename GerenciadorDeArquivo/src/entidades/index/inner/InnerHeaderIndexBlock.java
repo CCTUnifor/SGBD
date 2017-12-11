@@ -18,8 +18,7 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
     public static final int HEADER_LENGTH = 11;
     public static final int POINTER_LENGTH = 4;
 
-    private int numberOfChildrens;
-
+    private int ordem;
     private int lastByteUsedByCollumnValue;
 
     InnerHeaderIndexBlock() {
@@ -27,32 +26,33 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         super.byteHeaderLength = HEADER_LENGTH;
     }
 
-    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int _numberOfChildrens) {
+    InnerHeaderIndexBlock(ContainerId containerId, BlocoId blockId, int ordem) {
         super(containerId, blockId, TipoBloco.INDEX_INNER);
         super.byteHeaderLength = HEADER_LENGTH;
 
-        this.numberOfChildrens = _numberOfChildrens;
-        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+        this.ordem = ordem;
+        this.lastByteUsedByCollumnValue = this.getMaxLengthChildren() * POINTER_LENGTH;
     }
 
     public InnerHeaderIndexBlock(byte[] blockBytes) {
         super(blockBytes);
         super.byteHeaderLength = HEADER_LENGTH;
-        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+        this.lastByteUsedByCollumnValue = this.getMaxLengthChildren() * POINTER_LENGTH;
     }
 
-    public InnerHeaderIndexBlock(int numberOfChildrens) {
+    public InnerHeaderIndexBlock(int ordem) {
         super(TipoBloco.INDEX_INNER);
-        this.numberOfChildrens = numberOfChildrens;
+        this.ordem = ordem;
         super.byteHeaderLength = HEADER_LENGTH;
-        this.lastByteUsedByCollumnValue = this.getBytesUsedByChildren() + 1;
+        this.lastByteUsedByCollumnValue = this.getMaxLengthChildren() * POINTER_LENGTH;
     }
 
-    public int getBytesUsedByChildren() { return this.numberOfChildrens * POINTER_LENGTH; }
+    public int getMaxLengthChildren() { return this.ordem -1; }
+    public int getNumberMaxKeys() {  return this.ordem -1; }
 
     public int getBytesUsedByCollumnValue() throws IOException, ContainerNoExistent {
         String path = IndexFileManager.getDiretorio(this.getContainerId());
-        int offset = this.getBlockPosition() + 5;
+        int offset = this.getBlockPosition() + 8;
 
         this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, offset, 3));
         return lastByteUsedByCollumnValue;
@@ -67,17 +67,16 @@ public class InnerHeaderIndexBlock extends HeaderIndexBlock implements IBinary {
         ByteArrayConcater byteConcater = new ByteArrayConcater();
         byteConcater
                 .concat(super.toByteArray())
-                .concat(ByteArrayUtils.intTo3Bytes(this.lastByteUsedByCollumnValue))
-                .concat(ByteArrayUtils.intTo3Bytes(this.getBytesUsedByChildren()));
-
+                .concat(ByteArrayUtils.intTo3Bytes(this.ordem))
+                .concat(ByteArrayUtils.intTo3Bytes(this.lastByteUsedByCollumnValue));
         return byteConcater.getFinalByteArray();
     }
 
     @Override
     public InnerHeaderIndexBlock fromByteArray(byte[] byteArray) {
         super.fromByteArray(byteArray);
-        this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 3));
-        this.numberOfChildrens = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 8, 3)) / POINTER_LENGTH;
+        this.ordem = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 5, 3));
+        this.lastByteUsedByCollumnValue = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 8, 3));
 
         return this;
     }

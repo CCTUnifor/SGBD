@@ -2,23 +2,19 @@ package entidades.index;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
-import entidades.blocos.BlocoContainer;
-import entidades.blocos.BlocoControle;
-import entidades.blocos.Descritor;
-import entidades.blocos.RowId;
+import entidades.blocos.*;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.CollumnValue;
+import entidades.index.inner.InnerHeaderIndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
 import exceptions.IncorrectTypeToPushPointerException;
-import exceptions.innerBlock.IndexBlockNotFoundException;
-import exceptions.innerBlock.IndexLeafBlockCannotPushPointerChildException;
-import exceptions.innerBlock.InnerIndexBlockFullCollumnValueException;
-import exceptions.innerBlock.InnerIndexBlockPointerToChildIsFullException;
+import exceptions.innerBlock.*;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
+import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.File;
@@ -29,12 +25,13 @@ import java.util.List;
 
 public class IndexFileManager implements IIndexFileManager {
     private static final String PATH = GlobalVariables.LOCAL_ARQUIVO_FINAL + "INDICES/";
-    private static final String PREFIX = "db.";
-    private static final String EXTENSION = ".index";
+    private static final String PREFIX = "ix.";
+    private static final String EXTENSION = ".bin";
 
 
     @Override
     public IndexContainer createIndex(ContainerId containerId, String indexName, ArrayList<Integer> columns) throws IOException, ContainerNoExistent {
+        // TODO - quando criar um index pela segunda vez tá sobescrevendo
         IndexContainer controller = new IndexContainer(containerId.getValue());
         String indexPath = getDiretorio(containerId, indexName);
 
@@ -67,6 +64,7 @@ public class IndexFileManager implements IIndexFileManager {
     }
 
     public static String getDiretorio(int containerId) throws IOException, ContainerNoExistent {
+        // TODO
         String diretorio = PATH + "/" + containerId + "/";
 
         File file = new File(diretorio);
@@ -121,7 +119,7 @@ public class IndexFileManager implements IIndexFileManager {
         block.getHeader().setContainerId(indexContainerId.getValue());
 
         String indexPath = getDiretorio(indexContainerId.getValue());
-        int offset =  ic.getBlocoControle().getHeader().getTamanhoDosBlocos() + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
+        int offset = ic.getBlocoControle().getHeader().getTamanhoDosBlocos() + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
         block.getHeader().setBlockId(ic.incrementNextFreeBlock());
 
         GerenciadorDeIO.atualizarBytes(indexPath, offset, block.toByteArray());
@@ -138,11 +136,50 @@ public class IndexFileManager implements IIndexFileManager {
         this.createBlock(indexContainerId, root);
         this.createBlock(indexContainerId, leaf);
 
-        root.pushPointerToChild(BlocoId.create(2));
+        root.pushPointerToChild(BlocoId.create(leaf.getHeader().getBlockId()));
         root.pushColumnValue(col.getCollumnValue());
     }
 
     public void split(IndexBlock node, IndexBlock nodeLeft, IndexBlock nodeRigth, CollumnValue col, RowId rowId) {
         // TODO
+        try {
+            if (node.getHeader().getBlockType() == TipoBloco.INDEX_INNER) {
+                this.sortValues((InnerIndexBlock) node);
+
+
+            }
+        } catch (IOException | ContainerNoExistent | InnerIndexBlockValueCollumnNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sortValues(InnerIndexBlock node) throws IOException, ContainerNoExistent, InnerIndexBlockValueCollumnNotFoundException {
+        String indexPath = IndexFileManager.getDiretorio(node.getHeader().getContainerId());
+
+        int offsetSearch = node.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + node.getHeader().getMaxLengthChildren() + 1;
+        for (int i = 0; i < node.getCollumns().size(); i++) {
+            int lengthSearch = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offsetSearch, CollumnValue.LENGTH));
+
+            CollumnValue colSearch = new CollumnValue(GerenciadorDeIO.getBytes(indexPath, offsetSearch, lengthSearch + CollumnValue.LENGTH));
+
+            int offsetMax = node.getHeader().getBlockPosition() + InnerHeaderIndexBlock.HEADER_LENGTH + node.getHeader().getBytesUsedByCollumnValue();
+
+            int offsetCompared = offsetSearch + CollumnValue.LENGTH + lengthSearch;
+            while (offsetCompared < offsetMax) {
+                int lengthCompared = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(indexPath, offsetCompared, CollumnValue.LENGTH));
+                CollumnValue colCompared = new CollumnValue(GerenciadorDeIO.getBytes(indexPath, offsetCompared, lengthCompared + CollumnValue.LENGTH));
+
+                if (colSearch.compareTo(colCompared) > 0)
+                    switchBlocks(indexPath, offsetSearch, colSearch.toByteArray(), offsetCompared, colCompared.toByteArray());
+            }
+
+            offsetSearch += CollumnValue.LENGTH + lengthSearch;
+        }
+
+    }
+
+    private void switchBlocks(String path, int offsetStart, byte[] byteArrayStart, int offsetEnd, byte[] byteArrayEnd) throws FileNotFoundException {
+        GerenciadorDeIO.atualizarBytes(path, offsetStart, byteArrayEnd);
+        GerenciadorDeIO.atualizarBytes(path, offsetEnd, byteArrayStart);
     }
 }

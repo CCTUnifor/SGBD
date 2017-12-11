@@ -167,7 +167,7 @@ public class MainController implements Initializable {
             int lastBlockFree = BlocoControle.getControllerBlock(containerIdSelected()).getHeader().getProximoBlocoLivre();
             int currentBlockCounter = blockLength;
 
-            while (currentBlockCounter + blockLength <= lastBlockFree) {
+            while (currentBlockCounter <= lastBlockFree) {
                 BlocoDado dataBlock = new BlocoDado(GerenciadorDeIO.getBytes(tablePath, currentBlockCounter, blockLength));
                 for (Linha tuple : dataBlock.getTuples()) {
 
@@ -186,6 +186,8 @@ public class MainController implements Initializable {
 
                 currentBlockCounter += blockLength;
             }
+
+
 
             InnerIndexBlock root = (InnerIndexBlock) IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
 
@@ -380,14 +382,13 @@ public class MainController implements Initializable {
 
     public void onBrowserClick() {
         System.out.println("onBrowserClick");
-        ArvoreBPlus arvore = this.tableViewIndices.getSelectionModel().getSelectedItem().arvore;
 
         try {
             FXMLLoader loader;
 
             loader = new FXMLLoader(getClass().getResource("../view/GraphViewWindow.fxml"));
             GraphViewController controller = new GraphViewController();
-            controller.setArvoreBMais(arvore);
+            controller.setIndex(this.containerIdSelected());
             loader.setController(controller);
 
             Parent root = loader.load();

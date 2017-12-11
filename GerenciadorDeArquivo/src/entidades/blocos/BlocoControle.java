@@ -136,6 +136,7 @@ public class BlocoControle implements IBinary, IPrint {
         return new BlocoControle(GerenciadorDeIO.getBytes(path, 0, length));
     }
 
-
-
+    public ArrayList<Descritor> getDescritores() {
+        return descritores;
+    }
 }

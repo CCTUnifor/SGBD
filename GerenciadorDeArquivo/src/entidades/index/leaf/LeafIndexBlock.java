@@ -31,4 +31,8 @@ public class LeafIndexBlock extends IndexBlock implements IBinary {
     public LeafIndexBlock fromByteArray(byte[] byteArray) {
         return null;
     }
+
+    public LeafHeaderIndexBlock getHeader() {
+        return (LeafHeaderIndexBlock) this.header;
+    }
 }

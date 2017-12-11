@@ -1,0 +1,3 @@
+COD_FORN[I(6)]|NOME_FORN[A(25)]|
+10|teste|
+16|te2|

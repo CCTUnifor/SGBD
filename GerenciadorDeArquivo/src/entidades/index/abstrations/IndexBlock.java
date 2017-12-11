@@ -1,6 +1,8 @@
 package entidades.index.abstrations;
 
 import entidades.blocos.TipoBloco;
+import entidades.index.inner.CollumnValue;
+import exceptions.innerBlock.InnerIndexBlockValueCollumnNotFoundException;
 import interfaces.IBinary;
 import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
@@ -33,13 +35,7 @@ public abstract class IndexBlock implements IBinary {
         return getHeader().getBlockType() == TipoBloco.INDEX_LEAF;
     }
 
-    public int getIndexInsertionKeys() {
-        // TODO
-        return 0;
-    }
 
-    public int getNumberMaxKeys() {
-        // TODO
-        return 0;
-    }
+
+
 }

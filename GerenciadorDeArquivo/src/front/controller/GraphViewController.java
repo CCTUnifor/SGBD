@@ -1,129 +1,98 @@
 package front.controller;
 
-import entidades.arvoreBMais.ArvoreBPlus;
-import entidades.arvoreBMais.Key;
-import entidades.arvoreBMais.Node;
-import front.modelos.GraphView;
-import javafx.embed.swing.SwingNode;
+import entidades.blocos.RowId;
+import entidades.blocos.TipoBloco;
+import entidades.index.IndexContainer;
+import entidades.index.IndexFileManager;
+import entidades.index.abstrations.IndexBlock;
+import entidades.index.inner.InnerIndexBlock;
+import entidades.index.leaf.LeafIndexBlock;
+import exceptions.ContainerNoExistent;
+import exceptions.innerBlock.IndexBlockNotFoundException;
+import exceptions.innerBlock.InnerIndexBlockValueCollumnNotFoundException;
+import factories.ContainerId;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.paint.Color;
-import prefuse.data.Graph;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.ResourceBundle;
 
-import static utils.GlobalVariables.MOSTRAR_PREFUSE;
-
 public class GraphViewController implements Initializable {
-    @FXML
-    private SwingNode swingNode;
-    @FXML
-    private Canvas myCanvas;
-    @FXML
-    ScrollPane scrollPane;
+
 
     public static final double HEIGHT = 700;
     public static final double WIDTH = 1300;
 
-    private Graph _graph;
-    private String _label;
     static GraphicsContext gc;
-    private ArvoreBPlus arvore;
 
-    public void setGraph(Graph graph) {
-        this._graph = graph;
-    }
+    private ContainerId indexSelected;
+    private IndexFileManager indexFileManager;
 
-    public void setLabel(String label) {
-        this._label = label;
-    }
-
-    public void setArvoreBMais(ArvoreBPlus _arvore) {
-        this.arvore = _arvore;
-    }
+    @FXML
+    TreeView treeView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (MOSTRAR_PREFUSE) {
-            GraphView jPanel = new GraphView(_graph, _label);
-            swingNode.setContent(jPanel);
-        } else {
-            gc = this.myCanvas.getGraphicsContext2D();
-            this.myCanvas.setHeight(HEIGHT);
-            this.myCanvas.setWidth(WIDTH);
-            gc.setFill(Color.BLACK);
+        this.indexFileManager = new IndexFileManager();
 
 
-            int quantidadeDeRoots = 1;
-            int countNivel = 0;
-            scrollPane.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        try {
+            IndexContainer container = IndexContainer.getJustContainer(this.indexSelected);
+            InnerIndexBlock root = (InnerIndexBlock) container.getRoot();
 
+            TreeItem<String> rootItem = new TreeItem<String>(root.getCollumnValues());
 
-//
-//            xInicial = xInicial/2;
-//            yInicial += 20;
+            int quantidadeDeFilhos = root.getLengthOfChildren();
+            for (int i = 0; i < quantidadeDeFilhos; i++) {
+                IndexBlock child = root.getChildren(i);
+                if (child == null)
+                    continue;
 
-            ArvoreBPlus arv = this.arvore;
+                if (child.getHeader().getBlockType() == TipoBloco.INDEX_LEAF) {
+                    RowId x = RowId.create(child.getHeader().getContainerId(), child.getHeader().getBlockId());
+                    LeafIndexBlock leafIndexBlock = (LeafIndexBlock) IndexContainer.loadLeafIndexBlock(x);
 
-            if (!arv.isEmpty()) {
-                Queue<Node> queue = new LinkedList<Node>();
-                queue.add(arv.getRoot());
-                Node tempNode = null;
-                int yCount = 0;
-                double xCount = 0;
+                    TreeItem<String> leaf = new TreeItem<String>("RowId: " + leafIndexBlock.getHeader().getRowIdData().toString());
+                    leaf.setExpanded(false);
+                    rootItem.getChildren().add(leaf);
+                } else if (child.getHeader().getBlockType() == TipoBloco.INDEX_INNER) {
 
-                while (!queue.isEmpty()) {
-                    tempNode = queue.remove();
-                    xCount = 10;
-                    yCount++;
-                    int j = 0;
-                    for (int i = 0; i < tempNode.getIndexInsertionKeys(); i++) {
-                        if (tempNode.getKey(i) != null) {
-                            Key keyTemp = tempNode.getKey(i);
-
-                            /* */
-                            StringBuilder value = new StringBuilder();
-                            for (int k = 0; k < 2; k++) {
-                                if (keyTemp.getValueColumn(k) != null){
-                                    value.append(keyTemp.getValueColumn(k)).append(";");
-                                }
-                            }
-
-
-                            double tamanhoNo = value.length() * 6 + 8;
-                            double tamanhoTexto = tamanhoNo;
-//
-//                            double xInicial = (xCount * tamanhoNo);
-                            double yInicial = yCount * 30 + 50;
-//
-                            gc.strokeRoundRect(xCount, yInicial, tamanhoNo, 30, 0, 10);
-                            gc.fillText(value.toString(), xCount + 8, yInicial + 18, tamanhoTexto);
-
-                            xCount += tamanhoNo;
-
-                            /**/
-                            if (!tempNode.isLeaf()) {
-                                while (j < tempNode.getNumberNodeInsertion()) {
-                                    queue.add(tempNode.getChildren(j));
-                                    j++;
-                                }
-                            }
-                        }
-                    }
                 }
             }
 
 
+            this.treeView.setRoot(rootItem);
+
+        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException e) {
+            e.printStackTrace();
         }
+//        rootItem.setExpanded(true);
+//
+//        for (int i = 0; i < 10; i++) {
+//            TreeItem<String> item = new TreeItem<Strin g>("Message" + i);
+//            item.setExpanded(true);
+//            rootItem.getChildren().add(item);
+//
+//            for (int j = 0; j < 2; j++) {
+//                TreeItem<String> itemChild = new TreeItem<String>("Child" + j);
+//                itemChild.setExpanded(true);
+//                item.getChildren().add(itemChild);
+//            }
+//
+//        }
+
+
     }
 
     private void print(int nivel, String value) {
 
+    }
+
+    public void setIndex(ContainerId index) {
+        this.indexSelected = index;
     }
 }

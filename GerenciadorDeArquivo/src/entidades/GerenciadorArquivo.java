@@ -18,7 +18,7 @@ import java.util.List;
 public class GerenciadorArquivo implements IFileManager {
     private static final String PATH = GlobalVariables.LOCAL_ARQUIVO_FINAL + "TABLES/";
     private static final String PREFIX = "db.";
-    private static final String EXTENSION = ".table";
+    private static final String EXTENSION = ".bin";
 
     private int containerIdCount = 0;
     private int blocoIdCount = 1;
@@ -179,6 +179,19 @@ public class GerenciadorArquivo implements IFileManager {
         BlocoControle controle = new BlocoControle(containerId.getValue());
         String diretorio = getDiretorio(containerId);
 
+
+        try {
+            controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, controle.getHeader().getTamanhoDosBlocos()));
+        } catch (FileNotFoundException e) {
+            System.out.println("Não foi achado o Container: " + containerId.getValue());
+            return null;
+        }
+        return controle.getColumnsName();
+    }
+
+    public static List<String> getColumnsStatic(ContainerId containerId) throws IOException {
+        BlocoControle controle = new BlocoControle(containerId.getValue());
+        String diretorio = getDiretorio(containerId);
 
         try {
             controle.fromByteArray(GerenciadorDeIO.getBytes(diretorio, 0, controle.getHeader().getTamanhoDosBlocos()));

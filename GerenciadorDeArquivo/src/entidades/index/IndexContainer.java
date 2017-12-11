@@ -80,7 +80,7 @@ public class IndexContainer implements IBinary {
         return new LeafIndexBlock(blockBytes);
     }
 
-    private static byte[] loadIndexBlockBytes(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
+    public static byte[] loadIndexBlockBytes(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         IndexContainer ic = getJustContainer(ContainerId.create(rowId.getContainerId()));
 
 //        int nextFreeBlock = ic.getBlocoControle().getHeader().getProximoBlocoLivre();

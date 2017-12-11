@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.embed.swing.SwingNode?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-       <Pane fx:id="graphPane" prefHeight="900.0" prefWidth="1700.0">
-           <children>
-               <SwingNode fx:id="swingNode" />
-           </children>
-       </Pane>
-      <Pane prefHeight="900.0" prefWidth="1700.0">
-          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="900.0" prefWidth="100000.0" vvalue="1.0">
-               <content>
-                    <Canvas fx:id="myCanvas" height="900.0" width="1700.0">
-              </Canvas>
-               </content>
-            </ScrollPane>
-          </children>
-      </Pane>
+      <TreeView fx:id="treeView" layoutY="-1.0" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
