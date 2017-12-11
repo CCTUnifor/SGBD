@@ -2,6 +2,7 @@ package entidades.blocos;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
@@ -36,6 +37,13 @@ public class BlocoDado implements IBinary, IPrint {
         this.fromByteArray(bytes);
     }
 
+    public BlocoDado(byte[] bytes, boolean b) {
+        this.header = new BlocoDadoHeader(bytes);
+        this.tuples = new ArrayList<Linha>();
+        if (!b)
+            this.fromByteArray(bytes);
+    }
+
     public BlocoDadoHeader getHeader() {
         return header;
     }
@@ -54,7 +62,7 @@ public class BlocoDado implements IBinary, IPrint {
     @Override
     public ArrayList<String> print() {
         ArrayList<String> parse = new ArrayList<String>();
-        for (Linha linha : tuples){
+        for (Linha linha : tuples) {
             parse.addAll(linha.print());
             parse.add("\n");
         }
@@ -75,14 +83,14 @@ public class BlocoDado implements IBinary, IPrint {
         this.header = this.header.fromByteArray(ByteArrayUtils.subArray(byteArray, 0, 8));
         this.tuples.addAll(this.linhasFromByteArray(byteArray));
 
-        return  this;
+        return this;
     }
 
     private ArrayList<Linha> linhasFromByteArray(byte[] byteArray) {
         ArrayList<Linha> linhas = new ArrayList<Linha>();
         int indexOndeComecaOsDados = 8;
 
-        while(indexOndeComecaOsDados < byteArray.length && indexOndeComecaOsDados < this.header.getTamanhoUsado()) {
+        while (indexOndeComecaOsDados < byteArray.length && indexOndeComecaOsDados < this.header.getTamanhoUsado()) {
             int tamanhoLinha = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, 4));
             byte[] linhaBytes = ByteArrayUtils.subArray(byteArray, indexOndeComecaOsDados, tamanhoLinha);
 
@@ -123,6 +131,20 @@ public class BlocoDado implements IBinary, IPrint {
     }
 
     public RowId getRowId() {
-        return  new RowId(this.header.getContainerId(), this.header.getBlocoId());
+        return new RowId(this.header.getContainerId(), this.header.getBlocoId());
+    }
+
+    public static BlocoDado loadDataBlock(RowId rowId) throws IOException {
+        String path = GerenciadorArquivo.getDiretorio(ContainerId.create(rowId.getContainerId()));
+        int blockLenth = BlocoControle.getBlockLengthFile(path);
+        int offset = BlocoDado.getPosition(rowId);
+
+        return new BlocoDado(GerenciadorDeIO.getBytes(path, offset, blockLenth));
+    }
+
+    private static int getPosition(RowId rowId) throws IOException {
+        String path = GerenciadorArquivo.getDiretorio(ContainerId.create(rowId.getContainerId()));
+        int blockLenth = BlocoControle.getBlockLengthFile(path);
+        return blockLenth + ((rowId.getBlocoId() - 1) * blockLenth);
     }
 }

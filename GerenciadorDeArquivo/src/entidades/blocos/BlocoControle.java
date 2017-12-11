@@ -2,6 +2,8 @@ package entidades.blocos;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
+import entidades.index.IndexFileManager;
+import exceptions.ContainerNoExistent;
 import factories.ContainerId;
 import interfaces.IBinary;
 import interfaces.IPrint;
@@ -63,25 +65,25 @@ public class BlocoControle implements IBinary, IPrint {
         return this;
     }
 
-    public void adicionarDescritor(Descritor descritor) {
+    public void adicionarDescritor(Descritor descritor, String path) {
         try {
-            String tablePath = GerenciadorArquivo.getDiretorio(ContainerId.create(this.getContainerId()));
-            int tamanhoNovoDescritor = getHeader().getTamanhoDescritorFile() + descritor.toByteArray().length;
+            int tamanhoNovoDescritor = getHeader().getTamanhoDescritorFile(path) + descritor.toByteArray().length;
 
-            GerenciadorDeIO.atualizarBytes(tablePath, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritorFile(), descritor.toByteArray());
-            GerenciadorDeIO.atualizarBytes(tablePath, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
+            GerenciadorDeIO.atualizarBytes(path, CONTROLLER_BLOCK_LENGTH + this.getHeader().getTamanhoDescritorFile(path), descritor.toByteArray());
+            GerenciadorDeIO.atualizarBytes(path, 9, ByteArrayUtils.intTo2Bytes(tamanhoNovoDescritor));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void adicionarDescritores(ArrayList<Descritor> descritores) {
         this.descritores.addAll(descritores);
     }
 
     public List<String> getColumnsName() {
         return this.descritores.stream()
-                .filter(x -> x.getTipoDado() != TipoDado.PATH)
+                .filter(x -> x.getTipoDado() == TipoDado.INTEIRO || x.getTipoDado() == TipoDado.STRING)
                 .map(Descritor::getNome).collect(Collectors.toList());
     }
 
@@ -99,13 +101,16 @@ public class BlocoControle implements IBinary, IPrint {
         return bc.getFinalByteArray();
     }
 
-    private ArrayList<Descritor> descritoresFromByteArray(byte[] descritoresByteArray) {
+    public ArrayList<Descritor> descritoresFromByteArray(byte[] descritoresByteArray) {
         ArrayList<Descritor> descritores = new ArrayList<Descritor>();
         boolean whileTrue = true;
         int proximoIndex = 0;
 
         while(whileTrue) {
             int tamanho = ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex, 4));
+            if (tamanho == 0)
+                return descritores;
+
             descritores.add(new Descritor(ByteArrayUtils.subArray(descritoresByteArray, proximoIndex,  tamanho)));
 
             proximoIndex += tamanho;
@@ -123,4 +128,14 @@ public class BlocoControle implements IBinary, IPrint {
     public static int getBlockLengthFile(byte[] byteArray) {
         return ByteArrayUtils.byteArrayToInt(ByteArrayUtils.subArray(byteArray, 1, 3));
     }
+
+    public static BlocoControle getControllerBlock(ContainerId containerId) throws IOException {
+        String path = GerenciadorArquivo.getDiretorio(containerId);
+        int length = BlocoControle.getBlockLengthFile(path);
+
+        return new BlocoControle(GerenciadorDeIO.getBytes(path, 0, length));
+    }
+
+
+
 }

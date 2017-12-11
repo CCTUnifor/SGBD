@@ -2,23 +2,29 @@ package entidades.index;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorDeIO;
-import entidades.blocos.*;
+import entidades.blocos.BlocoContainer;
+import entidades.blocos.BlocoControle;
+import entidades.blocos.Descritor;
+import entidades.blocos.RowId;
 import entidades.index.abstrations.IndexBlock;
+import entidades.index.inner.CollumnValue;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
 import exceptions.ContainerNoExistent;
+import exceptions.IncorrectTypeToPushPointerException;
 import exceptions.innerBlock.IndexBlockNotFoundException;
 import exceptions.innerBlock.IndexLeafBlockCannotPushPointerChildException;
+import exceptions.innerBlock.InnerIndexBlockFullCollumnValueException;
 import exceptions.innerBlock.InnerIndexBlockPointerToChildIsFullException;
 import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IIndexFileManager;
-import utils.ByteArrayUtils;
 import utils.GlobalVariables;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndexFileManager implements IIndexFileManager {
@@ -28,10 +34,17 @@ public class IndexFileManager implements IIndexFileManager {
 
 
     @Override
-    public IndexContainer createIndex(ContainerId containerId, String indexName) throws IOException, ContainerNoExistent {
+    public IndexContainer createIndex(ContainerId containerId, String indexName, ArrayList<Integer> columns) throws IOException, ContainerNoExistent {
         IndexContainer controller = new IndexContainer(containerId.getValue());
-        GerenciadorDeIO.gravarBytes(getDiretorio(containerId, indexName), controller.toByteArray());
+        String indexPath = getDiretorio(containerId, indexName);
+
+        GerenciadorDeIO.gravarBytes(indexPath, controller.toByteArray());
         this.putIndexToContainer(containerId, indexName);
+
+        for (int i : columns) {
+            Descritor col = new Descritor(i + "[C(4)]|");
+            controller.getBlocoControle().adicionarDescritor(col, indexPath);
+        }
 
         return controller;
     }
@@ -44,7 +57,7 @@ public class IndexFileManager implements IIndexFileManager {
         String descString = indexPath + "[P(101)]|";
         Descritor desc = new Descritor(descString);
 
-        container.getBlocoControle().adicionarDescritor(desc);
+        container.getBlocoControle().adicionarDescritor(desc, tablePath);
     }
 
     public static String getDiretorio(ContainerId containerId, String indexName) throws IOException {
@@ -59,6 +72,9 @@ public class IndexFileManager implements IIndexFileManager {
         File file = new File(diretorio);
         File[] indices = file.listFiles();
         for (File index : indices) {
+            if (index.isDirectory())
+                continue;
+
             int blockLength = BlocoControle.getBlockLengthFile(index.getAbsolutePath());
 
             byte[] containerBytes = GerenciadorDeIO.getBytes(index.getAbsolutePath(), 0, blockLength);
@@ -105,21 +121,24 @@ public class IndexFileManager implements IIndexFileManager {
         block.getHeader().setContainerId(indexContainerId.getValue());
 
         String indexPath = getDiretorio(indexContainerId.getValue());
-        int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
+        int offset =  ic.getBlocoControle().getHeader().getTamanhoDosBlocos() + ic.getBlocoControle().getHeader().getProximoBlocoLivre();
         block.getHeader().setBlockId(ic.incrementNextFreeBlock());
 
         GerenciadorDeIO.atualizarBytes(indexPath, offset, block.toByteArray());
     }
 
-    public void createRoot(ContainerId indexContainerId, InnerIndexBlock root) throws IOException, ContainerNoExistent, IndexBlockNotFoundException, InnerIndexBlockPointerToChildIsFullException, IndexLeafBlockCannotPushPointerChildException {
+    public void createRoot(ContainerId indexContainerId, InnerIndexBlock root, CollumnValue col, RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException, InnerIndexBlockPointerToChildIsFullException, IndexLeafBlockCannotPushPointerChildException, IncorrectTypeToPushPointerException, InnerIndexBlockFullCollumnValueException {
         Descritor rootDescritor = new Descritor("1[R(4)]|");
-        IndexContainer.getJustContainer(indexContainerId).getBlocoControle().adicionarDescritor(rootDescritor);
 
-        LeafIndexBlock leaf = new LeafIndexBlock(RowId.create(-1, -1));
+        String path = IndexFileManager.getDiretorio(indexContainerId.getValue());
+        IndexContainer.getJustContainer(indexContainerId).getBlocoControle().adicionarDescritor(rootDescritor, path);
+
+        LeafIndexBlock leaf = new LeafIndexBlock(rowId);
 
         this.createBlock(indexContainerId, root);
         this.createBlock(indexContainerId, leaf);
 
         root.pushPointerToChild(BlocoId.create(2));
+        root.pushColumnValue(col.getCollumnValue());
     }
 }

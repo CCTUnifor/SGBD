@@ -20,7 +20,6 @@ public class LeafIndexBlock extends IndexBlock implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        // TODO
         ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
         byteConcater
                 .concat(super.toByteArray());

@@ -4,5 +4,6 @@ public enum TipoDado {
     INTEIRO,
     STRING,
     PATH,
-    ROOT
+    ROOT,
+    COLLUMN,
 }

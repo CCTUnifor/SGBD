@@ -2,10 +2,14 @@ package entidades.index.inner;
 
 import entidades.GerenciadorDeIO;
 import entidades.blocos.RowId;
+import entidades.blocos.TipoBloco;
+import entidades.blocos.TipoDado;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
+import entidades.index.abstrations.HeaderIndexBlock;
 import entidades.index.abstrations.IndexBlock;
 import exceptions.ContainerNoExistent;
+import exceptions.IncorrectTypeToPushPointerException;
 import exceptions.innerBlock.*;
 import factories.BlocoId;
 import factories.ContainerId;
@@ -39,7 +43,6 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
 
     @Override
     public byte[] toByteArray() {
-        // TODO
         ByteArrayConcater byteConcater = new ByteArrayConcater(GlobalVariables.TAMANHO_BLOCO);
         byteConcater
                 .concat(super.toByteArray());
@@ -49,7 +52,6 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
 
     @Override
     public InnerIndexBlock fromByteArray(byte[] byteArray) {
-        // TODO
         super.fromByteArray(byteArray);
         if (byteArray.length > InnerHeaderIndexBlock.HEADER_LENGTH)
             System.out.println("fromByteArray para o conteudo do InnerIndexBlock");
@@ -118,16 +120,30 @@ public class InnerIndexBlock extends IndexBlock implements IBinary {
         return -1;
     }
 
-    public void pushPointerToChild(BlocoId refToChild) throws IOException, ContainerNoExistent, IndexLeafBlockCannotPushPointerChildException, InnerIndexBlockPointerToChildIsFullException, IndexBlockNotFoundException {
+    public void pushPointerToChild(BlocoId refToChild) throws IOException, ContainerNoExistent, IndexLeafBlockCannotPushPointerChildException, InnerIndexBlockPointerToChildIsFullException, IndexBlockNotFoundException, IncorrectTypeToPushPointerException {
         if (this.getHeader().isLeaf())
             throw new IndexLeafBlockCannotPushPointerChildException();
 
-        IndexBlock block = IndexContainer.loadInnerIndexBlock(RowId.create(this.getHeader().getContainerId(), refToChild.getValue()));
+        RowId newChild = RowId.create(this.getHeader().getContainerId(), refToChild.getValue());
+        String indexPath = IndexFileManager.getDiretorio(this.header.getContainerId());
+        int blockPosition = HeaderIndexBlock.getBlockPosition(newChild);
+        int blockTipoOffset = blockPosition + 4;
+
+        TipoBloco tipoBloco = ByteArrayUtils.byteArrayToEnum(ByteArrayUtils.subArray(GerenciadorDeIO.getBytes(indexPath), blockTipoOffset, 1), TipoBloco.values());
+
+        IndexBlock block;
+        if (tipoBloco == TipoBloco.INDEX_INNER)
+            block = IndexContainer.loadInnerIndexBlock(newChild);
+        else if (tipoBloco == TipoBloco.INDEX_LEAF)
+            block = IndexContainer.loadLeafIndexBlock(newChild);
+        else
+            throw new IncorrectTypeToPushPointerException();
+
         int offset = lastPointerChildFree();
         if (offset < 0)
             throw new InnerIndexBlockPointerToChildIsFullException();
-        String path = IndexFileManager.getDiretorio(this.getHeader().getContainerId());
-        GerenciadorDeIO.atualizarBytes(path, offset, ByteArrayUtils.intToBytes(refToChild.getValue()));
+
+        GerenciadorDeIO.atualizarBytes(indexPath, offset, ByteArrayUtils.intToBytes(refToChild.getValue()));
 
     }
 

@@ -2,7 +2,9 @@ package entidades.index;
 
 import entidades.GerenciadorDeIO;
 import entidades.blocos.BlocoControle;
+import entidades.blocos.Descritor;
 import entidades.blocos.RowId;
+import entidades.blocos.TipoDado;
 import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.InnerIndexBlock;
 import entidades.index.leaf.LeafIndexBlock;
@@ -15,6 +17,9 @@ import utils.ByteArrayConcater;
 import utils.ByteArrayUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class IndexContainer implements IBinary {
     private int NEXT_BLOCK_ID = 1;
@@ -24,7 +29,6 @@ public class IndexContainer implements IBinary {
 
 
     IndexContainer(int containerId) {
-        // TODO atualizar o valor do NEXT_BLOCK_ID
         blocoControle = new BlocoControle(containerId);
 
     }
@@ -83,15 +87,15 @@ public class IndexContainer implements IBinary {
     private static byte[] loadIndexBlockBytes(RowId rowId) throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         IndexContainer ic = getJustContainer(ContainerId.create(rowId.getContainerId()));
 
-        int nextFreeBlock = ic.getBlocoControle().getHeader().getProximoBlocoLivre();
-        int blockPosition = (rowId.getBlocoId() - 1) * ic.getBlocoControle().getHeader().getTamanhoDosBlocos();
-        if (nextFreeBlock < blockPosition)
-            throw new IndexBlockNotFoundException();
+//        int nextFreeBlock = ic.getBlocoControle().getHeader().getProximoBlocoLivre();
+//        int blockPosition = (rowId.getBlocoId() - 1) * ic.getBlocoControle().getHeader().getTamanhoDosBlocos();
+//        if (nextFreeBlock < blockPosition)
+//            throw new IndexBlockNotFoundException();
 
         String indexPath = IndexFileManager.getDiretorio(rowId.getContainerId());
 
         int blockLength = ic.getBlocoControle().getHeader().getTamanhoDosBlocos();
-        int offset = BlocoControle.CONTROLLER_BLOCK_LENGTH + (blockLength * (rowId.getBlocoId() - 1));
+        int offset = blockLength + (blockLength * (rowId.getBlocoId() - 1));
 
         return GerenciadorDeIO.getBytes(indexPath, offset, blockLength);
     }
@@ -105,7 +109,18 @@ public class IndexContainer implements IBinary {
     public LeafIndexBlock getRoot() throws IOException, ContainerNoExistent, IndexBlockNotFoundException {
         // TODO
         String path = IndexFileManager.getDiretorio(this.getBlocoControle().getContainerId());
+        Descritor rootDescritor = IndexContainer.getIndexDescritorsByType(ContainerId.create(this.getBlocoControle().getContainerId()), TipoDado.ROOT).get(0);
+        BlocoId x = BlocoId.create(Integer.parseInt(rootDescritor.getNome()));
+
         int blockRoot = ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, BlocoControle.CONTROLLER_BLOCK_LENGTH, BlocoId.LENGTH));
         return IndexContainer.loadLeafIndexBlock(RowId.create(this.blocoControle.getContainerId(), blockRoot));
+    }
+
+    public static List<Descritor> getIndexDescritorsByType(ContainerId containerId, TipoDado collumn) throws IOException, ContainerNoExistent {
+        String indexPath = IndexFileManager.getDiretorio(containerId.getValue());
+        int blockLength = BlocoControle.getBlockLengthFile(indexPath);
+
+        byte[] descritorsByte = GerenciadorDeIO.getBytes(indexPath, BlocoControle.CONTROLLER_BLOCK_LENGTH, blockLength - BlocoControle.CONTROLLER_BLOCK_LENGTH);
+        return IndexContainer.getJustContainer(containerId).getBlocoControle().descritoresFromByteArray(descritorsByte).stream().filter(x -> x.getTipoDado() == TipoDado.COLLUMN).collect(Collectors.toList());
     }
 }

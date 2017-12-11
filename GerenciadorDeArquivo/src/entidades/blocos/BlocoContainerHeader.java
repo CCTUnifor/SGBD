@@ -43,8 +43,7 @@ public class BlocoContainerHeader implements IBinary{
     public int getTamanhoDescritor() {
         return  this.tamanhoDescritor;
     }
-    public int getTamanhoDescritorFile() throws IOException {
-        String path = GerenciadorArquivo.getDiretorio(this.containerId);
+    public int getTamanhoDescritorFile(String path) throws IOException {
         return ByteArrayUtils.byteArrayToInt(GerenciadorDeIO.getBytes(path, 9, 2));
     }
 

@@ -1,6 +1,7 @@
 package entidades.index.abstrations;
 
 import entidades.blocos.BlocoControle;
+import entidades.blocos.RowId;
 import entidades.blocos.TipoBloco;
 import entidades.index.IndexContainer;
 import entidades.index.inner.InnerHeaderIndexBlock;
@@ -96,11 +97,17 @@ public abstract class HeaderIndexBlock implements IBinary {
 
     public int getBlockPosition() throws IOException, ContainerNoExistent {
         IndexContainer container = IndexContainer.getJustContainer(ContainerId.create(getContainerId()));
-        int controllerBlock = BlocoControle.CONTROLLER_BLOCK_LENGTH;
-        int descritor = container.getBlocoControle().getHeader().getTamanhoDescritor();
+        int controllerBlock = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
         int position = (getBlockId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 
-        return controllerBlock + descritor + position;
+        return controllerBlock + position;
+    }
+    public static int getBlockPosition(RowId rowId) throws IOException, ContainerNoExistent {
+        IndexContainer container = IndexContainer.getJustContainer(ContainerId.create(rowId.getContainerId()));
+        int controllerBlock = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+        int position = (rowId.getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos();
+
+        return controllerBlock + position;
     }
 
     public int getMaxBlockLength() throws IOException, ContainerNoExistent {

@@ -27,6 +27,11 @@ public class BlocoDadoHeader implements IBinary {
         this.tamanhoUsado = 0;
     }
 
+    public BlocoDadoHeader(byte[] bytes) {
+        this();
+        fromByteArray(bytes);
+    }
+
     public int getTamanhoUsado() {
         return this.tamanhoUsado;
     }

@@ -2,6 +2,7 @@ package front.controller;
 
 import entidades.GerenciadorArquivo;
 import entidades.GerenciadorArquivoService;
+import entidades.GerenciadorDeIO;
 import entidades.arvoreBMais.ArvoreBPlus;
 import entidades.arvoreBMais.Key;
 import entidades.arvoreBMais.Node;
@@ -9,11 +10,10 @@ import entidades.blocos.*;
 import entidades.index.IndexContainer;
 import entidades.index.IndexFileManager;
 import entidades.index.TreeBPlus;
-import entidades.index.abstrations.IndexBlock;
 import entidades.index.inner.*;
 import exceptions.ContainerNoExistent;
+import exceptions.IncorrectTypeToPushPointerException;
 import exceptions.innerBlock.*;
-import factories.BlocoId;
 import factories.ContainerId;
 import interfaces.IFileManager;
 import interfaces.IIndexFileManager;
@@ -36,6 +36,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 
 public class MainController implements Initializable {
@@ -158,9 +159,36 @@ public class MainController implements Initializable {
         }
 
         try {
-            TreeBPlus tree = new TreeBPlus(containerIdSelected(), nomeIndiceTextField.getText());
-            tree.insert(new CollumnValue("thiago;victor"), RowId.create(containerIdSelected().getValue(),1));
+            TreeBPlus tree = new TreeBPlus(containerIdSelected(), nomeIndiceTextField.getText(), this.columnsSelectedIndices());
+
+            String tablePath = GerenciadorArquivo.getDiretorio(containerIdSelected());
+
+            int blockLength = BlocoControle.getBlockLengthFile(tablePath);
+            int lastBlockFree = BlocoControle.getControllerBlock(containerIdSelected()).getHeader().getProximoBlocoLivre();
+            int currentBlockCounter = blockLength;
+
+            while (currentBlockCounter + blockLength <= lastBlockFree) {
+                BlocoDado dataBlock = new BlocoDado(GerenciadorDeIO.getBytes(tablePath, currentBlockCounter, blockLength));
+                for (Linha tuple : dataBlock.getTuples()) {
+
+                    List<Integer> collumns = IndexContainer.getIndexDescritorsByType(containerIdSelected(), TipoDado.COLLUMN).stream()
+                            .map(x -> Integer.parseInt(x.getNome())).collect(Collectors.toList());
+
+
+                    StringBuilder c = new StringBuilder();
+                    for (int i = 0; i < collumns.size(); i++) {
+                        c.append(tuple.getColunas().get(collumns.get(i)).getInformacao());
+                        c.append(";");
+                    }
+                    CollumnValue col = new CollumnValue(c.toString());
+                    tree.insert(col, dataBlock.getRowId());
+                }
+
+                currentBlockCounter += blockLength;
+            }
+
             InnerIndexBlock root = IndexContainer.loadInnerIndexBlock(RowId.create(containerIdSelected().getValue(), 1));
+
 //            /** CREATE THE INDEX_INNER **/
 //            indexFileManager.createIndex(containerIdSelected(), nomeIndiceTextField.getText());
 //            /** CREATE THE INDEX_INNER **/
@@ -197,9 +225,16 @@ public class MainController implements Initializable {
             adicionarIndiceNaTableView(IndexFileManager.getDiretorio(containerIdSelected(), nomeIndiceTextField.getText()));
             this.alert(Alert.AlertType.INFORMATION, "Index", "Index " + nomeIndiceTextField.getText() + " criado com sucesso!");
 
-        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException | IndexLeafBlockCannotPushPointerChildException e) {
+        } catch (IOException | ContainerNoExistent | IndexBlockNotFoundException | IndexLeafBlockCannotPushPointerChildException | IncorrectTypeToPushPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    private ArrayList<Integer> columnsSelectedIndices() {
+        ArrayList<Integer> x = new ArrayList<Integer>();
+        x.addAll(this.collumnsListView.getSelectionModel().getSelectedIndices());
+
+        return x;
     }
 
     private void loadIndexTable(int tableSelecionada) {

@@ -126,8 +126,6 @@ public class GerenciadorArquivo implements IFileManager {
 
     @Override
     public void gravarBloco(BlocoContainer container, BlocoDado bloco) throws IOException {
-        // TODO
-//        int offset = 11 + container.getBlocoControle().getHeader().getTamanhoDescritor() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
         int offset = container.getBlocoControle().getHeader().getTamanhoDosBlocos() + ((bloco.getHeader().getBlocoId() - 1) * container.getBlocoControle().getHeader().getTamanhoDosBlocos());
         int length = container.getBlocoControle().getHeader().getTamanhoDosBlocos();
 

@@ -42,7 +42,7 @@ public class RowId implements IPrint {
         return rowId instanceof RowId && this.getContainerId() == ((RowId) rowId).getContainerId() && this.getBlocoId() == ((RowId) rowId).getBlocoId();
     }
 
-    public static RowId create(int value, int i) {
-        return new RowId(value, i);
+    public static RowId create(int containerId, int blocoId) {
+        return new RowId(containerId, blocoId);
     }
 }

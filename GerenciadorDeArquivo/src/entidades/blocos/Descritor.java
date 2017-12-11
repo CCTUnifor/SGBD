@@ -25,6 +25,8 @@ public class Descritor implements IBinary, IPrint {
             this.tipoDado = TipoDado.PATH;
         else if (x[1].contains("R"))
             this.tipoDado = TipoDado.ROOT;
+        else if (x[1].contains("C"))
+            this.tipoDado = TipoDado.COLLUMN;
 
         Pattern pat = Pattern.compile("\\(([0-9]+)\\)");
         Matcher mat = pat.matcher(coluna);
@@ -32,6 +34,7 @@ public class Descritor implements IBinary, IPrint {
             switch (tipoDado) {
                 case INTEIRO:
                 case ROOT:
+                case COLLUMN:
                     this.tamanho = 4;
                 case STRING:
                 case PATH:
